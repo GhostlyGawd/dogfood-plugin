@@ -19,8 +19,8 @@ An independent agent used the packaged core skill on an isolated invoice project
 | Real Codex session activation | Not tested: no Codex executable in this build environment. |
 | Work skill selection | Bundled Work instructions prepared; separate companion installation failed. |
 | Work activation in every chat | Unverified: no supported global instruction write route established here. |
-| Remote Work state | Version-checked workflow supplied; full read, claim, target write, and save not exercised across separate Work runs. |
-| Native background execution | Setup workflow supplied; no live schedule created. |
+| Remote Work state | GitHub state branch passed an interactive read, restore, SHA-guarded claim, source write, and checkpoint. A separate scheduled Work run remains unverified. |
+| Native background execution | Daily Improve Dogfood task enabled for this project. No completed unattended run observed yet. |
 | Self-improvement | Fixed evaluator receipt check verified. Actual update and fresh-model behavior require host evaluation. |
 | Second user's installation | Package prepared; no second account used. |
 
@@ -33,3 +33,5 @@ The host agent executes edits, checks, and reversals. The engine records their e
 Remote state needs a real expected-version write guard and separate protection for the project target. Do not enable unattended external changes with an unguarded snapshot upload. A database export retains all findings; default list output is limited to keep prompts small.
 
 The first build is usable for controlled local work and skill-driven workflows. It does not yet pass every release condition in the approved spec.
+
+The GitHub adapter change passed the unchanged 21-test regression suite and core skill format validation. Evidence is retained at `runtime/evidence/github-adapter.json` on `dogfood-state`. Root project instructions are configured; actual loading in a new Codex session still needs observation.
