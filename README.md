@@ -35,6 +35,8 @@ Installation alone does not guarantee all-chat activation. Work may need a suppo
 
 ## Background work
 
+This project's daily Improve Dogfood task is enabled and uses `runtime/state.json` on the separate `dogfood-state` branch. The interactive state workflow passed verification; a completed unattended run has not yet been observed. Other users must configure their own state and task. See [Work activation](docs/work-activation.md) for the remaining all-chat setup step.
+
 Use the native scheduler through the setup skill. Save the concrete state identity and skill reference in its prompt. Desktop jobs need the local project and required runtime to remain available. Web jobs need accessible durable context and connected tools. [Official scheduled task documentation](https://learn.chatgpt.com/docs/automations).
 
 Default budgets are one unrelated improvement during active work and three changes or 20 minutes for a background run. User settings can change these limits. A missing scheduler is a reported capability gap.
