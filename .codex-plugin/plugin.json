@@ -1,0 +1,27 @@
+{
+  "name": "dogfood",
+  "version": "0.1.0",
+  "description": "Turn findings into verified improvements and retain them for future work.",
+  "author": {
+    "name": "GhostlyGawd",
+    "url": "https://github.com/GhostlyGawd"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Dogfood",
+    "shortDescription": "Apply and retain useful improvements.",
+    "longDescription": "Dogfood adds an autonomous improvement workflow, a persistent findings ledger, a Codex session-start hook, and setup guidance for scheduled work.",
+    "developerName": "GhostlyGawd",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Set up Dogfood for my projects.",
+      "Show Dogfood improvements and pending work.",
+      "Use Dogfood to improve this project."
+    ]
+  },
+  "repository": "https://github.com/GhostlyGawd/dogfood-plugin"
+}
