@@ -1,0 +1,18 @@
+{
+  "candidate_commit": "60d18dd4d6be0ef79f11b0028e155430d3f091ce",
+  "base_commit": "b8011744c886219565547eeddcb45c44cd096020",
+  "checks": [
+    {
+      "name": "Ledger regression suite",
+      "exit_code": 0,
+      "output": "test_applied_recovery_cannot_blindly_retry (test_engine.EngineTests.test_applied_recovery_cannot_blindly_retry) ... ok\ntest_budget_expires_and_old_worker_is_rejected (test_engine.EngineTests.test_budget_expires_and_old_worker_is_rejected) ... ok\ntest_change_count_budget_enforced (test_engine.EngineTests.test_change_count_budget_enforced) ... ok\ntest_checkpoint_revokes_remaining_claims (test_engine.EngineTests.test_checkpoint_revokes_remaining_claims) ... ok\ntest_complete_lifecycle_requires_activation_and_reuse (test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... ok\ntest_duplicate_findings_are_project_scoped (test_engine.EngineTests.test_duplicate_findings_are_project_scoped) ... ok\ntest_expired_work_requires_reconciliation (test_engine.EngineTests.test_expired_work_requires_reconciliation) ... ok\ntest_failed_checks_prevent_application (test_engine.EngineTests.test_failed_checks_prevent_application) ... ok\ntest_fresh_process_reads_durable_state (test_engine.EngineTests.test_fresh_process_reads_durable_state) ... ok\ntest_hook_emits_valid_context_from_another_directory (test_engine.EngineTests.test_hook_emits_valid_context_from_another_directory) ... ok\ntest_instruction_setup_is_idempotent_and_preserves_text (test_engine.EngineTests.test_instruction_setup_is_idempotent_and_preserves_text) ... ok\ntest_only_one_concurrent_worker_claims (test_engine.EngineTests.test_only_one_concurrent_worker_claims) ... ok\ntest_owner_cannot_change (test_engine.EngineTests.test_owner_cannot_change) ... ok\ntest_pause_stops_claims_and_changes (test_engine.EngineTests.test_pause_stops_claims_and_changes) ... ok\ntest_personal_promotion_requires_evidence (test_engine.EngineTests.test_personal_promotion_requires_evidence) ... ok\ntest_project_pause_does_not_pause_other_project (test_engine.EngineTests.test_project_pause_does_not_pause_other_project) ... ok\ntest_project_scope_enforced (test_engine.EngineTests.test_project_scope_enforced) ... ok\ntest_self_change_cannot_change_evaluator (test_engine.EngineTests.test_self_change_cannot_change_evaluator) ... ok\ntest_snapshot_round_trip_and_owner_isolation (test_engine.EngineTests.test_snapshot_round_trip_and_owner_isolation) ... ok\ntest_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.288s\n\nOK\n"
+    },
+    {
+      "name": "Core skill validation",
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    }
+  ],
+  "interactive_adapter_check": "Created state on dogfood-state, read it back byte-for-byte, restored it in a new local database, saved a claim with the current blob SHA, and updated two source files.",
+  "activation": "pending_fresh_run"
+}
