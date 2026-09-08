@@ -19,11 +19,15 @@
       ],
       "hypothesis": false,
       "benefit": "Add a project-scoped GitHub snapshot adapter with conflict handling.",
-      "status": "ready",
-      "revision": 1,
+      "status": "in_progress",
+      "revision": 2,
       "created_at": 1788910030.0937994,
-      "updated_at": 1788910030.0941896,
-      "lease": null,
+      "updated_at": 1788910105.679059,
+      "lease": {
+        "run": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+        "token": "cc60a7f2-86ac-45d7-b9d4-185c3cc532fb",
+        "until": 1788910405.6789503
+      },
       "changes": [],
       "checks": [],
       "activation": "not_applied",
@@ -91,7 +95,23 @@
       "reversal_evidence": null
     }
   ],
-  "runs": [],
+  "runs": [
+    {
+      "id": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+      "worker": "interactive-setup",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "manual",
+      "state": "running",
+      "deadline": 1788911305.6785212,
+      "max_changes": 1,
+      "claimed": [
+        "352996b8-55bc-4470-b73d-e3f63ffd4f10"
+      ],
+      "checkpoint": null
+    }
+  ],
   "events": [
     {
       "seq": 1,
@@ -134,6 +154,20 @@
       "kind": "transition",
       "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
       "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"A supported persistent global instruction route must be configured and checked.\"}"
+    },
+    {
+      "seq": 7,
+      "at": 1788910105.678613,
+      "kind": "run_started",
+      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+      "body": "{\"trigger\": \"manual\"}"
+    },
+    {
+      "seq": 8,
+      "at": 1788910105.6792076,
+      "kind": "claimed",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"run\": \"2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6\"}"
     }
   ]
 }
