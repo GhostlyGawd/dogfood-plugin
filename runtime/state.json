@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "meta": {
+    "owner": "GhostlyGawd",
+    "schema": 1,
+    "installation": "12b93deb-1a49-41e8-8cd4-872a8ce91048",
+    "paused": false,
+    "paused_projects": []
+  },
+  "findings": [
+    {
+      "id": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "github-state-adapter",
+      "observation": "Temporary Work runtimes need an available durable state adapter. This project has connected GitHub read and SHA-guarded write tools.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Add a project-scoped GitHub snapshot adapter with conflict handling.",
+      "status": "ready",
+      "revision": 1,
+      "created_at": 1788910030.0937994,
+      "updated_at": 1788910030.0941896,
+      "lease": null,
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "skills/dogfood/references/github.md",
+      "scope_reason": "Add a project-scoped GitHub snapshot adapter with conflict handling.",
+      "generalization_evidence": null,
+      "reason": "Add a project-scoped GitHub snapshot adapter with conflict handling.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
+    },
+    {
+      "id": "0f874606-d61d-4d18-a213-0873125f2450",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "codex-activation-proof",
+      "observation": "A real Codex session has not verified automatic loading of the bundled SessionStart hook.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
+      ],
+      "hypothesis": false,
+      "benefit": "No Codex executable is available in the current setup environment.",
+      "status": "blocked",
+      "revision": 1,
+      "created_at": 1788910030.0944364,
+      "updated_at": 1788910030.0946252,
+      "lease": null,
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "reason": "No Codex executable is available in the current setup environment.",
+      "resume_when": "A supported Codex runtime is available and the user has reviewed the hook through host controls.",
+      "replacement": null,
+      "reversal_evidence": null
+    },
+    {
+      "id": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "work-global-activation-proof",
+      "observation": "Activation in every fresh Work chat has not been verified.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
+      ],
+      "hypothesis": false,
+      "benefit": "A supported persistent global instruction route must be configured and checked.",
+      "status": "blocked",
+      "revision": 1,
+      "created_at": 1788910030.0947738,
+      "updated_at": 1788910030.0950415,
+      "lease": null,
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "reason": "A supported persistent global instruction route must be configured and checked.",
+      "resume_when": "The host exposes the global instruction setting and a fresh-chat test can be performed.",
+      "replacement": null,
+      "reversal_evidence": null
+    }
+  ],
+  "runs": [],
+  "events": [
+    {
+      "seq": 1,
+      "at": 1788910030.0939834,
+      "kind": "captured",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 2,
+      "at": 1788910030.0943117,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Add a project-scoped GitHub snapshot adapter with conflict handling.\"}"
+    },
+    {
+      "seq": 3,
+      "at": 1788910030.0944996,
+      "kind": "captured",
+      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 4,
+      "at": 1788910030.094678,
+      "kind": "transition",
+      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
+      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"No Codex executable is available in the current setup environment.\"}"
+    },
+    {
+      "seq": 5,
+      "at": 1788910030.0949113,
+      "kind": "captured",
+      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 6,
+      "at": 1788910030.0950902,
+      "kind": "transition",
+      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"A supported persistent global instruction route must be configured and checked.\"}"
+    }
+  ]
+}
