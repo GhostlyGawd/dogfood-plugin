@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-09",
+  "candidate_commit": "924a00ca95ab3243aa5895c2e2d782803895524f",
+  "evaluator_sha256": "1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a",
+  "evaluator_source": "from pathlib import Path\n\nreadme = Path('README.md').read_text()\nverification = Path('docs/verification.md').read_text()\nstate = Path('docs/project-state.md').read_text()\nfor text in (readme, verification, state):\n    assert '2026-09-09' in text\n    assert '2026-09-09-check-history.json' in text\n    assert 'No completed unattended run' not in text\nassert '22 automated cases pass' in verification\nassert 'Work activation in every chat | Unverified' in verification\nassert 'Real Codex session activation | Not tested' in verification\nassert 'Second user\\'s installation | Package prepared; no second account used' in verification\nassert 'pending' in state\nassert 'development build' in readme\nprint('Status documentation checks passed; host limits retained.')\n",
+  "baseline_exit_code": 1,
+  "candidate_exit_code": 0,
+  "output": "Status documentation checks passed; host limits retained.\n1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a  check_status_docs.py\n",
+  "remote_verification": "All three saved documents at candidate commit match the checked local bytes.",
+  "behavior": "Updated test count and project background evidence; kept native Codex, Work-wide and second-user installation limits."
+}
