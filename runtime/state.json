@@ -188,6 +188,34 @@
       "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
       "kind": "change_recorded",
       "seq": 27
+    },
+    {
+      "at": 1788997622.1504765,
+      "body": "{\"operation_key\": \"status-documents-complete\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"b0cc1df68b36253437aa2b0b206ef42cf43d080d\", \"after_version\": \"924a00ca95ab3243aa5895c2e2d782803895524f\", \"reversal_ref\": \"Restore README.md, docs/project-state.md and docs/verification.md from b0cc1df68b36253437aa2b0b206ef42cf43d080d only if each still matches commit 924a00ca95ab3243aa5895c2e2d782803895524f. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "kind": "change_recorded",
+      "seq": 28
+    },
+    {
+      "at": 1788997622.1509545,
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Saved document bytes match fixed local checks.\"}",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "kind": "transition",
+      "seq": 29
+    },
+    {
+      "at": 1788997622.151519,
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Status now matches retained execution evidence; host installation limits remain.\"}",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "kind": "transition",
+      "seq": 30
+    },
+    {
+      "at": 1788997622.1516862,
+      "body": "{\"summary\": \"Completed two bounded improvements: preserve historical check receipts (22 tests pass), and update project status from retained unattended evidence. GitHub adapter loaded and reused in this separate run; adopted. New engine and status documents are applied with later-run activation pending. Codex hook and Work-wide activation findings stay blocked until their saved host test conditions are met. No native plugin installation or second-user installation claimed.\"}",
+      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+      "kind": "checkpoint",
+      "seq": 31
     }
   ],
   "findings": [
@@ -371,7 +399,7 @@
       "updated_at": 1788997442.750416
     },
     {
-      "activation": "not_applied",
+      "activation": "pending",
       "benefit": "Keep project status aligned with retained execution evidence without claiming host installation.",
       "changes": [
         {
@@ -400,9 +428,26 @@
           "operation_key": "status-docs/verification.md",
           "reversal_ref": "Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches 6d6549a145b48fbe624b0136aa7a9766ebd85f8a. Preserve later edits.",
           "target": "GhostlyGawd/dogfood-plugin:main/docs/verification.md"
+        },
+        {
+          "after_version": "924a00ca95ab3243aa5895c2e2d782803895524f",
+          "before_version": "b0cc1df68b36253437aa2b0b206ef42cf43d080d",
+          "evaluator_version": "1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json",
+          "operation_key": "status-documents-complete",
+          "reversal_ref": "Restore README.md, docs/project-state.md and docs/verification.md from b0cc1df68b36253437aa2b0b206ef42cf43d080d only if each still matches commit 924a00ca95ab3243aa5895c2e2d782803895524f. Preserve later edits.",
+          "target": "GhostlyGawd/dogfood-plugin:main"
         }
       ],
-      "checks": [],
+      "checks": [
+        {
+          "evaluator_version": "1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json",
+          "exit_code": 0,
+          "name": "Fixed status assertions and remote byte comparison",
+          "verified_version": "924a00ca95ab3243aa5895c2e2d782803895524f"
+        }
+      ],
       "created_at": 1788997475.4626012,
       "dedup": "unattended-proof-status-2026-09-09",
       "destination": "README.md, docs/verification.md, docs/project-state.md",
@@ -412,25 +457,21 @@
       "generalization_evidence": null,
       "hypothesis": false,
       "id": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "lease": {
-        "run": "626c62c7-120e-4c55-9fce-993d524ba6fe",
-        "token": "ad5c9219-bc5c-47af-910e-730aff188c15",
-        "until": 1788997775.760268
-      },
+      "lease": null,
       "observation": "Project status documents still say no unattended run was observed and list 21 tests, after a separate run completed a checked source change with 22 passing tests.",
       "owner": "GhostlyGawd",
       "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "Update stale counts and execution status from retained evidence; keep native host limitations.",
+      "reason": "Status now matches retained execution evidence; host installation limits remain.",
       "recovery_required": false,
       "replacement": null,
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 5,
+      "revision": 9,
       "scope": "dogfood",
       "scope_reason": "Update stale counts and execution status from retained evidence; keep native host limitations.",
-      "status": "in_progress",
-      "updated_at": 1788997570.3502922
+      "status": "applied",
+      "updated_at": 1788997622.151434
     }
   ],
   "meta": {
@@ -457,7 +498,7 @@
       "worker": "interactive-setup"
     },
     {
-      "checkpoint": null,
+      "checkpoint": "Completed two bounded improvements: preserve historical check receipts (22 tests pass), and update project status from retained unattended evidence. GitHub adapter loaded and reused in this separate run; adopted. New engine and status documents are applied with later-run activation pending. Codex hook and Work-wide activation findings stay blocked until their saved host test conditions are met. No native plugin installation or second-user installation claimed.",
       "claimed": [
         "6b710b70-114d-4176-86b5-bf82b87c4108",
         "4a612b0b-8565-4ebc-9b93-e0dc2a567f91"
@@ -468,7 +509,7 @@
       "projects": [
         "GhostlyGawd/dogfood-plugin"
       ],
-      "state": "running",
+      "state": "finished",
       "trigger": "background",
       "worker": "project-maintenance"
     }
