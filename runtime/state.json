@@ -1,372 +1,428 @@
 {
-  "events": [
-    {
-      "at": 1788910030.0939834,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "captured",
-      "seq": 1
-    },
-    {
-      "at": 1788910030.0943117,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Add a project-scoped GitHub snapshot adapter with conflict handling.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 2
-    },
-    {
-      "at": 1788910030.0944996,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
-      "kind": "captured",
-      "seq": 3
-    },
-    {
-      "at": 1788910030.094678,
-      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"No Codex executable is available in the current setup environment.\"}",
-      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
-      "kind": "transition",
-      "seq": 4
-    },
-    {
-      "at": 1788910030.0949113,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
-      "kind": "captured",
-      "seq": 5
-    },
-    {
-      "at": 1788910030.0950902,
-      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"A supported persistent global instruction route must be configured and checked.\"}",
-      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
-      "kind": "transition",
-      "seq": 6
-    },
-    {
-      "at": 1788910105.678613,
-      "body": "{\"trigger\": \"manual\"}",
-      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
-      "kind": "run_started",
-      "seq": 7
-    },
-    {
-      "at": 1788910105.6792076,
-      "body": "{\"run\": \"2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "claimed",
-      "seq": 8
-    },
-    {
-      "at": 1788910209.7818537,
-      "body": "{\"operation_key\": \"github-state-adapter-v1\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"b8011744c886219565547eeddcb45c44cd096020\", \"after_version\": \"60d18dd4d6be0ef79f11b0028e155430d3f091ce\", \"reversal_ref\": \"Restore skills/dogfood/SKILL.md from b8011744c886219565547eeddcb45c44cd096020 and remove the new references/github.md only if both still match this candidate. Preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json\", \"evaluator_version\": \"473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "change_recorded",
-      "seq": 9
-    },
-    {
-      "at": 1788910209.7830625,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Source adapter and core route saved; checking against the fixed regression suite.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 10
-    },
-    {
-      "at": 1788910209.7844698,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Checks passed and the connected GitHub state route was exercised. A fresh scheduled run must verify instruction activation.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 11
-    },
-    {
-      "at": 1788910209.7847738,
-      "body": "{\"summary\": \"Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet.\"}",
-      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
-      "kind": "checkpoint",
-      "seq": 12
-    },
-    {
-      "at": 1788997292.259288,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
-      "kind": "run_started",
-      "seq": 13
-    },
-    {
-      "at": 1788997319.9549472,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "captured",
-      "seq": 14
-    },
-    {
-      "at": 1788997319.9553387,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "transition",
-      "seq": 15
-    },
-    {
-      "at": 1788997319.955535,
-      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "claimed",
-      "seq": 16
-    },
-    {
-      "at": 1788997374.9223602,
-      "body": "{\"operation_key\": \"check-history-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"7386cd3da0f9e83ac5d3267183f83d86797f5266\", \"after_version\": \"8964b123de1bce1f74688e6430825c3581ecb666\", \"reversal_ref\": \"Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "change_recorded",
-      "seq": 17
-    },
-    {
-      "at": 1788997442.7498279,
-      "body": "{\"operation_key\": \"check-history-complete\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"095281aa204f79f53094d65c62bbced06cd3066e\", \"after_version\": \"b0cc1df68b36253437aa2b0b206ef42cf43d080d\", \"reversal_ref\": \"Restore engine from 095281aa204f79f53094d65c62bbced06cd3066e and remove the new test only if both still match candidate blobs. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "change_recorded",
-      "seq": 18
-    },
-    {
-      "at": 1788997442.750117,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Candidate source matches tested files; fixed evaluator unchanged.\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "transition",
-      "seq": 19
-    },
-    {
-      "at": 1788997442.7504594,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All 22 tests pass; prior check receipts are retained across new attempts and snapshot restore.\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "transition",
-      "seq": 20
-    },
-    {
-      "at": 1788997442.7512221,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A separate unattended run loaded and used the saved GitHub adapter to restore state, persist a claim, save a checked improvement, and retain evidence.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 21
-    }
-  ],
+  "schema": 1,
+  "meta": {
+    "owner": "GhostlyGawd",
+    "schema": 1,
+    "installation": "12b93deb-1a49-41e8-8cd4-872a8ce91048",
+    "paused": false,
+    "paused_projects": []
+  },
   "findings": [
     {
-      "activation": "active",
-      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
+      "id": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "github-state-adapter",
+      "observation": "Temporary Work runtimes need an available durable state adapter. This project has connected GitHub read and SHA-guarded write tools.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
+      ],
+      "hypothesis": false,
       "benefit": "Add a project-scoped GitHub snapshot adapter with conflict handling.",
+      "status": "adopted",
+      "revision": 11,
+      "created_at": 1788910030.0937994,
+      "updated_at": 1788997442.7511535,
+      "lease": null,
       "changes": [
         {
-          "after_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce",
-          "before_version": "b8011744c886219565547eeddcb45c44cd096020",
-          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152",
-          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
           "operation_key": "github-state-adapter-v1",
+          "target": "GhostlyGawd/dogfood-plugin:main",
+          "before_version": "b8011744c886219565547eeddcb45c44cd096020",
+          "after_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce",
           "reversal_ref": "Restore skills/dogfood/SKILL.md from b8011744c886219565547eeddcb45c44cd096020 and remove the new references/github.md only if both still match this candidate. Preserve later changes.",
-          "target": "GhostlyGawd/dogfood-plugin:main"
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
+          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152"
         }
       ],
       "checks": [
         {
-          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152",
-          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
-          "exit_code": 0,
           "name": "21 ledger regression tests",
-          "verified_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce"
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
+          "verified_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce",
+          "exit_code": 0,
+          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152"
         },
         {
-          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152",
-          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
-          "exit_code": 0,
           "name": "Core skill format validation",
-          "verified_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce"
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
+          "verified_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce",
+          "exit_code": 0,
+          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152"
         },
         {
-          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152",
-          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
-          "exit_code": 0,
           "name": "Interactive remote snapshot read and SHA-guarded claim",
-          "verified_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce"
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json",
+          "verified_version": "60d18dd4d6be0ef79f11b0028e155430d3f091ce",
+          "exit_code": 0,
+          "evaluator_version": "473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152"
         }
       ],
-      "created_at": 1788910030.0937994,
-      "dedup": "github-state-adapter",
-      "destination": "skills/dogfood/references/github.md",
-      "evidence": [
-        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
-      ],
-      "generalization_evidence": null,
-      "hypothesis": false,
-      "id": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "lease": null,
-      "observation": "Temporary Work runtimes need an available durable state adapter. This project has connected GitHub read and SHA-guarded write tools.",
-      "owner": "GhostlyGawd",
-      "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "A separate unattended run loaded and used the saved GitHub adapter to restore state, persist a claim, save a checked improvement, and retain evidence.",
-      "recovery_required": false,
-      "replacement": null,
-      "resume_when": null,
+      "activation": "active",
       "reuse": [
         {
-          "at": 1788997442.7506764,
+          "session": "626c62c7-120e-4c55-9fce-993d524ba6fe",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
-          "session": "626c62c7-120e-4c55-9fce-993d524ba6fe"
+          "at": 1788997442.7506764
         }
       ],
-      "reversal_evidence": null,
-      "revision": 11,
+      "recovery_required": false,
       "scope": "dogfood",
+      "destination": "skills/dogfood/references/github.md",
       "scope_reason": "Add a project-scoped GitHub snapshot adapter with conflict handling.",
-      "status": "adopted",
-      "updated_at": 1788997442.7511535
+      "generalization_evidence": null,
+      "reason": "A separate unattended run loaded and used the saved GitHub adapter to restore state, persist a claim, save a checked improvement, and retain evidence.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json"
     },
     {
-      "activation": "not_applied",
-      "benefit": "No Codex executable is available in the current setup environment.",
-      "changes": [],
-      "checks": [],
-      "created_at": 1788910030.0944364,
-      "dedup": "codex-activation-proof",
-      "evidence": [
-        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
-      ],
-      "hypothesis": false,
       "id": "0f874606-d61d-4d18-a213-0873125f2450",
-      "lease": null,
-      "observation": "A real Codex session has not verified automatic loading of the bundled SessionStart hook.",
-      "owner": "GhostlyGawd",
       "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "No Codex executable is available in the current setup environment.",
-      "recovery_required": false,
-      "replacement": null,
-      "resume_when": "A supported Codex runtime is available and the user has reviewed the hook through host controls.",
-      "reuse": [],
-      "reversal_evidence": null,
-      "revision": 1,
-      "status": "blocked",
-      "updated_at": 1788910030.0946252
-    },
-    {
-      "activation": "not_applied",
-      "benefit": "A supported persistent global instruction route must be configured and checked.",
-      "changes": [],
-      "checks": [],
-      "created_at": 1788910030.0947738,
-      "dedup": "work-global-activation-proof",
+      "owner": "GhostlyGawd",
+      "dedup": "codex-activation-proof",
+      "observation": "A real Codex session has not verified automatic loading of the bundled SessionStart hook.",
       "evidence": [
         "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
       ],
       "hypothesis": false,
-      "id": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
-      "lease": null,
-      "observation": "Activation in every fresh Work chat has not been verified.",
-      "owner": "GhostlyGawd",
-      "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "A supported persistent global instruction route must be configured and checked.",
-      "recovery_required": false,
-      "replacement": null,
-      "resume_when": "The host exposes the global instruction setting and a fresh-chat test can be performed.",
-      "reuse": [],
-      "reversal_evidence": null,
-      "revision": 1,
+      "benefit": "No Codex executable is available in the current setup environment.",
       "status": "blocked",
-      "updated_at": 1788910030.0950415
+      "revision": 1,
+      "created_at": 1788910030.0944364,
+      "updated_at": 1788910030.0946252,
+      "lease": null,
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "reason": "No Codex executable is available in the current setup environment.",
+      "resume_when": "A supported Codex runtime is available and the user has reviewed the hook through host controls.",
+      "replacement": null,
+      "reversal_evidence": null
     },
     {
-      "activation": "pending",
-      "benefit": "Retain prior check evidence without treating old failures as checks of a new candidate.",
-      "changes": [
-        {
-          "after_version": "8964b123de1bce1f74688e6430825c3581ecb666",
-          "before_version": "7386cd3da0f9e83ac5d3267183f83d86797f5266",
-          "evaluator_version": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce",
-          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
-          "operation_key": "check-history-engine",
-          "reversal_ref": "Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.",
-          "target": "GhostlyGawd/dogfood-plugin:main/scripts/engine.py"
-        },
-        {
-          "after_version": "b0cc1df68b36253437aa2b0b206ef42cf43d080d",
-          "before_version": "095281aa204f79f53094d65c62bbced06cd3066e",
-          "evaluator_version": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce",
-          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
-          "operation_key": "check-history-complete",
-          "reversal_ref": "Restore engine from 095281aa204f79f53094d65c62bbced06cd3066e and remove the new test only if both still match candidate blobs. Preserve later edits.",
-          "target": "GhostlyGawd/dogfood-plugin:main"
-        }
+      "id": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "work-global-activation-proof",
+      "observation": "Activation in every fresh Work chat has not been verified.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
       ],
-      "checks": [
-        {
-          "evaluator_version": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce",
-          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
-          "exit_code": 0,
-          "name": "22 regression tests and remote byte verification",
-          "verified_version": "b0cc1df68b36253437aa2b0b206ef42cf43d080d"
-        }
-      ],
-      "created_at": 1788997319.9547758,
+      "hypothesis": false,
+      "benefit": "A supported persistent global instruction route must be configured and checked.",
+      "status": "blocked",
+      "revision": 1,
+      "created_at": 1788910030.0947738,
+      "updated_at": 1788910030.0950415,
+      "lease": null,
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "reason": "A supported persistent global instruction route must be configured and checked.",
+      "resume_when": "The host exposes the global instruction setting and a fresh-chat test can be performed.",
+      "replacement": null,
+      "reversal_evidence": null
+    },
+    {
+      "id": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
       "dedup": "retain-check-receipts-on-new-change",
-      "destination": "scripts/engine.py and tests/test_check_history.py",
+      "observation": "record_change clears all previous checks when a new attempt is recorded. A failing regression test shows the earlier failure receipt is lost, including after snapshot export.",
       "evidence": [
         "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
         "runtime/evidence/2026-09-09-check-history.json"
       ],
-      "generalization_evidence": null,
       "hypothesis": false,
-      "id": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "lease": null,
-      "observation": "record_change clears all previous checks when a new attempt is recorded. A failing regression test shows the earlier failure receipt is lost, including after snapshot export.",
-      "owner": "GhostlyGawd",
-      "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "All 22 tests pass; prior check receipts are retained across new attempts and snapshot restore.",
-      "recovery_required": false,
-      "replacement": null,
-      "resume_when": null,
-      "reuse": [],
-      "reversal_evidence": null,
-      "revision": 7,
-      "scope": "dogfood",
-      "scope_reason": "Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.",
+      "benefit": "Retain prior check evidence without treating old failures as checks of a new candidate.",
       "status": "applied",
-      "updated_at": 1788997442.750416
+      "revision": 7,
+      "created_at": 1788997319.9547758,
+      "updated_at": 1788997442.750416,
+      "lease": null,
+      "changes": [
+        {
+          "operation_key": "check-history-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main/scripts/engine.py",
+          "before_version": "7386cd3da0f9e83ac5d3267183f83d86797f5266",
+          "after_version": "8964b123de1bce1f74688e6430825c3581ecb666",
+          "reversal_ref": "Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
+          "evaluator_version": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce"
+        },
+        {
+          "operation_key": "check-history-complete",
+          "target": "GhostlyGawd/dogfood-plugin:main",
+          "before_version": "095281aa204f79f53094d65c62bbced06cd3066e",
+          "after_version": "b0cc1df68b36253437aa2b0b206ef42cf43d080d",
+          "reversal_ref": "Restore engine from 095281aa204f79f53094d65c62bbced06cd3066e and remove the new test only if both still match candidate blobs. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
+          "evaluator_version": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce"
+        }
+      ],
+      "checks": [
+        {
+          "name": "22 regression tests and remote byte verification",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
+          "verified_version": "b0cc1df68b36253437aa2b0b206ef42cf43d080d",
+          "exit_code": 0,
+          "evaluator_version": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce"
+        }
+      ],
+      "activation": "pending",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_check_history.py",
+      "scope_reason": "Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.",
+      "generalization_evidence": null,
+      "reason": "All 22 tests pass; prior check receipts are retained across new attempts and snapshot restore.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
+    },
+    {
+      "id": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "unattended-proof-status-2026-09-09",
+      "observation": "Project status documents still say no unattended run was observed and list 21 tests, after a separate run completed a checked source change with 22 passing tests.",
+      "evidence": [
+        "runtime/evidence/2026-09-09-check-history.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Keep project status aligned with retained execution evidence without claiming host installation.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1788997475.4626012,
+      "updated_at": 1788997475.7603438,
+      "lease": {
+        "run": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+        "token": "ad5c9219-bc5c-47af-910e-730aff188c15",
+        "until": 1788997775.760268
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "README.md, docs/verification.md, docs/project-state.md",
+      "scope_reason": "Update stale counts and execution status from retained evidence; keep native host limitations.",
+      "generalization_evidence": null,
+      "reason": "Update stale counts and execution status from retained evidence; keep native host limitations.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
-  "meta": {
-    "installation": "12b93deb-1a49-41e8-8cd4-872a8ce91048",
-    "owner": "GhostlyGawd",
-    "paused": false,
-    "paused_projects": [],
-    "schema": 1
-  },
   "runs": [
     {
-      "checkpoint": "Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet.",
+      "id": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+      "worker": "interactive-setup",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "manual",
+      "state": "finished",
+      "deadline": 1788911305.6785212,
+      "max_changes": 1,
       "claimed": [
         "352996b8-55bc-4470-b73d-e3f63ffd4f10"
       ],
-      "deadline": 1788911305.6785212,
-      "id": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
-      "max_changes": 1,
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "state": "finished",
-      "trigger": "manual",
-      "worker": "interactive-setup"
+      "checkpoint": "Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet."
     },
     {
-      "checkpoint": null,
-      "claimed": [
-        "6b710b70-114d-4176-86b5-bf82b87c4108"
-      ],
-      "deadline": 1788998392.2592425,
       "id": "626c62c7-120e-4c55-9fce-993d524ba6fe",
-      "max_changes": 3,
+      "worker": "project-maintenance",
       "projects": [
         "GhostlyGawd/dogfood-plugin"
       ],
-      "state": "running",
       "trigger": "background",
-      "worker": "project-maintenance"
+      "state": "running",
+      "deadline": 1788998392.2592425,
+      "max_changes": 3,
+      "claimed": [
+        "6b710b70-114d-4176-86b5-bf82b87c4108",
+        "4a612b0b-8565-4ebc-9b93-e0dc2a567f91"
+      ],
+      "checkpoint": null
     }
   ],
-  "schema": 1
+  "events": [
+    {
+      "seq": 1,
+      "at": 1788910030.0939834,
+      "kind": "captured",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 2,
+      "at": 1788910030.0943117,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Add a project-scoped GitHub snapshot adapter with conflict handling.\"}"
+    },
+    {
+      "seq": 3,
+      "at": 1788910030.0944996,
+      "kind": "captured",
+      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 4,
+      "at": 1788910030.094678,
+      "kind": "transition",
+      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
+      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"No Codex executable is available in the current setup environment.\"}"
+    },
+    {
+      "seq": 5,
+      "at": 1788910030.0949113,
+      "kind": "captured",
+      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 6,
+      "at": 1788910030.0950902,
+      "kind": "transition",
+      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"A supported persistent global instruction route must be configured and checked.\"}"
+    },
+    {
+      "seq": 7,
+      "at": 1788910105.678613,
+      "kind": "run_started",
+      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+      "body": "{\"trigger\": \"manual\"}"
+    },
+    {
+      "seq": 8,
+      "at": 1788910105.6792076,
+      "kind": "claimed",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"run\": \"2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6\"}"
+    },
+    {
+      "seq": 9,
+      "at": 1788910209.7818537,
+      "kind": "change_recorded",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"operation_key\": \"github-state-adapter-v1\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"b8011744c886219565547eeddcb45c44cd096020\", \"after_version\": \"60d18dd4d6be0ef79f11b0028e155430d3f091ce\", \"reversal_ref\": \"Restore skills/dogfood/SKILL.md from b8011744c886219565547eeddcb45c44cd096020 and remove the new references/github.md only if both still match this candidate. Preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json\", \"evaluator_version\": \"473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152\"}"
+    },
+    {
+      "seq": 10,
+      "at": 1788910209.7830625,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Source adapter and core route saved; checking against the fixed regression suite.\"}"
+    },
+    {
+      "seq": 11,
+      "at": 1788910209.7844698,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Checks passed and the connected GitHub state route was exercised. A fresh scheduled run must verify instruction activation.\"}"
+    },
+    {
+      "seq": 12,
+      "at": 1788910209.7847738,
+      "kind": "checkpoint",
+      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+      "body": "{\"summary\": \"Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet.\"}"
+    },
+    {
+      "seq": 13,
+      "at": 1788997292.259288,
+      "kind": "run_started",
+      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 14,
+      "at": 1788997319.9549472,
+      "kind": "captured",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 15,
+      "at": 1788997319.9553387,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.\"}"
+    },
+    {
+      "seq": 16,
+      "at": 1788997319.955535,
+      "kind": "claimed",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}"
+    },
+    {
+      "seq": 17,
+      "at": 1788997374.9223602,
+      "kind": "change_recorded",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"operation_key\": \"check-history-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"7386cd3da0f9e83ac5d3267183f83d86797f5266\", \"after_version\": \"8964b123de1bce1f74688e6430825c3581ecb666\", \"reversal_ref\": \"Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}"
+    },
+    {
+      "seq": 18,
+      "at": 1788997442.7498279,
+      "kind": "change_recorded",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"operation_key\": \"check-history-complete\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"095281aa204f79f53094d65c62bbced06cd3066e\", \"after_version\": \"b0cc1df68b36253437aa2b0b206ef42cf43d080d\", \"reversal_ref\": \"Restore engine from 095281aa204f79f53094d65c62bbced06cd3066e and remove the new test only if both still match candidate blobs. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}"
+    },
+    {
+      "seq": 19,
+      "at": 1788997442.750117,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Candidate source matches tested files; fixed evaluator unchanged.\"}"
+    },
+    {
+      "seq": 20,
+      "at": 1788997442.7504594,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All 22 tests pass; prior check receipts are retained across new attempts and snapshot restore.\"}"
+    },
+    {
+      "seq": 21,
+      "at": 1788997442.7512221,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A separate unattended run loaded and used the saved GitHub adapter to restore state, persist a claim, save a checked improvement, and retain evidence.\"}"
+    },
+    {
+      "seq": 22,
+      "at": 1788997475.4627302,
+      "kind": "captured",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 23,
+      "at": 1788997475.7600033,
+      "kind": "transition",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Update stale counts and execution status from retained evidence; keep native host limitations.\"}"
+    },
+    {
+      "seq": 24,
+      "at": 1788997475.760365,
+      "kind": "claimed",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}"
+    }
+  ]
 }
