@@ -181,6 +181,13 @@
       "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
       "kind": "change_recorded",
       "seq": 26
+    },
+    {
+      "at": 1788997570.350439,
+      "body": "{\"operation_key\": \"status-docs/verification.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/verification.md\", \"before_version\": \"e4a4d050f00d4f190f974be969ff8dcdce834ec0\", \"after_version\": \"924a00ca95ab3243aa5895c2e2d782803895524f\", \"reversal_ref\": \"Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches 6d6549a145b48fbe624b0136aa7a9766ebd85f8a. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "kind": "change_recorded",
+      "seq": 27
     }
   ],
   "findings": [
@@ -384,6 +391,15 @@
           "operation_key": "status-docs/project-state.md",
           "reversal_ref": "Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches d2817a96250a629719613d92132fe4e2837e9285. Preserve later edits.",
           "target": "GhostlyGawd/dogfood-plugin:main/docs/project-state.md"
+        },
+        {
+          "after_version": "924a00ca95ab3243aa5895c2e2d782803895524f",
+          "before_version": "e4a4d050f00d4f190f974be969ff8dcdce834ec0",
+          "evaluator_version": "1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json",
+          "operation_key": "status-docs/verification.md",
+          "reversal_ref": "Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches 6d6549a145b48fbe624b0136aa7a9766ebd85f8a. Preserve later edits.",
+          "target": "GhostlyGawd/dogfood-plugin:main/docs/verification.md"
         }
       ],
       "checks": [],
@@ -410,11 +426,11 @@
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 4,
+      "revision": 5,
       "scope": "dogfood",
       "scope_reason": "Update stale counts and execution status from retained evidence; keep native host limitations.",
       "status": "in_progress",
-      "updated_at": 1788997567.149884
+      "updated_at": 1788997570.3502922
     }
   ],
   "meta": {
