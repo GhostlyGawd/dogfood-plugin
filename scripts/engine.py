@@ -274,6 +274,8 @@ class Ledger:
                     raise Conflict("operation key already has different content")
                 return f
         f["changes"].append(change)
+        if f["checks"]:
+            f.setdefault("check_history", []).extend(f["checks"])
         f["checks"] = []
         self.save(f)
         self.event("change_recorded", f["id"], change)
