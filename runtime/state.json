@@ -135,15 +135,25 @@
       "hypothesis": false,
       "benefit": "Retain prior check evidence without treating old failures as checks of a new candidate.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1788997319.9547758,
-      "updated_at": 1788997319.9555168,
+      "updated_at": 1788997374.9222383,
       "lease": {
         "run": "626c62c7-120e-4c55-9fce-993d524ba6fe",
         "token": "c7fd86a0-4d64-414e-8908-2b6e236e3a7d",
         "until": 1788997619.9554605
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "check-history-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main/scripts/engine.py",
+          "before_version": "7386cd3da0f9e83ac5d3267183f83d86797f5266",
+          "after_version": "8964b123de1bce1f74688e6430825c3581ecb666",
+          "reversal_ref": "Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json",
+          "evaluator_version": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -302,6 +312,13 @@
       "kind": "claimed",
       "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
       "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}"
+    },
+    {
+      "seq": 17,
+      "at": 1788997374.9223602,
+      "kind": "change_recorded",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"operation_key\": \"check-history-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"7386cd3da0f9e83ac5d3267183f83d86797f5266\", \"after_version\": \"8964b123de1bce1f74688e6430825c3581ecb666\", \"reversal_ref\": \"Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}"
     }
   ]
 }
