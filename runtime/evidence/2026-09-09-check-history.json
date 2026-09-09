@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-09",
+  "kind": "unattended-project-verification",
+  "source_skill_blob": "6b058309e7e000958f207dae58f87731d17afce2",
+  "github_adapter_blob": "819aa2e235e8ab29dbdf8321c73ae59ce1244870",
+  "initial_state_blob": "a15f601b1c2173791d2af38ad8fa278d2b17e375",
+  "candidate_commit": "b0cc1df68b36253437aa2b0b206ef42cf43d080d",
+  "candidate_blobs": {
+    "scripts/engine.py": "703aa140558cce7433e3c3e8bd8f575ff6d4e119",
+    "tests/test_check_history.py": "6a3db70dedd5c904d1a6b694afad03d015387f42"
+  },
+  "evaluator_sha256": "1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce",
+  "evaluator_definition": "SHA256 of unmodified tests/test_engine.py bytes followed by tests/test_check_history.py bytes, fixed before engine changes.",
+  "baseline": {
+    "exit_code": 1,
+    "output": "test_retry_preserves_failed_check_and_snapshot (test_check_history.CheckHistoryTests.test_retry_preserves_failed_check_and_snapshot) ... FAIL\n\n======================================================================\nFAIL: test_retry_preserves_failed_check_and_snapshot (test_check_history.CheckHistoryTests.test_retry_preserves_failed_check_and_snapshot)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<checkout>/tests/test_check_history.py\", line 44, in test_retry_preserves_failed_check_and_snapshot\n    self.assertIn(failed_check, f.get(\"check_history\", []))\nAssertionError: {'name': 'failure', 'evidence_ref': 'fixture:failure', 'verified_version': 'candidate-one', 'exit_code': 1} not found in []\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+  },
+  "candidate": {
+    "exit_code": 0,
+    "output": "test_retry_preserves_failed_check_and_snapshot (test_check_history.CheckHistoryTests.test_retry_preserves_failed_check_and_snapshot) ... ok\ntest_applied_recovery_cannot_blindly_retry (test_engine.EngineTests.test_applied_recovery_cannot_blindly_retry) ... ok\ntest_budget_expires_and_old_worker_is_rejected (test_engine.EngineTests.test_budget_expires_and_old_worker_is_rejected) ... ok\ntest_change_count_budget_enforced (test_engine.EngineTests.test_change_count_budget_enforced) ... ok\ntest_checkpoint_revokes_remaining_claims (test_engine.EngineTests.test_checkpoint_revokes_remaining_claims) ... ok\ntest_complete_lifecycle_requires_activation_and_reuse (test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... ok\ntest_duplicate_findings_are_project_scoped (test_engine.EngineTests.test_duplicate_findings_are_project_scoped) ... ok\ntest_expired_work_requires_reconciliation (test_engine.EngineTests.test_expired_work_requires_reconciliation) ... ok\ntest_failed_checks_prevent_application (test_engine.EngineTests.test_failed_checks_prevent_application) ... ok\ntest_fresh_process_reads_durable_state (test_engine.EngineTests.test_fresh_process_reads_durable_state) ... ok\ntest_hook_emits_valid_context_from_another_directory (test_engine.EngineTests.test_hook_emits_valid_context_from_another_directory) ... ok\ntest_instruction_setup_is_idempotent_and_preserves_text (test_engine.EngineTests.test_instruction_setup_is_idempotent_and_preserves_text) ... ok\ntest_only_one_concurrent_worker_claims (test_engine.EngineTests.test_only_one_concurrent_worker_claims) ... ok\ntest_owner_cannot_change (test_engine.EngineTests.test_owner_cannot_change) ... ok\ntest_pause_stops_claims_and_changes (test_engine.EngineTests.test_pause_stops_claims_and_changes) ... ok\ntest_personal_promotion_requires_evidence (test_engine.EngineTests.test_personal_promotion_requires_evidence) ... ok\ntest_project_pause_does_not_pause_other_project (test_engine.EngineTests.test_project_pause_does_not_pause_other_project) ... ok\ntest_project_scope_enforced (test_engine.EngineTests.test_project_scope_enforced) ... ok\ntest_self_change_cannot_change_evaluator (test_engine.EngineTests.test_self_change_cannot_change_evaluator) ... ok\ntest_snapshot_round_trip_and_owner_isolation (test_engine.EngineTests.test_snapshot_round_trip_and_owner_isolation) ... ok\ntest_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.093s\n\nOK\n"
+  },
+  "verified": [
+    "Loaded current core skill and GitHub adapter from GitHub in a separate unattended run.",
+    "Restored the sole remote snapshot into a fresh database; pause was false.",
+    "Persisted exclusive claim with current blob SHA before source writes.",
+    "Rechecked live claim, pause, scope, deadlines and source version before writes.",
+    "Fetched saved engine and regression test at candidate commit; bytes match tested files.",
+    "Previous check receipts survive a new recorded attempt and snapshot restore."
+  ],
+  "limits": [
+    "New engine change awaits use by a later run before activation is active.",
+    "This does not verify native plugin installation, Codex hook loading, or Work-wide automatic activation."
+  ],
+  "reversal": "Restore engine from 095281aa204f79f53094d65c62bbced06cd3066e and remove the new test only if both still match candidate blobs. Preserve later edits."
+}
