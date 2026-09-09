@@ -121,6 +121,41 @@
       "resume_when": "The host exposes the global instruction setting and a fresh-chat test can be performed.",
       "replacement": null,
       "reversal_evidence": null
+    },
+    {
+      "id": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "retain-check-receipts-on-new-change",
+      "observation": "record_change clears all previous checks when a new attempt is recorded. A failing regression test shows the earlier failure receipt is lost, including after snapshot export.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-09-check-history.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Retain prior check evidence without treating old failures as checks of a new candidate.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1788997319.9547758,
+      "updated_at": 1788997319.9555168,
+      "lease": {
+        "run": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+        "token": "c7fd86a0-4d64-414e-8908-2b6e236e3a7d",
+        "until": 1788997619.9554605
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_check_history.py",
+      "scope_reason": "Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.",
+      "generalization_evidence": null,
+      "reason": "Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -138,6 +173,21 @@
         "352996b8-55bc-4470-b73d-e3f63ffd4f10"
       ],
       "checkpoint": "Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet."
+    },
+    {
+      "id": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+      "worker": "project-maintenance",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1788998392.2592425,
+      "max_changes": 3,
+      "claimed": [
+        "6b710b70-114d-4176-86b5-bf82b87c4108"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -224,6 +274,34 @@
       "kind": "checkpoint",
       "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
       "body": "{\"summary\": \"Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet.\"}"
+    },
+    {
+      "seq": 13,
+      "at": 1788997292.259288,
+      "kind": "run_started",
+      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 14,
+      "at": 1788997319.9549472,
+      "kind": "captured",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 15,
+      "at": 1788997319.9553387,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.\"}"
+    },
+    {
+      "seq": 16,
+      "at": 1788997319.955535,
+      "kind": "claimed",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}"
     }
   ]
 }
