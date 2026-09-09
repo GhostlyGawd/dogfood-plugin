@@ -1,10 +1,10 @@
 # Dogfood verification
 
-Build: 0.1.0 · 8 September 2026
+Build: 0.1.0 · Updated 2026-09-09
 
 ## Automated checks
 
-21 automated cases pass. Coverage includes competing claims, stale revisions, owner mismatch, pause and project scope, time and change budgets, expired-worker recovery, failed or mismatched check versions, activation before adoption, fixed self-evaluation versions, snapshot recovery, a fresh process reading saved state, managed instruction preservation, and hook output from a different directory.
+22 automated cases pass. Coverage includes competing claims, stale revisions, owner mismatch, pause and project scope, time and change budgets, expired-worker recovery, failed or mismatched check versions, activation before adoption, fixed self-evaluation versions, snapshot recovery, a fresh process reading saved state, managed instruction preservation, hook output from a different directory, and retention of prior check receipts across a new attempt and snapshot restore.
 
 The plugin manifest and all three bundled skill entrypoints pass their format validators. These checks establish file structure, not automatic host invocation.
 
@@ -19,9 +19,9 @@ An independent agent used the packaged core skill on an isolated invoice project
 | Real Codex session activation | Not tested: no Codex executable in this build environment. |
 | Work skill selection | Bundled Work instructions prepared; separate companion installation failed. |
 | Work activation in every chat | Unverified: no supported global instruction write route established here. |
-| Remote Work state | GitHub state branch passed an interactive read, restore, SHA-guarded claim, source write, and checkpoint. A separate scheduled Work run remains unverified. |
-| Native background execution | Daily Improve Dogfood task enabled for this project. No completed unattended run observed yet. |
-| Self-improvement | Fixed evaluator receipt check verified. Actual update and fresh-model behavior require host evaluation. |
+| Remote Work state | A separate unattended run loaded the GitHub adapter, restored state, saved a SHA-guarded claim, changed source, and saved evidence on 2026-09-09. |
+| Native background execution | Project background work verified on 2026-09-09 through a checked engine improvement. This does not verify other hosts or projects. |
+| Self-improvement | The GitHub adapter was loaded and reused in a later run. The new engine receipt-history fix passed a fixed evaluator; its later-run activation is pending. |
 | Second user's installation | Package prepared; no second account used. |
 
 Codex documents default `hooks/hooks.json` discovery and `PLUGIN_ROOT`. The build omits a manifest hooks field to remain compatible with the local manifest validator. It uses the documented default discovery route. [Official plugin packaging](https://developers.openai.com/plugins/build/plugins).
@@ -35,3 +35,5 @@ Remote state needs a real expected-version write guard and separate protection f
 The first build is usable for controlled local work and skill-driven workflows. It does not yet pass every release condition in the approved spec.
 
 The GitHub adapter change passed the unchanged 21-test regression suite and core skill format validation. Evidence is retained at `runtime/evidence/github-adapter.json` on `dogfood-state`. Root project instructions are configured; actual loading in a new Codex session still needs observation.
+
+The 2026-09-09 engine change passed all 22 tests. The new regression test failed on the previous engine and passed after the fix. Saved source bytes match the tested files. [Check outputs and background execution evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json).
