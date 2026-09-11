@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-10",
+  "kind": "actual-change-budget",
+  "candidate_commit": "89f3e893d71d4978ced93e66c29c1b01789fb488",
+  "candidate_blobs": {
+    "scripts/engine.py": "cc45954bfe3c0172788d54b2f0f866a8916efed0",
+    "tests/test_run_budget.py": "8b3dd186d7bb01a2bcc8cf3a244964b2158c6765"
+  },
+  "evaluator_sha256": "da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c",
+  "evaluator_definition": "SHA256 of tests/test_engine.py, tests/test_check_history.py, and tests/test_run_budget.py bytes in that order, fixed before the engine candidate.",
+  "baseline": {
+    "exit_code": 1,
+    "output": "test_budget_counts_change_operations_not_only_claims (tests.test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... FAIL\n\n======================================================================\nFAIL: test_budget_counts_change_operations_not_only_claims (tests.test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<checkout>/tests/test_run_budget.py\", line 43, in test_budget_counts_change_operations_not_only_claims\n    with self.assertRaises(Conflict):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Conflict not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.007s\n\nFAILED (failures=1)\n"
+  },
+  "candidate": {
+    "exit_code": 0,
+    "output": "test_retry_preserves_failed_check_and_snapshot (test_check_history.CheckHistoryTests.test_retry_preserves_failed_check_and_snapshot) ... ok\ntest_applied_recovery_cannot_blindly_retry (test_engine.EngineTests.test_applied_recovery_cannot_blindly_retry) ... ok\ntest_budget_expires_and_old_worker_is_rejected (test_engine.EngineTests.test_budget_expires_and_old_worker_is_rejected) ... ok\ntest_change_count_budget_enforced (test_engine.EngineTests.test_change_count_budget_enforced) ... ok\ntest_checkpoint_revokes_remaining_claims (test_engine.EngineTests.test_checkpoint_revokes_remaining_claims) ... ok\ntest_complete_lifecycle_requires_activation_and_reuse (test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... ok\ntest_duplicate_findings_are_project_scoped (test_engine.EngineTests.test_duplicate_findings_are_project_scoped) ... ok\ntest_expired_work_requires_reconciliation (test_engine.EngineTests.test_expired_work_requires_reconciliation) ... ok\ntest_failed_checks_prevent_application (test_engine.EngineTests.test_failed_checks_prevent_application) ... ok\ntest_fresh_process_reads_durable_state (test_engine.EngineTests.test_fresh_process_reads_durable_state) ... ok\ntest_hook_emits_valid_context_from_another_directory (test_engine.EngineTests.test_hook_emits_valid_context_from_another_directory) ... ok\ntest_instruction_setup_is_idempotent_and_preserves_text (test_engine.EngineTests.test_instruction_setup_is_idempotent_and_preserves_text) ... ok\ntest_only_one_concurrent_worker_claims (test_engine.EngineTests.test_only_one_concurrent_worker_claims) ... ok\ntest_owner_cannot_change (test_engine.EngineTests.test_owner_cannot_change) ... ok\ntest_pause_stops_claims_and_changes (test_engine.EngineTests.test_pause_stops_claims_and_changes) ... ok\ntest_personal_promotion_requires_evidence (test_engine.EngineTests.test_personal_promotion_requires_evidence) ... ok\ntest_project_pause_does_not_pause_other_project (test_engine.EngineTests.test_project_pause_does_not_pause_other_project) ... ok\ntest_project_scope_enforced (test_engine.EngineTests.test_project_scope_enforced) ... ok\ntest_self_change_cannot_change_evaluator (test_engine.EngineTests.test_self_change_cannot_change_evaluator) ... ok\ntest_snapshot_round_trip_and_owner_isolation (test_engine.EngineTests.test_snapshot_round_trip_and_owner_isolation) ... ok\ntest_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.284s\n\nOK\n"
+  },
+  "verified": [
+    "The previous engine allowed a second operation under max_changes=1.",
+    "The candidate limits unique record-change operations and leaves idempotent repeats free.",
+    "New runs store changes_used; runs created by the previous engine use claimed count as a conservative migration baseline.",
+    "All 24 tests pass and remote source bytes match the tested files."
+  ],
+  "reversal": "Restore scripts/engine.py from 924a00ca95ab3243aa5895c2e2d782803895524f and remove tests/test_run_budget.py only if candidate blobs still match. Preserve later edits."
+}
