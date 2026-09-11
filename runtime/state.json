@@ -289,15 +289,25 @@
       "hypothesis": false,
       "benefit": "Make finite run budgets limit actual recorded changes.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1789086622.4190502,
-      "updated_at": 1789086623.3106217,
+      "updated_at": 1789086668.1563072,
       "lease": {
         "run": "f6191219-3a22-4ddd-8a29-478b2c853b24",
         "token": "9f76da2b-a702-42f2-a980-5b0bd30431a2",
         "until": 1789086923.3103948
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "actual-change-budget-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main/scripts/engine.py",
+          "before_version": "703aa140558cce7433e3c3e8bd8f575ff6d4e119",
+          "after_version": "feb747820cec545e7755111870155604a4b3e1ff",
+          "reversal_ref": "Restore scripts/engine.py from commit 924a00ca95ab3243aa5895c2e2d782803895524f only if its blob still matches cc45954bfe3c0172788d54b2f0f866a8916efed0. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json",
+          "evaluator_version": "da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -357,7 +367,8 @@
       "claimed": [
         "488eb2d6-ac81-49b5-9792-ed160d0f8c02"
       ],
-      "checkpoint": null
+      "checkpoint": null,
+      "changes_used": 2
     }
   ],
   "events": [
@@ -619,6 +630,13 @@
       "kind": "claimed",
       "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
       "body": "{\"run\": \"f6191219-3a22-4ddd-8a29-478b2c853b24\"}"
+    },
+    {
+      "seq": 38,
+      "at": 1789086668.1564517,
+      "kind": "change_recorded",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"operation_key\": \"actual-change-budget-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"703aa140558cce7433e3c3e8bd8f575ff6d4e119\", \"after_version\": \"feb747820cec545e7755111870155604a4b3e1ff\", \"reversal_ref\": \"Restore scripts/engine.py from commit 924a00ca95ab3243aa5895c2e2d782803895524f only if its blob still matches cc45954bfe3c0172788d54b2f0f866a8916efed0. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}"
     }
   ]
 }
