@@ -288,15 +288,11 @@
       ],
       "hypothesis": false,
       "benefit": "Make finite run budgets limit actual recorded changes.",
-      "status": "in_progress",
-      "revision": 4,
+      "status": "applied",
+      "revision": 7,
       "created_at": 1789086622.4190502,
-      "updated_at": 1789086699.7561827,
-      "lease": {
-        "run": "f6191219-3a22-4ddd-8a29-478b2c853b24",
-        "token": "9f76da2b-a702-42f2-a980-5b0bd30431a2",
-        "until": 1789086923.3103948
-      },
+      "updated_at": 1789086729.2833526,
+      "lease": null,
       "changes": [
         {
           "operation_key": "actual-change-budget-engine",
@@ -317,16 +313,51 @@
           "evaluator_version": "da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "24 regression tests and remote byte verification",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json",
+          "verified_version": "89f3e893d71d4978ced93e66c29c1b01789fb488",
+          "exit_code": 0,
+          "evaluator_version": "da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_run_budget.py",
       "scope_reason": "The fixed regression test fails on the current engine. Count unique record-change operations per run.",
       "generalization_evidence": null,
-      "reason": "The fixed regression test fails on the current engine. Count unique record-change operations per run.",
+      "reason": "The run now limits unique change operations; all 24 tests pass.",
       "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
+    },
+    {
+      "id": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "document-24-tests-and-change-budget",
+      "observation": "README and verification documents still report 22 tests and do not describe actual change-operation budget enforcement.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Keep public status aligned with verified behavior.",
+      "status": "deferred",
+      "revision": 1,
+      "created_at": 1789086729.2836738,
+      "updated_at": 1789086730.237889,
+      "lease": null,
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "reason": "The current run reached its guarded source-change budget after the engine and regression-test writes.",
+      "resume_when": "A later bounded run loads commit 89f3e893d71d4978ced93e66c29c1b01789fb488, verifies 24 tests, and has source-change budget available.",
       "replacement": null,
       "reversal_evidence": null
     }
@@ -370,13 +401,13 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "deadline": 1789087592.6212173,
       "max_changes": 3,
       "claimed": [
         "488eb2d6-ac81-49b5-9792-ed160d0f8c02"
       ],
-      "checkpoint": null,
+      "checkpoint": "Activated and adopted the previous check-history and status changes after later-run use. Applied actual change-operation budget enforcement; 24 tests pass; activation is pending. Deferred the public test-count documentation until a later run because this run reached its guarded change budget. Codex hook activation and Work-wide activation remain blocked by their saved host test conditions.",
       "changes_used": 3
     }
   ],
@@ -653,6 +684,41 @@
       "kind": "change_recorded",
       "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
       "body": "{\"operation_key\": \"actual-change-budget-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_run_budget.py\", \"before_version\": \"absent@feb747820cec545e7755111870155604a4b3e1ff\", \"after_version\": \"89f3e893d71d4978ced93e66c29c1b01789fb488\", \"reversal_ref\": \"Remove tests/test_run_budget.py only if its blob still matches the saved candidate. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}"
+    },
+    {
+      "seq": 40,
+      "at": 1789086729.2822123,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Remote source bytes match the tested candidate; fixed evaluator unchanged.\"}"
+    },
+    {
+      "seq": 41,
+      "at": 1789086729.2834656,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"The run now limits unique change operations; all 24 tests pass.\"}"
+    },
+    {
+      "seq": 42,
+      "at": 1789086729.2837934,
+      "kind": "captured",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 43,
+      "at": 1789086730.2383444,
+      "kind": "transition",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"from\": \"captured\", \"to\": \"deferred\", \"reason\": \"The current run reached its guarded source-change budget after the engine and regression-test writes.\"}"
+    },
+    {
+      "seq": 44,
+      "at": 1789086730.2388594,
+      "kind": "checkpoint",
+      "entity": "f6191219-3a22-4ddd-8a29-478b2c853b24",
+      "body": "{\"summary\": \"Activated and adopted the previous check-history and status changes after later-run use. Applied actual change-operation budget enforcement; 24 tests pass; activation is pending. Deferred the public test-count documentation until a later run because this run reached its guarded change budget. Codex hook activation and Work-wide activation remain blocked by their saved host test conditions.\"}"
     }
   ]
 }
