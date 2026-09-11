@@ -275,6 +275,41 @@
       "status": "adopted",
       "updated_at": 1789086532.2163157,
       "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-activation.json"
+    },
+    {
+      "id": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "enforce-actual-change-budget",
+      "observation": "A run's max_changes limit is enforced only by claim count. One claimed finding can record more change operations than the configured budget.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-10-change-budget.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Make finite run budgets limit actual recorded changes.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1789086622.4190502,
+      "updated_at": 1789086623.3106217,
+      "lease": {
+        "run": "f6191219-3a22-4ddd-8a29-478b2c853b24",
+        "token": "9f76da2b-a702-42f2-a980-5b0bd30431a2",
+        "until": 1789086923.3103948
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_run_budget.py",
+      "scope_reason": "The fixed regression test fails on the current engine. Count unique record-change operations per run.",
+      "generalization_evidence": null,
+      "reason": "The fixed regression test fails on the current engine. Count unique record-change operations per run.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -319,7 +354,9 @@
       "state": "running",
       "deadline": 1789087592.6212173,
       "max_changes": 3,
-      "claimed": [],
+      "claimed": [
+        "488eb2d6-ac81-49b5-9792-ed160d0f8c02"
+      ],
       "checkpoint": null
     }
   ],
@@ -561,6 +598,27 @@
       "kind": "transition",
       "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
       "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run loaded the updated status and used its pending activation and host limits.\"}"
+    },
+    {
+      "seq": 35,
+      "at": 1789086622.4196103,
+      "kind": "captured",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 36,
+      "at": 1789086623.3099842,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed regression test fails on the current engine. Count unique record-change operations per run.\"}"
+    },
+    {
+      "seq": 37,
+      "at": 1789086623.3106928,
+      "kind": "claimed",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"run\": \"f6191219-3a22-4ddd-8a29-478b2c853b24\"}"
     }
   ]
 }
