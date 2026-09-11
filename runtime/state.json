@@ -289,9 +289,9 @@
       "hypothesis": false,
       "benefit": "Make finite run budgets limit actual recorded changes.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1789086622.4190502,
-      "updated_at": 1789086668.1563072,
+      "updated_at": 1789086699.7561827,
       "lease": {
         "run": "f6191219-3a22-4ddd-8a29-478b2c853b24",
         "token": "9f76da2b-a702-42f2-a980-5b0bd30431a2",
@@ -304,6 +304,15 @@
           "before_version": "703aa140558cce7433e3c3e8bd8f575ff6d4e119",
           "after_version": "feb747820cec545e7755111870155604a4b3e1ff",
           "reversal_ref": "Restore scripts/engine.py from commit 924a00ca95ab3243aa5895c2e2d782803895524f only if its blob still matches cc45954bfe3c0172788d54b2f0f866a8916efed0. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json",
+          "evaluator_version": "da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c"
+        },
+        {
+          "operation_key": "actual-change-budget-test",
+          "target": "GhostlyGawd/dogfood-plugin:main/tests/test_run_budget.py",
+          "before_version": "absent@feb747820cec545e7755111870155604a4b3e1ff",
+          "after_version": "89f3e893d71d4978ced93e66c29c1b01789fb488",
+          "reversal_ref": "Remove tests/test_run_budget.py only if its blob still matches the saved candidate. Preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json",
           "evaluator_version": "da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c"
         }
@@ -368,7 +377,7 @@
         "488eb2d6-ac81-49b5-9792-ed160d0f8c02"
       ],
       "checkpoint": null,
-      "changes_used": 2
+      "changes_used": 3
     }
   ],
   "events": [
@@ -637,6 +646,13 @@
       "kind": "change_recorded",
       "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
       "body": "{\"operation_key\": \"actual-change-budget-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"703aa140558cce7433e3c3e8bd8f575ff6d4e119\", \"after_version\": \"feb747820cec545e7755111870155604a4b3e1ff\", \"reversal_ref\": \"Restore scripts/engine.py from commit 924a00ca95ab3243aa5895c2e2d782803895524f only if its blob still matches cc45954bfe3c0172788d54b2f0f866a8916efed0. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}"
+    },
+    {
+      "seq": 39,
+      "at": 1789086699.756328,
+      "kind": "change_recorded",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"operation_key\": \"actual-change-budget-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_run_budget.py\", \"before_version\": \"absent@feb747820cec545e7755111870155604a4b3e1ff\", \"after_version\": \"89f3e893d71d4978ced93e66c29c1b01789fb488\", \"reversal_ref\": \"Remove tests/test_run_budget.py only if its blob still matches the saved candidate. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}"
     }
   ]
 }
