@@ -185,7 +185,7 @@ class Ledger:
             self.writable(project)
         r = {"id": str(uuid.uuid4()), "worker": required(data, "worker"), "projects": projects,
              "trigger": trigger, "state": "running", "deadline": self.clock() + seconds,
-             "max_changes": maximum, "claimed": [], "checkpoint": None}
+             "max_changes": maximum, "changes_used": 0, "claimed": [], "checkpoint": None}
         self.save_run(r)
         self.event("run_started", r["id"], {"trigger": trigger})
         return r
@@ -273,10 +273,16 @@ class Ledger:
                 if existing != change:
                     raise Conflict("operation key already has different content")
                 return f
+        r = self.run(f["lease"]["run"])
+        used = r.get("changes_used", len(r.get("claimed", [])))
+        if used >= r["max_changes"]:
+            raise Conflict("run change budget exhausted")
         f["changes"].append(change)
         if f["checks"]:
             f.setdefault("check_history", []).extend(f["checks"])
         f["checks"] = []
+        r["changes_used"] = used + 1
+        self.save_run(r)
         self.save(f)
         self.event("change_recorded", f["id"], change)
         return f
