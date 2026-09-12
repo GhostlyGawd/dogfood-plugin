@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-11",
+  "kind": "public-status-update",
+  "candidate_commit": "23056064bb955545f2ddd04c5ba277ec0df4ade2",
+  "candidate_blobs": {
+    "README.md": "7e9f825c70c51391ddca8a09b2b1c190c1311b05",
+    "docs/project-state.md": "e34766f12088a1aa234a1c7f370927508a09e6c7",
+    "docs/verification.md": "9705b4d92e475c15318a2b8ef6596563b189dc14"
+  },
+  "evaluator_sha256": "36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a",
+  "evaluator_definition": "Fixed check_status_docs.py: require 24 tests, change-budget evidence and 2026-09-11 in all three files; reject stale 22 count; retain Codex, Work-wide and second-user limits.",
+  "baseline": {
+    "exit_code": 1,
+    "output": "Traceback (most recent call last):\n  File \"<checkout>/check_status_docs.py\", line 7, in <module>\n    assert '24' in text\n           ^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "candidate": {
+    "exit_code": 0,
+    "output": "Status checks passed: 24 tests, budget evidence, and host limits retained.\n36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a  check_status_docs.py\n"
+  },
+  "verified": [
+    "The deferred resume condition was met before the claim.",
+    "All 24 repository tests passed in this fresh run.",
+    "The actual change-budget improvement was activated and adopted after later use.",
+    "Each document write used the current source blob and a live claimed state.",
+    "The final commit matches all three checked local files."
+  ],
+  "limits": [
+    "The new status-document candidate awaits a later-run activation check.",
+    "Native Codex hook loading, Work-wide automatic activation, and second-user installation remain unverified."
+  ],
+  "reversal": "Restore the three documents from 89f3e893d71d4978ced93e66c29c1b01789fb488 only when each still matches the candidate blob. Preserve later edits."
+}
