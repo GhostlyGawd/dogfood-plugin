@@ -288,10 +288,10 @@
       ],
       "hypothesis": false,
       "benefit": "Make finite run budgets limit actual recorded changes.",
-      "status": "applied",
-      "revision": 7,
+      "status": "adopted",
+      "revision": 10,
       "created_at": 1789086622.4190502,
-      "updated_at": 1789086729.2833526,
+      "updated_at": 1789172223.345113,
       "lease": null,
       "changes": [
         {
@@ -322,17 +322,24 @@
           "evaluator_version": "da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "9e983faa-9eef-437e-a554-73116ed1764b",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-budget-activation.json",
+          "at": 1789172223.344932
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_run_budget.py",
       "scope_reason": "The fixed regression test fails on the current engine. Count unique record-change operations per run.",
       "generalization_evidence": null,
-      "reason": "The run now limits unique change operations; all 24 tests pass.",
+      "reason": "A later run fetched the updated engine and exercised both actual-change budget tests; all 24 tests passed.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-budget-activation.json"
     },
     {
       "id": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
@@ -346,20 +353,28 @@
       ],
       "hypothesis": false,
       "benefit": "Keep public status aligned with verified behavior.",
-      "status": "deferred",
-      "revision": 1,
+      "status": "in_progress",
+      "revision": 3,
       "created_at": 1789086729.2836738,
-      "updated_at": 1789086730.237889,
-      "lease": null,
+      "updated_at": 1789172223.3454757,
+      "lease": {
+        "run": "9e983faa-9eef-437e-a554-73116ed1764b",
+        "token": "b67c22d4-56dd-46a2-8ebe-1f078b6154a2",
+        "until": 1789172523.3454244
+      },
       "changes": [],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
       "recovery_required": false,
-      "reason": "The current run reached its guarded source-change budget after the engine and regression-test writes.",
-      "resume_when": "A later bounded run loads commit 89f3e893d71d4978ced93e66c29c1b01789fb488, verifies 24 tests, and has source-change budget available.",
+      "reason": "The saved resume condition is met: commit 89f3e893d71d4978ced93e66c29c1b01789fb488 loaded, 24 tests pass, and this run has source-change budget.",
+      "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "scope": "dogfood",
+      "destination": "README.md, docs/project-state.md, docs/verification.md",
+      "scope_reason": "The saved resume condition is met: commit 89f3e893d71d4978ced93e66c29c1b01789fb488 loaded, 24 tests pass, and this run has source-change budget.",
+      "generalization_evidence": null
     }
   ],
   "runs": [
@@ -409,6 +424,22 @@
       ],
       "checkpoint": "Activated and adopted the previous check-history and status changes after later-run use. Applied actual change-operation budget enforcement; 24 tests pass; activation is pending. Deferred the public test-count documentation until a later run because this run reached its guarded change budget. Codex hook activation and Work-wide activation remain blocked by their saved host test conditions.",
       "changes_used": 3
+    },
+    {
+      "id": "9e983faa-9eef-437e-a554-73116ed1764b",
+      "worker": "project-maintenance-2026-09-11",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1789173279.564346,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "058ff5bf-b1ed-491b-b422-bf44d2e811f0"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -719,6 +750,34 @@
       "kind": "checkpoint",
       "entity": "f6191219-3a22-4ddd-8a29-478b2c853b24",
       "body": "{\"summary\": \"Activated and adopted the previous check-history and status changes after later-run use. Applied actual change-operation budget enforcement; 24 tests pass; activation is pending. Deferred the public test-count documentation until a later run because this run reached its guarded change budget. Codex hook activation and Work-wide activation remain blocked by their saved host test conditions.\"}"
+    },
+    {
+      "seq": 45,
+      "at": 1789172179.5643907,
+      "kind": "run_started",
+      "entity": "9e983faa-9eef-437e-a554-73116ed1764b",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 46,
+      "at": 1789172223.3451653,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the updated engine and exercised both actual-change budget tests; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 47,
+      "at": 1789172223.345313,
+      "kind": "transition",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"from\": \"deferred\", \"to\": \"ready\", \"reason\": \"The saved resume condition is met: commit 89f3e893d71d4978ced93e66c29c1b01789fb488 loaded, 24 tests pass, and this run has source-change budget.\"}"
+    },
+    {
+      "seq": 48,
+      "at": 1789172223.3454964,
+      "kind": "claimed",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"run\": \"9e983faa-9eef-437e-a554-73116ed1764b\"}"
     }
   ]
 }
