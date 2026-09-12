@@ -2,7 +2,7 @@
 
 Dogfood turns findings into checked improvements and retains them for future work. It includes a plugin for Codex and ChatGPT Work, a durable local ledger, and workflows for background work and self-improvement.
 
-**Release status: 0.1.0 development build.** The local engine and hook output are tested. A project background run passed verification on 2026-09-09. Automatic activation in every Work chat and a second user's plugin installation are not verified. No hosted service is included.
+**Release status: 0.1.0 development build.** The local engine and hook output are tested. Repeated project background runs passed verification through 2026-09-11. Automatic activation in every Work chat and a second user's plugin installation are not verified. No hosted service is included.
 
 ## Contents
 
@@ -35,7 +35,7 @@ Installation alone does not guarantee all-chat activation. Work may need a suppo
 
 ## Background work
 
-This project's daily Improve Dogfood task is enabled and uses `runtime/state.json` on the separate `dogfood-state` branch. On 2026-09-09, a separate unattended run loaded the stored instructions and state, saved a guarded claim, and applied an engine fix that passed 22 tests. See the [retained check evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json). This verifies project background work, not native plugin installation or activation in every chat. Other users must configure their own state and task. See [Work activation](docs/work-activation.md) for the remaining all-chat setup step.
+This project's daily Improve Dogfood task is enabled and uses `runtime/state.json` on the separate `dogfood-state` branch. By 2026-09-11, separate runs had loaded the stored instructions and state, saved guarded claims, retained old check receipts, and enforced the limit on actual change operations. All 24 tests pass. See the [change-budget evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json). This verifies project background work, not native plugin installation or activation in every chat. Other users must configure their own state and task. See [Work activation](docs/work-activation.md) for the remaining all-chat setup step.
 
 Use the native scheduler through the setup skill. Save the concrete state identity and skill reference in its prompt. Desktop jobs need the local project and required runtime to remain available. Web jobs need accessible durable context and connected tools. [Official scheduled task documentation](https://learn.chatgpt.com/docs/automations).
 
