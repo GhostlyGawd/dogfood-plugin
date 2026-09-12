@@ -8,6 +8,6 @@ The Python engine and local workflow are tested. On 2026-09-09, a separate unatt
 
 This repository is the selected source destination. A native daily Improve Dogfood task is enabled for this repository, with a three-change or 20-minute budget. Project background execution has now been observed. No marketplace registration was created. User findings remain outside the shared source package on dogfood-state; that public state may contain only this project's public code and documentation findings.
 
-The engine now retains earlier check receipts when a new attempt is recorded. All 22 tests pass. Activation of this new engine version is pending use in a later run.
+The engine retains earlier check receipts when a new attempt is recorded and limits actual change operations per run. On 2026-09-11, a later run loaded and exercised both improvements. All 24 tests pass. See [runtime/evidence/2026-09-10-change-budget.json](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json).
 
 Root AGENTS.md supplies project startup instructions. Codex fresh-session activation, Work-wide activation, and installation by a second user still need verification. See work-activation.md for the remaining Work instruction step.
