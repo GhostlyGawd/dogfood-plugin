@@ -427,15 +427,11 @@
       ],
       "hypothesis": false,
       "benefit": "Enforce one fixed evaluator version across every change in a self-improvement finding.",
-      "status": "in_progress",
-      "revision": 4,
+      "status": "applied",
+      "revision": 7,
       "created_at": 1789259327.3348553,
-      "updated_at": 1789259376.0336473,
-      "lease": {
-        "run": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
-        "token": "b35015b9-0b51-4b8e-946b-5fabbb467d2c",
-        "until": 1789259628.3129888
-      },
+      "updated_at": 1789259420.2223387,
+      "lease": null,
       "changes": [
         {
           "operation_key": "fixed-evaluator-scripts/engine.py",
@@ -456,15 +452,23 @@
           "evaluator_version": "d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "24 regression tests and final remote byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json",
+          "verified_version": "117cb7475a0d652af89690acc2e1cf2ae3cce6b8",
+          "exit_code": 0,
+          "evaluator_version": "d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_engine.py",
       "scope_reason": "The fixed test fails on the current engine. Require all Dogfood change receipts in one finding to use the same evaluator version.",
       "generalization_evidence": null,
-      "reason": "The fixed test fails on the current engine. Require all Dogfood change receipts in one finding to use the same evaluator version.",
+      "reason": "One evaluator version is now enforced across all Dogfood changes in a finding; all 24 tests pass.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null
@@ -541,14 +545,14 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "deadline": 1789260364.9555473,
       "max_changes": 3,
       "changes_used": 2,
       "claimed": [
         "ed82017c-7d07-481f-8924-1e1e8eb7106c"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted the prior public status update after fresh use. Applied fixed-evaluator enforcement across every change in a Dogfood finding; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions."
     }
   ],
   "events": [
@@ -978,6 +982,27 @@
       "kind": "change_recorded",
       "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
       "body": "{\"operation_key\": \"fixed-evaluator-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"c4b37f6205e8da0d18685777da36eb130cf28a97\", \"after_version\": \"117cb7475a0d652af89690acc2e1cf2ae3cce6b8\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches 62dc3e7dec531fa21ce71f593eda8038de72c297. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json\", \"evaluator_version\": \"d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4\"}"
+    },
+    {
+      "seq": 62,
+      "at": 1789259420.2213361,
+      "kind": "transition",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}"
+    },
+    {
+      "seq": 63,
+      "at": 1789259420.2224786,
+      "kind": "transition",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"One evaluator version is now enforced across all Dogfood changes in a finding; all 24 tests pass.\"}"
+    },
+    {
+      "seq": 64,
+      "at": 1789259420.22281,
+      "kind": "checkpoint",
+      "entity": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
+      "body": "{\"summary\": \"Activated and adopted the prior public status update after fresh use. Applied fixed-evaluator enforcement across every change in a Dogfood finding; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
     }
   ]
 }
