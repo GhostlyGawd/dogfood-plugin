@@ -158,7 +158,15 @@ class EngineTests(unittest.TestCase):
 
     def test_self_change_cannot_change_evaluator(self):
         f = self.move(self.capture(), "ready", scope="dogfood", destination="skills/dogfood/SKILL.md")
-        f = self.changed(self.claim(f))
+        f = self.claim(f, max_changes=2)
+        f = self.call("record-change", **self.edit_args(f), operation_key="change-1",
+                      target="skills/dogfood/SKILL.md", before_version="sha-before", after_version="sha-after",
+                      reversal_ref="fixture:reverse", evidence_ref="fixture:diff", evaluator_version="fixed-evaluator-v1")
+        with self.assertRaises(Conflict):
+            self.call("record-change", **self.edit_args(f), operation_key="change-2",
+                      target="tests/evaluator.py", before_version="sha-before", after_version="sha-after-2",
+                      reversal_ref="fixture:reverse", evidence_ref="fixture:diff", evaluator_version="weakened-v2")
+        f = self.move(f, "verifying")
         with self.assertRaises(Conflict):
             self.call("record-check", **self.edit_args(f), name="test", evidence_ref="fixture:output", exit_code=0,
                       verified_version="sha-after", evaluator_version="weakened-v2")
