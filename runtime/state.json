@@ -428,9 +428,9 @@
       "hypothesis": false,
       "benefit": "Enforce one fixed evaluator version across every change in a self-improvement finding.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1789259327.3348553,
-      "updated_at": 1789259370.7000449,
+      "updated_at": 1789259376.0336473,
       "lease": {
         "run": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
         "token": "b35015b9-0b51-4b8e-946b-5fabbb467d2c",
@@ -443,6 +443,15 @@
           "before_version": "cc45954bfe3c0172788d54b2f0f866a8916efed0",
           "after_version": "907932243dd210c0ff776b7550b7df28f00ee29d",
           "reversal_ref": "Restore scripts/engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches de0de4c814352d1abe06a112de7e8dd90e34ad04. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json",
+          "evaluator_version": "d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4"
+        },
+        {
+          "operation_key": "fixed-evaluator-tests/test_engine.py",
+          "target": "GhostlyGawd/dogfood-plugin:main/tests/test_engine.py",
+          "before_version": "c4b37f6205e8da0d18685777da36eb130cf28a97",
+          "after_version": "117cb7475a0d652af89690acc2e1cf2ae3cce6b8",
+          "reversal_ref": "Restore tests/test_engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches 62dc3e7dec531fa21ce71f593eda8038de72c297. Preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json",
           "evaluator_version": "d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4"
         }
@@ -535,7 +544,7 @@
       "state": "running",
       "deadline": 1789260364.9555473,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "ed82017c-7d07-481f-8924-1e1e8eb7106c"
       ],
@@ -962,6 +971,13 @@
       "kind": "change_recorded",
       "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
       "body": "{\"operation_key\": \"fixed-evaluator-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"cc45954bfe3c0172788d54b2f0f866a8916efed0\", \"after_version\": \"907932243dd210c0ff776b7550b7df28f00ee29d\", \"reversal_ref\": \"Restore scripts/engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches de0de4c814352d1abe06a112de7e8dd90e34ad04. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json\", \"evaluator_version\": \"d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4\"}"
+    },
+    {
+      "seq": 61,
+      "at": 1789259376.0337994,
+      "kind": "change_recorded",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"operation_key\": \"fixed-evaluator-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"c4b37f6205e8da0d18685777da36eb130cf28a97\", \"after_version\": \"117cb7475a0d652af89690acc2e1cf2ae3cce6b8\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches 62dc3e7dec531fa21ce71f593eda8038de72c297. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json\", \"evaluator_version\": \"d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4\"}"
     }
   ]
 }
