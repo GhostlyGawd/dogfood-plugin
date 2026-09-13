@@ -267,7 +267,10 @@ class Ledger:
         change = {key: required(data, key) for key in
                   ("operation_key", "target", "before_version", "after_version", "reversal_ref", "evidence_ref")}
         if f.get("scope") == "dogfood":
-            change["evaluator_version"] = required(data, "evaluator_version")
+            evaluator = required(data, "evaluator_version")
+            if any(existing.get("evaluator_version") != evaluator for existing in f["changes"]):
+                raise Conflict("the evaluator changed during this candidate")
+            change["evaluator_version"] = evaluator
         for existing in f["changes"]:
             if existing["operation_key"] == change["operation_key"]:
                 if existing != change:
