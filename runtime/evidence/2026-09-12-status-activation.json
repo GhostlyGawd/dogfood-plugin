@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-12",
+  "kind": "later-run-status-activation",
+  "source_blobs": {
+    "README.md": "7e9f825c70c51391ddca8a09b2b1c190c1311b05",
+    "docs/project-state.md": "e34766f12088a1aa234a1c7f370927508a09e6c7",
+    "docs/verification.md": "9705b4d92e475c15318a2b8ef6596563b189dc14"
+  },
+  "checks": {
+    "repository_tests": 24,
+    "exit_code": 0,
+    "status_assertions": "All three documents contain the 24-test state and change-budget evidence. Work-wide activation remains unverified."
+  },
+  "observed": [
+    "A fresh run fetched all three status files from main.",
+    "Their current claims guided the pending activation review.",
+    "All 24 repository tests passed."
+  ],
+  "limits": [
+    "Native Codex hook loading, Work-wide activation, and second-user installation were not tested."
+  ]
+}
