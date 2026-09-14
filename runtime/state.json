@@ -427,10 +427,10 @@
       ],
       "hypothesis": false,
       "benefit": "Enforce one fixed evaluator version across every change in a self-improvement finding.",
-      "status": "applied",
-      "revision": 7,
+      "status": "adopted",
+      "revision": 10,
       "created_at": 1789259327.3348553,
-      "updated_at": 1789259420.2223387,
+      "updated_at": 1789345570.4057398,
       "lease": null,
       "changes": [
         {
@@ -461,14 +461,56 @@
           "evaluator_version": "d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "44856282-6940-4488-a45b-2d9dd66b03f1",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-13-evaluator-activation.json",
+          "at": 1789345570.4055862
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_engine.py",
       "scope_reason": "The fixed test fails on the current engine. Require all Dogfood change receipts in one finding to use the same evaluator version.",
       "generalization_evidence": null,
-      "reason": "One evaluator version is now enforced across all Dogfood changes in a finding; all 24 tests pass.",
+      "reason": "A later run fetched the engine and exercised the fixed-evaluator regression; all 24 tests passed.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-13-evaluator-activation.json"
+    },
+    {
+      "id": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "require-later-active-reuse",
+      "observation": "The ledger accepts reuse evidence while activation is pending and can accept the same run that applied the change. Adoption can therefore be based on evidence that is not from a later active use.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-13-later-reuse.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Require activation before reuse and reject reuse from the applying run for new findings.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1789345570.405935,
+      "updated_at": 1789345570.9484062,
+      "lease": {
+        "run": "44856282-6940-4488-a45b-2d9dd66b03f1",
+        "token": "6b6d5eed-9413-4032-878b-b5cb92eb68dd",
+        "until": 1789345870.9483514
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_engine.py",
+      "scope_reason": "The fixed lifecycle test fails on the current engine. Save the applying run and require active, different-run reuse.",
+      "generalization_evidence": null,
+      "reason": "The fixed lifecycle test fails on the current engine. Save the applying run and require active, different-run reuse.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null
@@ -553,6 +595,22 @@
         "ed82017c-7d07-481f-8924-1e1e8eb7106c"
       ],
       "checkpoint": "Activated and adopted the prior public status update after fresh use. Applied fixed-evaluator enforcement across every change in a Dogfood finding; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions."
+    },
+    {
+      "id": "44856282-6940-4488-a45b-2d9dd66b03f1",
+      "worker": "project-maintenance-2026-09-13",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1789346617.7728732,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "8474f9d3-d557-46d5-94d1-dc1cbad25ccf"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -1003,6 +1061,41 @@
       "kind": "checkpoint",
       "entity": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
       "body": "{\"summary\": \"Activated and adopted the prior public status update after fresh use. Applied fixed-evaluator enforcement across every change in a Dogfood finding; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
+    },
+    {
+      "seq": 65,
+      "at": 1789345517.7729247,
+      "kind": "run_started",
+      "entity": "44856282-6940-4488-a45b-2d9dd66b03f1",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 66,
+      "at": 1789345570.4057834,
+      "kind": "transition",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised the fixed-evaluator regression; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 67,
+      "at": 1789345570.4059923,
+      "kind": "captured",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 68,
+      "at": 1789345570.94818,
+      "kind": "transition",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle test fails on the current engine. Save the applying run and require active, different-run reuse.\"}"
+    },
+    {
+      "seq": 69,
+      "at": 1789345570.948425,
+      "kind": "claimed",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"run\": \"44856282-6940-4488-a45b-2d9dd66b03f1\"}"
     }
   ]
 }
