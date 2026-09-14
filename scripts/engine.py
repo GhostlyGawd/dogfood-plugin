@@ -242,6 +242,8 @@ class Ledger:
             f["activation"] = data.get("activation", "pending")
             if f["activation"] not in {"pending", "active"}:
                 raise ValueError("invalid activation status")
+            f["applied_run"] = f["lease"]["run"]
+            f["applied_at"] = self.clock()
         if target == "adopted":
             if f["activation"] != "active" or not f["reuse"]:
                 raise ValueError("adoption needs activation and later use evidence")
@@ -321,8 +323,12 @@ class Ledger:
         f = self.edit(data)
         if f["status"] not in {"applied", "adopted"}:
             raise Conflict("only applied improvements can be reused")
+        if f["activation"] != "active":
+            raise Conflict("reuse requires an active improvement")
         evidence = required(data, "evidence_ref")
         session = required(data, "session")
+        if session == f.get("applied_run"):
+            raise Conflict("reuse must come from a later run")
         f["reuse"].append({"session": session, "evidence_ref": evidence, "at": self.clock()})
         self.save(f)
         return f
