@@ -149,10 +149,15 @@ class EngineTests(unittest.TestCase):
     def test_complete_lifecycle_requires_activation_and_reuse(self):
         f = self.changed()
         f = self.call("record-check", **self.edit_args(f), name="test", evidence_ref="fixture:output", exit_code=0, verified_version="sha-after")
+        applied_run = f["lease"]["run"]
         f = self.move(f, "applied", activation="pending")
         with self.assertRaises(ValueError):
             self.move(f, "adopted")
+        with self.assertRaises(Conflict):
+            self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
         f = self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="fresh-run:loaded")
+        with self.assertRaises(Conflict):
+            self.call("reuse", id=f["id"], revision=f["revision"], session=applied_run, evidence_ref="same-run:not-later")
         f = self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
         self.assertEqual(self.move(f, "adopted")["status"], "adopted")
 
