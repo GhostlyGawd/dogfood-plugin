@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-13",
+  "kind": "later-run-evaluator-activation",
+  "source_blobs": {
+    "scripts/engine.py": "de0de4c814352d1abe06a112de7e8dd90e34ad04",
+    "tests/test_engine.py": "62dc3e7dec531fa21ce71f593eda8038de72c297"
+  },
+  "checks": {
+    "name": "24 current regression tests",
+    "exit_code": 0,
+    "observed_case": "The multi-file self-improvement test rejected evaluator changes at both record-change and record-check."
+  },
+  "limits": [
+    "Native Codex hook loading, Work-wide activation, and second-user installation were not tested."
+  ]
+}
