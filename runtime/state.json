@@ -492,10 +492,10 @@
       ],
       "hypothesis": false,
       "benefit": "Require activation before reuse and reject reuse from the applying run for new findings.",
-      "status": "applied",
-      "revision": 7,
+      "status": "adopted",
+      "revision": 10,
       "created_at": 1789345570.405935,
-      "updated_at": 1789345642.9944024,
+      "updated_at": 1789430767.8886132,
       "lease": null,
       "changes": [
         {
@@ -526,19 +526,61 @@
           "evaluator_version": "bd6eb74d4eec64e17decba10e47a0b10baa68b74ea837f7d05753e95706c3e58"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-reuse-activation.json",
+          "at": 1789430767.8884373
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_engine.py",
       "scope_reason": "The fixed lifecycle test fails on the current engine. Save the applying run and require active, different-run reuse.",
       "generalization_evidence": null,
-      "reason": "Reuse now requires activation and a run different from the applying run; all 24 tests pass.",
+      "reason": "A later run fetched the engine and exercised active, different-run reuse; all 24 tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "44856282-6940-4488-a45b-2d9dd66b03f1",
-      "applied_at": 1789345642.9943726
+      "applied_at": 1789345642.9943726,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-reuse-activation.json"
+    },
+    {
+      "id": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "immutable-run-checkpoints",
+      "observation": "The checkpoint action can overwrite the summary and final state of an already checkpointed or finished run. This permits retained run history to change after completion.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-14-checkpoint-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Make exact checkpoint retries idempotent and reject history rewrites.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1789430767.888816,
+      "updated_at": 1789430768.5540235,
+      "lease": {
+        "run": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+        "token": "5852885c-3d3f-4e5f-ac94-f6baa121f43d",
+        "until": 1789431068.5539484
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_engine.py",
+      "scope_reason": "The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.",
+      "generalization_evidence": null,
+      "reason": "The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -636,6 +678,22 @@
         "8474f9d3-d557-46d5-94d1-dc1cbad25ccf"
       ],
       "checkpoint": "Activated and adopted fixed-evaluator enforcement after fresh use. Applied later-active reuse enforcement; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions."
+    },
+    {
+      "id": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+      "worker": "project-maintenance-2026-09-14",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1789431808.0379353,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "98e1f253-e85f-4795-be61-780fce4d222d"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -1156,6 +1214,41 @@
       "kind": "checkpoint",
       "entity": "44856282-6940-4488-a45b-2d9dd66b03f1",
       "body": "{\"summary\": \"Activated and adopted fixed-evaluator enforcement after fresh use. Applied later-active reuse enforcement; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
+    },
+    {
+      "seq": 75,
+      "at": 1789430708.037983,
+      "kind": "run_started",
+      "entity": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 76,
+      "at": 1789430767.8886607,
+      "kind": "transition",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised active, different-run reuse; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 77,
+      "at": 1789430767.8888881,
+      "kind": "captured",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 78,
+      "at": 1789430768.5537713,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.\"}"
+    },
+    {
+      "seq": 79,
+      "at": 1789430768.5540423,
+      "kind": "claimed",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"run\": \"7c2cc4f9-779f-44a4-9e1e-3f1d761c9490\"}"
     }
   ]
 }
