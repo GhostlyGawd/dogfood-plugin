@@ -203,7 +203,11 @@ class EngineTests(unittest.TestCase):
 
     def test_checkpoint_revokes_remaining_claims(self):
         f = self.claim()
-        self.call("checkpoint", run=f["lease"]["run"], summary="save unfinished work")
+        run = f["lease"]["run"]
+        first = self.call("checkpoint", run=run, summary="save unfinished work")
+        self.assertEqual(self.call("checkpoint", run=run, summary="save unfinished work"), first)
+        with self.assertRaises(Conflict):
+            self.call("checkpoint", run=run, summary="rewrite retained history", finished=True)
         f = self.call("get", id=f["id"])
         with self.assertRaises(Conflict):
             self.call("heartbeat", **self.edit_args(f))
