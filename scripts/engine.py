@@ -365,8 +365,14 @@ class Ledger:
 
     def checkpoint(self, data):
         r = self.run(required(data, "run"))
-        r["checkpoint"] = required(data, "summary")
-        r["state"] = "finished" if data.get("finished") else "checkpointed"
+        summary = required(data, "summary")
+        state = "finished" if data.get("finished") else "checkpointed"
+        if r["state"] != "running":
+            if r["state"] == state and r.get("checkpoint") == summary:
+                return r
+            raise Conflict("completed run checkpoints cannot be rewritten")
+        r["checkpoint"] = summary
+        r["state"] = state
         self.save_run(r)
         for fid in r["claimed"]:
             f = self.finding(fid)
