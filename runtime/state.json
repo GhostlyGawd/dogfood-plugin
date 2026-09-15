@@ -559,15 +559,11 @@
       ],
       "hypothesis": false,
       "benefit": "Make exact checkpoint retries idempotent and reject history rewrites.",
-      "status": "in_progress",
-      "revision": 4,
+      "status": "applied",
+      "revision": 7,
       "created_at": 1789430767.888816,
-      "updated_at": 1789430820.935482,
-      "lease": {
-        "run": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
-        "token": "5852885c-3d3f-4e5f-ac94-f6baa121f43d",
-        "until": 1789431068.5539484
-      },
+      "updated_at": 1789430853.627293,
+      "lease": null,
       "changes": [
         {
           "operation_key": "checkpoint-integrity-scripts/engine.py",
@@ -588,18 +584,28 @@
           "evaluator_version": "543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "24 regression tests and final remote byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json",
+          "verified_version": "342bffe9300cabcbcf0942806e106933fecf0625",
+          "exit_code": 0,
+          "evaluator_version": "543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_engine.py",
       "scope_reason": "The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.",
       "generalization_evidence": null,
-      "reason": "The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.",
+      "reason": "Completed run checkpoints are immutable except for exact idempotent retries; all 24 tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+      "applied_at": 1789430853.6272907
     }
   ],
   "runs": [
@@ -705,14 +711,14 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "deadline": 1789431808.0379353,
       "max_changes": 3,
       "changes_used": 2,
       "claimed": [
         "98e1f253-e85f-4795-be61-780fce4d222d"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted later-active reuse enforcement after fresh use. Applied immutable run checkpoints with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions."
     }
   ],
   "events": [
@@ -1282,6 +1288,27 @@
       "kind": "change_recorded",
       "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
       "body": "{\"operation_key\": \"checkpoint-integrity-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"562d3709891f96a35ae21f20b5c3094de155e80c\", \"after_version\": \"342bffe9300cabcbcf0942806e106933fecf0625\", \"reversal_ref\": \"Restore tests/test_engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches 5605073f36313b204a7555c3018c041e60a8d751. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}"
+    },
+    {
+      "seq": 82,
+      "at": 1789430853.6268604,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}"
+    },
+    {
+      "seq": 83,
+      "at": 1789430853.6273453,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Completed run checkpoints are immutable except for exact idempotent retries; all 24 tests pass.\"}"
+    },
+    {
+      "seq": 84,
+      "at": 1789430853.627624,
+      "kind": "checkpoint",
+      "entity": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+      "body": "{\"summary\": \"Activated and adopted later-active reuse enforcement after fresh use. Applied immutable run checkpoints with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
     }
   ]
 }
