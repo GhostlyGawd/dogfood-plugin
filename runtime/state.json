@@ -560,15 +560,25 @@
       "hypothesis": false,
       "benefit": "Make exact checkpoint retries idempotent and reject history rewrites.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1789430767.888816,
-      "updated_at": 1789430768.5540235,
+      "updated_at": 1789430815.896874,
       "lease": {
         "run": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
         "token": "5852885c-3d3f-4e5f-ac94-f6baa121f43d",
         "until": 1789431068.5539484
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "checkpoint-integrity-scripts/engine.py",
+          "target": "GhostlyGawd/dogfood-plugin:main/scripts/engine.py",
+          "before_version": "5b5e3bdafe37182635e2aa900b36510b4d760cfe",
+          "after_version": "4ec422e4dc733b0adcd8d92681bca0987717136a",
+          "reversal_ref": "Restore scripts/engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches ff9576cb75050c1614f048782efaac799219557f. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json",
+          "evaluator_version": "543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -689,7 +699,7 @@
       "state": "running",
       "deadline": 1789431808.0379353,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "98e1f253-e85f-4795-be61-780fce4d222d"
       ],
@@ -1249,6 +1259,13 @@
       "kind": "claimed",
       "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
       "body": "{\"run\": \"7c2cc4f9-779f-44a4-9e1e-3f1d761c9490\"}"
+    },
+    {
+      "seq": 80,
+      "at": 1789430815.8969114,
+      "kind": "change_recorded",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"operation_key\": \"checkpoint-integrity-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"5b5e3bdafe37182635e2aa900b36510b4d760cfe\", \"after_version\": \"4ec422e4dc733b0adcd8d92681bca0987717136a\", \"reversal_ref\": \"Restore scripts/engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches ff9576cb75050c1614f048782efaac799219557f. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}"
     }
   ]
 }
