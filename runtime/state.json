@@ -560,9 +560,9 @@
       "hypothesis": false,
       "benefit": "Make exact checkpoint retries idempotent and reject history rewrites.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1789430767.888816,
-      "updated_at": 1789430815.896874,
+      "updated_at": 1789430820.935482,
       "lease": {
         "run": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
         "token": "5852885c-3d3f-4e5f-ac94-f6baa121f43d",
@@ -575,6 +575,15 @@
           "before_version": "5b5e3bdafe37182635e2aa900b36510b4d760cfe",
           "after_version": "4ec422e4dc733b0adcd8d92681bca0987717136a",
           "reversal_ref": "Restore scripts/engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches ff9576cb75050c1614f048782efaac799219557f. Preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json",
+          "evaluator_version": "543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d"
+        },
+        {
+          "operation_key": "checkpoint-integrity-tests/test_engine.py",
+          "target": "GhostlyGawd/dogfood-plugin:main/tests/test_engine.py",
+          "before_version": "562d3709891f96a35ae21f20b5c3094de155e80c",
+          "after_version": "342bffe9300cabcbcf0942806e106933fecf0625",
+          "reversal_ref": "Restore tests/test_engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches 5605073f36313b204a7555c3018c041e60a8d751. Preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json",
           "evaluator_version": "543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d"
         }
@@ -699,7 +708,7 @@
       "state": "running",
       "deadline": 1789431808.0379353,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "98e1f253-e85f-4795-be61-780fce4d222d"
       ],
@@ -1266,6 +1275,13 @@
       "kind": "change_recorded",
       "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
       "body": "{\"operation_key\": \"checkpoint-integrity-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"5b5e3bdafe37182635e2aa900b36510b4d760cfe\", \"after_version\": \"4ec422e4dc733b0adcd8d92681bca0987717136a\", \"reversal_ref\": \"Restore scripts/engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches ff9576cb75050c1614f048782efaac799219557f. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}"
+    },
+    {
+      "seq": 81,
+      "at": 1789430820.9355245,
+      "kind": "change_recorded",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"operation_key\": \"checkpoint-integrity-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"562d3709891f96a35ae21f20b5c3094de155e80c\", \"after_version\": \"342bffe9300cabcbcf0942806e106933fecf0625\", \"reversal_ref\": \"Restore tests/test_engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches 5605073f36313b204a7555c3018c041e60a8d751. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}"
     }
   ]
 }
