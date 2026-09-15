@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-14",
+  "kind": "later-run-reuse-activation",
+  "source_blobs": {
+    "scripts/engine.py": "5b5e3bdafe37182635e2aa900b36510b4d760cfe",
+    "tests/test_engine.py": "562d3709891f96a35ae21f20b5c3094de155e80c"
+  },
+  "checks": {
+    "name": "24 current regression tests",
+    "exit_code": 0,
+    "observed_case": "The lifecycle test blocked reuse before activation and from the applying run."
+  },
+  "limits": [
+    "Native Codex hook loading, Work-wide activation, and second-user installation were not tested."
+  ]
+}
