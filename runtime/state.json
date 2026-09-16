@@ -629,6 +629,13 @@
       "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
       "kind": "change_recorded",
       "seq": 90
+    },
+    {
+      "at": 1789518460.8099048,
+      "body": "{\"operation_key\": \"activation-integrity-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"5605073f36313b204a7555c3018c041e60a8d751\", \"after_version\": \"602296c419a685b3a5a4c6b4d102209dc884c9a3\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only if its current blob is f829aae1a0d333f86aaffa86c01b289f3a9b5231; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-activation-integrity.json\", \"evaluator_version\": \"8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3\"}",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "kind": "change_recorded",
+      "seq": 91
     }
   ],
   "findings": [
@@ -1250,6 +1257,15 @@
           "operation_key": "activation-integrity-engine",
           "reversal_ref": "Restore scripts/engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only if its current blob is 2d1ff15ce3f6e6d12a3ee6102c84dfcfd7d783d7; preserve later changes.",
           "target": "scripts/engine.py"
+        },
+        {
+          "after_version": "602296c419a685b3a5a4c6b4d102209dc884c9a3",
+          "before_version": "5605073f36313b204a7555c3018c041e60a8d751",
+          "evaluator_version": "8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-activation-integrity.json",
+          "operation_key": "activation-integrity-test",
+          "reversal_ref": "Restore tests/test_engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only if its current blob is f829aae1a0d333f86aaffa86c01b289f3a9b5231; preserve later changes.",
+          "target": "tests/test_engine.py"
         }
       ],
       "checks": [],
@@ -1277,11 +1293,11 @@
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 4,
+      "revision": 5,
       "scope": "dogfood",
       "scope_reason": "The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.",
       "status": "in_progress",
-      "updated_at": 1789518420.9981596
+      "updated_at": 1789518460.8098648
     }
   ],
   "meta": {
@@ -1404,7 +1420,7 @@
       "worker": "project-maintenance-2026-09-14"
     },
     {
-      "changes_used": 1,
+      "changes_used": 2,
       "checkpoint": null,
       "claimed": [
         "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27"
