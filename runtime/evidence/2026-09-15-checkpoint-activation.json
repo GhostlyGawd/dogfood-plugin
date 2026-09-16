@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-15",
+  "kind": "later-run-checkpoint-activation",
+  "source_blobs": {
+    "scripts/engine.py": "ff9576cb75050c1614f048782efaac799219557f",
+    "tests/test_engine.py": "5605073f36313b204a7555c3018c041e60a8d751"
+  },
+  "checks": {
+    "name": "24 current regression tests",
+    "exit_code": 0,
+    "observed_case": "The checkpoint test allowed an exact retry and rejected a changed completed checkpoint."
+  },
+  "limits": [
+    "Native Codex hook loading, Work-wide activation, and second-user installation were not tested."
+  ]
+}
