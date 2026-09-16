@@ -636,6 +636,27 @@
       "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
       "kind": "change_recorded",
       "seq": 91
+    },
+    {
+      "at": 1789518544.3301525,
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "kind": "transition",
+      "seq": 92
+    },
+    {
+      "at": 1789518544.3308485,
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "kind": "transition",
+      "seq": 93
+    },
+    {
+      "at": 1789518544.331035,
+      "body": "{\"summary\": \"Activated and adopted immutable run checkpoints after fresh use. Applied immutable activation evidence with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until those host capabilities can be tested.\"}",
+      "entity": "2a7945f6-391b-409e-9128-a59113fc9597",
+      "kind": "checkpoint",
+      "seq": 94
     }
   ],
   "findings": [
@@ -1246,7 +1267,9 @@
       "updated_at": 1789518212.5329561
     },
     {
-      "activation": "not_applied",
+      "activation": "pending",
+      "applied_at": 1789518544.3307862,
+      "applied_run": "2a7945f6-391b-409e-9128-a59113fc9597",
       "benefit": "Make exact activation retries idempotent and reject activation-evidence rewrites.",
       "changes": [
         {
@@ -1268,7 +1291,15 @@
           "target": "tests/test_engine.py"
         }
       ],
-      "checks": [],
+      "checks": [
+        {
+          "evaluator_version": "8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-activation-integrity.json",
+          "exit_code": 0,
+          "name": "24 regression tests and final remote byte comparison",
+          "verified_version": "602296c419a685b3a5a4c6b4d102209dc884c9a3"
+        }
+      ],
       "created_at": 1789518212.5331178,
       "dedup": "immutable-activation-evidence",
       "destination": "scripts/engine.py and tests/test_engine.py",
@@ -1279,25 +1310,21 @@
       "generalization_evidence": null,
       "hypothesis": false,
       "id": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "lease": {
-        "run": "2a7945f6-391b-409e-9128-a59113fc9597",
-        "token": "12d2cd31-df79-422e-89ff-f99e6aa2aeb3",
-        "until": 1789518638.8335543
-      },
+      "lease": null,
       "observation": "The activate action can replace activation_evidence after an improvement is already active. Even an exact retry increments the finding revision, while a different receipt rewrites accepted evidence.",
       "owner": "GhostlyGawd",
       "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.",
+      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
       "recovery_required": false,
       "replacement": null,
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 5,
+      "revision": 8,
       "scope": "dogfood",
       "scope_reason": "The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.",
-      "status": "in_progress",
-      "updated_at": 1789518460.8098648
+      "status": "applied",
+      "updated_at": 1789518544.330789
     }
   ],
   "meta": {
@@ -1421,7 +1448,7 @@
     },
     {
       "changes_used": 2,
-      "checkpoint": null,
+      "checkpoint": "Activated and adopted immutable run checkpoints after fresh use. Applied immutable activation evidence with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until those host capabilities can be tested.",
       "claimed": [
         "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27"
       ],
@@ -1431,7 +1458,7 @@
       "projects": [
         "GhostlyGawd/dogfood-plugin"
       ],
-      "state": "running",
+      "state": "finished",
       "trigger": "background",
       "worker": "project-maintenance-2026-09-15"
     }
