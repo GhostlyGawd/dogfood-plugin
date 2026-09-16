@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-15",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "finding_id": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+  "finding": "immutable-activation-evidence",
+  "target_version": "602296c419a685b3a5a4c6b4d102209dc884c9a3",
+  "source_changes": [
+    {
+      "path": "scripts/engine.py",
+      "before_blob": "ff9576cb75050c1614f048782efaac799219557f",
+      "after_blob": "2d1ff15ce3f6e6d12a3ee6102c84dfcfd7d783d7",
+      "commit": "fe47404aaa695a81048338d44edb9bd6f9bde3ca"
+    },
+    {
+      "path": "tests/test_engine.py",
+      "before_blob": "5605073f36313b204a7555c3018c041e60a8d751",
+      "after_blob": "f829aae1a0d333f86aaffa86c01b289f3a9b5231",
+      "commit": "602296c419a685b3a5a4c6b4d102209dc884c9a3"
+    }
+  ],
+  "fixed_evaluator": {
+    "sha256": "8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3",
+    "files": [
+      "tests/test_engine.py",
+      "tests/test_check_history.py",
+      "tests/test_run_budget.py"
+    ]
+  },
+  "baseline": {
+    "exit_code": 1,
+    "output": "test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... FAIL\n\n======================================================================\nFAIL: test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<fresh-workspace>/tests/test_engine.py\", line 160, in test_complete_lifecycle_requires_activation_and_reuse\n    self.assertEqual(repeated[\"revision\"], f[\"revision\"])\nAssertionError: 8 != 7\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+  },
+  "verification": {
+    "exit_code": 0,
+    "command": "python -m unittest discover -s tests -v",
+    "test_count": 24,
+    "output": "test_retry_preserves_failed_check_and_snapshot (test_check_history.CheckHistoryTests.test_retry_preserves_failed_check_and_snapshot) ... ok\ntest_applied_recovery_cannot_blindly_retry (test_engine.EngineTests.test_applied_recovery_cannot_blindly_retry) ... ok\ntest_budget_expires_and_old_worker_is_rejected (test_engine.EngineTests.test_budget_expires_and_old_worker_is_rejected) ... ok\ntest_change_count_budget_enforced (test_engine.EngineTests.test_change_count_budget_enforced) ... ok\ntest_checkpoint_revokes_remaining_claims (test_engine.EngineTests.test_checkpoint_revokes_remaining_claims) ... ok\ntest_complete_lifecycle_requires_activation_and_reuse (test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... ok\ntest_duplicate_findings_are_project_scoped (test_engine.EngineTests.test_duplicate_findings_are_project_scoped) ... ok\ntest_expired_work_requires_reconciliation (test_engine.EngineTests.test_expired_work_requires_reconciliation) ... ok\ntest_failed_checks_prevent_application (test_engine.EngineTests.test_failed_checks_prevent_application) ... ok\ntest_fresh_process_reads_durable_state (test_engine.EngineTests.test_fresh_process_reads_durable_state) ... ok\ntest_hook_emits_valid_context_from_another_directory (test_engine.EngineTests.test_hook_emits_valid_context_from_another_directory) ... ok\ntest_instruction_setup_is_idempotent_and_preserves_text (test_engine.EngineTests.test_instruction_setup_is_idempotent_and_preserves_text) ... ok\ntest_only_one_concurrent_worker_claims (test_engine.EngineTests.test_only_one_concurrent_worker_claims) ... ok\ntest_owner_cannot_change (test_engine.EngineTests.test_owner_cannot_change) ... ok\ntest_pause_stops_claims_and_changes (test_engine.EngineTests.test_pause_stops_claims_and_changes) ... ok\ntest_personal_promotion_requires_evidence (test_engine.EngineTests.test_personal_promotion_requires_evidence) ... ok\ntest_project_pause_does_not_pause_other_project (test_engine.EngineTests.test_project_pause_does_not_pause_other_project) ... ok\ntest_project_scope_enforced (test_engine.EngineTests.test_project_scope_enforced) ... ok\ntest_self_change_cannot_change_evaluator (test_engine.EngineTests.test_self_change_cannot_change_evaluator) ... ok\ntest_snapshot_round_trip_and_owner_isolation (test_engine.EngineTests.test_snapshot_round_trip_and_owner_isolation) ... ok\ntest_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.099s\n\nOK\nd2f402c334e05ff016d1c14d66ea72e2e751fd9d0e110b372aa5ba5e451f294f  tests/test_engine.py\n9d7d80ca719daf59720a7cccf3243d5fca19a794415038a6eb94e2bc796b250f  tests/test_check_history.py\n108f1d7bb816e58989f22f4e191d5d4df108f062af39af39c1180305050b4b61  tests/test_run_budget.py\n",
+    "remote_byte_match": true
+  },
+  "assertions": [
+    "An exact activation retry returns the unchanged finding revision.",
+    "A different activation receipt is rejected.",
+    "All 24 regression tests pass.",
+    "The final main-branch blobs match the tested candidate bytes."
+  ],
+  "prior_improvement": {
+    "finding": "immutable-run-checkpoints",
+    "activation": "active",
+    "adoption": "adopted",
+    "evidence_commit": "95bbf07facacfdd613ad424dd8e3507d05c2b208"
+  },
+  "activation": "pending",
+  "resume_when": "A later run loads commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 and successfully exercises the immutable activation-evidence behavior.",
+  "reversal": "Restore scripts/engine.py and tests/test_engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only while the recorded candidate blobs still match. Preserve later changes.",
+  "unresolved": [
+    "Codex hook activation is not verified.",
+    "Work-wide activation is not verified.",
+    "Installation by a second user is not verified."
+  ]
+}
