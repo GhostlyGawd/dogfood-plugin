@@ -559,10 +559,10 @@
       ],
       "hypothesis": false,
       "benefit": "Make exact checkpoint retries idempotent and reject history rewrites.",
-      "status": "applied",
-      "revision": 7,
+      "status": "adopted",
+      "revision": 10,
       "created_at": 1789430767.888816,
-      "updated_at": 1789430853.627293,
+      "updated_at": 1789518212.5329561,
       "lease": null,
       "changes": [
         {
@@ -593,19 +593,61 @@
           "evaluator_version": "543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "2a7945f6-391b-409e-9128-a59113fc9597",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-checkpoint-activation.json",
+          "at": 1789518212.5327702
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_engine.py",
       "scope_reason": "The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.",
       "generalization_evidence": null,
-      "reason": "Completed run checkpoints are immutable except for exact idempotent retries; all 24 tests pass.",
+      "reason": "A later run fetched the engine and exercised exact and conflicting checkpoint retries; all 24 tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
-      "applied_at": 1789430853.6272907
+      "applied_at": 1789430853.6272907,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-checkpoint-activation.json"
+    },
+    {
+      "id": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "immutable-activation-evidence",
+      "observation": "The activate action can replace activation_evidence after an improvement is already active. Even an exact retry increments the finding revision, while a different receipt rewrites accepted evidence.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-15-activation-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Make exact activation retries idempotent and reject activation-evidence rewrites.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1789518212.5331178,
+      "updated_at": 1789518213.2890506,
+      "lease": {
+        "run": "2a7945f6-391b-409e-9128-a59113fc9597",
+        "token": "12d2cd31-df79-422e-89ff-f99e6aa2aeb3",
+        "until": 1789518513.2889853
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_engine.py",
+      "scope_reason": "The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.",
+      "generalization_evidence": null,
+      "reason": "The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -719,6 +761,22 @@
         "98e1f253-e85f-4795-be61-780fce4d222d"
       ],
       "checkpoint": "Activated and adopted later-active reuse enforcement after fresh use. Applied immutable run checkpoints with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions."
+    },
+    {
+      "id": "2a7945f6-391b-409e-9128-a59113fc9597",
+      "worker": "project-maintenance-2026-09-15",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1789519261.456459,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -1309,6 +1367,41 @@
       "kind": "checkpoint",
       "entity": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
       "body": "{\"summary\": \"Activated and adopted later-active reuse enforcement after fresh use. Applied immutable run checkpoints with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
+    },
+    {
+      "seq": 85,
+      "at": 1789518161.4565227,
+      "kind": "run_started",
+      "entity": "2a7945f6-391b-409e-9128-a59113fc9597",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 86,
+      "at": 1789518212.5330105,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised exact and conflicting checkpoint retries; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 87,
+      "at": 1789518212.533179,
+      "kind": "captured",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 88,
+      "at": 1789518213.2887816,
+      "kind": "transition",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.\"}"
+    },
+    {
+      "seq": 89,
+      "at": 1789518213.2890701,
+      "kind": "claimed",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"run\": \"2a7945f6-391b-409e-9128-a59113fc9597\"}"
     }
   ]
 }
