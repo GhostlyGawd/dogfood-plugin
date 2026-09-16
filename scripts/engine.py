@@ -314,7 +314,13 @@ class Ledger:
         f = self.edit(data)
         if f["status"] not in {"applied", "adopted"}:
             raise Conflict("only applied changes can be activated")
-        f["activation_evidence"] = required(data, "evidence_ref")
+        evidence = required(data, "evidence_ref")
+        current = f.get("activation_evidence")
+        if current is not None:
+            if f.get("activation") == "active" and current == evidence:
+                return f
+            raise Conflict("activation evidence cannot be rewritten")
+        f["activation_evidence"] = evidence
         f["activation"] = "active"
         self.save(f)
         return f
