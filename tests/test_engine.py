@@ -156,6 +156,10 @@ class EngineTests(unittest.TestCase):
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
         f = self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="fresh-run:loaded")
+        repeated = self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="fresh-run:loaded")
+        self.assertEqual(repeated["revision"], f["revision"])
+        with self.assertRaises(Conflict):
+            self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="replacement:not-allowed")
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session=applied_run, evidence_ref="same-run:not-later")
         f = self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
