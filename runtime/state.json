@@ -706,6 +706,27 @@
       "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
       "kind": "change_recorded",
       "seq": 101
+    },
+    {
+      "at": 1789603913.7997901,
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "kind": "transition",
+      "seq": 102
+    },
+    {
+      "at": 1789603913.800961,
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "kind": "transition",
+      "seq": 103
+    },
+    {
+      "at": 1789603913.8012974,
+      "body": "{\"summary\": \"Activated and adopted immutable activation evidence after fresh use. Applied idempotent reuse receipts; exact retries no longer duplicate evidence, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}",
+      "entity": "b44d057e-028a-481a-8bb1-5167e662ca82",
+      "kind": "checkpoint",
+      "seq": 104
     }
   ],
   "findings": [
@@ -1383,7 +1404,9 @@
       "updated_at": 1789603689.1081543
     },
     {
-      "activation": "not_applied",
+      "activation": "pending",
+      "applied_at": 1789603913.8008018,
+      "applied_run": "b44d057e-028a-481a-8bb1-5167e662ca82",
       "benefit": "Make exact reuse retries safe and prevent duplicate later-use receipts.",
       "changes": [
         {
@@ -1405,7 +1428,15 @@
           "target": "tests/test_engine.py"
         }
       ],
-      "checks": [],
+      "checks": [
+        {
+          "evaluator_version": "8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json",
+          "exit_code": 0,
+          "name": "24 regression tests and final remote byte comparison",
+          "verified_version": "90d151881c20365d1d5b5e742c6186b5934013b3"
+        }
+      ],
       "created_at": 1789603689.1085746,
       "dedup": "idempotent-reuse-receipts",
       "destination": "scripts/engine.py and tests/test_engine.py",
@@ -1416,25 +1447,21 @@
       "generalization_evidence": null,
       "hypothesis": false,
       "id": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "lease": {
-        "run": "b44d057e-028a-481a-8bb1-5167e662ca82",
-        "token": "84608a87-b300-4ef1-9c16-de5cedeca847",
-        "until": 1789604074.2130795
-      },
+      "lease": null,
       "observation": "An exact retry of a successful reuse receipt appends a duplicate receipt and increments the finding revision.",
       "owner": "GhostlyGawd",
       "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.",
+      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
       "recovery_required": false,
       "replacement": null,
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 5,
+      "revision": 8,
       "scope": "dogfood",
       "scope_reason": "The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.",
-      "status": "in_progress",
-      "updated_at": 1789603854.69146
+      "status": "applied",
+      "updated_at": 1789603913.8008063
     }
   ],
   "meta": {
@@ -1574,7 +1601,7 @@
     },
     {
       "changes_used": 2,
-      "checkpoint": null,
+      "checkpoint": "Activated and adopted immutable activation evidence after fresh use. Applied idempotent reuse receipts; exact retries no longer duplicate evidence, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.",
       "claimed": [
         "b8f00e7e-a87d-4e23-885a-30b1e501f57c"
       ],
@@ -1584,7 +1611,7 @@
       "projects": [
         "GhostlyGawd/dogfood-plugin"
       ],
-      "state": "running",
+      "state": "finished",
       "trigger": "background",
       "worker": "project-maintenance-2026-09-16"
     }
