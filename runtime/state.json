@@ -1386,7 +1386,7 @@
       "lease": {
         "run": "b44d057e-028a-481a-8bb1-5167e662ca82",
         "token": "84608a87-b300-4ef1-9c16-de5cedeca847",
-        "until": 1789604000.7550516
+        "until": 1789604074.2130795
       },
       "observation": "An exact retry of a successful reuse receipt appends a duplicate receipt and increments the finding revision.",
       "owner": "GhostlyGawd",
@@ -1397,11 +1397,11 @@
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 2,
+      "revision": 3,
       "scope": "dogfood",
       "scope_reason": "The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.",
       "status": "in_progress",
-      "updated_at": 1789603700.7552722
+      "updated_at": 1789603774.2130826
     }
   ],
   "meta": {
