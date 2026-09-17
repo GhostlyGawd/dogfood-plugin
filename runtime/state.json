@@ -657,6 +657,41 @@
       "entity": "2a7945f6-391b-409e-9128-a59113fc9597",
       "kind": "checkpoint",
       "seq": 94
+    },
+    {
+      "at": 1789603673.4922519,
+      "body": "{\"trigger\": \"background\"}",
+      "entity": "b44d057e-028a-481a-8bb1-5167e662ca82",
+      "kind": "run_started",
+      "seq": 95
+    },
+    {
+      "at": 1789603689.1083446,
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later fresh run loaded commit 602296c419a685b3a5a4c6b4d102209dc884c9a3, passed all 24 tests, and exercised activation-evidence integrity.\"}",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "kind": "transition",
+      "seq": 96
+    },
+    {
+      "at": 1789603689.108812,
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "kind": "captured",
+      "seq": 97
+    },
+    {
+      "at": 1789603700.7546468,
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.\"}",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "kind": "transition",
+      "seq": 98
+    },
+    {
+      "at": 1789603700.7554023,
+      "body": "{\"run\": \"b44d057e-028a-481a-8bb1-5167e662ca82\"}",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "kind": "claimed",
+      "seq": 99
     }
   ],
   "findings": [
@@ -1267,7 +1302,8 @@
       "updated_at": 1789518212.5329561
     },
     {
-      "activation": "pending",
+      "activation": "active",
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json",
       "applied_at": 1789518544.3307862,
       "applied_run": "2a7945f6-391b-409e-9128-a59113fc9597",
       "benefit": "Make exact activation retries idempotent and reject activation-evidence rewrites.",
@@ -1314,17 +1350,58 @@
       "observation": "The activate action can replace activation_evidence after an improvement is already active. Even an exact retry increments the finding revision, while a different receipt rewrites accepted evidence.",
       "owner": "GhostlyGawd",
       "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
+      "reason": "A later fresh run loaded commit 602296c419a685b3a5a4c6b4d102209dc884c9a3, passed all 24 tests, and exercised activation-evidence integrity.",
+      "recovery_required": false,
+      "replacement": null,
+      "resume_when": null,
+      "reuse": [
+        {
+          "at": 1789603689.1076574,
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json",
+          "session": "b44d057e-028a-481a-8bb1-5167e662ca82"
+        }
+      ],
+      "reversal_evidence": null,
+      "revision": 11,
+      "scope": "dogfood",
+      "scope_reason": "The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.",
+      "status": "adopted",
+      "updated_at": 1789603689.1081543
+    },
+    {
+      "activation": "not_applied",
+      "benefit": "Make exact reuse retries safe and prevent duplicate later-use receipts.",
+      "changes": [],
+      "checks": [],
+      "created_at": 1789603689.1085746,
+      "dedup": "idempotent-reuse-receipts",
+      "destination": "scripts/engine.py and tests/test_engine.py",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-16-reuse-integrity.json"
+      ],
+      "generalization_evidence": null,
+      "hypothesis": false,
+      "id": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "lease": {
+        "run": "b44d057e-028a-481a-8bb1-5167e662ca82",
+        "token": "84608a87-b300-4ef1-9c16-de5cedeca847",
+        "until": 1789604000.7550516
+      },
+      "observation": "An exact retry of a successful reuse receipt appends a duplicate receipt and increments the finding revision.",
+      "owner": "GhostlyGawd",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "reason": "The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.",
       "recovery_required": false,
       "replacement": null,
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 8,
+      "revision": 2,
       "scope": "dogfood",
-      "scope_reason": "The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.",
-      "status": "applied",
-      "updated_at": 1789518544.330789
+      "scope_reason": "The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.",
+      "status": "in_progress",
+      "updated_at": 1789603700.7552722
     }
   ],
   "meta": {
@@ -1461,6 +1538,22 @@
       "state": "finished",
       "trigger": "background",
       "worker": "project-maintenance-2026-09-15"
+    },
+    {
+      "changes_used": 0,
+      "checkpoint": null,
+      "claimed": [
+        "b8f00e7e-a87d-4e23-885a-30b1e501f57c"
+      ],
+      "deadline": 1789604873.4917269,
+      "id": "b44d057e-028a-481a-8bb1-5167e662ca82",
+      "max_changes": 3,
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "state": "running",
+      "trigger": "background",
+      "worker": "project-maintenance-2026-09-16"
     }
   ],
   "schema": 1
