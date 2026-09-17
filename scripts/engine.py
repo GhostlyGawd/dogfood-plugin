@@ -335,6 +335,9 @@ class Ledger:
         session = required(data, "session")
         if session == f.get("applied_run"):
             raise Conflict("reuse must come from a later run")
+        if any(receipt.get("session") == session and receipt.get("evidence_ref") == evidence
+               for receipt in f["reuse"]):
+            return f
         f["reuse"].append({"session": session, "evidence_ref": evidence, "at": self.clock()})
         self.save(f)
         return f
