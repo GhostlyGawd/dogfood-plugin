@@ -163,6 +163,8 @@ class EngineTests(unittest.TestCase):
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session=applied_run, evidence_ref="same-run:not-later")
         f = self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
+        repeated = self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
+        self.assertEqual(repeated["revision"], f["revision"])
         self.assertEqual(self.move(f, "adopted")["status"], "adopted")
 
     def test_self_change_cannot_change_evaluator(self):
