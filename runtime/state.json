@@ -699,6 +699,13 @@
       "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
       "kind": "change_recorded",
       "seq": 100
+    },
+    {
+      "at": 1789603854.6916113,
+      "body": "{\"operation_key\": \"reuse-integrity-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"f829aae1a0d333f86aaffa86c01b289f3a9b5231\", \"after_version\": \"90d151881c20365d1d5b5e742c6186b5934013b3\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only if its current blob is 6977e4bc937ab315920c589fc31d9d3c7140ae69; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json\", \"evaluator_version\": \"8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5\"}",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "kind": "change_recorded",
+      "seq": 101
     }
   ],
   "findings": [
@@ -1387,6 +1394,15 @@
           "operation_key": "reuse-integrity-engine",
           "reversal_ref": "Restore scripts/engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only if its current blob is c383555fe26b888a53fa0382c0d888f063b738ec; preserve later changes.",
           "target": "scripts/engine.py"
+        },
+        {
+          "after_version": "90d151881c20365d1d5b5e742c6186b5934013b3",
+          "before_version": "f829aae1a0d333f86aaffa86c01b289f3a9b5231",
+          "evaluator_version": "8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json",
+          "operation_key": "reuse-integrity-test",
+          "reversal_ref": "Restore tests/test_engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only if its current blob is 6977e4bc937ab315920c589fc31d9d3c7140ae69; preserve later changes.",
+          "target": "tests/test_engine.py"
         }
       ],
       "checks": [],
@@ -1414,11 +1430,11 @@
       "resume_when": null,
       "reuse": [],
       "reversal_evidence": null,
-      "revision": 4,
+      "revision": 5,
       "scope": "dogfood",
       "scope_reason": "The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.",
       "status": "in_progress",
-      "updated_at": 1789603818.0248313
+      "updated_at": 1789603854.69146
     }
   ],
   "meta": {
@@ -1557,7 +1573,7 @@
       "worker": "project-maintenance-2026-09-15"
     },
     {
-      "changes_used": 1,
+      "changes_used": 2,
       "checkpoint": null,
       "claimed": [
         "b8f00e7e-a87d-4e23-885a-30b1e501f57c"
