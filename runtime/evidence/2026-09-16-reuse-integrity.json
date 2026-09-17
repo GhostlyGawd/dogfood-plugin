@@ -15,7 +15,22 @@
   "candidate": {
     "finding_id": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
     "dedup": "idempotent-reuse-receipts",
-    "activation": "not_applied",
+    "target_version": "90d151881c20365d1d5b5e742c6186b5934013b3",
+    "activation": "pending",
+    "source_changes": [
+      {
+        "path": "scripts/engine.py",
+        "before_blob": "2d1ff15ce3f6e6d12a3ee6102c84dfcfd7d783d7",
+        "after_blob": "c383555fe26b888a53fa0382c0d888f063b738ec",
+        "commit": "e908a37c6a51075536f3dafaefb1604c706ed68a"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "before_blob": "f829aae1a0d333f86aaffa86c01b289f3a9b5231",
+        "after_blob": "6977e4bc937ab315920c589fc31d9d3c7140ae69",
+        "commit": "90d151881c20365d1d5b5e742c6186b5934013b3"
+      }
+    ],
     "fixed_evaluator_sha256": "8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5",
     "evaluator_files": [
       "tests/test_engine.py",
@@ -26,7 +41,21 @@
       "exit_code": 1,
       "output": "test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... FAIL\n\n======================================================================\nFAIL: test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<fresh-workspace>/tests/test_engine.py\", line 167, in test_complete_lifecycle_requires_activation_and_reuse\n    self.assertEqual(repeated[\"revision\"], f[\"revision\"])\nAssertionError: 9 != 8\n\n----------------------------------------------------------------------\nRan 1 test in 0.008s\n\nFAILED (failures=1)\nb3c9ffbf606c7a9de3abd36ed081863073560bf194763db14eb84dbf334d9530  tests/test_engine.py\n9d7d80ca719daf59720a7cccf3243d5fca19a794415038a6eb94e2bc796b250f  tests/test_check_history.py\n108f1d7bb816e58989f22f4e191d5d4df108f062af39af39c1180305050b4b61  tests/test_run_budget.py\n"
     },
-    "resume_when": "Apply and verify the candidate, then confirm activation in a later fresh run."
+    "verification": {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "test_count": 24,
+      "output": "test_retry_preserves_failed_check_and_snapshot (test_check_history.CheckHistoryTests.test_retry_preserves_failed_check_and_snapshot) ... ok\ntest_applied_recovery_cannot_blindly_retry (test_engine.EngineTests.test_applied_recovery_cannot_blindly_retry) ... ok\ntest_budget_expires_and_old_worker_is_rejected (test_engine.EngineTests.test_budget_expires_and_old_worker_is_rejected) ... ok\ntest_change_count_budget_enforced (test_engine.EngineTests.test_change_count_budget_enforced) ... ok\ntest_checkpoint_revokes_remaining_claims (test_engine.EngineTests.test_checkpoint_revokes_remaining_claims) ... ok\ntest_complete_lifecycle_requires_activation_and_reuse (test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... ok\ntest_duplicate_findings_are_project_scoped (test_engine.EngineTests.test_duplicate_findings_are_project_scoped) ... ok\ntest_expired_work_requires_reconciliation (test_engine.EngineTests.test_expired_work_requires_reconciliation) ... ok\ntest_failed_checks_prevent_application (test_engine.EngineTests.test_failed_checks_prevent_application) ... ok\ntest_fresh_process_reads_durable_state (test_engine.EngineTests.test_fresh_process_reads_durable_state) ... ok\ntest_hook_emits_valid_context_from_another_directory (test_engine.EngineTests.test_hook_emits_valid_context_from_another_directory) ... ok\ntest_instruction_setup_is_idempotent_and_preserves_text (test_engine.EngineTests.test_instruction_setup_is_idempotent_and_preserves_text) ... ok\ntest_only_one_concurrent_worker_claims (test_engine.EngineTests.test_only_one_concurrent_worker_claims) ... ok\ntest_owner_cannot_change (test_engine.EngineTests.test_owner_cannot_change) ... ok\ntest_pause_stops_claims_and_changes (test_engine.EngineTests.test_pause_stops_claims_and_changes) ... ok\ntest_personal_promotion_requires_evidence (test_engine.EngineTests.test_personal_promotion_requires_evidence) ... ok\ntest_project_pause_does_not_pause_other_project (test_engine.EngineTests.test_project_pause_does_not_pause_other_project) ... ok\ntest_project_scope_enforced (test_engine.EngineTests.test_project_scope_enforced) ... ok\ntest_self_change_cannot_change_evaluator (test_engine.EngineTests.test_self_change_cannot_change_evaluator) ... ok\ntest_snapshot_round_trip_and_owner_isolation (test_engine.EngineTests.test_snapshot_round_trip_and_owner_isolation) ... ok\ntest_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.307s\n\nOK\n8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5  -\n",
+      "remote_byte_match": true
+    },
+    "assertions": [
+      "An exact reuse retry returns the unchanged finding revision.",
+      "The receipt list does not gain a duplicate entry.",
+      "All 24 regression tests pass.",
+      "The final main-branch blobs match the tested candidate bytes."
+    ],
+    "resume_when": "A later fresh run loads commit 90d151881c20365d1d5b5e742c6186b5934013b3 and exercises an exact reuse retry.",
+    "reversal": "Restore scripts/engine.py and tests/test_engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only while the recorded candidate blobs still match. Preserve later changes."
   },
   "unresolved": [
     "Codex hook activation is not verified.",
