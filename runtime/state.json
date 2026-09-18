@@ -761,13 +761,13 @@
       "hypothesis": false,
       "benefit": "Make exact check-recording retries safe without losing distinct failed or rerun results.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1789689979.9839878,
-      "updated_at": 1789689986.835954,
+      "updated_at": 1789690029.224131,
       "lease": {
         "run": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
         "token": "88edcc58-3552-4c69-80f8-2cb0aac3052d",
-        "until": 1789690286.835889
+        "until": 1789690329.2241294
       },
       "changes": [],
       "checks": [],
