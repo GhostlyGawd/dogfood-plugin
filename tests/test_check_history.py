@@ -37,6 +37,10 @@ class CheckHistoryTests(unittest.TestCase):
             move("verifying")
             f = call("record-check", dict(id=f["id"], revision=f["revision"], token=f["lease"]["token"],
                 name="failure", evidence_ref="fixture:failure", exit_code=1, verified_version="candidate-one"))
+            repeated = call("record-check", dict(id=f["id"], revision=f["revision"], token=f["lease"]["token"],
+                name="failure", evidence_ref="fixture:failure", exit_code=1, verified_version="candidate-one"))
+            self.assertEqual(repeated["revision"], f["revision"])
+            self.assertEqual(len(repeated["checks"]), 1)
             failed_check = dict(f["checks"][0])
             move("blocked", resume_when="candidate reversed and a new plan is checked")
             claim_and_record("candidate-two")
