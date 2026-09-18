@@ -760,15 +760,11 @@
       ],
       "hypothesis": false,
       "benefit": "Make exact check-recording retries safe without losing distinct failed or rerun results.",
-      "status": "in_progress",
-      "revision": 5,
+      "status": "applied",
+      "revision": 8,
       "created_at": 1789689979.9839878,
-      "updated_at": 1789690101.1923032,
-      "lease": {
-        "run": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
-        "token": "88edcc58-3552-4c69-80f8-2cb0aac3052d",
-        "until": 1789690329.2241294
-      },
+      "updated_at": 1789690150.5627732,
+      "lease": null,
       "changes": [
         {
           "operation_key": "check-receipt-engine",
@@ -789,18 +785,28 @@
           "evaluator_version": "9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "24 regression tests and final remote byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json",
+          "verified_version": "0f063d4eceb5be26a79fcf57a4d4ff9718b6fd9b",
+          "exit_code": 0,
+          "evaluator_version": "9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_check_history.py",
       "scope_reason": "The fixed check-history evaluator fails on the current engine. Return the unchanged finding for an exact check retry.",
       "generalization_evidence": null,
-      "reason": "The fixed check-history evaluator fails on the current engine. Return the unchanged finding for an exact check retry.",
+      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
+      "applied_at": 1789690150.5627706
     }
   ],
   "runs": [
@@ -954,14 +960,14 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "deadline": 1789691167.2412858,
       "max_changes": 3,
       "changes_used": 2,
       "claimed": [
         "39cc0997-da80-4985-bdbc-3fa618e33dfd"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted idempotent reuse receipts after fresh use. Applied idempotent verification-check receipts; exact retries no longer duplicate checks, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -1741,6 +1747,27 @@
       "kind": "change_recorded",
       "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
       "body": "{\"operation_key\": \"check-receipt-test\", \"target\": \"tests/test_check_history.py\", \"before_version\": \"6a3db70dedd5c904d1a6b694afad03d015387f42\", \"after_version\": \"0f063d4eceb5be26a79fcf57a4d4ff9718b6fd9b\", \"reversal_ref\": \"Restore tests/test_check_history.py from main commit 90d151881c20365d1d5b5e742c6186b5934013b3 only if its current blob is b47af5bdf5b10396cba1ef2e866af63ad0fe060f; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json\", \"evaluator_version\": \"9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5\"}"
+    },
+    {
+      "seq": 112,
+      "at": 1789690150.562434,
+      "kind": "transition",
+      "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}"
+    },
+    {
+      "seq": 113,
+      "at": 1789690150.5628574,
+      "kind": "transition",
+      "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}"
+    },
+    {
+      "seq": 114,
+      "at": 1789690150.563002,
+      "kind": "checkpoint",
+      "entity": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
+      "body": "{\"summary\": \"Activated and adopted idempotent reuse receipts after fresh use. Applied idempotent verification-check receipts; exact retries no longer duplicate checks, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
