@@ -306,6 +306,8 @@ class Ledger:
             if ev != f["changes"][-1]["evaluator_version"]:
                 raise Conflict("the evaluator changed during this candidate")
             check["evaluator_version"] = ev
+        if check in f["checks"]:
+            return f
         f["checks"].append(check)
         self.save(f)
         return f
