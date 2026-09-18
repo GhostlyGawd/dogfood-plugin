@@ -162,8 +162,14 @@ class EngineTests(unittest.TestCase):
             self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="replacement:not-allowed")
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session=applied_run, evidence_ref="same-run:not-later")
-        f = self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
-        repeated = self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
+        with self.assertRaises(Conflict):
+            self.call("reuse", id=f["id"], revision=f["revision"], session="invented-session", evidence_ref="invented:not-valid")
+        wrong_project = self.call("start-run", worker="wrong-project", projects=["another-project"])
+        with self.assertRaises(Conflict):
+            self.call("reuse", id=f["id"], revision=f["revision"], session=wrong_project["id"], evidence_ref="wrong-project:not-valid")
+        later_run = self.call("start-run", worker="later-worker", projects=["project-a"])
+        f = self.call("reuse", id=f["id"], revision=f["revision"], session=later_run["id"], evidence_ref="later:success")
+        repeated = self.call("reuse", id=f["id"], revision=f["revision"], session=later_run["id"], evidence_ref="later:success")
         self.assertEqual(repeated["revision"], f["revision"])
         self.assertEqual(self.move(f, "adopted")["status"], "adopted")
 
