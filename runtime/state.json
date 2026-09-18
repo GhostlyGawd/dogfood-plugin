@@ -761,9 +761,9 @@
       "hypothesis": false,
       "benefit": "Make exact check-recording retries safe without losing distinct failed or rerun results.",
       "status": "in_progress",
-      "revision": 4,
+      "revision": 5,
       "created_at": 1789689979.9839878,
-      "updated_at": 1789690068.5888987,
+      "updated_at": 1789690101.1923032,
       "lease": {
         "run": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
         "token": "88edcc58-3552-4c69-80f8-2cb0aac3052d",
@@ -776,6 +776,15 @@
           "before_version": "c383555fe26b888a53fa0382c0d888f063b738ec",
           "after_version": "830ca9ea542d3bae3a8df63181d3d4045350fa0c",
           "reversal_ref": "Restore scripts/engine.py from main commit 90d151881c20365d1d5b5e742c6186b5934013b3 only if its current blob is 605a858f40d489c365ea8517793e71db452465e8; preserve later changes.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json",
+          "evaluator_version": "9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5"
+        },
+        {
+          "operation_key": "check-receipt-test",
+          "target": "tests/test_check_history.py",
+          "before_version": "6a3db70dedd5c904d1a6b694afad03d015387f42",
+          "after_version": "0f063d4eceb5be26a79fcf57a4d4ff9718b6fd9b",
+          "reversal_ref": "Restore tests/test_check_history.py from main commit 90d151881c20365d1d5b5e742c6186b5934013b3 only if its current blob is b47af5bdf5b10396cba1ef2e866af63ad0fe060f; preserve later changes.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json",
           "evaluator_version": "9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5"
         }
@@ -948,7 +957,7 @@
       "state": "running",
       "deadline": 1789691167.2412858,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "39cc0997-da80-4985-bdbc-3fa618e33dfd"
       ],
@@ -1725,6 +1734,13 @@
       "kind": "change_recorded",
       "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
       "body": "{\"operation_key\": \"check-receipt-engine\", \"target\": \"scripts/engine.py\", \"before_version\": \"c383555fe26b888a53fa0382c0d888f063b738ec\", \"after_version\": \"830ca9ea542d3bae3a8df63181d3d4045350fa0c\", \"reversal_ref\": \"Restore scripts/engine.py from main commit 90d151881c20365d1d5b5e742c6186b5934013b3 only if its current blob is 605a858f40d489c365ea8517793e71db452465e8; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json\", \"evaluator_version\": \"9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5\"}"
+    },
+    {
+      "seq": 111,
+      "at": 1789690101.1923423,
+      "kind": "change_recorded",
+      "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "body": "{\"operation_key\": \"check-receipt-test\", \"target\": \"tests/test_check_history.py\", \"before_version\": \"6a3db70dedd5c904d1a6b694afad03d015387f42\", \"after_version\": \"0f063d4eceb5be26a79fcf57a4d4ff9718b6fd9b\", \"reversal_ref\": \"Restore tests/test_check_history.py from main commit 90d151881c20365d1d5b5e742c6186b5934013b3 only if its current blob is b47af5bdf5b10396cba1ef2e866af63ad0fe060f; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json\", \"evaluator_version\": \"9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5\"}"
     }
   ]
 }
