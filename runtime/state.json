@@ -1,734 +1,12 @@
 {
-  "events": [
-    {
-      "at": 1788910030.0939834,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "captured",
-      "seq": 1
-    },
-    {
-      "at": 1788910030.0943117,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Add a project-scoped GitHub snapshot adapter with conflict handling.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 2
-    },
-    {
-      "at": 1788910030.0944996,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
-      "kind": "captured",
-      "seq": 3
-    },
-    {
-      "at": 1788910030.094678,
-      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"No Codex executable is available in the current setup environment.\"}",
-      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
-      "kind": "transition",
-      "seq": 4
-    },
-    {
-      "at": 1788910030.0949113,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
-      "kind": "captured",
-      "seq": 5
-    },
-    {
-      "at": 1788910030.0950902,
-      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"A supported persistent global instruction route must be configured and checked.\"}",
-      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
-      "kind": "transition",
-      "seq": 6
-    },
-    {
-      "at": 1788910105.678613,
-      "body": "{\"trigger\": \"manual\"}",
-      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
-      "kind": "run_started",
-      "seq": 7
-    },
-    {
-      "at": 1788910105.6792076,
-      "body": "{\"run\": \"2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "claimed",
-      "seq": 8
-    },
-    {
-      "at": 1788910209.7818537,
-      "body": "{\"operation_key\": \"github-state-adapter-v1\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"b8011744c886219565547eeddcb45c44cd096020\", \"after_version\": \"60d18dd4d6be0ef79f11b0028e155430d3f091ce\", \"reversal_ref\": \"Restore skills/dogfood/SKILL.md from b8011744c886219565547eeddcb45c44cd096020 and remove the new references/github.md only if both still match this candidate. Preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json\", \"evaluator_version\": \"473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "change_recorded",
-      "seq": 9
-    },
-    {
-      "at": 1788910209.7830625,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Source adapter and core route saved; checking against the fixed regression suite.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 10
-    },
-    {
-      "at": 1788910209.7844698,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Checks passed and the connected GitHub state route was exercised. A fresh scheduled run must verify instruction activation.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 11
-    },
-    {
-      "at": 1788910209.7847738,
-      "body": "{\"summary\": \"Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet.\"}",
-      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
-      "kind": "checkpoint",
-      "seq": 12
-    },
-    {
-      "at": 1788997292.259288,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
-      "kind": "run_started",
-      "seq": 13
-    },
-    {
-      "at": 1788997319.9549472,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "captured",
-      "seq": 14
-    },
-    {
-      "at": 1788997319.9553387,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "transition",
-      "seq": 15
-    },
-    {
-      "at": 1788997319.955535,
-      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "claimed",
-      "seq": 16
-    },
-    {
-      "at": 1788997374.9223602,
-      "body": "{\"operation_key\": \"check-history-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"7386cd3da0f9e83ac5d3267183f83d86797f5266\", \"after_version\": \"8964b123de1bce1f74688e6430825c3581ecb666\", \"reversal_ref\": \"Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "change_recorded",
-      "seq": 17
-    },
-    {
-      "at": 1788997442.7498279,
-      "body": "{\"operation_key\": \"check-history-complete\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"095281aa204f79f53094d65c62bbced06cd3066e\", \"after_version\": \"b0cc1df68b36253437aa2b0b206ef42cf43d080d\", \"reversal_ref\": \"Restore engine from 095281aa204f79f53094d65c62bbced06cd3066e and remove the new test only if both still match candidate blobs. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "change_recorded",
-      "seq": 18
-    },
-    {
-      "at": 1788997442.750117,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Candidate source matches tested files; fixed evaluator unchanged.\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "transition",
-      "seq": 19
-    },
-    {
-      "at": 1788997442.7504594,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All 22 tests pass; prior check receipts are retained across new attempts and snapshot restore.\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "transition",
-      "seq": 20
-    },
-    {
-      "at": 1788997442.7512221,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A separate unattended run loaded and used the saved GitHub adapter to restore state, persist a claim, save a checked improvement, and retain evidence.\"}",
-      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
-      "kind": "transition",
-      "seq": 21
-    },
-    {
-      "at": 1788997475.4627302,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "captured",
-      "seq": 22
-    },
-    {
-      "at": 1788997475.7600033,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Update stale counts and execution status from retained evidence; keep native host limitations.\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "transition",
-      "seq": 23
-    },
-    {
-      "at": 1788997475.760365,
-      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "claimed",
-      "seq": 24
-    },
-    {
-      "at": 1788997564.0720804,
-      "body": "{\"operation_key\": \"status-README.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/README.md\", \"before_version\": \"cbd2ae2c2ee551928ff7a68c15d64b37698ba165\", \"after_version\": \"fc557a664b1a55bc2999acb6ff12a9165d373af7\", \"reversal_ref\": \"Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches 387e3ec4f755ef8a96f24f023b145e1eeebce4bd. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "change_recorded",
-      "seq": 25
-    },
-    {
-      "at": 1788997567.1499977,
-      "body": "{\"operation_key\": \"status-docs/project-state.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/project-state.md\", \"before_version\": \"88209f1fec14b4c99a5c0ab15bdd4b283c870642\", \"after_version\": \"fd92fc4e840b6f413e139292281e50d67876305e\", \"reversal_ref\": \"Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches d2817a96250a629719613d92132fe4e2837e9285. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "change_recorded",
-      "seq": 26
-    },
-    {
-      "at": 1788997570.350439,
-      "body": "{\"operation_key\": \"status-docs/verification.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/verification.md\", \"before_version\": \"e4a4d050f00d4f190f974be969ff8dcdce834ec0\", \"after_version\": \"924a00ca95ab3243aa5895c2e2d782803895524f\", \"reversal_ref\": \"Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches 6d6549a145b48fbe624b0136aa7a9766ebd85f8a. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "change_recorded",
-      "seq": 27
-    },
-    {
-      "at": 1788997622.1504765,
-      "body": "{\"operation_key\": \"status-documents-complete\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"b0cc1df68b36253437aa2b0b206ef42cf43d080d\", \"after_version\": \"924a00ca95ab3243aa5895c2e2d782803895524f\", \"reversal_ref\": \"Restore README.md, docs/project-state.md and docs/verification.md from b0cc1df68b36253437aa2b0b206ef42cf43d080d only if each still matches commit 924a00ca95ab3243aa5895c2e2d782803895524f. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "change_recorded",
-      "seq": 28
-    },
-    {
-      "at": 1788997622.1509545,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Saved document bytes match fixed local checks.\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "transition",
-      "seq": 29
-    },
-    {
-      "at": 1788997622.151519,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Status now matches retained execution evidence; host installation limits remain.\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "transition",
-      "seq": 30
-    },
-    {
-      "at": 1788997622.1516862,
-      "body": "{\"summary\": \"Completed two bounded improvements: preserve historical check receipts (22 tests pass), and update project status from retained unattended evidence. GitHub adapter loaded and reused in this separate run; adopted. New engine and status documents are applied with later-run activation pending. Codex hook and Work-wide activation findings stay blocked until their saved host test conditions are met. No native plugin installation or second-user installation claimed.\"}",
-      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
-      "kind": "checkpoint",
-      "seq": 31
-    },
-    {
-      "at": 1789086492.6212893,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "f6191219-3a22-4ddd-8a29-478b2c853b24",
-      "kind": "run_started",
-      "seq": 32
-    },
-    {
-      "at": 1789086532.2149985,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the updated engine and its regression test; all 22 tests passed.\"}",
-      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
-      "kind": "transition",
-      "seq": 33
-    },
-    {
-      "at": 1789086532.2164545,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run loaded the updated status and used its pending activation and host limits.\"}",
-      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
-      "kind": "transition",
-      "seq": 34
-    },
-    {
-      "at": 1789086622.4196103,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "captured",
-      "seq": 35
-    },
-    {
-      "at": 1789086623.3099842,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed regression test fails on the current engine. Count unique record-change operations per run.\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "transition",
-      "seq": 36
-    },
-    {
-      "at": 1789086623.3106928,
-      "body": "{\"run\": \"f6191219-3a22-4ddd-8a29-478b2c853b24\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "claimed",
-      "seq": 37
-    },
-    {
-      "at": 1789086668.1564517,
-      "body": "{\"operation_key\": \"actual-change-budget-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"703aa140558cce7433e3c3e8bd8f575ff6d4e119\", \"after_version\": \"feb747820cec545e7755111870155604a4b3e1ff\", \"reversal_ref\": \"Restore scripts/engine.py from commit 924a00ca95ab3243aa5895c2e2d782803895524f only if its blob still matches cc45954bfe3c0172788d54b2f0f866a8916efed0. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "change_recorded",
-      "seq": 38
-    },
-    {
-      "at": 1789086699.756328,
-      "body": "{\"operation_key\": \"actual-change-budget-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_run_budget.py\", \"before_version\": \"absent@feb747820cec545e7755111870155604a4b3e1ff\", \"after_version\": \"89f3e893d71d4978ced93e66c29c1b01789fb488\", \"reversal_ref\": \"Remove tests/test_run_budget.py only if its blob still matches the saved candidate. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "change_recorded",
-      "seq": 39
-    },
-    {
-      "at": 1789086729.2822123,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Remote source bytes match the tested candidate; fixed evaluator unchanged.\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "transition",
-      "seq": 40
-    },
-    {
-      "at": 1789086729.2834656,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"The run now limits unique change operations; all 24 tests pass.\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "transition",
-      "seq": 41
-    },
-    {
-      "at": 1789086729.2837934,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "captured",
-      "seq": 42
-    },
-    {
-      "at": 1789086730.2383444,
-      "body": "{\"from\": \"captured\", \"to\": \"deferred\", \"reason\": \"The current run reached its guarded source-change budget after the engine and regression-test writes.\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "transition",
-      "seq": 43
-    },
-    {
-      "at": 1789086730.2388594,
-      "body": "{\"summary\": \"Activated and adopted the previous check-history and status changes after later-run use. Applied actual change-operation budget enforcement; 24 tests pass; activation is pending. Deferred the public test-count documentation until a later run because this run reached its guarded change budget. Codex hook activation and Work-wide activation remain blocked by their saved host test conditions.\"}",
-      "entity": "f6191219-3a22-4ddd-8a29-478b2c853b24",
-      "kind": "checkpoint",
-      "seq": 44
-    },
-    {
-      "at": 1789172179.5643907,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "9e983faa-9eef-437e-a554-73116ed1764b",
-      "kind": "run_started",
-      "seq": 45
-    },
-    {
-      "at": 1789172223.3451653,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the updated engine and exercised both actual-change budget tests; all 24 tests passed.\"}",
-      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
-      "kind": "transition",
-      "seq": 46
-    },
-    {
-      "at": 1789172223.345313,
-      "body": "{\"from\": \"deferred\", \"to\": \"ready\", \"reason\": \"The saved resume condition is met: commit 89f3e893d71d4978ced93e66c29c1b01789fb488 loaded, 24 tests pass, and this run has source-change budget.\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "transition",
-      "seq": 47
-    },
-    {
-      "at": 1789172223.3454964,
-      "body": "{\"run\": \"9e983faa-9eef-437e-a554-73116ed1764b\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "claimed",
-      "seq": 48
-    },
-    {
-      "at": 1789172286.717764,
-      "body": "{\"operation_key\": \"status-24-README.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/README.md\", \"before_version\": \"387e3ec4f755ef8a96f24f023b145e1eeebce4bd\", \"after_version\": \"7dcc070a98ffcc42042ab9a8590ba9b17d2873d0\", \"reversal_ref\": \"Restore README.md from commit 89f3e893d71d4978ced93e66c29c1b01789fb488 only if its blob still matches 7e9f825c70c51391ddca8a09b2b1c190c1311b05. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-status.json\", \"evaluator_version\": \"36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "change_recorded",
-      "seq": 49
-    },
-    {
-      "at": 1789172290.153537,
-      "body": "{\"operation_key\": \"status-24-docs/project-state.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/project-state.md\", \"before_version\": \"d2817a96250a629719613d92132fe4e2837e9285\", \"after_version\": \"f5ed6f796b0ed53bc111d8b55156aefa227d5424\", \"reversal_ref\": \"Restore docs/project-state.md from commit 89f3e893d71d4978ced93e66c29c1b01789fb488 only if its blob still matches e34766f12088a1aa234a1c7f370927508a09e6c7. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-status.json\", \"evaluator_version\": \"36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "change_recorded",
-      "seq": 50
-    },
-    {
-      "at": 1789172294.3484066,
-      "body": "{\"operation_key\": \"status-24-docs/verification.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/verification.md\", \"before_version\": \"6d6549a145b48fbe624b0136aa7a9766ebd85f8a\", \"after_version\": \"23056064bb955545f2ddd04c5ba277ec0df4ade2\", \"reversal_ref\": \"Restore docs/verification.md from commit 89f3e893d71d4978ced93e66c29c1b01789fb488 only if its blob still matches 9705b4d92e475c15318a2b8ef6596563b189dc14. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-status.json\", \"evaluator_version\": \"36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "change_recorded",
-      "seq": 51
-    },
-    {
-      "at": 1789172326.0763006,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches all three files that passed the fixed status evaluator.\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "transition",
-      "seq": 52
-    },
-    {
-      "at": 1789172326.0766869,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Public status now reports 24 tests and actual change budgets while retaining all host limits.\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "transition",
-      "seq": 53
-    },
-    {
-      "at": 1789172326.0768142,
-      "body": "{\"summary\": \"Activated and adopted the actual change-budget fix after a fresh 24-test run. Completed the deferred public status update across README and two documents with three guarded writes; fixed checks pass and activation is pending. The run used its full three-change budget. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}",
-      "entity": "9e983faa-9eef-437e-a554-73116ed1764b",
-      "kind": "checkpoint",
-      "seq": 54
-    },
-    {
-      "at": 1789259264.955622,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
-      "kind": "run_started",
-      "seq": 55
-    },
-    {
-      "at": 1789259327.3345845,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run loaded the updated public status, used it for current review, and passed all 24 tests.\"}",
-      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
-      "kind": "transition",
-      "seq": 56
-    },
-    {
-      "at": 1789259327.3350658,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "captured",
-      "seq": 57
-    },
-    {
-      "at": 1789259328.3126285,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed test fails on the current engine. Require all Dogfood change receipts in one finding to use the same evaluator version.\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "transition",
-      "seq": 58
-    },
-    {
-      "at": 1789259328.3132281,
-      "body": "{\"run\": \"49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "claimed",
-      "seq": 59
-    },
-    {
-      "at": 1789259370.700186,
-      "body": "{\"operation_key\": \"fixed-evaluator-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"cc45954bfe3c0172788d54b2f0f866a8916efed0\", \"after_version\": \"907932243dd210c0ff776b7550b7df28f00ee29d\", \"reversal_ref\": \"Restore scripts/engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches de0de4c814352d1abe06a112de7e8dd90e34ad04. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json\", \"evaluator_version\": \"d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "change_recorded",
-      "seq": 60
-    },
-    {
-      "at": 1789259376.0337994,
-      "body": "{\"operation_key\": \"fixed-evaluator-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"c4b37f6205e8da0d18685777da36eb130cf28a97\", \"after_version\": \"117cb7475a0d652af89690acc2e1cf2ae3cce6b8\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches 62dc3e7dec531fa21ce71f593eda8038de72c297. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json\", \"evaluator_version\": \"d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "change_recorded",
-      "seq": 61
-    },
-    {
-      "at": 1789259420.2213361,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "transition",
-      "seq": 62
-    },
-    {
-      "at": 1789259420.2224786,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"One evaluator version is now enforced across all Dogfood changes in a finding; all 24 tests pass.\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "transition",
-      "seq": 63
-    },
-    {
-      "at": 1789259420.22281,
-      "body": "{\"summary\": \"Activated and adopted the prior public status update after fresh use. Applied fixed-evaluator enforcement across every change in a Dogfood finding; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}",
-      "entity": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
-      "kind": "checkpoint",
-      "seq": 64
-    },
-    {
-      "at": 1789345517.7729247,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "44856282-6940-4488-a45b-2d9dd66b03f1",
-      "kind": "run_started",
-      "seq": 65
-    },
-    {
-      "at": 1789345570.4057834,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised the fixed-evaluator regression; all 24 tests passed.\"}",
-      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
-      "kind": "transition",
-      "seq": 66
-    },
-    {
-      "at": 1789345570.4059923,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "captured",
-      "seq": 67
-    },
-    {
-      "at": 1789345570.94818,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle test fails on the current engine. Save the applying run and require active, different-run reuse.\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "transition",
-      "seq": 68
-    },
-    {
-      "at": 1789345570.948425,
-      "body": "{\"run\": \"44856282-6940-4488-a45b-2d9dd66b03f1\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "claimed",
-      "seq": 69
-    },
-    {
-      "at": 1789345609.8748798,
-      "body": "{\"operation_key\": \"later-reuse-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"de0de4c814352d1abe06a112de7e8dd90e34ad04\", \"after_version\": \"589699c8aad1acf926598ab3d41b520f4d8f3b8f\", \"reversal_ref\": \"Restore scripts/engine.py from commit 117cb7475a0d652af89690acc2e1cf2ae3cce6b8 only if its blob still matches 5b5e3bdafe37182635e2aa900b36510b4d760cfe. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-13-later-reuse.json\", \"evaluator_version\": \"bd6eb74d4eec64e17decba10e47a0b10baa68b74ea837f7d05753e95706c3e58\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "change_recorded",
-      "seq": 70
-    },
-    {
-      "at": 1789345613.1788068,
-      "body": "{\"operation_key\": \"later-reuse-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"62dc3e7dec531fa21ce71f593eda8038de72c297\", \"after_version\": \"dd3d9496caed1c2db273fb04d5148f55a86a43a6\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 117cb7475a0d652af89690acc2e1cf2ae3cce6b8 only if its blob still matches 562d3709891f96a35ae21f20b5c3094de155e80c. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-13-later-reuse.json\", \"evaluator_version\": \"bd6eb74d4eec64e17decba10e47a0b10baa68b74ea837f7d05753e95706c3e58\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "change_recorded",
-      "seq": 71
-    },
-    {
-      "at": 1789345642.9937985,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "transition",
-      "seq": 72
-    },
-    {
-      "at": 1789345642.9944882,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Reuse now requires activation and a run different from the applying run; all 24 tests pass.\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "transition",
-      "seq": 73
-    },
-    {
-      "at": 1789345642.9947114,
-      "body": "{\"summary\": \"Activated and adopted fixed-evaluator enforcement after fresh use. Applied later-active reuse enforcement; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}",
-      "entity": "44856282-6940-4488-a45b-2d9dd66b03f1",
-      "kind": "checkpoint",
-      "seq": 74
-    },
-    {
-      "at": 1789430708.037983,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
-      "kind": "run_started",
-      "seq": 75
-    },
-    {
-      "at": 1789430767.8886607,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised active, different-run reuse; all 24 tests passed.\"}",
-      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
-      "kind": "transition",
-      "seq": 76
-    },
-    {
-      "at": 1789430767.8888881,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "captured",
-      "seq": 77
-    },
-    {
-      "at": 1789430768.5537713,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "transition",
-      "seq": 78
-    },
-    {
-      "at": 1789430768.5540423,
-      "body": "{\"run\": \"7c2cc4f9-779f-44a4-9e1e-3f1d761c9490\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "claimed",
-      "seq": 79
-    },
-    {
-      "at": 1789430815.8969114,
-      "body": "{\"operation_key\": \"checkpoint-integrity-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"5b5e3bdafe37182635e2aa900b36510b4d760cfe\", \"after_version\": \"4ec422e4dc733b0adcd8d92681bca0987717136a\", \"reversal_ref\": \"Restore scripts/engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches ff9576cb75050c1614f048782efaac799219557f. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "change_recorded",
-      "seq": 80
-    },
-    {
-      "at": 1789430820.9355245,
-      "body": "{\"operation_key\": \"checkpoint-integrity-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"562d3709891f96a35ae21f20b5c3094de155e80c\", \"after_version\": \"342bffe9300cabcbcf0942806e106933fecf0625\", \"reversal_ref\": \"Restore tests/test_engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches 5605073f36313b204a7555c3018c041e60a8d751. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "change_recorded",
-      "seq": 81
-    },
-    {
-      "at": 1789430853.6268604,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "transition",
-      "seq": 82
-    },
-    {
-      "at": 1789430853.6273453,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Completed run checkpoints are immutable except for exact idempotent retries; all 24 tests pass.\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "transition",
-      "seq": 83
-    },
-    {
-      "at": 1789430853.627624,
-      "body": "{\"summary\": \"Activated and adopted later-active reuse enforcement after fresh use. Applied immutable run checkpoints with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}",
-      "entity": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
-      "kind": "checkpoint",
-      "seq": 84
-    },
-    {
-      "at": 1789518161.4565227,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "2a7945f6-391b-409e-9128-a59113fc9597",
-      "kind": "run_started",
-      "seq": 85
-    },
-    {
-      "at": 1789518212.5330105,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised exact and conflicting checkpoint retries; all 24 tests passed.\"}",
-      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
-      "kind": "transition",
-      "seq": 86
-    },
-    {
-      "at": 1789518212.533179,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "captured",
-      "seq": 87
-    },
-    {
-      "at": 1789518213.2887816,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "transition",
-      "seq": 88
-    },
-    {
-      "at": 1789518213.2890701,
-      "body": "{\"run\": \"2a7945f6-391b-409e-9128-a59113fc9597\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "claimed",
-      "seq": 89
-    },
-    {
-      "at": 1789518420.9981995,
-      "body": "{\"operation_key\": \"activation-integrity-engine\", \"target\": \"scripts/engine.py\", \"before_version\": \"ff9576cb75050c1614f048782efaac799219557f\", \"after_version\": \"fe47404aaa695a81048338d44edb9bd6f9bde3ca\", \"reversal_ref\": \"Restore scripts/engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only if its current blob is 2d1ff15ce3f6e6d12a3ee6102c84dfcfd7d783d7; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-activation-integrity.json\", \"evaluator_version\": \"8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "change_recorded",
-      "seq": 90
-    },
-    {
-      "at": 1789518460.8099048,
-      "body": "{\"operation_key\": \"activation-integrity-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"5605073f36313b204a7555c3018c041e60a8d751\", \"after_version\": \"602296c419a685b3a5a4c6b4d102209dc884c9a3\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only if its current blob is f829aae1a0d333f86aaffa86c01b289f3a9b5231; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-activation-integrity.json\", \"evaluator_version\": \"8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "change_recorded",
-      "seq": 91
-    },
-    {
-      "at": 1789518544.3301525,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "transition",
-      "seq": 92
-    },
-    {
-      "at": 1789518544.3308485,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "transition",
-      "seq": 93
-    },
-    {
-      "at": 1789518544.331035,
-      "body": "{\"summary\": \"Activated and adopted immutable run checkpoints after fresh use. Applied immutable activation evidence with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until those host capabilities can be tested.\"}",
-      "entity": "2a7945f6-391b-409e-9128-a59113fc9597",
-      "kind": "checkpoint",
-      "seq": 94
-    },
-    {
-      "at": 1789603673.4922519,
-      "body": "{\"trigger\": \"background\"}",
-      "entity": "b44d057e-028a-481a-8bb1-5167e662ca82",
-      "kind": "run_started",
-      "seq": 95
-    },
-    {
-      "at": 1789603689.1083446,
-      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later fresh run loaded commit 602296c419a685b3a5a4c6b4d102209dc884c9a3, passed all 24 tests, and exercised activation-evidence integrity.\"}",
-      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
-      "kind": "transition",
-      "seq": 96
-    },
-    {
-      "at": 1789603689.108812,
-      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}",
-      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "kind": "captured",
-      "seq": 97
-    },
-    {
-      "at": 1789603700.7546468,
-      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.\"}",
-      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "kind": "transition",
-      "seq": 98
-    },
-    {
-      "at": 1789603700.7554023,
-      "body": "{\"run\": \"b44d057e-028a-481a-8bb1-5167e662ca82\"}",
-      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "kind": "claimed",
-      "seq": 99
-    },
-    {
-      "at": 1789603818.0249302,
-      "body": "{\"operation_key\": \"reuse-integrity-engine\", \"target\": \"scripts/engine.py\", \"before_version\": \"2d1ff15ce3f6e6d12a3ee6102c84dfcfd7d783d7\", \"after_version\": \"e908a37c6a51075536f3dafaefb1604c706ed68a\", \"reversal_ref\": \"Restore scripts/engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only if its current blob is c383555fe26b888a53fa0382c0d888f063b738ec; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json\", \"evaluator_version\": \"8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5\"}",
-      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "kind": "change_recorded",
-      "seq": 100
-    },
-    {
-      "at": 1789603854.6916113,
-      "body": "{\"operation_key\": \"reuse-integrity-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"f829aae1a0d333f86aaffa86c01b289f3a9b5231\", \"after_version\": \"90d151881c20365d1d5b5e742c6186b5934013b3\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only if its current blob is 6977e4bc937ab315920c589fc31d9d3c7140ae69; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json\", \"evaluator_version\": \"8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5\"}",
-      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "kind": "change_recorded",
-      "seq": 101
-    },
-    {
-      "at": 1789603913.7997901,
-      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}",
-      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "kind": "transition",
-      "seq": 102
-    },
-    {
-      "at": 1789603913.800961,
-      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}",
-      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
-      "kind": "transition",
-      "seq": 103
-    },
-    {
-      "at": 1789603913.8012974,
-      "body": "{\"summary\": \"Activated and adopted immutable activation evidence after fresh use. Applied idempotent reuse receipts; exact retries no longer duplicate evidence, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}",
-      "entity": "b44d057e-028a-481a-8bb1-5167e662ca82",
-      "kind": "checkpoint",
-      "seq": 104
-    }
-  ],
+  "schema": 1,
+  "meta": {
+    "installation": "12b93deb-1a49-41e8-8cd4-872a8ce91048",
+    "owner": "GhostlyGawd",
+    "paused": false,
+    "paused_projects": [],
+    "schema": 1
+  },
   "findings": [
     {
       "activation": "active",
@@ -1404,7 +682,7 @@
       "updated_at": 1789603689.1081543
     },
     {
-      "activation": "pending",
+      "activation": "active",
       "applied_at": 1789603913.8008018,
       "applied_run": "b44d057e-028a-481a-8bb1-5167e662ca82",
       "benefit": "Make exact reuse retries safe and prevent duplicate later-use receipts.",
@@ -1451,26 +729,61 @@
       "observation": "An exact retry of a successful reuse receipt appends a duplicate receipt and increments the finding revision.",
       "owner": "GhostlyGawd",
       "project": "GhostlyGawd/dogfood-plugin",
-      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
+      "reason": "A later fresh run loaded commit 90d151881c20365d1d5b5e742c6186b5934013b3, passed all 24 tests, and exercised exact reuse retry idempotency.",
       "recovery_required": false,
       "replacement": null,
       "resume_when": null,
-      "reuse": [],
+      "reuse": [
+        {
+          "session": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json",
+          "at": 1789689979.9835956
+        }
+      ],
       "reversal_evidence": null,
-      "revision": 8,
+      "revision": 11,
       "scope": "dogfood",
       "scope_reason": "The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.",
-      "status": "applied",
-      "updated_at": 1789603913.8008063
+      "status": "adopted",
+      "updated_at": 1789689979.9838142,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-17-check-receipts.json"
+    },
+    {
+      "id": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "idempotent-check-receipts",
+      "observation": "An exact retry of a recorded verification check appends a duplicate receipt and increments the finding revision.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-17-check-receipts.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Make exact check-recording retries safe without losing distinct failed or rerun results.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1789689979.9839878,
+      "updated_at": 1789689986.835954,
+      "lease": {
+        "run": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
+        "token": "88edcc58-3552-4c69-80f8-2cb0aac3052d",
+        "until": 1789690286.835889
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_check_history.py",
+      "scope_reason": "The fixed check-history evaluator fails on the current engine. Return the unchanged finding for an exact check retry.",
+      "generalization_evidence": null,
+      "reason": "The fixed check-history evaluator fails on the current engine. Return the unchanged finding for an exact check retry.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
-  "meta": {
-    "installation": "12b93deb-1a49-41e8-8cd4-872a8ce91048",
-    "owner": "GhostlyGawd",
-    "paused": false,
-    "paused_projects": [],
-    "schema": 1
-  },
   "runs": [
     {
       "checkpoint": "Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet.",
@@ -1614,7 +927,787 @@
       "state": "finished",
       "trigger": "background",
       "worker": "project-maintenance-2026-09-16"
+    },
+    {
+      "id": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
+      "worker": "project-maintenance-2026-09-17",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1789691167.2412858,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "39cc0997-da80-4985-bdbc-3fa618e33dfd"
+      ],
+      "checkpoint": null
     }
   ],
-  "schema": 1
+  "events": [
+    {
+      "seq": 1,
+      "at": 1788910030.0939834,
+      "kind": "captured",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 2,
+      "at": 1788910030.0943117,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Add a project-scoped GitHub snapshot adapter with conflict handling.\"}"
+    },
+    {
+      "seq": 3,
+      "at": 1788910030.0944996,
+      "kind": "captured",
+      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 4,
+      "at": 1788910030.094678,
+      "kind": "transition",
+      "entity": "0f874606-d61d-4d18-a213-0873125f2450",
+      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"No Codex executable is available in the current setup environment.\"}"
+    },
+    {
+      "seq": 5,
+      "at": 1788910030.0949113,
+      "kind": "captured",
+      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 6,
+      "at": 1788910030.0950902,
+      "kind": "transition",
+      "entity": "dd1ea4d3-d6b9-471d-9472-3af2c70c57d9",
+      "body": "{\"from\": \"captured\", \"to\": \"blocked\", \"reason\": \"A supported persistent global instruction route must be configured and checked.\"}"
+    },
+    {
+      "seq": 7,
+      "at": 1788910105.678613,
+      "kind": "run_started",
+      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+      "body": "{\"trigger\": \"manual\"}"
+    },
+    {
+      "seq": 8,
+      "at": 1788910105.6792076,
+      "kind": "claimed",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"run\": \"2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6\"}"
+    },
+    {
+      "seq": 9,
+      "at": 1788910209.7818537,
+      "kind": "change_recorded",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"operation_key\": \"github-state-adapter-v1\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"b8011744c886219565547eeddcb45c44cd096020\", \"after_version\": \"60d18dd4d6be0ef79f11b0028e155430d3f091ce\", \"reversal_ref\": \"Restore skills/dogfood/SKILL.md from b8011744c886219565547eeddcb45c44cd096020 and remove the new references/github.md only if both still match this candidate. Preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/github-adapter.json\", \"evaluator_version\": \"473c957fe2d7deb560bcc8cfbca286c7f27ecd46b14a5d90d2b09adbecc2d152\"}"
+    },
+    {
+      "seq": 10,
+      "at": 1788910209.7830625,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Source adapter and core route saved; checking against the fixed regression suite.\"}"
+    },
+    {
+      "seq": 11,
+      "at": 1788910209.7844698,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Checks passed and the connected GitHub state route was exercised. A fresh scheduled run must verify instruction activation.\"}"
+    },
+    {
+      "seq": 12,
+      "at": 1788910209.7847738,
+      "kind": "checkpoint",
+      "entity": "2f2a0f14-dbbc-45ac-b2a3-7ec708bb47e6",
+      "body": "{\"summary\": \"Applied the GitHub project state adapter. Host activation findings remain blocked. No unattended run observed yet.\"}"
+    },
+    {
+      "seq": 13,
+      "at": 1788997292.259288,
+      "kind": "run_started",
+      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 14,
+      "at": 1788997319.9549472,
+      "kind": "captured",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 15,
+      "at": 1788997319.9553387,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Confirmed local reproduction against the current GitHub engine. Preserve prior receipts in an additive history field.\"}"
+    },
+    {
+      "seq": 16,
+      "at": 1788997319.955535,
+      "kind": "claimed",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}"
+    },
+    {
+      "seq": 17,
+      "at": 1788997374.9223602,
+      "kind": "change_recorded",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"operation_key\": \"check-history-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"7386cd3da0f9e83ac5d3267183f83d86797f5266\", \"after_version\": \"8964b123de1bce1f74688e6430825c3581ecb666\", \"reversal_ref\": \"Restore scripts/engine.py from commit 095281aa204f79f53094d65c62bbced06cd3066e only if it still matches 703aa140558cce7433e3c3e8bd8f575ff6d4e119. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}"
+    },
+    {
+      "seq": 18,
+      "at": 1788997442.7498279,
+      "kind": "change_recorded",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"operation_key\": \"check-history-complete\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"095281aa204f79f53094d65c62bbced06cd3066e\", \"after_version\": \"b0cc1df68b36253437aa2b0b206ef42cf43d080d\", \"reversal_ref\": \"Restore engine from 095281aa204f79f53094d65c62bbced06cd3066e and remove the new test only if both still match candidate blobs. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-check-history.json\", \"evaluator_version\": \"1195fd6b5f7e59204e20b03aef4d57f6e4bb38e85ce52c5343400faa01fbacce\"}"
+    },
+    {
+      "seq": 19,
+      "at": 1788997442.750117,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Candidate source matches tested files; fixed evaluator unchanged.\"}"
+    },
+    {
+      "seq": 20,
+      "at": 1788997442.7504594,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All 22 tests pass; prior check receipts are retained across new attempts and snapshot restore.\"}"
+    },
+    {
+      "seq": 21,
+      "at": 1788997442.7512221,
+      "kind": "transition",
+      "entity": "352996b8-55bc-4470-b73d-e3f63ffd4f10",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A separate unattended run loaded and used the saved GitHub adapter to restore state, persist a claim, save a checked improvement, and retain evidence.\"}"
+    },
+    {
+      "seq": 22,
+      "at": 1788997475.4627302,
+      "kind": "captured",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 23,
+      "at": 1788997475.7600033,
+      "kind": "transition",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"Update stale counts and execution status from retained evidence; keep native host limitations.\"}"
+    },
+    {
+      "seq": 24,
+      "at": 1788997475.760365,
+      "kind": "claimed",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"run\": \"626c62c7-120e-4c55-9fce-993d524ba6fe\"}"
+    },
+    {
+      "seq": 25,
+      "at": 1788997564.0720804,
+      "kind": "change_recorded",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"operation_key\": \"status-README.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/README.md\", \"before_version\": \"cbd2ae2c2ee551928ff7a68c15d64b37698ba165\", \"after_version\": \"fc557a664b1a55bc2999acb6ff12a9165d373af7\", \"reversal_ref\": \"Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches 387e3ec4f755ef8a96f24f023b145e1eeebce4bd. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}"
+    },
+    {
+      "seq": 26,
+      "at": 1788997567.1499977,
+      "kind": "change_recorded",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"operation_key\": \"status-docs/project-state.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/project-state.md\", \"before_version\": \"88209f1fec14b4c99a5c0ab15bdd4b283c870642\", \"after_version\": \"fd92fc4e840b6f413e139292281e50d67876305e\", \"reversal_ref\": \"Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches d2817a96250a629719613d92132fe4e2837e9285. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}"
+    },
+    {
+      "seq": 27,
+      "at": 1788997570.350439,
+      "kind": "change_recorded",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"operation_key\": \"status-docs/verification.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/verification.md\", \"before_version\": \"e4a4d050f00d4f190f974be969ff8dcdce834ec0\", \"after_version\": \"924a00ca95ab3243aa5895c2e2d782803895524f\", \"reversal_ref\": \"Restore only this document from b0cc1df68b36253437aa2b0b206ef42cf43d080d if its blob still matches 6d6549a145b48fbe624b0136aa7a9766ebd85f8a. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}"
+    },
+    {
+      "seq": 28,
+      "at": 1788997622.1504765,
+      "kind": "change_recorded",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"operation_key\": \"status-documents-complete\", \"target\": \"GhostlyGawd/dogfood-plugin:main\", \"before_version\": \"b0cc1df68b36253437aa2b0b206ef42cf43d080d\", \"after_version\": \"924a00ca95ab3243aa5895c2e2d782803895524f\", \"reversal_ref\": \"Restore README.md, docs/project-state.md and docs/verification.md from b0cc1df68b36253437aa2b0b206ef42cf43d080d only if each still matches commit 924a00ca95ab3243aa5895c2e2d782803895524f. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-09-status.json\", \"evaluator_version\": \"1a6ddb729d9e4bf433950d1c1e09bb1cbb1b8b38677255d9ca59fe0335bf8d6a\"}"
+    },
+    {
+      "seq": 29,
+      "at": 1788997622.1509545,
+      "kind": "transition",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Saved document bytes match fixed local checks.\"}"
+    },
+    {
+      "seq": 30,
+      "at": 1788997622.151519,
+      "kind": "transition",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Status now matches retained execution evidence; host installation limits remain.\"}"
+    },
+    {
+      "seq": 31,
+      "at": 1788997622.1516862,
+      "kind": "checkpoint",
+      "entity": "626c62c7-120e-4c55-9fce-993d524ba6fe",
+      "body": "{\"summary\": \"Completed two bounded improvements: preserve historical check receipts (22 tests pass), and update project status from retained unattended evidence. GitHub adapter loaded and reused in this separate run; adopted. New engine and status documents are applied with later-run activation pending. Codex hook and Work-wide activation findings stay blocked until their saved host test conditions are met. No native plugin installation or second-user installation claimed.\"}"
+    },
+    {
+      "seq": 32,
+      "at": 1789086492.6212893,
+      "kind": "run_started",
+      "entity": "f6191219-3a22-4ddd-8a29-478b2c853b24",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 33,
+      "at": 1789086532.2149985,
+      "kind": "transition",
+      "entity": "6b710b70-114d-4176-86b5-bf82b87c4108",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the updated engine and its regression test; all 22 tests passed.\"}"
+    },
+    {
+      "seq": 34,
+      "at": 1789086532.2164545,
+      "kind": "transition",
+      "entity": "4a612b0b-8565-4ebc-9b93-e0dc2a567f91",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run loaded the updated status and used its pending activation and host limits.\"}"
+    },
+    {
+      "seq": 35,
+      "at": 1789086622.4196103,
+      "kind": "captured",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 36,
+      "at": 1789086623.3099842,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed regression test fails on the current engine. Count unique record-change operations per run.\"}"
+    },
+    {
+      "seq": 37,
+      "at": 1789086623.3106928,
+      "kind": "claimed",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"run\": \"f6191219-3a22-4ddd-8a29-478b2c853b24\"}"
+    },
+    {
+      "seq": 38,
+      "at": 1789086668.1564517,
+      "kind": "change_recorded",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"operation_key\": \"actual-change-budget-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"703aa140558cce7433e3c3e8bd8f575ff6d4e119\", \"after_version\": \"feb747820cec545e7755111870155604a4b3e1ff\", \"reversal_ref\": \"Restore scripts/engine.py from commit 924a00ca95ab3243aa5895c2e2d782803895524f only if its blob still matches cc45954bfe3c0172788d54b2f0f866a8916efed0. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}"
+    },
+    {
+      "seq": 39,
+      "at": 1789086699.756328,
+      "kind": "change_recorded",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"operation_key\": \"actual-change-budget-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_run_budget.py\", \"before_version\": \"absent@feb747820cec545e7755111870155604a4b3e1ff\", \"after_version\": \"89f3e893d71d4978ced93e66c29c1b01789fb488\", \"reversal_ref\": \"Remove tests/test_run_budget.py only if its blob still matches the saved candidate. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json\", \"evaluator_version\": \"da7bd5438d74ee7da434b86ab7b9adb6394f07f0fde13d80bc4cd4e91252520c\"}"
+    },
+    {
+      "seq": 40,
+      "at": 1789086729.2822123,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"Remote source bytes match the tested candidate; fixed evaluator unchanged.\"}"
+    },
+    {
+      "seq": 41,
+      "at": 1789086729.2834656,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"The run now limits unique change operations; all 24 tests pass.\"}"
+    },
+    {
+      "seq": 42,
+      "at": 1789086729.2837934,
+      "kind": "captured",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 43,
+      "at": 1789086730.2383444,
+      "kind": "transition",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"from\": \"captured\", \"to\": \"deferred\", \"reason\": \"The current run reached its guarded source-change budget after the engine and regression-test writes.\"}"
+    },
+    {
+      "seq": 44,
+      "at": 1789086730.2388594,
+      "kind": "checkpoint",
+      "entity": "f6191219-3a22-4ddd-8a29-478b2c853b24",
+      "body": "{\"summary\": \"Activated and adopted the previous check-history and status changes after later-run use. Applied actual change-operation budget enforcement; 24 tests pass; activation is pending. Deferred the public test-count documentation until a later run because this run reached its guarded change budget. Codex hook activation and Work-wide activation remain blocked by their saved host test conditions.\"}"
+    },
+    {
+      "seq": 45,
+      "at": 1789172179.5643907,
+      "kind": "run_started",
+      "entity": "9e983faa-9eef-437e-a554-73116ed1764b",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 46,
+      "at": 1789172223.3451653,
+      "kind": "transition",
+      "entity": "488eb2d6-ac81-49b5-9792-ed160d0f8c02",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the updated engine and exercised both actual-change budget tests; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 47,
+      "at": 1789172223.345313,
+      "kind": "transition",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"from\": \"deferred\", \"to\": \"ready\", \"reason\": \"The saved resume condition is met: commit 89f3e893d71d4978ced93e66c29c1b01789fb488 loaded, 24 tests pass, and this run has source-change budget.\"}"
+    },
+    {
+      "seq": 48,
+      "at": 1789172223.3454964,
+      "kind": "claimed",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"run\": \"9e983faa-9eef-437e-a554-73116ed1764b\"}"
+    },
+    {
+      "seq": 49,
+      "at": 1789172286.717764,
+      "kind": "change_recorded",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"operation_key\": \"status-24-README.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/README.md\", \"before_version\": \"387e3ec4f755ef8a96f24f023b145e1eeebce4bd\", \"after_version\": \"7dcc070a98ffcc42042ab9a8590ba9b17d2873d0\", \"reversal_ref\": \"Restore README.md from commit 89f3e893d71d4978ced93e66c29c1b01789fb488 only if its blob still matches 7e9f825c70c51391ddca8a09b2b1c190c1311b05. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-status.json\", \"evaluator_version\": \"36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a\"}"
+    },
+    {
+      "seq": 50,
+      "at": 1789172290.153537,
+      "kind": "change_recorded",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"operation_key\": \"status-24-docs/project-state.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/project-state.md\", \"before_version\": \"d2817a96250a629719613d92132fe4e2837e9285\", \"after_version\": \"f5ed6f796b0ed53bc111d8b55156aefa227d5424\", \"reversal_ref\": \"Restore docs/project-state.md from commit 89f3e893d71d4978ced93e66c29c1b01789fb488 only if its blob still matches e34766f12088a1aa234a1c7f370927508a09e6c7. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-status.json\", \"evaluator_version\": \"36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a\"}"
+    },
+    {
+      "seq": 51,
+      "at": 1789172294.3484066,
+      "kind": "change_recorded",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"operation_key\": \"status-24-docs/verification.md\", \"target\": \"GhostlyGawd/dogfood-plugin:main/docs/verification.md\", \"before_version\": \"6d6549a145b48fbe624b0136aa7a9766ebd85f8a\", \"after_version\": \"23056064bb955545f2ddd04c5ba277ec0df4ade2\", \"reversal_ref\": \"Restore docs/verification.md from commit 89f3e893d71d4978ced93e66c29c1b01789fb488 only if its blob still matches 9705b4d92e475c15318a2b8ef6596563b189dc14. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-11-status.json\", \"evaluator_version\": \"36d189197f30bcd36bcc705cd90e28743b5628bbd5fa2596824bf0e310a2785a\"}"
+    },
+    {
+      "seq": 52,
+      "at": 1789172326.0763006,
+      "kind": "transition",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches all three files that passed the fixed status evaluator.\"}"
+    },
+    {
+      "seq": 53,
+      "at": 1789172326.0766869,
+      "kind": "transition",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Public status now reports 24 tests and actual change budgets while retaining all host limits.\"}"
+    },
+    {
+      "seq": 54,
+      "at": 1789172326.0768142,
+      "kind": "checkpoint",
+      "entity": "9e983faa-9eef-437e-a554-73116ed1764b",
+      "body": "{\"summary\": \"Activated and adopted the actual change-budget fix after a fresh 24-test run. Completed the deferred public status update across README and two documents with three guarded writes; fixed checks pass and activation is pending. The run used its full three-change budget. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
+    },
+    {
+      "seq": 55,
+      "at": 1789259264.955622,
+      "kind": "run_started",
+      "entity": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 56,
+      "at": 1789259327.3345845,
+      "kind": "transition",
+      "entity": "058ff5bf-b1ed-491b-b422-bf44d2e811f0",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run loaded the updated public status, used it for current review, and passed all 24 tests.\"}"
+    },
+    {
+      "seq": 57,
+      "at": 1789259327.3350658,
+      "kind": "captured",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 58,
+      "at": 1789259328.3126285,
+      "kind": "transition",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed test fails on the current engine. Require all Dogfood change receipts in one finding to use the same evaluator version.\"}"
+    },
+    {
+      "seq": 59,
+      "at": 1789259328.3132281,
+      "kind": "claimed",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"run\": \"49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a\"}"
+    },
+    {
+      "seq": 60,
+      "at": 1789259370.700186,
+      "kind": "change_recorded",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"operation_key\": \"fixed-evaluator-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"cc45954bfe3c0172788d54b2f0f866a8916efed0\", \"after_version\": \"907932243dd210c0ff776b7550b7df28f00ee29d\", \"reversal_ref\": \"Restore scripts/engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches de0de4c814352d1abe06a112de7e8dd90e34ad04. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json\", \"evaluator_version\": \"d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4\"}"
+    },
+    {
+      "seq": 61,
+      "at": 1789259376.0337994,
+      "kind": "change_recorded",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"operation_key\": \"fixed-evaluator-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"c4b37f6205e8da0d18685777da36eb130cf28a97\", \"after_version\": \"117cb7475a0d652af89690acc2e1cf2ae3cce6b8\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 23056064bb955545f2ddd04c5ba277ec0df4ade2 only if its blob still matches 62dc3e7dec531fa21ce71f593eda8038de72c297. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-12-fixed-evaluator.json\", \"evaluator_version\": \"d52212e739533293229368671d3703b474da1df094b84306babd97af9c0ebbf4\"}"
+    },
+    {
+      "seq": 62,
+      "at": 1789259420.2213361,
+      "kind": "transition",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}"
+    },
+    {
+      "seq": 63,
+      "at": 1789259420.2224786,
+      "kind": "transition",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"One evaluator version is now enforced across all Dogfood changes in a finding; all 24 tests pass.\"}"
+    },
+    {
+      "seq": 64,
+      "at": 1789259420.22281,
+      "kind": "checkpoint",
+      "entity": "49c376f1-30c8-40fb-8dfc-cdb0f4a2ae1a",
+      "body": "{\"summary\": \"Activated and adopted the prior public status update after fresh use. Applied fixed-evaluator enforcement across every change in a Dogfood finding; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
+    },
+    {
+      "seq": 65,
+      "at": 1789345517.7729247,
+      "kind": "run_started",
+      "entity": "44856282-6940-4488-a45b-2d9dd66b03f1",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 66,
+      "at": 1789345570.4057834,
+      "kind": "transition",
+      "entity": "ed82017c-7d07-481f-8924-1e1e8eb7106c",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised the fixed-evaluator regression; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 67,
+      "at": 1789345570.4059923,
+      "kind": "captured",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 68,
+      "at": 1789345570.94818,
+      "kind": "transition",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle test fails on the current engine. Save the applying run and require active, different-run reuse.\"}"
+    },
+    {
+      "seq": 69,
+      "at": 1789345570.948425,
+      "kind": "claimed",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"run\": \"44856282-6940-4488-a45b-2d9dd66b03f1\"}"
+    },
+    {
+      "seq": 70,
+      "at": 1789345609.8748798,
+      "kind": "change_recorded",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"operation_key\": \"later-reuse-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"de0de4c814352d1abe06a112de7e8dd90e34ad04\", \"after_version\": \"589699c8aad1acf926598ab3d41b520f4d8f3b8f\", \"reversal_ref\": \"Restore scripts/engine.py from commit 117cb7475a0d652af89690acc2e1cf2ae3cce6b8 only if its blob still matches 5b5e3bdafe37182635e2aa900b36510b4d760cfe. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-13-later-reuse.json\", \"evaluator_version\": \"bd6eb74d4eec64e17decba10e47a0b10baa68b74ea837f7d05753e95706c3e58\"}"
+    },
+    {
+      "seq": 71,
+      "at": 1789345613.1788068,
+      "kind": "change_recorded",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"operation_key\": \"later-reuse-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"62dc3e7dec531fa21ce71f593eda8038de72c297\", \"after_version\": \"dd3d9496caed1c2db273fb04d5148f55a86a43a6\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 117cb7475a0d652af89690acc2e1cf2ae3cce6b8 only if its blob still matches 562d3709891f96a35ae21f20b5c3094de155e80c. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-13-later-reuse.json\", \"evaluator_version\": \"bd6eb74d4eec64e17decba10e47a0b10baa68b74ea837f7d05753e95706c3e58\"}"
+    },
+    {
+      "seq": 72,
+      "at": 1789345642.9937985,
+      "kind": "transition",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}"
+    },
+    {
+      "seq": 73,
+      "at": 1789345642.9944882,
+      "kind": "transition",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Reuse now requires activation and a run different from the applying run; all 24 tests pass.\"}"
+    },
+    {
+      "seq": 74,
+      "at": 1789345642.9947114,
+      "kind": "checkpoint",
+      "entity": "44856282-6940-4488-a45b-2d9dd66b03f1",
+      "body": "{\"summary\": \"Activated and adopted fixed-evaluator enforcement after fresh use. Applied later-active reuse enforcement; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
+    },
+    {
+      "seq": 75,
+      "at": 1789430708.037983,
+      "kind": "run_started",
+      "entity": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 76,
+      "at": 1789430767.8886607,
+      "kind": "transition",
+      "entity": "8474f9d3-d557-46d5-94d1-dc1cbad25ccf",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised active, different-run reuse; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 77,
+      "at": 1789430767.8888881,
+      "kind": "captured",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 78,
+      "at": 1789430768.5537713,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed checkpoint test fails on the current engine. Preserve exact retries and reject changed terminal checkpoints.\"}"
+    },
+    {
+      "seq": 79,
+      "at": 1789430768.5540423,
+      "kind": "claimed",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"run\": \"7c2cc4f9-779f-44a4-9e1e-3f1d761c9490\"}"
+    },
+    {
+      "seq": 80,
+      "at": 1789430815.8969114,
+      "kind": "change_recorded",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"operation_key\": \"checkpoint-integrity-scripts/engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/scripts/engine.py\", \"before_version\": \"5b5e3bdafe37182635e2aa900b36510b4d760cfe\", \"after_version\": \"4ec422e4dc733b0adcd8d92681bca0987717136a\", \"reversal_ref\": \"Restore scripts/engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches ff9576cb75050c1614f048782efaac799219557f. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}"
+    },
+    {
+      "seq": 81,
+      "at": 1789430820.9355245,
+      "kind": "change_recorded",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"operation_key\": \"checkpoint-integrity-tests/test_engine.py\", \"target\": \"GhostlyGawd/dogfood-plugin:main/tests/test_engine.py\", \"before_version\": \"562d3709891f96a35ae21f20b5c3094de155e80c\", \"after_version\": \"342bffe9300cabcbcf0942806e106933fecf0625\", \"reversal_ref\": \"Restore tests/test_engine.py from commit dd3d9496caed1c2db273fb04d5148f55a86a43a6 only if its blob still matches 5605073f36313b204a7555c3018c041e60a8d751. Preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-14-checkpoint-integrity.json\", \"evaluator_version\": \"543f1801eb7c9e75841eafedfbbcc45162dfda012da1fb6a7cd19e51ad03952d\"}"
+    },
+    {
+      "seq": 82,
+      "at": 1789430853.6268604,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The final commit matches the engine and test files that passed the fixed evaluator.\"}"
+    },
+    {
+      "seq": 83,
+      "at": 1789430853.6273453,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Completed run checkpoints are immutable except for exact idempotent retries; all 24 tests pass.\"}"
+    },
+    {
+      "seq": 84,
+      "at": 1789430853.627624,
+      "kind": "checkpoint",
+      "entity": "7c2cc4f9-779f-44a4-9e1e-3f1d761c9490",
+      "body": "{\"summary\": \"Activated and adopted later-active reuse enforcement after fresh use. Applied immutable run checkpoints with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked by their saved conditions.\"}"
+    },
+    {
+      "seq": 85,
+      "at": 1789518161.4565227,
+      "kind": "run_started",
+      "entity": "2a7945f6-391b-409e-9128-a59113fc9597",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 86,
+      "at": 1789518212.5330105,
+      "kind": "transition",
+      "entity": "98e1f253-e85f-4795-be61-780fce4d222d",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later run fetched the engine and exercised exact and conflicting checkpoint retries; all 24 tests passed.\"}"
+    },
+    {
+      "seq": 87,
+      "at": 1789518212.533179,
+      "kind": "captured",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 88,
+      "at": 1789518213.2887816,
+      "kind": "transition",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle test fails on the current engine. Preserve the first activation receipt and allow only exact idempotent retries.\"}"
+    },
+    {
+      "seq": 89,
+      "at": 1789518213.2890701,
+      "kind": "claimed",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"run\": \"2a7945f6-391b-409e-9128-a59113fc9597\"}"
+    },
+    {
+      "seq": 90,
+      "at": 1789518420.9981995,
+      "kind": "change_recorded",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"operation_key\": \"activation-integrity-engine\", \"target\": \"scripts/engine.py\", \"before_version\": \"ff9576cb75050c1614f048782efaac799219557f\", \"after_version\": \"fe47404aaa695a81048338d44edb9bd6f9bde3ca\", \"reversal_ref\": \"Restore scripts/engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only if its current blob is 2d1ff15ce3f6e6d12a3ee6102c84dfcfd7d783d7; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-activation-integrity.json\", \"evaluator_version\": \"8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3\"}"
+    },
+    {
+      "seq": 91,
+      "at": 1789518460.8099048,
+      "kind": "change_recorded",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"operation_key\": \"activation-integrity-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"5605073f36313b204a7555c3018c041e60a8d751\", \"after_version\": \"602296c419a685b3a5a4c6b4d102209dc884c9a3\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 342bffe9300cabcbcf0942806e106933fecf0625 only if its current blob is f829aae1a0d333f86aaffa86c01b289f3a9b5231; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-15-activation-integrity.json\", \"evaluator_version\": \"8ff35afd5755ceab9cceae9660519200ab4c58e75440e6dbfbe103115fc5c5d3\"}"
+    },
+    {
+      "seq": 92,
+      "at": 1789518544.3301525,
+      "kind": "transition",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}"
+    },
+    {
+      "seq": 93,
+      "at": 1789518544.3308485,
+      "kind": "transition",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}"
+    },
+    {
+      "seq": 94,
+      "at": 1789518544.331035,
+      "kind": "checkpoint",
+      "entity": "2a7945f6-391b-409e-9128-a59113fc9597",
+      "body": "{\"summary\": \"Activated and adopted immutable run checkpoints after fresh use. Applied immutable activation evidence with exact idempotent retries; all 24 tests pass and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until those host capabilities can be tested.\"}"
+    },
+    {
+      "seq": 95,
+      "at": 1789603673.4922519,
+      "kind": "run_started",
+      "entity": "b44d057e-028a-481a-8bb1-5167e662ca82",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 96,
+      "at": 1789603689.1083446,
+      "kind": "transition",
+      "entity": "db4a7ba5-fc1f-4bf2-a91c-66bcc7b82b27",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later fresh run loaded commit 602296c419a685b3a5a4c6b4d102209dc884c9a3, passed all 24 tests, and exercised activation-evidence integrity.\"}"
+    },
+    {
+      "seq": 97,
+      "at": 1789603689.108812,
+      "kind": "captured",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 98,
+      "at": 1789603700.7546468,
+      "kind": "transition",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle evaluator fails on the current engine. Return the unchanged finding for an exact reuse retry.\"}"
+    },
+    {
+      "seq": 99,
+      "at": 1789603700.7554023,
+      "kind": "claimed",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"run\": \"b44d057e-028a-481a-8bb1-5167e662ca82\"}"
+    },
+    {
+      "seq": 100,
+      "at": 1789603818.0249302,
+      "kind": "change_recorded",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"operation_key\": \"reuse-integrity-engine\", \"target\": \"scripts/engine.py\", \"before_version\": \"2d1ff15ce3f6e6d12a3ee6102c84dfcfd7d783d7\", \"after_version\": \"e908a37c6a51075536f3dafaefb1604c706ed68a\", \"reversal_ref\": \"Restore scripts/engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only if its current blob is c383555fe26b888a53fa0382c0d888f063b738ec; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json\", \"evaluator_version\": \"8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5\"}"
+    },
+    {
+      "seq": 101,
+      "at": 1789603854.6916113,
+      "kind": "change_recorded",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"operation_key\": \"reuse-integrity-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"f829aae1a0d333f86aaffa86c01b289f3a9b5231\", \"after_version\": \"90d151881c20365d1d5b5e742c6186b5934013b3\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 602296c419a685b3a5a4c6b4d102209dc884c9a3 only if its current blob is 6977e4bc937ab315920c589fc31d9d3c7140ae69; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-16-reuse-integrity.json\", \"evaluator_version\": \"8b0a3da651ee0cbc83aea3499c2103529840b03f7f9002222575657d80c4cec5\"}"
+    },
+    {
+      "seq": 102,
+      "at": 1789603913.7997901,
+      "kind": "transition",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}"
+    },
+    {
+      "seq": 103,
+      "at": 1789603913.800961,
+      "kind": "transition",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}"
+    },
+    {
+      "seq": 104,
+      "at": 1789603913.8012974,
+      "kind": "checkpoint",
+      "entity": "b44d057e-028a-481a-8bb1-5167e662ca82",
+      "body": "{\"summary\": \"Activated and adopted immutable activation evidence after fresh use. Applied idempotent reuse receipts; exact retries no longer duplicate evidence, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 105,
+      "at": 1789689967.2414517,
+      "kind": "run_started",
+      "entity": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 106,
+      "at": 1789689979.9838753,
+      "kind": "transition",
+      "entity": "b8f00e7e-a87d-4e23-885a-30b1e501f57c",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later fresh run loaded commit 90d151881c20365d1d5b5e742c6186b5934013b3, passed all 24 tests, and exercised exact reuse retry idempotency.\"}"
+    },
+    {
+      "seq": 107,
+      "at": 1789689979.9840539,
+      "kind": "captured",
+      "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 108,
+      "at": 1789689986.8356597,
+      "kind": "transition",
+      "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed check-history evaluator fails on the current engine. Return the unchanged finding for an exact check retry.\"}"
+    },
+    {
+      "seq": 109,
+      "at": 1789689986.8359733,
+      "kind": "claimed",
+      "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "body": "{\"run\": \"a5f657b5-fe15-4fc1-a1b4-4cef0945861a\"}"
+    }
+  ]
 }
