@@ -827,15 +827,11 @@
       ],
       "hypothesis": false,
       "benefit": "Require later-use receipts to name an active recorded run scoped to the finding's project.",
-      "status": "in_progress",
-      "revision": 5,
+      "status": "applied",
+      "revision": 8,
       "created_at": 1789774707.3707335,
-      "updated_at": 1789774807.648877,
-      "lease": {
-        "run": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
-        "token": "2f0cbdcc-5725-4df2-b089-f6f661e9b924",
-        "until": 1789775045.0309448
-      },
+      "updated_at": 1789774853.2411263,
+      "lease": null,
       "changes": [
         {
           "operation_key": "reuse-run-engine",
@@ -856,18 +852,28 @@
           "evaluator_version": "945da4bfecdf6479167ea4c480f7f1f7723220ae5debcb0aa8168719b8aea4ae"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "24 regression tests and final remote byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-18-reuse-run-integrity.json",
+          "verified_version": "104892af82461c8462eb0bbe3ba26acdeab928cb",
+          "exit_code": 0,
+          "evaluator_version": "945da4bfecdf6479167ea4c480f7f1f7723220ae5debcb0aa8168719b8aea4ae"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_engine.py",
       "scope_reason": "The fixed lifecycle evaluator proves that invented and wrong-project session receipts pass today. Bind reuse to a live recorded run scoped to the finding project.",
       "generalization_evidence": null,
-      "reason": "The fixed lifecycle evaluator proves that invented and wrong-project session receipts pass today. Bind reuse to a live recorded run scoped to the finding project.",
+      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
+      "applied_at": 1789774853.2411225
     }
   ],
   "runs": [
@@ -1037,14 +1043,14 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "deadline": 1789775896.3422272,
       "max_changes": 3,
       "changes_used": 2,
       "claimed": [
         "feb46000-aca0-44b7-a2b3-77773622856a"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted idempotent verification-check receipts after fresh use. Applied scoped-run validation for reuse evidence; fabricated and wrong-project sessions are rejected, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -1894,6 +1900,27 @@
       "kind": "change_recorded",
       "entity": "feb46000-aca0-44b7-a2b3-77773622856a",
       "body": "{\"operation_key\": \"reuse-run-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"6977e4bc937ab315920c589fc31d9d3c7140ae69\", \"after_version\": \"104892af82461c8462eb0bbe3ba26acdeab928cb\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 0f063d4eceb5be26a79fcf57a4d4ff9718b6fd9b only if its current blob is 6358c40dba6ff2d1935465588cefc8440ed3c857; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-18-reuse-run-integrity.json\", \"evaluator_version\": \"945da4bfecdf6479167ea4c480f7f1f7723220ae5debcb0aa8168719b8aea4ae\"}"
+    },
+    {
+      "seq": 122,
+      "at": 1789774853.2407043,
+      "kind": "transition",
+      "entity": "feb46000-aca0-44b7-a2b3-77773622856a",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"The candidate is committed on main and the fixed evaluator passed.\"}"
+    },
+    {
+      "seq": 123,
+      "at": 1789774853.2411757,
+      "kind": "transition",
+      "entity": "feb46000-aca0-44b7-a2b3-77773622856a",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"All fixed-evaluator tests pass and both remote blobs match the tested candidate.\"}"
+    },
+    {
+      "seq": 124,
+      "at": 1789774853.2413232,
+      "kind": "checkpoint",
+      "entity": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
+      "body": "{\"summary\": \"Activated and adopted idempotent verification-check receipts after fresh use. Applied scoped-run validation for reuse evidence; fabricated and wrong-project sessions are rejected, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
