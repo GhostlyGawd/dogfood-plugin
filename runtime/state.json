@@ -760,10 +760,10 @@
       ],
       "hypothesis": false,
       "benefit": "Make exact check-recording retries safe without losing distinct failed or rerun results.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1789689979.9839878,
-      "updated_at": 1789690150.5627732,
+      "updated_at": 1789774707.3705518,
       "lease": null,
       "changes": [
         {
@@ -794,19 +794,61 @@
           "evaluator_version": "9fb02e3e6945750414582c0e4e130ec30204fd531d5a5d38fc458d01beac71d5"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-18-reuse-run-integrity.json",
+          "at": 1789774707.3703146
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_check_history.py",
       "scope_reason": "The fixed check-history evaluator fails on the current engine. Return the unchanged finding for an exact check retry.",
       "generalization_evidence": null,
-      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
+      "reason": "A later fresh run loaded commit 0f063d4eceb5be26a79fcf57a4d4ff9718b6fd9b, passed all 24 tests, and exercised exact check-receipt retries.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
-      "applied_at": 1789690150.5627706
+      "applied_at": 1789690150.5627706,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-18-reuse-run-integrity.json"
+    },
+    {
+      "id": "feb46000-aca0-44b7-a2b3-77773622856a",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "reuse-requires-scoped-run",
+      "observation": "Reuse evidence accepts an invented session string or a run scoped to another project, so adoption does not prove later relevant use.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-18-reuse-run-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Require later-use receipts to name an active recorded run scoped to the finding's project.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1789774707.3707335,
+      "updated_at": 1789774714.276489,
+      "lease": {
+        "run": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
+        "token": "2f0cbdcc-5725-4df2-b089-f6f661e9b924",
+        "until": 1789775014.276358
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_engine.py",
+      "scope_reason": "The fixed lifecycle evaluator proves that invented and wrong-project session receipts pass today. Bind reuse to a live recorded run scoped to the finding project.",
+      "generalization_evidence": null,
+      "reason": "The fixed lifecycle evaluator proves that invented and wrong-project session receipts pass today. Bind reuse to a live recorded run scoped to the finding project.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -968,6 +1010,22 @@
         "39cc0997-da80-4985-bdbc-3fa618e33dfd"
       ],
       "checkpoint": "Activated and adopted idempotent reuse receipts after fresh use. Applied idempotent verification-check receipts; exact retries no longer duplicate checks, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
+      "worker": "project-maintenance-2026-09-18",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1789775896.3422272,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "feb46000-aca0-44b7-a2b3-77773622856a"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -1768,6 +1826,41 @@
       "kind": "checkpoint",
       "entity": "a5f657b5-fe15-4fc1-a1b4-4cef0945861a",
       "body": "{\"summary\": \"Activated and adopted idempotent reuse receipts after fresh use. Applied idempotent verification-check receipts; exact retries no longer duplicate checks, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 115,
+      "at": 1789774696.3423793,
+      "kind": "run_started",
+      "entity": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 116,
+      "at": 1789774707.3706133,
+      "kind": "transition",
+      "entity": "39cc0997-da80-4985-bdbc-3fa618e33dfd",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later fresh run loaded commit 0f063d4eceb5be26a79fcf57a4d4ff9718b6fd9b, passed all 24 tests, and exercised exact check-receipt retries.\"}"
+    },
+    {
+      "seq": 117,
+      "at": 1789774707.3707986,
+      "kind": "captured",
+      "entity": "feb46000-aca0-44b7-a2b3-77773622856a",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 118,
+      "at": 1789774714.276047,
+      "kind": "transition",
+      "entity": "feb46000-aca0-44b7-a2b3-77773622856a",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed lifecycle evaluator proves that invented and wrong-project session receipts pass today. Bind reuse to a live recorded run scoped to the finding project.\"}"
+    },
+    {
+      "seq": 119,
+      "at": 1789774714.2765212,
+      "kind": "claimed",
+      "entity": "feb46000-aca0-44b7-a2b3-77773622856a",
+      "body": "{\"run\": \"da4c8d99-d416-4fda-abb8-f4fdfae12eab\"}"
     }
   ]
 }
