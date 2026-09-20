@@ -187,6 +187,11 @@ class EngineTests(unittest.TestCase):
         with self.assertRaises(Conflict):
             self.call("record-check", **self.edit_args(f), name="test", evidence_ref="fixture:output", exit_code=0,
                       verified_version="sha-after", evaluator_version="weakened-v2")
+        f = self.call("record-check", **self.edit_args(f), name="test", evidence_ref="fixture:output", exit_code=0,
+                      verified_version="sha-after", evaluator_version="fixed-evaluator-v1")
+        with self.assertRaises(ValueError):
+            self.move(f, "applied", activation="active")
+        self.assertEqual(self.move(f, "applied", activation="pending")["activation"], "pending")
 
     def test_personal_promotion_requires_evidence(self):
         f = self.capture()
