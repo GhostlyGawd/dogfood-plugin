@@ -242,6 +242,8 @@ class Ledger:
             f["activation"] = data.get("activation", "pending")
             if f["activation"] not in {"pending", "active"}:
                 raise ValueError("invalid activation status")
+            if f.get("scope") == "dogfood" and f["activation"] == "active":
+                raise ValueError("Dogfood self-improvements require later activation evidence")
             f["applied_run"] = f["lease"]["run"]
             f["applied_at"] = self.clock()
         if target == "adopted":
