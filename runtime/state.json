@@ -895,15 +895,25 @@
       "hypothesis": false,
       "benefit": "Force Dogfood self-improvements to remain pending until a later fresh run supplies activation evidence.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1789863777.873528,
-      "updated_at": 1789863813.5587096,
+      "updated_at": 1789863847.9644306,
       "lease": {
         "run": "a0b4a4d6-7d5f-43d2-9923-5fa984c6211b",
         "token": "418193c2-6148-4d6d-8e3a-6b47e21b8188",
         "until": 1789864113.558708
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "activation-pending-engine",
+          "target": "scripts/engine.py",
+          "before_version": "439ba667eb510ab418fb941dbcbedc02be199977",
+          "after_version": "027cf4747d2f914b221fa648293256bee1218396",
+          "reversal_ref": "Restore scripts/engine.py from main commit 104892af82461c8462eb0bbe3ba26acdeab928cb only if its current blob is bd62546276a4a27fd11ba1d2b5c7f65f41eed10b; preserve later changes.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-19-self-activation-integrity.json",
+          "evaluator_version": "4ac22212c30d54145c819796dcfbb10c6376f34511e8255d57d701b51a344a12"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -1104,7 +1114,7 @@
       "state": "running",
       "deadline": 1789864967.1907747,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "6e9acbed-bf9c-4ea7-8b69-671af0a4b305"
       ],
@@ -2014,6 +2024,13 @@
       "kind": "claimed",
       "entity": "6e9acbed-bf9c-4ea7-8b69-671af0a4b305",
       "body": "{\"run\": \"a0b4a4d6-7d5f-43d2-9923-5fa984c6211b\"}"
+    },
+    {
+      "seq": 130,
+      "at": 1789863847.9644678,
+      "kind": "change_recorded",
+      "entity": "6e9acbed-bf9c-4ea7-8b69-671af0a4b305",
+      "body": "{\"operation_key\": \"activation-pending-engine\", \"target\": \"scripts/engine.py\", \"before_version\": \"439ba667eb510ab418fb941dbcbedc02be199977\", \"after_version\": \"027cf4747d2f914b221fa648293256bee1218396\", \"reversal_ref\": \"Restore scripts/engine.py from main commit 104892af82461c8462eb0bbe3ba26acdeab928cb only if its current blob is bd62546276a4a27fd11ba1d2b5c7f65f41eed10b; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-19-self-activation-integrity.json\", \"evaluator_version\": \"4ac22212c30d54145c819796dcfbb10c6376f34511e8255d57d701b51a344a12\"}"
     }
   ]
 }
