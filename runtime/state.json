@@ -827,10 +827,10 @@
       ],
       "hypothesis": false,
       "benefit": "Require later-use receipts to name an active recorded run scoped to the finding's project.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1789774707.3707335,
-      "updated_at": 1789774853.2411263,
+      "updated_at": 1789863777.873371,
       "lease": null,
       "changes": [
         {
@@ -861,19 +861,61 @@
           "evaluator_version": "945da4bfecdf6479167ea4c480f7f1f7723220ae5debcb0aa8168719b8aea4ae"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "a0b4a4d6-7d5f-43d2-9923-5fa984c6211b",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-19-self-activation-integrity.json",
+          "at": 1789863777.8731709
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py and tests/test_engine.py",
       "scope_reason": "The fixed lifecycle evaluator proves that invented and wrong-project session receipts pass today. Bind reuse to a live recorded run scoped to the finding project.",
       "generalization_evidence": null,
-      "reason": "All fixed-evaluator tests pass and both remote blobs match the tested candidate.",
+      "reason": "A later fresh run loaded commit 104892af82461c8462eb0bbe3ba26acdeab928cb, passed all 24 tests, and recorded reuse through its active project-scoped run.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
-      "applied_at": 1789774853.2411225
+      "applied_at": 1789774853.2411225,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-19-self-activation-integrity.json"
+    },
+    {
+      "id": "6e9acbed-bf9c-4ea7-8b69-671af0a4b305",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "dogfood-requires-later-activation",
+      "observation": "A Dogfood self-improvement can mark itself active during the applying run without later activation evidence.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "runtime/evidence/2026-09-19-self-activation-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Force Dogfood self-improvements to remain pending until a later fresh run supplies activation evidence.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1789863777.873528,
+      "updated_at": 1789863784.3363364,
+      "lease": {
+        "run": "a0b4a4d6-7d5f-43d2-9923-5fa984c6211b",
+        "token": "418193c2-6148-4d6d-8e3a-6b47e21b8188",
+        "until": 1789864084.3362548
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py and tests/test_engine.py",
+      "scope_reason": "The fixed self-change evaluator proves that a Dogfood candidate can bypass later activation by applying as active. Require pending status at application.",
+      "generalization_evidence": null,
+      "reason": "The fixed self-change evaluator proves that a Dogfood candidate can bypass later activation by applying as active. Require pending status at application.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1051,6 +1093,22 @@
         "feb46000-aca0-44b7-a2b3-77773622856a"
       ],
       "checkpoint": "Activated and adopted idempotent verification-check receipts after fresh use. Applied scoped-run validation for reuse evidence; fabricated and wrong-project sessions are rejected, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "a0b4a4d6-7d5f-43d2-9923-5fa984c6211b",
+      "worker": "project-maintenance-2026-09-19",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "deadline": 1789864967.1907747,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "6e9acbed-bf9c-4ea7-8b69-671af0a4b305"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -1921,6 +1979,41 @@
       "kind": "checkpoint",
       "entity": "da4c8d99-d416-4fda-abb8-f4fdfae12eab",
       "body": "{\"summary\": \"Activated and adopted idempotent verification-check receipts after fresh use. Applied scoped-run validation for reuse evidence; fabricated and wrong-project sessions are rejected, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 125,
+      "at": 1789863767.1909251,
+      "kind": "run_started",
+      "entity": "a0b4a4d6-7d5f-43d2-9923-5fa984c6211b",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 126,
+      "at": 1789863777.8734214,
+      "kind": "transition",
+      "entity": "feb46000-aca0-44b7-a2b3-77773622856a",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A later fresh run loaded commit 104892af82461c8462eb0bbe3ba26acdeab928cb, passed all 24 tests, and recorded reuse through its active project-scoped run.\"}"
+    },
+    {
+      "seq": 127,
+      "at": 1789863777.8736134,
+      "kind": "captured",
+      "entity": "6e9acbed-bf9c-4ea7-8b69-671af0a4b305",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 128,
+      "at": 1789863784.3360734,
+      "kind": "transition",
+      "entity": "6e9acbed-bf9c-4ea7-8b69-671af0a4b305",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed self-change evaluator proves that a Dogfood candidate can bypass later activation by applying as active. Require pending status at application.\"}"
+    },
+    {
+      "seq": 129,
+      "at": 1789863784.336356,
+      "kind": "claimed",
+      "entity": "6e9acbed-bf9c-4ea7-8b69-671af0a4b305",
+      "body": "{\"run\": \"a0b4a4d6-7d5f-43d2-9923-5fa984c6211b\"}"
     }
   ]
 }
