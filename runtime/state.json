@@ -895,13 +895,13 @@
       "hypothesis": false,
       "benefit": "Force Dogfood self-improvements to remain pending until a later fresh run supplies activation evidence.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1789863777.873528,
-      "updated_at": 1789863784.3363364,
+      "updated_at": 1789863813.5587096,
       "lease": {
         "run": "a0b4a4d6-7d5f-43d2-9923-5fa984c6211b",
         "token": "418193c2-6148-4d6d-8e3a-6b47e21b8188",
-        "until": 1789864084.3362548
+        "until": 1789864113.558708
       },
       "changes": [],
       "checks": [],
