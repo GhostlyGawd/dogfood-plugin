@@ -964,9 +964,9 @@
       "hypothesis": false,
       "benefit": "Require activation evidence to name a different active recorded run scoped to the finding project.",
       "status": "in_progress",
-      "revision": 4,
+      "revision": 5,
       "created_at": 1789949471.420153,
-      "updated_at": 1789949550.308409,
+      "updated_at": 1789949579.126385,
       "lease": {
         "run": "334f6a03-7828-4f0b-89a5-0f9f3e9a4c5f",
         "token": "9d17cfba-0885-429e-9411-7bdd63b8cb48",
@@ -979,6 +979,15 @@
           "before_version": "bd62546276a4a27fd11ba1d2b5c7f65f41eed10b",
           "after_version": "2d13c0923dd6f81eccf523aa1c027cbb10902a93",
           "reversal_ref": "Restore scripts/engine.py from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is 0c8658843db7494e3b238c66e143587c5ff6e7e8; preserve later changes.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json",
+          "evaluator_version": "9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817"
+        },
+        {
+          "operation_key": "activation-run-test",
+          "target": "tests/test_engine.py",
+          "before_version": "5e07dffc84cd4392d5d3102ace99c25988d2a41f",
+          "after_version": "fac6bea1b0e83970d39af4d98b0099c54cf11f82",
+          "reversal_ref": "Restore tests/test_engine.py from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is a57b11ba7cc1a02a303656787cfb00a9f6b6b490; preserve later changes.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json",
           "evaluator_version": "9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817"
         }
@@ -1199,7 +1208,7 @@
       "state": "running",
       "deadline": 1789950657.116776,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "ee3d02bc-3627-4226-8834-e7f51d18ec89"
       ],
@@ -2186,6 +2195,13 @@
       "kind": "change_recorded",
       "entity": "ee3d02bc-3627-4226-8834-e7f51d18ec89",
       "body": "{\"operation_key\": \"activation-run-engine\", \"target\": \"scripts/engine.py\", \"before_version\": \"bd62546276a4a27fd11ba1d2b5c7f65f41eed10b\", \"after_version\": \"2d13c0923dd6f81eccf523aa1c027cbb10902a93\", \"reversal_ref\": \"Restore scripts/engine.py from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is 0c8658843db7494e3b238c66e143587c5ff6e7e8; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json\", \"evaluator_version\": \"9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817\"}"
+    },
+    {
+      "seq": 141,
+      "at": 1789949579.1264358,
+      "kind": "change_recorded",
+      "entity": "ee3d02bc-3627-4226-8834-e7f51d18ec89",
+      "body": "{\"operation_key\": \"activation-run-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"5e07dffc84cd4392d5d3102ace99c25988d2a41f\", \"after_version\": \"fac6bea1b0e83970d39af4d98b0099c54cf11f82\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is a57b11ba7cc1a02a303656787cfb00a9f6b6b490; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json\", \"evaluator_version\": \"9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817\"}"
     }
   ]
 }
