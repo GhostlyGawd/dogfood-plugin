@@ -964,13 +964,13 @@
       "hypothesis": false,
       "benefit": "Require activation evidence to name a different active recorded run scoped to the finding project.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1789949471.420153,
-      "updated_at": 1789949480.4285808,
+      "updated_at": 1789949514.9272811,
       "lease": {
         "run": "334f6a03-7828-4f0b-89a5-0f9f3e9a4c5f",
         "token": "9d17cfba-0885-429e-9411-7bdd63b8cb48",
-        "until": 1789949780.4285223
+        "until": 1789949814.9272797
       },
       "changes": [],
       "checks": [],
