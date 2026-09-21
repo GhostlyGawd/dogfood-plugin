@@ -184,7 +184,7 @@ class Ledger:
         for project in projects:
             self.writable(project)
         r = {"id": str(uuid.uuid4()), "worker": required(data, "worker"), "projects": projects,
-             "trigger": trigger, "state": "running", "deadline": self.clock() + seconds,
+             "trigger": trigger, "state": "running", "started_at": self.clock(), "deadline": self.clock() + seconds,
              "max_changes": maximum, "changes_used": 0, "claimed": [], "checkpoint": None}
         self.save_run(r)
         self.event("run_started", r["id"], {"trigger": trigger})
@@ -333,6 +333,8 @@ class Ledger:
         except ValueError as exc:
             raise Conflict("activation must reference a recorded run") from exc
         self.active(activation_run, f["project"])
+        if activation_run.get("started_at", 0) <= f.get("applied_at", float("inf")):
+            raise Conflict("activation run must start after application")
         f["activation_evidence"] = evidence
         f["activation_run"] = run_id
         f["activation"] = "active"
@@ -354,6 +356,8 @@ class Ledger:
         except ValueError as exc:
             raise Conflict("reuse must reference a recorded run") from exc
         self.active(reuse_run, f["project"])
+        if reuse_run.get("started_at", 0) <= f.get("applied_at", float("inf")):
+            raise Conflict("reuse run must start after application")
         if any(receipt.get("session") == session and receipt.get("evidence_ref") == evidence
                for receipt in f["reuse"]):
             return f
