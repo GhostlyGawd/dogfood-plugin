@@ -155,19 +155,25 @@ class EngineTests(unittest.TestCase):
             self.move(f, "adopted")
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session="later-session", evidence_ref="later:success")
-        f = self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="fresh-run:loaded")
-        repeated = self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="fresh-run:loaded")
+        with self.assertRaises(Conflict):
+            self.call("activate", id=f["id"], revision=f["revision"], run=applied_run, evidence_ref="same-run:not-later")
+        with self.assertRaises(Conflict):
+            self.call("activate", id=f["id"], revision=f["revision"], run="invented-run", evidence_ref="invented:not-valid")
+        wrong_project = self.call("start-run", worker="wrong-project", projects=["another-project"])
+        with self.assertRaises(Conflict):
+            self.call("activate", id=f["id"], revision=f["revision"], run=wrong_project["id"], evidence_ref="wrong-project:not-valid")
+        later_run = self.call("start-run", worker="later-worker", projects=["project-a"])
+        f = self.call("activate", id=f["id"], revision=f["revision"], run=later_run["id"], evidence_ref="fresh-run:loaded")
+        repeated = self.call("activate", id=f["id"], revision=f["revision"], run=later_run["id"], evidence_ref="fresh-run:loaded")
         self.assertEqual(repeated["revision"], f["revision"])
         with self.assertRaises(Conflict):
-            self.call("activate", id=f["id"], revision=f["revision"], evidence_ref="replacement:not-allowed")
+            self.call("activate", id=f["id"], revision=f["revision"], run=later_run["id"], evidence_ref="replacement:not-allowed")
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session=applied_run, evidence_ref="same-run:not-later")
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session="invented-session", evidence_ref="invented:not-valid")
-        wrong_project = self.call("start-run", worker="wrong-project", projects=["another-project"])
         with self.assertRaises(Conflict):
             self.call("reuse", id=f["id"], revision=f["revision"], session=wrong_project["id"], evidence_ref="wrong-project:not-valid")
-        later_run = self.call("start-run", worker="later-worker", projects=["project-a"])
         f = self.call("reuse", id=f["id"], revision=f["revision"], session=later_run["id"], evidence_ref="later:success")
         repeated = self.call("reuse", id=f["id"], revision=f["revision"], session=later_run["id"], evidence_ref="later:success")
         self.assertEqual(repeated["revision"], f["revision"])
