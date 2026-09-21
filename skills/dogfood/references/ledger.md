@@ -16,7 +16,7 @@ Finding mutations require the current `id` and `revision`. Claimed work also req
 | transition to verifying | id, revision, token, status, reason. Requires a recorded change. |
 | record-check | id, revision, token, name, evidence_ref, integer exit_code, verified_version; Dogfood scope also needs the unchanged evaluator_version. |
 | transition to applied | id, revision, token, status, reason, activation: pending/active. All checks must pass for the latest change version. |
-| activate | id, revision, evidence_ref proving the version loaded. |
+| activate | id, revision, run: different active recorded run scoped to the finding project, evidence_ref proving the version loaded. |
 | reuse | id, revision, session, evidence_ref from later relevant work. |
 | transition to adopted | id, revision, status, reason. Requires activation and reuse. |
 | transition to blocked/deferred | id, revision, token if claimed, status, reason, resume_when. |
