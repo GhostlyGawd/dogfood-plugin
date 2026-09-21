@@ -1042,13 +1042,13 @@
       "hypothesis": false,
       "benefit": "Require activation and reuse evidence to come from a project-scoped run that began after the improvement was applied.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1790034975.1087687,
-      "updated_at": 1790034986.6834688,
+      "updated_at": 1790035071.1505826,
       "lease": {
         "run": "4fffa95d-c850-4791-ab12-c07f581ccb52",
         "token": "4e1f3741-0987-4eb0-a31a-74136e1f1cab",
-        "until": 1790035286.6834052
+        "until": 1790035371.1505802
       },
       "changes": [],
       "checks": [],
