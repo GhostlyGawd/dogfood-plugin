@@ -319,12 +319,22 @@ class Ledger:
         if f["status"] not in {"applied", "adopted"}:
             raise Conflict("only applied changes can be activated")
         evidence = required(data, "evidence_ref")
+        run_id = required(data, "run")
         current = f.get("activation_evidence")
         if current is not None:
-            if f.get("activation") == "active" and current == evidence:
+            activation_run = f.get("activation_run")
+            if f.get("activation") == "active" and current == evidence and activation_run in {None, run_id}:
                 return f
             raise Conflict("activation evidence cannot be rewritten")
+        if run_id == f.get("applied_run"):
+            raise Conflict("activation must come from a later run")
+        try:
+            activation_run = self.run(run_id)
+        except ValueError as exc:
+            raise Conflict("activation must reference a recorded run") from exc
+        self.active(activation_run, f["project"])
         f["activation_evidence"] = evidence
+        f["activation_run"] = run_id
         f["activation"] = "active"
         self.save(f)
         return f
