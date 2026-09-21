@@ -964,9 +964,9 @@
       "hypothesis": false,
       "benefit": "Require activation evidence to name a different active recorded run scoped to the finding project.",
       "status": "in_progress",
-      "revision": 5,
+      "revision": 6,
       "created_at": 1789949471.420153,
-      "updated_at": 1789949579.126385,
+      "updated_at": 1789949609.16675,
       "lease": {
         "run": "334f6a03-7828-4f0b-89a5-0f9f3e9a4c5f",
         "token": "9d17cfba-0885-429e-9411-7bdd63b8cb48",
@@ -988,6 +988,15 @@
           "before_version": "5e07dffc84cd4392d5d3102ace99c25988d2a41f",
           "after_version": "fac6bea1b0e83970d39af4d98b0099c54cf11f82",
           "reversal_ref": "Restore tests/test_engine.py from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is a57b11ba7cc1a02a303656787cfb00a9f6b6b490; preserve later changes.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json",
+          "evaluator_version": "9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817"
+        },
+        {
+          "operation_key": "activation-run-contract",
+          "target": "skills/dogfood/references/ledger.md",
+          "before_version": "716efd51a7be0b584e78742ebc23dcec10325253",
+          "after_version": "726ade316514a4bfdcea5005947be12420e6b9d4",
+          "reversal_ref": "Restore skills/dogfood/references/ledger.md from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is 32800b2bb122aa2647b6356b6bcaa756dbb0010e; preserve later changes.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json",
           "evaluator_version": "9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817"
         }
@@ -1208,7 +1217,7 @@
       "state": "running",
       "deadline": 1789950657.116776,
       "max_changes": 3,
-      "changes_used": 2,
+      "changes_used": 3,
       "claimed": [
         "ee3d02bc-3627-4226-8834-e7f51d18ec89"
       ],
@@ -2202,6 +2211,13 @@
       "kind": "change_recorded",
       "entity": "ee3d02bc-3627-4226-8834-e7f51d18ec89",
       "body": "{\"operation_key\": \"activation-run-test\", \"target\": \"tests/test_engine.py\", \"before_version\": \"5e07dffc84cd4392d5d3102ace99c25988d2a41f\", \"after_version\": \"fac6bea1b0e83970d39af4d98b0099c54cf11f82\", \"reversal_ref\": \"Restore tests/test_engine.py from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is a57b11ba7cc1a02a303656787cfb00a9f6b6b490; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json\", \"evaluator_version\": \"9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817\"}"
+    },
+    {
+      "seq": 142,
+      "at": 1789949609.167038,
+      "kind": "change_recorded",
+      "entity": "ee3d02bc-3627-4226-8834-e7f51d18ec89",
+      "body": "{\"operation_key\": \"activation-run-contract\", \"target\": \"skills/dogfood/references/ledger.md\", \"before_version\": \"716efd51a7be0b584e78742ebc23dcec10325253\", \"after_version\": \"726ade316514a4bfdcea5005947be12420e6b9d4\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only if its current blob is 32800b2bb122aa2647b6356b6bcaa756dbb0010e; preserve later changes.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-20-activation-run-integrity.json\", \"evaluator_version\": \"9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817\"}"
     }
   ]
 }
