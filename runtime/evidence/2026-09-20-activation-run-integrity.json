@@ -15,7 +15,28 @@
   "candidate": {
     "finding_id": "ee3d02bc-3627-4226-8834-e7f51d18ec89",
     "dedup": "activation-requires-scoped-run",
-    "activation": "not_applied",
+    "target_version": "726ade316514a4bfdcea5005947be12420e6b9d4",
+    "activation": "pending",
+    "source_changes": [
+      {
+        "path": "scripts/engine.py",
+        "before_blob": "bd62546276a4a27fd11ba1d2b5c7f65f41eed10b",
+        "after_blob": "0c8658843db7494e3b238c66e143587c5ff6e7e8",
+        "commit": "2d13c0923dd6f81eccf523aa1c027cbb10902a93"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "before_blob": "5e07dffc84cd4392d5d3102ace99c25988d2a41f",
+        "after_blob": "a57b11ba7cc1a02a303656787cfb00a9f6b6b490",
+        "commit": "fac6bea1b0e83970d39af4d98b0099c54cf11f82"
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "before_blob": "716efd51a7be0b584e78742ebc23dcec10325253",
+        "after_blob": "32800b2bb122aa2647b6356b6bcaa756dbb0010e",
+        "commit": "726ade316514a4bfdcea5005947be12420e6b9d4"
+      }
+    ],
     "fixed_evaluator_sha256": "9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817",
     "evaluator_files": [
       "tests/test_engine.py",
@@ -27,7 +48,25 @@
       "exit_code": 1,
       "output": "test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... FAIL\n\n======================================================================\nFAIL: test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<fresh-workspace>/tests/test_engine.py\", line 158, in test_complete_lifecycle_requires_activation_and_reuse\n    with self.assertRaises(Conflict):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Conflict not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817  -\n"
     },
-    "resume_when": "Apply and verify the candidate, then confirm activation in a later fresh run."
+    "verification": {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "test_count": 24,
+      "output": "test_retry_preserves_failed_check_and_snapshot (test_check_history.CheckHistoryTests.test_retry_preserves_failed_check_and_snapshot) ... ok\ntest_applied_recovery_cannot_blindly_retry (test_engine.EngineTests.test_applied_recovery_cannot_blindly_retry) ... ok\ntest_budget_expires_and_old_worker_is_rejected (test_engine.EngineTests.test_budget_expires_and_old_worker_is_rejected) ... ok\ntest_change_count_budget_enforced (test_engine.EngineTests.test_change_count_budget_enforced) ... ok\ntest_checkpoint_revokes_remaining_claims (test_engine.EngineTests.test_checkpoint_revokes_remaining_claims) ... ok\ntest_complete_lifecycle_requires_activation_and_reuse (test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... ok\ntest_duplicate_findings_are_project_scoped (test_engine.EngineTests.test_duplicate_findings_are_project_scoped) ... ok\ntest_expired_work_requires_reconciliation (test_engine.EngineTests.test_expired_work_requires_reconciliation) ... ok\ntest_failed_checks_prevent_application (test_engine.EngineTests.test_failed_checks_prevent_application) ... ok\ntest_fresh_process_reads_durable_state (test_engine.EngineTests.test_fresh_process_reads_durable_state) ... ok\ntest_hook_emits_valid_context_from_another_directory (test_engine.EngineTests.test_hook_emits_valid_context_from_another_directory) ... ok\ntest_instruction_setup_is_idempotent_and_preserves_text (test_engine.EngineTests.test_instruction_setup_is_idempotent_and_preserves_text) ... ok\ntest_only_one_concurrent_worker_claims (test_engine.EngineTests.test_only_one_concurrent_worker_claims) ... ok\ntest_owner_cannot_change (test_engine.EngineTests.test_owner_cannot_change) ... ok\ntest_pause_stops_claims_and_changes (test_engine.EngineTests.test_pause_stops_claims_and_changes) ... ok\ntest_personal_promotion_requires_evidence (test_engine.EngineTests.test_personal_promotion_requires_evidence) ... ok\ntest_project_pause_does_not_pause_other_project (test_engine.EngineTests.test_project_pause_does_not_pause_other_project) ... ok\ntest_project_scope_enforced (test_engine.EngineTests.test_project_scope_enforced) ... ok\ntest_self_change_cannot_change_evaluator (test_engine.EngineTests.test_self_change_cannot_change_evaluator) ... ok\ntest_snapshot_round_trip_and_owner_isolation (test_engine.EngineTests.test_snapshot_round_trip_and_owner_isolation) ... ok\ntest_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.094s\n\nOK\n9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817  -\n",
+      "remote_byte_match": true
+    },
+    "assertions": [
+      "Activation from the applying run is rejected.",
+      "An invented activation run is rejected.",
+      "A run scoped to another project is rejected.",
+      "A different live recorded run scoped to the finding project is accepted.",
+      "Exact activation retries remain idempotent.",
+      "The ledger contract documents the required run input.",
+      "All 24 regression tests pass.",
+      "All three final main-branch blobs match the tested candidate bytes."
+    ],
+    "resume_when": "A later fresh run loads commit 726ade316514a4bfdcea5005947be12420e6b9d4 and activates this finding through that run's live project-scoped ID.",
+    "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from main commit 93b7e848f9f4b4d53bef2ca1d212849fe72291a6 only while the recorded candidate blobs still match. Preserve later changes."
   },
   "unresolved": [
     "Codex hook activation is not verified.",
