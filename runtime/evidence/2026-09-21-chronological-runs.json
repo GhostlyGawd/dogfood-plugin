@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "date": "2026-09-21",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "4fffa95d-c850-4791-ab12-c07f581ccb52",
+  "finding": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+  "prior_activation": {
+    "finding": "ee3d02bc-3627-4226-8834-e7f51d18ec89",
+    "source_commit": "726ade316514a4bfdcea5005947be12420e6b9d4",
+    "tests": {
+      "exit_code": 0,
+      "summary": "test_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.120s\n\nOK"
+    },
+    "status": "active_and_adopted"
+  },
+  "candidate": {
+    "dedup": "chronological-activation-reuse-runs",
+    "evaluator_sha256": "57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647",
+    "baseline": {
+      "command": "python -m unittest tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse -v",
+      "exit_code": 1,
+      "output": "test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... FAIL\n\n======================================================================\nFAIL: test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9888bfbbb6fa/dogfood-run-20260921/tests/test_engine.py\", line 164, in test_complete_lifecycle_requires_activation_and_reuse\n    with self.assertRaises(Conflict):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Conflict not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nFAILED (failures=1)\n57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647  -"
+    },
+    "local_candidate": {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "summary": "test_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.147s\n\nOK\n57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647  -"
+    },
+    "expected": [
+      "runs record started_at",
+      "activation rejects a run started at or before applied_at",
+      "reuse rejects a run started at or before applied_at",
+      "a later scoped active run is accepted"
+    ]
+  },
+  "status": "claimed; source changes not yet written",
+  "resume_when": "A later fresh run loads the final source commit and exercises the started_at chronology checks.",
+  "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 726ade316514a4bfdcea5005947be12420e6b9d4 only if their blobs still match this candidate; preserve later edits."
+}
