@@ -963,10 +963,10 @@
       ],
       "hypothesis": false,
       "benefit": "Require activation evidence to name a different active recorded run scoped to the finding project.",
-      "status": "applied",
-      "revision": 9,
+      "status": "adopted",
+      "revision": 12,
       "created_at": 1789949471.420153,
-      "updated_at": 1789949662.3433201,
+      "updated_at": 1790034963.470536,
       "lease": null,
       "changes": [
         {
@@ -1006,19 +1006,63 @@
           "evaluator_version": "9d1be7a01479e5ad0f37ea292a46e46b0b00886dc0e565b97bad351a983fc817"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "4fffa95d-c850-4791-ab12-c07f581ccb52",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json",
+          "at": 1790034963.4702716
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed lifecycle evaluator proves that unscoped activation evidence passes today. Bind activation to a later live run and document the required run input.",
       "generalization_evidence": null,
-      "reason": "All fixed-evaluator tests pass and all three remote blobs match the tested candidate.",
+      "reason": "A fresh later project-scoped run loaded commit 726ade316514a4bfdcea5005947be12420e6b9d4, exercised the activation-run validation, and passed all 24 tests.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "334f6a03-7828-4f0b-89a5-0f9f3e9a4c5f",
-      "applied_at": 1789949662.3433175
+      "applied_at": 1789949662.3433175,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json",
+      "activation_run": "4fffa95d-c850-4791-ab12-c07f581ccb52"
+    },
+    {
+      "id": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "chronological-activation-reuse-runs",
+      "observation": "A different active evidence run can predate application because run records lack a start time, so activation and reuse do not prove later work.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Require activation and reuse evidence to come from a project-scoped run that began after the improvement was applied.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790034975.1087687,
+      "updated_at": 1790034986.6834688,
+      "lease": {
+        "run": "4fffa95d-c850-4791-ab12-c07f581ccb52",
+        "token": "4e1f3741-0987-4eb0-a31a-74136e1f1cab",
+        "until": 1790035286.6834052
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "A fixed lifecycle evaluator proves that a pre-application run passes the current engine; record run start time and require it to be after applied_at for activation and reuse.",
+      "generalization_evidence": null,
+      "reason": "A fixed lifecycle evaluator proves that a pre-application run passes the current engine; record run start time and require it to be after applied_at for activation and reuse.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1228,6 +1272,23 @@
         "ee3d02bc-3627-4226-8834-e7f51d18ec89"
       ],
       "checkpoint": "Activated and adopted mandatory later activation for Dogfood self-improvements after fresh use. Applied scoped-run validation for activation evidence and documented the run input; same-run, fabricated, and wrong-project activation receipts are rejected. All 24 tests pass, activation is pending, and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "4fffa95d-c850-4791-ab12-c07f581ccb52",
+      "worker": "project-maintenance-2026-09-21",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790034919.004879,
+      "deadline": 1790036119.0048795,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "b4d4512a-fc63-4c07-9d56-0d99c67735a3"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -2245,6 +2306,41 @@
       "kind": "checkpoint",
       "entity": "334f6a03-7828-4f0b-89a5-0f9f3e9a4c5f",
       "body": "{\"summary\": \"Activated and adopted mandatory later activation for Dogfood self-improvements after fresh use. Applied scoped-run validation for activation evidence and documented the run input; same-run, fabricated, and wrong-project activation receipts are rejected. All 24 tests pass, activation is pending, and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 146,
+      "at": 1790034919.0050874,
+      "kind": "run_started",
+      "entity": "4fffa95d-c850-4791-ab12-c07f581ccb52",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 147,
+      "at": 1790034963.4706,
+      "kind": "transition",
+      "entity": "ee3d02bc-3627-4226-8834-e7f51d18ec89",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later project-scoped run loaded commit 726ade316514a4bfdcea5005947be12420e6b9d4, exercised the activation-run validation, and passed all 24 tests.\"}"
+    },
+    {
+      "seq": 148,
+      "at": 1790034975.1089332,
+      "kind": "captured",
+      "entity": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 149,
+      "at": 1790034986.683202,
+      "kind": "transition",
+      "entity": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"A fixed lifecycle evaluator proves that a pre-application run passes the current engine; record run start time and require it to be after applied_at for activation and reuse.\"}"
+    },
+    {
+      "seq": 150,
+      "at": 1790034986.6834924,
+      "kind": "claimed",
+      "entity": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+      "body": "{\"run\": \"4fffa95d-c850-4791-ab12-c07f581ccb52\"}"
     }
   ]
 }
