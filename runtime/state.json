@@ -1041,15 +1041,11 @@
       ],
       "hypothesis": false,
       "benefit": "Require activation and reuse evidence to come from a project-scoped run that began after the improvement was applied.",
-      "status": "in_progress",
-      "revision": 6,
+      "status": "applied",
+      "revision": 9,
       "created_at": 1790034975.1087687,
-      "updated_at": 1790035242.0972602,
-      "lease": {
-        "run": "4fffa95d-c850-4791-ab12-c07f581ccb52",
-        "token": "4e1f3741-0987-4eb0-a31a-74136e1f1cab",
-        "until": 1790035371.1505802
-      },
+      "updated_at": 1790035314.2777977,
+      "lease": null,
       "changes": [
         {
           "operation_key": "chronology-engine",
@@ -1079,18 +1075,28 @@
           "evaluator_version": "57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "24 ledger regression tests and exact remote-byte verification",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json",
+          "verified_version": "a2cd9af64c8814015fd6d25e19cc901e434551ec",
+          "exit_code": 0,
+          "evaluator_version": "57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "A fixed lifecycle evaluator proves that a pre-application run passes the current engine; record run start time and require it to be after applied_at for activation and reuse.",
       "generalization_evidence": null,
-      "reason": "A fixed lifecycle evaluator proves that a pre-application run passes the current engine; record run start time and require it to be after applied_at for activation and reuse.",
+      "reason": "The engine records started_at and rejects activation or reuse runs that did not begin after application; the fixed 24-test evaluator passes and remote bytes match.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "4fffa95d-c850-4791-ab12-c07f581ccb52",
+      "applied_at": 1790035314.2777944
     }
   ],
   "runs": [
@@ -2390,6 +2396,20 @@
       "kind": "change_recorded",
       "entity": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
       "body": "{\"operation_key\": \"chronology-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"017c12612d9f4d3451d6a4390bb1c48b623b4b09\", \"after_version\": \"a2cd9af64c8814015fd6d25e19cc901e434551ec\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 726ade316514a4bfdcea5005947be12420e6b9d4 only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json\", \"evaluator_version\": \"57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647\"}"
+    },
+    {
+      "seq": 154,
+      "at": 1790035314.277324,
+      "kind": "transition",
+      "entity": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded source writes completed and the fixed evaluator remained unchanged.\"}"
+    },
+    {
+      "seq": 155,
+      "at": 1790035314.2778492,
+      "kind": "transition",
+      "entity": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"The engine records started_at and rejects activation or reuse runs that did not begin after application; the fixed 24-test evaluator passes and remote bytes match.\"}"
     }
   ]
 }
