@@ -21,19 +21,64 @@
       "exit_code": 1,
       "output": "test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse) ... FAIL\n\n======================================================================\nFAIL: test_complete_lifecycle_requires_activation_and_reuse (tests.test_engine.EngineTests.test_complete_lifecycle_requires_activation_and_reuse)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9888bfbbb6fa/dogfood-run-20260921/tests/test_engine.py\", line 164, in test_complete_lifecycle_requires_activation_and_reuse\n    with self.assertRaises(Conflict):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Conflict not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nFAILED (failures=1)\n57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647  -"
     },
-    "local_candidate": {
+    "applied_changes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "e1708dcecf5e7c1d180a83e48c38e6dfce023fcf",
+        "blob": "0a0434ccacb980a956a4e143e4ff6c42d2969770",
+        "bytes_match": true
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "017c12612d9f4d3451d6a4390bb1c48b623b4b09",
+        "blob": "a1dae7ff01ca570c8e07e908e0c55f3782d6bc4a",
+        "bytes_match": true
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "a2cd9af64c8814015fd6d25e19cc901e434551ec",
+        "blob": "b7c3b629793a29779da83b1ff050ce259d833ed7",
+        "bytes_match": true
+      }
+    ],
+    "final_check": {
       "command": "python -m unittest discover -s tests -v",
       "exit_code": 0,
-      "summary": "test_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.147s\n\nOK\n57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647  -"
+      "summary": "test_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.127s\n\nOK"
     },
-    "expected": [
-      "runs record started_at",
-      "activation rejects a run started at or before applied_at",
-      "reuse rejects a run started at or before applied_at",
-      "a later scoped active run is accepted"
+    "assertions": [
+      {
+        "name": "runs record started_at",
+        "result": "pass"
+      },
+      {
+        "name": "activation rejects a run started at or before applied_at",
+        "result": "pass"
+      },
+      {
+        "name": "reuse rejects a run started at or before applied_at",
+        "result": "pass"
+      },
+      {
+        "name": "a later active project-scoped run is accepted",
+        "result": "pass"
+      },
+      {
+        "name": "all 24 regression tests pass",
+        "result": "pass"
+      },
+      {
+        "name": "all three remote files exactly match the evaluated candidate",
+        "result": "pass"
+      }
     ]
   },
-  "status": "claimed; source changes not yet written",
-  "resume_when": "A later fresh run loads the final source commit and exercises the started_at chronology checks.",
-  "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 726ade316514a4bfdcea5005947be12420e6b9d4 only if their blobs still match this candidate; preserve later edits."
+  "status": "applied_pending_activation",
+  "resume_when": "A later fresh run loads commit a2cd9af64c8814015fd6d25e19cc901e434551ec and successfully uses the started_at chronology checks.",
+  "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 726ade316514a4bfdcea5005947be12420e6b9d4 only if their blobs still match this candidate; preserve later edits.",
+  "blockers": [
+    "Codex hook activation awaits a supported Codex runtime and trust review.",
+    "Work-wide activation awaits a host global-instruction surface and fresh-chat test.",
+    "Second-user installation remains unverified."
+  ]
 }
