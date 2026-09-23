@@ -1400,7 +1400,7 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "started_at": 1790121917.1515217,
       "deadline": 1790123117.1515222,
       "max_changes": 3,
@@ -1408,7 +1408,7 @@
       "claimed": [
         "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted chronological activation and reuse validation after fresh later use. Refreshed README and verification status through 2026-09-22 while preserving Codex hook, Work-wide activation, and second-user installation limitations. All 24 tests and exact remote-byte checks pass; the documentation update is pending activation. Two of three source-change slots were used."
     }
   ],
   "events": [
@@ -2566,6 +2566,13 @@
       "kind": "transition",
       "entity": "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92",
       "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"README and verification status now reflect safeguards verified through 2026-09-22, preserve all host limitations, pass the fixed evaluator and 24 tests, and exactly match remote source.\"}"
+    },
+    {
+      "seq": 166,
+      "at": 1790122355.2300317,
+      "kind": "checkpoint",
+      "entity": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
+      "body": "{\"summary\": \"Activated and adopted chronological activation and reuse validation after fresh later use. Refreshed README and verification status through 2026-09-22 while preserving Codex hook, Work-wide activation, and second-user installation limitations. All 24 tests and exact remote-byte checks pass; the documentation update is pending activation. Two of three source-change slots were used.\"}"
     }
   ]
 }
