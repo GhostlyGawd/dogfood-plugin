@@ -1041,10 +1041,10 @@
       ],
       "hypothesis": false,
       "benefit": "Require activation and reuse evidence to come from a project-scoped run that began after the improvement was applied.",
-      "status": "applied",
-      "revision": 9,
+      "status": "adopted",
+      "revision": 12,
       "created_at": 1790034975.1087687,
-      "updated_at": 1790035314.2777977,
+      "updated_at": 1790121987.7994652,
       "lease": null,
       "changes": [
         {
@@ -1084,19 +1084,63 @@
           "evaluator_version": "57a45c671386da1cd16b45fd575d8e0cd11af87ddb1e2ff3891ba1d7d67a4647"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-22-public-status.json",
+          "at": 1790121987.7986557
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "A fixed lifecycle evaluator proves that a pre-application run passes the current engine; record run start time and require it to be after applied_at for activation and reuse.",
       "generalization_evidence": null,
-      "reason": "The engine records started_at and rejects activation or reuse runs that did not begin after application; the fixed 24-test evaluator passes and remote bytes match.",
+      "reason": "A fresh project-scoped run started after application, loaded commit a2cd9af64c8814015fd6d25e19cc901e434551ec, exercised chronological activation and reuse validation, and passed all 24 tests.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "4fffa95d-c850-4791-ab12-c07f581ccb52",
-      "applied_at": 1790035314.2777944
+      "applied_at": 1790035314.2777944,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-22-public-status.json",
+      "activation_run": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6"
+    },
+    {
+      "id": "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "public-status-2026-09-22",
+      "observation": "README and verification status stop at 2026-09-11 and omit the receipt-integrity, scoped-run, and chronological safeguards verified by later public runs.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/README.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Keep installation expectations and public verification claims aligned with the actual tested state while preserving host activation blockers.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790122091.848927,
+      "updated_at": 1790122102.2095363,
+      "lease": {
+        "run": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
+        "token": "0bf91370-3a4e-440a-bc72-c5d2919e45ad",
+        "until": 1790122402.2094567
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "README.md and docs/verification.md",
+      "scope_reason": "A fixed documentation evaluator finds stale 2026-09-11 claims despite later public evidence; update only the status and verification summaries without changing behavior or permissions.",
+      "generalization_evidence": null,
+      "reason": "A fixed documentation evaluator finds stale 2026-09-11 claims despite later public evidence; update only the status and verification summaries without changing behavior or permissions.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1323,6 +1367,23 @@
         "b4d4512a-fc63-4c07-9d56-0d99c67735a3"
       ],
       "checkpoint": "Activated and adopted scoped-run validation for activation evidence after fresh use. Applied chronological validation for activation and reuse evidence: runs now record started_at and pre-application runs are rejected. All 24 tests pass, exact remote bytes match, activation is pending, and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
+      "worker": "project-maintenance-2026-09-22",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790121917.1515217,
+      "deadline": 1790123117.1515222,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -2417,6 +2478,41 @@
       "kind": "checkpoint",
       "entity": "4fffa95d-c850-4791-ab12-c07f581ccb52",
       "body": "{\"summary\": \"Activated and adopted scoped-run validation for activation evidence after fresh use. Applied chronological validation for activation and reuse evidence: runs now record started_at and pre-application runs are rejected. All 24 tests pass, exact remote bytes match, activation is pending, and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 157,
+      "at": 1790121917.1516829,
+      "kind": "run_started",
+      "entity": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 158,
+      "at": 1790121987.7995536,
+      "kind": "transition",
+      "entity": "b4d4512a-fc63-4c07-9d56-0d99c67735a3",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh project-scoped run started after application, loaded commit a2cd9af64c8814015fd6d25e19cc901e434551ec, exercised chronological activation and reuse validation, and passed all 24 tests.\"}"
+    },
+    {
+      "seq": 159,
+      "at": 1790122091.8491719,
+      "kind": "captured",
+      "entity": "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 160,
+      "at": 1790122102.209153,
+      "kind": "transition",
+      "entity": "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"A fixed documentation evaluator finds stale 2026-09-11 claims despite later public evidence; update only the status and verification summaries without changing behavior or permissions.\"}"
+    },
+    {
+      "seq": 161,
+      "at": 1790122102.209561,
+      "kind": "claimed",
+      "entity": "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92",
+      "body": "{\"run\": \"4f24cf9b-f6be-4acf-9d54-633705e6a1b6\"}"
     }
   ]
 }
