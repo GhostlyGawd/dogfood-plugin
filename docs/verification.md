@@ -1,10 +1,10 @@
 # Dogfood verification
 
-Build: 0.1.0 · Updated 2026-09-11
+Build: 0.1.0 · Updated 2026-09-22
 
 ## Automated checks
 
-24 automated cases pass. Coverage includes competing claims, stale revisions, owner mismatch, pause and project scope, time and actual change-operation budgets, expired-worker recovery, failed or mismatched check versions, activation before adoption, fixed self-evaluation versions, snapshot recovery, a fresh process reading saved state, managed instruction preservation, hook output from a different directory, retention of prior check receipts, and idempotent change receipts.
+24 automated cases pass. Coverage includes competing claims, stale revisions, owner mismatch, pause and project scope, time and actual change-operation budgets, expired-worker recovery, failed or mismatched check versions, activation before adoption, fixed self-evaluation versions, snapshot recovery, a fresh process reading saved state, managed instruction preservation, hook output from a different directory, retained and idempotent receipts, immutable checkpoints and activation evidence, project-scoped evidence runs, and chronological activation and reuse checks.
 
 The plugin manifest and all three bundled skill entrypoints pass their format validators. These checks establish file structure, not automatic host invocation.
 
@@ -19,9 +19,9 @@ An independent agent used the packaged core skill on an isolated invoice project
 | Real Codex session activation | Not tested: no Codex executable in this build environment. |
 | Work skill selection | Bundled Work instructions prepared; separate companion installation failed. |
 | Work activation in every chat | Unverified: no supported global instruction write route established here. |
-| Remote Work state | Separate runs loaded the GitHub adapter, restored state, saved SHA-guarded claims, changed source, and retained evidence through 2026-09-11. |
+| Remote Work state | Separate runs loaded the GitHub adapter, restored state, saved SHA-guarded claims, changed source, and retained evidence through 2026-09-22. |
 | Native background execution | Repeated project background work is verified through checked engine improvements. This does not verify other hosts or projects. |
-| Self-improvement | The GitHub adapter, check-history fix, and actual change-budget fix were loaded and reused by later runs. Current status-document changes await later-run activation. |
+| Self-improvement | Guarded state writes, receipt integrity, actual change budgets, fixed evaluators, and scoped chronological evidence runs were loaded and reused by later runs. This public status update has activation pending. |
 | Second user's installation | Package prepared; no second account used. |
 
 Codex documents default `hooks/hooks.json` discovery and `PLUGIN_ROOT`. The build omits a manifest hooks field to remain compatible with the local manifest validator. It uses the documented default discovery route. [Official plugin packaging](https://developers.openai.com/plugins/build/plugins).
@@ -37,3 +37,5 @@ The first build is usable for controlled local work and skill-driven workflows. 
 The GitHub adapter change passed the unchanged 21-test regression suite and core skill format validation. Evidence is retained at `runtime/evidence/github-adapter.json` on `dogfood-state`. Root project instructions are configured; actual loading in a new Codex session still needs observation.
 
 The check-history regression failed on the previous engine and passed after the fix. The next engine candidate also made `max_changes` count actual unique change operations instead of only claimed findings. Its baseline test failed, all 24 candidate tests passed, and saved source bytes matched the tested files. [Change-budget checks and source evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json).
+
+Later bounded runs made activation and reuse receipts immutable, required evidence to reference a live run scoped to the finding's project, and rejected runs that began before application. The chronological-run safeguard passed the fixed 24-test evaluator and exact remote-byte checks, then became active through a fresh later run. [Chronological-run evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json).
