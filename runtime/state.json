@@ -1188,15 +1188,11 @@
       ],
       "hypothesis": false,
       "benefit": "Keep new findings structurally valid and preserve explicit uncertainty without coercion.",
-      "status": "in_progress",
-      "revision": 5,
+      "status": "applied",
+      "revision": 8,
       "created_at": 1790209032.211533,
-      "updated_at": 1790209151.516985,
-      "lease": {
-        "run": "c6bd9c83-c247-41c3-936b-5c55417691e6",
-        "token": "6562d83b-70c7-4928-b157-55accda714cc",
-        "until": 1790209338.5726156
-      },
+      "updated_at": 1790209185.569399,
+      "lease": null,
       "changes": [
         {
           "operation_key": "capture-integrity-engine",
@@ -1226,18 +1222,28 @@
           "evaluator_version": "c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "25 regression tests, malformed-metadata cases, and exact remote-byte verification",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json",
+          "verified_version": "ba45d15a255a94a04cb633d26d51f362fcc40c62",
+          "exit_code": 0,
+          "evaluator_version": "c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed capture evaluator rejects twelve malformed metadata cases that the current engine accepts; validate new evidence, duplicate keys, hypothesis values, and benefits before persistence.",
       "generalization_evidence": null,
-      "reason": "The fixed capture evaluator rejects twelve malformed metadata cases that the current engine accepts; validate new evidence, duplicate keys, hypothesis values, and benefits before persistence.",
+      "reason": "Capture now rejects malformed evidence, duplicate keys, hypothesis values, and benefits while preserving a valid explicit false; 25 tests pass and remote bytes match.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "c6bd9c83-c247-41c3-936b-5c55417691e6",
+      "applied_at": 1790209185.5693965
     }
   ],
   "runs": [
@@ -2718,6 +2724,20 @@
       "kind": "change_recorded",
       "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
       "body": "{\"operation_key\": \"capture-integrity-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"0bcdd338b6b6b0081cb9a1d687561e3b746cf678\", \"after_version\": \"ba45d15a255a94a04cb633d26d51f362fcc40c62\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json\", \"evaluator_version\": \"c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac\"}"
+    },
+    {
+      "seq": 175,
+      "at": 1790209185.5686772,
+      "kind": "transition",
+      "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded source writes completed and the fixed evaluator remained unchanged.\"}"
+    },
+    {
+      "seq": 176,
+      "at": 1790209185.5695121,
+      "kind": "transition",
+      "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Capture now rejects malformed evidence, duplicate keys, hypothesis values, and benefits while preserving a valid explicit false; 25 tests pass and remote bytes match.\"}"
     }
   ]
 }
