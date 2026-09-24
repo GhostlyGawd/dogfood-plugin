@@ -21,20 +21,68 @@
       "exit_code": 1,
       "summary": "AssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_capture_rejects_malformed_metadata (tests.test_engine.EngineTests.test_capture_rejects_malformed_metadata) (benefit=None)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9888bfbbb6fa/dogfood-run-20260923/tests/test_engine.py\", line 78, in test_capture_rejects_malformed_metadata\n    with self.subTest(benefit=benefit), self.assertRaises(ValueError):\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_capture_rejects_malformed_metadata (tests.test_engine.EngineTests.test_capture_rejects_malformed_metadata) (benefit=['benefit'])\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9888bfbbb6fa/dogfood-run-20260923/tests/test_engine.py\", line 78, in test_capture_rejects_malformed_metadata\n    with self.subTest(benefit=benefit), self.assertRaises(ValueError):\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.008s\n\nFAILED (failures=12)"
     },
-    "local_candidate": {
+    "applied_changes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "3d00dfca16dd05706c4fc9e23af5efeda9d82580",
+        "blob": "4e2aece1495bc609f4199b3978c4bb9adbb2afa1",
+        "bytes_match": true
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "0bcdd338b6b6b0081cb9a1d687561e3b746cf678",
+        "blob": "27cc3291225e90e7bc47729b693b2d9648ee68c7",
+        "bytes_match": true
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "ba45d15a255a94a04cb633d26d51f362fcc40c62",
+        "blob": "ae3bf353db70ade43f7aea5dbb73686351d8aa25",
+        "bytes_match": true
+      }
+    ],
+    "final_check": {
       "command": "python -m unittest discover -s tests -v",
       "exit_code": 0,
-      "summary": "test_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 25 tests in 0.109s\n\nOK\nc30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac  -"
+      "summary": "test_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 25 tests in 0.112s\n\nOK\nc30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac  -"
     },
-    "expected": [
-      "evidence contains only non-blank strings",
-      "explicit dedup is non-blank",
-      "hypothesis is a real boolean without coercion",
-      "benefit is a string",
-      "valid hypothesis false is preserved"
+    "assertions": [
+      {
+        "name": "blank and non-string evidence references are rejected",
+        "result": "pass"
+      },
+      {
+        "name": "blank explicit duplicate keys are rejected",
+        "result": "pass"
+      },
+      {
+        "name": "non-boolean hypothesis values are rejected without coercion",
+        "result": "pass"
+      },
+      {
+        "name": "non-string benefits are rejected",
+        "result": "pass"
+      },
+      {
+        "name": "valid explicit false hypothesis is preserved",
+        "result": "pass"
+      },
+      {
+        "name": "all 25 tests pass with the unchanged evaluator",
+        "result": "pass"
+      },
+      {
+        "name": "all three remote files exactly match the evaluated candidate",
+        "result": "pass"
+      }
     ]
   },
-  "status": "claimed; source changes not yet written",
-  "resume_when": "A later fresh run loads the final source commit and exercises capture validation with valid and malformed metadata.",
-  "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if their blobs still match this candidate; preserve later edits."
+  "status": "applied_pending_activation",
+  "resume_when": "A later fresh run loads commit ba45d15a255a94a04cb633d26d51f362fcc40c62 and exercises capture validation with valid and malformed metadata.",
+  "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if their blobs still match this candidate; preserve later edits.",
+  "blockers": [
+    "Codex hook activation awaits a supported Codex runtime and trust review.",
+    "Work-wide activation awaits a host global-instruction surface and fresh-chat test.",
+    "Second-user installation remains unverified."
+  ]
 }
