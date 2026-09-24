@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "date": "2026-09-23",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "c6bd9c83-c247-41c3-936b-5c55417691e6",
+  "finding": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+  "prior_activation": {
+    "finding": "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92",
+    "source_commit": "289538c2790d4e3015545487de89233ac1dc6e0b",
+    "status": "active_and_adopted",
+    "tests": {
+      "exit_code": 0,
+      "summary": "test_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.143s\n\nOK"
+    }
+  },
+  "candidate": {
+    "dedup": "capture-metadata-integrity",
+    "evaluator_sha256": "c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac",
+    "baseline": {
+      "command": "python -m unittest tests.test_engine.EngineTests.test_capture_rejects_malformed_metadata -v",
+      "exit_code": 1,
+      "summary": "AssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_capture_rejects_malformed_metadata (tests.test_engine.EngineTests.test_capture_rejects_malformed_metadata) (benefit=None)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9888bfbbb6fa/dogfood-run-20260923/tests/test_engine.py\", line 78, in test_capture_rejects_malformed_metadata\n    with self.subTest(benefit=benefit), self.assertRaises(ValueError):\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_capture_rejects_malformed_metadata (tests.test_engine.EngineTests.test_capture_rejects_malformed_metadata) (benefit=['benefit'])\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9888bfbbb6fa/dogfood-run-20260923/tests/test_engine.py\", line 78, in test_capture_rejects_malformed_metadata\n    with self.subTest(benefit=benefit), self.assertRaises(ValueError):\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.008s\n\nFAILED (failures=12)"
+    },
+    "local_candidate": {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "summary": "test_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 25 tests in 0.109s\n\nOK\nc30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac  -"
+    },
+    "expected": [
+      "evidence contains only non-blank strings",
+      "explicit dedup is non-blank",
+      "hypothesis is a real boolean without coercion",
+      "benefit is a string",
+      "valid hypothesis false is preserved"
+    ]
+  },
+  "status": "claimed; source changes not yet written",
+  "resume_when": "A later fresh run loads the final source commit and exercises capture validation with valid and malformed metadata.",
+  "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if their blobs still match this candidate; preserve later edits."
+}
