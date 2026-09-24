@@ -1189,9 +1189,9 @@
       "hypothesis": false,
       "benefit": "Keep new findings structurally valid and preserve explicit uncertainty without coercion.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1790209032.211533,
-      "updated_at": 1790209092.3848524,
+      "updated_at": 1790209120.8212304,
       "lease": {
         "run": "c6bd9c83-c247-41c3-936b-5c55417691e6",
         "token": "6562d83b-70c7-4928-b157-55accda714cc",
@@ -1204,6 +1204,15 @@
           "before_version": "289538c2790d4e3015545487de89233ac1dc6e0b",
           "after_version": "3d00dfca16dd05706c4fc9e23af5efeda9d82580",
           "reversal_ref": "Restore scripts/engine.py from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if its blob still matches this candidate; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json",
+          "evaluator_version": "c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac"
+        },
+        {
+          "operation_key": "capture-integrity-test",
+          "target": "GhostlyGawd/dogfood-plugin:main:tests/test_engine.py",
+          "before_version": "3d00dfca16dd05706c4fc9e23af5efeda9d82580",
+          "after_version": "0bcdd338b6b6b0081cb9a1d687561e3b746cf678",
+          "reversal_ref": "Restore tests/test_engine.py from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if its blob still matches this candidate; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json",
           "evaluator_version": "c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac"
         }
@@ -1475,7 +1484,7 @@
       "started_at": 1790208967.1254327,
       "deadline": 1790210167.1254332,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "8a7eabda-9f5a-4852-a56b-7a5557056431"
       ],
@@ -2686,6 +2695,13 @@
       "kind": "change_recorded",
       "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
       "body": "{\"operation_key\": \"capture-integrity-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"289538c2790d4e3015545487de89233ac1dc6e0b\", \"after_version\": \"3d00dfca16dd05706c4fc9e23af5efeda9d82580\", \"reversal_ref\": \"Restore scripts/engine.py from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json\", \"evaluator_version\": \"c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac\"}"
+    },
+    {
+      "seq": 173,
+      "at": 1790209120.8212929,
+      "kind": "change_recorded",
+      "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "body": "{\"operation_key\": \"capture-integrity-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"3d00dfca16dd05706c4fc9e23af5efeda9d82580\", \"after_version\": \"0bcdd338b6b6b0081cb9a1d687561e3b746cf678\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 289538c2790d4e3015545487de89233ac1dc6e0b only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json\", \"evaluator_version\": \"c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac\"}"
     }
   ]
 }
