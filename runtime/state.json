@@ -1119,10 +1119,10 @@
       ],
       "hypothesis": false,
       "benefit": "Keep installation expectations and public verification claims aligned with the actual tested state while preserving host activation blockers.",
-      "status": "applied",
-      "revision": 7,
+      "status": "adopted",
+      "revision": 10,
       "created_at": 1790122091.848927,
-      "updated_at": 1790122285.7261932,
+      "updated_at": 1790208975.6146228,
       "lease": null,
       "changes": [
         {
@@ -1153,19 +1153,63 @@
           "evaluator_version": "b307d17e490a63d43f896d7bd991709797bc2da4e452efe059fd297c73f91577"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "c6bd9c83-c247-41c3-936b-5c55417691e6",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json",
+          "at": 1790208975.6144524
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "README.md and docs/verification.md",
       "scope_reason": "A fixed documentation evaluator finds stale 2026-09-11 claims despite later public evidence; update only the status and verification summaries without changing behavior or permissions.",
       "generalization_evidence": null,
-      "reason": "README and verification status now reflect safeguards verified through 2026-09-22, preserve all host limitations, pass the fixed evaluator and 24 tests, and exactly match remote source.",
+      "reason": "A fresh later project-scoped run loaded commit 289538c2790d4e3015545487de89233ac1dc6e0b, confirmed the public status still matches active safeguards and host blockers, and passed all 24 tests.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
-      "applied_at": 1790122285.7261891
+      "applied_at": 1790122285.7261891,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json",
+      "activation_run": "c6bd9c83-c247-41c3-936b-5c55417691e6"
+    },
+    {
+      "id": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "capture-metadata-integrity",
+      "observation": "The capture action accepts blank or non-string evidence references, blank explicit duplicate keys, non-boolean hypothesis values, and non-string benefits, which weakens the audit record and can invert uncertainty.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-23-capture-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Keep new findings structurally valid and preserve explicit uncertainty without coercion.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790209032.211533,
+      "updated_at": 1790209038.5727055,
+      "lease": {
+        "run": "c6bd9c83-c247-41c3-936b-5c55417691e6",
+        "token": "6562d83b-70c7-4928-b157-55accda714cc",
+        "until": 1790209338.5726156
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed capture evaluator rejects twelve malformed metadata cases that the current engine accepts; validate new evidence, duplicate keys, hypothesis values, and benefits before persistence.",
+      "generalization_evidence": null,
+      "reason": "The fixed capture evaluator rejects twelve malformed metadata cases that the current engine accepts; validate new evidence, duplicate keys, hypothesis values, and benefits before persistence.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1409,6 +1453,23 @@
         "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92"
       ],
       "checkpoint": "Activated and adopted chronological activation and reuse validation after fresh later use. Refreshed README and verification status through 2026-09-22 while preserving Codex hook, Work-wide activation, and second-user installation limitations. All 24 tests and exact remote-byte checks pass; the documentation update is pending activation. Two of three source-change slots were used."
+    },
+    {
+      "id": "c6bd9c83-c247-41c3-936b-5c55417691e6",
+      "worker": "project-maintenance-2026-09-23",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790208967.1254327,
+      "deadline": 1790210167.1254332,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "8a7eabda-9f5a-4852-a56b-7a5557056431"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -2573,6 +2634,41 @@
       "kind": "checkpoint",
       "entity": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
       "body": "{\"summary\": \"Activated and adopted chronological activation and reuse validation after fresh later use. Refreshed README and verification status through 2026-09-22 while preserving Codex hook, Work-wide activation, and second-user installation limitations. All 24 tests and exact remote-byte checks pass; the documentation update is pending activation. Two of three source-change slots were used.\"}"
+    },
+    {
+      "seq": 167,
+      "at": 1790208967.1255841,
+      "kind": "run_started",
+      "entity": "c6bd9c83-c247-41c3-936b-5c55417691e6",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 168,
+      "at": 1790208975.614678,
+      "kind": "transition",
+      "entity": "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later project-scoped run loaded commit 289538c2790d4e3015545487de89233ac1dc6e0b, confirmed the public status still matches active safeguards and host blockers, and passed all 24 tests.\"}"
+    },
+    {
+      "seq": 169,
+      "at": 1790209032.2116957,
+      "kind": "captured",
+      "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 170,
+      "at": 1790209038.572439,
+      "kind": "transition",
+      "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed capture evaluator rejects twelve malformed metadata cases that the current engine accepts; validate new evidence, duplicate keys, hypothesis values, and benefits before persistence.\"}"
+    },
+    {
+      "seq": 171,
+      "at": 1790209038.5727258,
+      "kind": "claimed",
+      "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "body": "{\"run\": \"c6bd9c83-c247-41c3-936b-5c55417691e6\"}"
     }
   ]
 }
