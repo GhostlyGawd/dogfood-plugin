@@ -7,7 +7,7 @@ Finding mutations require the current `id` and `revision`. Claimed work also req
 | Action | Inputs |
 | --- | --- |
 | init | owner: stable non-empty label. |
-| capture | project, observation, evidence: non-empty array; optional benefit, hypothesis, dedup. Returns finding and duplicate. |
+| capture | project, observation, evidence: non-empty array of non-blank source-reference strings; optional string benefit, boolean hypothesis, and non-blank string dedup. Returns finding and duplicate. |
 | transition to ready | id, revision, status, reason, scope, destination; personal scope also needs generalization_evidence. |
 | start-run | worker, projects: array, trigger: active/background/manual; optional seconds and max_changes. Records started_at for chronological evidence checks. |
 | claim | id, revision, run. Returns lease.token and lease.until. |
