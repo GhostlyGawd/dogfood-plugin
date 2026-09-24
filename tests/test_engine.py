@@ -62,6 +62,27 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(self.capture()["id"], f["id"])
         self.assertNotEqual(self.capture(project="project-b")["id"], f["id"])
 
+    def test_capture_rejects_malformed_metadata(self):
+        for index, evidence in enumerate(([""], [None], [42], [{"ref": "fixture"}])):
+            with self.subTest(evidence=evidence), self.assertRaises(ValueError):
+                self.call("capture", project="project-a", observation=f"bad evidence {index}", evidence=evidence)
+        for index, dedup in enumerate(("", "   ")):
+            with self.subTest(dedup=dedup), self.assertRaises(ValueError):
+                self.call("capture", project="project-a", observation=f"bad dedup {index}",
+                          evidence=["fixture:failure"], dedup=dedup)
+        for index, hypothesis in enumerate((None, 0, 1, "false")):
+            with self.subTest(hypothesis=hypothesis), self.assertRaises(ValueError):
+                self.call("capture", project="project-a", observation=f"bad hypothesis {index}",
+                          evidence=["fixture:failure"], hypothesis=hypothesis)
+        for index, benefit in enumerate((None, ["benefit"])):
+            with self.subTest(benefit=benefit), self.assertRaises(ValueError):
+                self.call("capture", project="project-a", observation=f"bad benefit {index}",
+                          evidence=["fixture:failure"], benefit=benefit)
+        finding = self.call("capture", project="project-a", observation="known limitation",
+                            evidence=["fixture:failure"], hypothesis=False, benefit="Preserve certainty")
+        self.assertFalse(finding["finding"]["hypothesis"])
+        self.assertEqual(finding["finding"]["benefit"], "Preserve certainty")
+
     def test_owner_cannot_change(self):
         with self.assertRaises(Conflict):
             self.call("init", owner="another-user")
