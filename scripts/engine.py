@@ -150,18 +150,28 @@ class Ledger:
     def capture(self, data):
         project, observation = required(data, "project"), required(data, "observation")
         evidence = data.get("evidence")
-        if not isinstance(evidence, list) or not evidence:
-            raise ValueError("evidence must contain at least one source reference")
-        dedup = data.get("dedup") or digest((observation.strip().lower()).encode())
-        if not isinstance(dedup, str) or not dedup:
-            raise ValueError("invalid duplicate key")
+        if (not isinstance(evidence, list) or not evidence
+                or not all(isinstance(ref, str) and ref.strip() for ref in evidence)):
+            raise ValueError("evidence must contain non-blank source reference strings")
+        if "dedup" in data:
+            dedup = data["dedup"]
+            if not isinstance(dedup, str) or not dedup.strip():
+                raise ValueError("invalid duplicate key")
+        else:
+            dedup = digest((observation.strip().lower()).encode())
+        hypothesis = data["hypothesis"] if "hypothesis" in data else True
+        if type(hypothesis) is not bool:
+            raise ValueError("hypothesis must be a boolean")
+        benefit = data.get("benefit", "")
+        if not isinstance(benefit, str):
+            raise ValueError("benefit must be a string")
         old = self.db.execute("SELECT id FROM findings WHERE project=? AND dedup=?", (project, dedup)).fetchone()
         if old:
             return {"duplicate": True, "finding": self.finding(old[0])}
         fid = str(uuid.uuid4())
         f = {"id": fid, "project": project, "owner": self.meta("owner"),
              "dedup": dedup, "observation": observation, "evidence": evidence,
-             "hypothesis": bool(data.get("hypothesis", True)), "benefit": data.get("benefit", ""),
+             "hypothesis": hypothesis, "benefit": benefit,
              "status": "captured", "revision": 0, "created_at": self.clock(),
              "updated_at": self.clock(), "lease": None, "changes": [], "checks": [],
              "activation": "not_applied", "reuse": [], "recovery_required": False}
