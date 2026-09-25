@@ -1188,10 +1188,10 @@
       ],
       "hypothesis": false,
       "benefit": "Keep new findings structurally valid and preserve explicit uncertainty without coercion.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1790209032.211533,
-      "updated_at": 1790209185.569399,
+      "updated_at": 1790295331.5652444,
       "lease": null,
       "changes": [
         {
@@ -1231,19 +1231,63 @@
           "evaluator_version": "c30c8d040825c5c5272455f2390553c2c6084fd97d203a96246aab50ecfbefac"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "c2863935-bad0-436f-8d1b-de599016ff76",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-24-setup-owner-integrity.json",
+          "at": 1790295331.5645785
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed capture evaluator rejects twelve malformed metadata cases that the current engine accepts; validate new evidence, duplicate keys, hypothesis values, and benefits before persistence.",
       "generalization_evidence": null,
-      "reason": "Capture now rejects malformed evidence, duplicate keys, hypothesis values, and benefits while preserving a valid explicit false; 25 tests pass and remote bytes match.",
+      "reason": "A fresh later project-scoped run loaded commit ba45d15a255a94a04cb633d26d51f362fcc40c62, exercised valid and malformed capture metadata, and passed all 25 tests.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "c6bd9c83-c247-41c3-936b-5c55417691e6",
-      "applied_at": 1790209185.5693965
+      "applied_at": 1790209185.5693965,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-24-setup-owner-integrity.json",
+      "activation_run": "c2863935-bad0-436f-8d1b-de599016ff76"
+    },
+    {
+      "id": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "setup-owner-settings-integrity",
+      "observation": "If a configured state directory keeps settings.json but loses its ledger, rerunning setup with a different owner silently creates a new ledger while retaining the old settings owner, leaving the installation internally inconsistent.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/configure.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-24-setup-owner-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject stale-owner setup before recreating a missing ledger so reusable installations keep one consistent identity.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790295389.2200618,
+      "updated_at": 1790295396.4084656,
+      "lease": {
+        "run": "c2863935-bad0-436f-8d1b-de599016ff76",
+        "token": "43090e06-5d6b-483e-9398-40dac1ae8b8b",
+        "until": 1790295696.4079347
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/configure.py, tests/test_engine.py, and skills/setup/SKILL.md",
+      "scope_reason": "The fixed setup evaluator reproduces an owner/settings mismatch after ledger loss; validate the saved identity before constructing a replacement database.",
+      "generalization_evidence": null,
+      "reason": "The fixed setup evaluator reproduces an owner/settings mismatch after ledger loss; validate the saved identity before constructing a replacement database.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1504,6 +1548,23 @@
         "8a7eabda-9f5a-4852-a56b-7a5557056431"
       ],
       "checkpoint": "Activated and adopted the 2026-09-22 public status update after fresh later use. Applied capture-metadata integrity: malformed evidence references, duplicate keys, hypothesis values, and benefits are rejected without coercing explicit uncertainty. All 25 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "c2863935-bad0-436f-8d1b-de599016ff76",
+      "worker": "project-maintenance-2026-09-24",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790295321.9524639,
+      "deadline": 1790296521.9524643,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -2745,6 +2806,41 @@
       "kind": "checkpoint",
       "entity": "c6bd9c83-c247-41c3-936b-5c55417691e6",
       "body": "{\"summary\": \"Activated and adopted the 2026-09-22 public status update after fresh later use. Applied capture-metadata integrity: malformed evidence references, duplicate keys, hypothesis values, and benefits are rejected without coercing explicit uncertainty. All 25 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 178,
+      "at": 1790295321.952934,
+      "kind": "run_started",
+      "entity": "c2863935-bad0-436f-8d1b-de599016ff76",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 179,
+      "at": 1790295331.565416,
+      "kind": "transition",
+      "entity": "8a7eabda-9f5a-4852-a56b-7a5557056431",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later project-scoped run loaded commit ba45d15a255a94a04cb633d26d51f362fcc40c62, exercised valid and malformed capture metadata, and passed all 25 tests.\"}"
+    },
+    {
+      "seq": 180,
+      "at": 1790295389.222193,
+      "kind": "captured",
+      "entity": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 181,
+      "at": 1790295396.4074783,
+      "kind": "transition",
+      "entity": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed setup evaluator reproduces an owner/settings mismatch after ledger loss; validate the saved identity before constructing a replacement database.\"}"
+    },
+    {
+      "seq": 182,
+      "at": 1790295396.4085057,
+      "kind": "claimed",
+      "entity": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
+      "body": "{\"run\": \"c2863935-bad0-436f-8d1b-de599016ff76\"}"
     }
   ]
 }
