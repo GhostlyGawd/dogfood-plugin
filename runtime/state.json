@@ -1267,9 +1267,9 @@
       "hypothesis": false,
       "benefit": "Reject stale-owner setup before recreating a missing ledger so reusable installations keep one consistent identity.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1790295389.2200618,
-      "updated_at": 1790295447.8884332,
+      "updated_at": 1790295477.6422467,
       "lease": {
         "run": "c2863935-bad0-436f-8d1b-de599016ff76",
         "token": "43090e06-5d6b-483e-9398-40dac1ae8b8b",
@@ -1282,6 +1282,15 @@
           "before_version": "ba45d15a255a94a04cb633d26d51f362fcc40c62",
           "after_version": "c9b66c9820cde03e58459331ad5f84ba856e3df3",
           "reversal_ref": "Restore scripts/configure.py from commit ba45d15a255a94a04cb633d26d51f362fcc40c62 only if its blob still matches this candidate; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-24-setup-owner-integrity.json",
+          "evaluator_version": "39c3508e3291606b665b822f0c3696658e6fd7a474644f7a97dd9a4c563f5377"
+        },
+        {
+          "operation_key": "setup-owner-integrity-test",
+          "target": "GhostlyGawd/dogfood-plugin:main:tests/test_engine.py",
+          "before_version": "c9b66c9820cde03e58459331ad5f84ba856e3df3",
+          "after_version": "233ddd123fb5a375abe573ee5441e42a842c741a",
+          "reversal_ref": "Restore tests/test_engine.py from commit ba45d15a255a94a04cb633d26d51f362fcc40c62 only if its blob still matches this candidate; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-24-setup-owner-integrity.json",
           "evaluator_version": "39c3508e3291606b665b822f0c3696658e6fd7a474644f7a97dd9a4c563f5377"
         }
@@ -1570,7 +1579,7 @@
       "started_at": 1790295321.9524639,
       "deadline": 1790296521.9524643,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa"
       ],
@@ -2858,6 +2867,13 @@
       "kind": "change_recorded",
       "entity": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
       "body": "{\"operation_key\": \"setup-owner-integrity-configure\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/configure.py\", \"before_version\": \"ba45d15a255a94a04cb633d26d51f362fcc40c62\", \"after_version\": \"c9b66c9820cde03e58459331ad5f84ba856e3df3\", \"reversal_ref\": \"Restore scripts/configure.py from commit ba45d15a255a94a04cb633d26d51f362fcc40c62 only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-24-setup-owner-integrity.json\", \"evaluator_version\": \"39c3508e3291606b665b822f0c3696658e6fd7a474644f7a97dd9a4c563f5377\"}"
+    },
+    {
+      "seq": 184,
+      "at": 1790295477.642453,
+      "kind": "change_recorded",
+      "entity": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
+      "body": "{\"operation_key\": \"setup-owner-integrity-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"c9b66c9820cde03e58459331ad5f84ba856e3df3\", \"after_version\": \"233ddd123fb5a375abe573ee5441e42a842c741a\", \"reversal_ref\": \"Restore tests/test_engine.py from commit ba45d15a255a94a04cb633d26d51f362fcc40c62 only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-24-setup-owner-integrity.json\", \"evaluator_version\": \"39c3508e3291606b665b822f0c3696658e6fd7a474644f7a97dd9a4c563f5377\"}"
     }
   ]
 }
