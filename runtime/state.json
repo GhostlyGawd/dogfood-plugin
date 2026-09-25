@@ -1590,7 +1590,7 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "started_at": 1790295321.9524639,
       "deadline": 1790296521.9524643,
       "max_changes": 3,
@@ -1598,7 +1598,7 @@
       "claimed": [
         "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted capture-metadata integrity after fresh later use. Applied setup owner-integrity: a stale settings identity is rejected before a missing ledger can be recreated under another owner. All 26 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -2910,6 +2910,13 @@
       "kind": "transition",
       "entity": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
       "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Setup now rejects mismatched saved owner or database identity before recreating a missing ledger; settings remain unchanged, 26 tests pass, and remote bytes match.\"}"
+    },
+    {
+      "seq": 188,
+      "at": 1790295586.2176397,
+      "kind": "checkpoint",
+      "entity": "c2863935-bad0-436f-8d1b-de599016ff76",
+      "body": "{\"summary\": \"Activated and adopted capture-metadata integrity after fresh later use. Applied setup owner-integrity: a stale settings identity is rejected before a missing ledger can be recreated under another owner. All 26 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
