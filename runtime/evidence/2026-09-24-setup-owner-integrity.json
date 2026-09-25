@@ -21,19 +21,64 @@
       "exit_code": 1,
       "output": "test_setup_rejects_stale_owner_settings_before_recreating_ledger (tests.test_engine.EngineTests.test_setup_rejects_stale_owner_settings_before_recreating_ledger) ... FAIL\n\n======================================================================\nFAIL: test_setup_rejects_stale_owner_settings_before_recreating_ledger (tests.test_engine.EngineTests.test_setup_rejects_stale_owner_settings_before_recreating_ledger)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9888bfbbb6fa/dogfood-run-20260924/tests/test_engine.py\", line 285, in test_setup_rejects_stale_owner_settings_before_recreating_ledger\n    self.assertNotEqual(second.returncode, 0)\nAssertionError: 0 == 0\n\n----------------------------------------------------------------------\nRan 1 test in 0.268s\n\nFAILED (failures=1)"
     },
-    "local_candidate": {
+    "applied_changes": [
+      {
+        "path": "scripts/configure.py",
+        "commit": "c9b66c9820cde03e58459331ad5f84ba856e3df3",
+        "blob": "a65c8388a871b375dc1c76cf31b046a7b95b980f",
+        "bytes_match": true
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "233ddd123fb5a375abe573ee5441e42a842c741a",
+        "blob": "c1a05db1e77f60c2ffd131e5e5961a717b79d471",
+        "bytes_match": true
+      },
+      {
+        "path": "skills/setup/SKILL.md",
+        "commit": "957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3",
+        "blob": "1be39e86157d24c74c27b31f4c905aadfaf5d108",
+        "bytes_match": true
+      }
+    ],
+    "final_check": {
       "command": "python -m unittest discover -s tests -v",
       "exit_code": 0,
-      "summary": "test_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 0.556s\n\nOK\n39c3508e3291606b665b822f0c3696658e6fd7a474644f7a97dd9a4c563f5377  -"
+      "summary": "test_stale_revision_rejected (test_engine.EngineTests.test_stale_revision_rejected) ... ok\ntest_wrong_version_cannot_pass (test_engine.EngineTests.test_wrong_version_cannot_pass) ... ok\ntest_budget_counts_change_operations_not_only_claims (test_run_budget.RunChangeBudgetTests.test_budget_counts_change_operations_not_only_claims) ... ok\ntest_idempotent_repeat_does_not_consume_another_change (test_run_budget.RunChangeBudgetTests.test_idempotent_repeat_does_not_consume_another_change) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 0.557s\n\nOK\n39c3508e3291606b665b822f0c3696658e6fd7a474644f7a97dd9a4c563f5377  -"
     },
-    "expected": [
-      "saved owner and database identity are checked before Ledger construction",
-      "mismatched reinitialization fails",
-      "settings remain unchanged",
-      "a missing ledger is not recreated under another owner"
+    "assertions": [
+      {
+        "name": "saved owner and database identity are checked before ledger construction",
+        "result": "pass"
+      },
+      {
+        "name": "mismatched reinitialization fails",
+        "result": "pass"
+      },
+      {
+        "name": "existing settings remain unchanged",
+        "result": "pass"
+      },
+      {
+        "name": "missing ledger is not recreated under another owner",
+        "result": "pass"
+      },
+      {
+        "name": "all 26 tests pass with the unchanged evaluator",
+        "result": "pass"
+      },
+      {
+        "name": "all three remote files exactly match the evaluated candidate",
+        "result": "pass"
+      }
     ]
   },
-  "status": "claimed; source changes not yet written",
-  "resume_when": "A later fresh run loads the final source commit and verifies matching reinitialization remains idempotent while a stale-owner retry fails before ledger creation.",
-  "reversal": "Restore scripts/configure.py, tests/test_engine.py, and skills/setup/SKILL.md from commit ba45d15a255a94a04cb633d26d51f362fcc40c62 only if their blobs still match this candidate; preserve later edits."
+  "status": "applied_pending_activation",
+  "resume_when": "A later fresh run loads commit 957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3 and verifies matching reinitialization remains idempotent while a stale-owner retry fails before ledger creation.",
+  "reversal": "Restore scripts/configure.py, tests/test_engine.py, and skills/setup/SKILL.md from commit ba45d15a255a94a04cb633d26d51f362fcc40c62 only if their blobs still match this candidate; preserve later edits.",
+  "blockers": [
+    "Codex hook activation awaits a supported Codex runtime and trust review.",
+    "Work-wide activation awaits a host global-instruction surface and fresh-chat test.",
+    "Second-user installation remains unverified."
+  ]
 }
