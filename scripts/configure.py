@@ -73,13 +73,18 @@ def main():
                 raise ValueError("--owner is required")
             state.mkdir(parents=True, exist_ok=True)
             db = state / "dogfood.sqlite3"
+            settings = state / "settings.json"
+            if settings.exists():
+                saved = json.loads(settings.read_text(encoding="utf-8"))
+                if (not isinstance(saved, dict) or saved.get("owner") != args.owner
+                        or saved.get("db") != str(db)):
+                    raise ValueError("existing settings do not match the requested owner and database")
             ledger = Ledger(db)
             try:
                 ledger.dispatch("init", {"owner": args.owner})
             finally:
                 ledger.close()
             os.chmod(db, 0o600)
-            settings = state / "settings.json"
             if not settings.exists():
                 atomic_write(settings, json.dumps({"version": VERSION, "host": "local",
                     "owner": args.owner, "db": str(db), "active_max_changes": 1,
