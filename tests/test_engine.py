@@ -272,6 +272,22 @@ class EngineTests(unittest.TestCase):
         self.assertIn("Keep my existing rule.", target.read_text())
         self.assertNotIn("dogfood:start", target.read_text())
 
+    def test_setup_rejects_stale_owner_settings_before_recreating_ledger(self):
+        state = Path(self.tmp.name) / "configured-state"
+        command = [sys.executable, str(ROOT / "scripts/configure.py"), "init",
+                   "--state-dir", str(state), "--owner"]
+        first = subprocess.run(command + ["owner-a"], text=True, capture_output=True, check=True)
+        self.assertTrue(json.loads(first.stdout)["ok"])
+        settings = (state / "settings.json").read_text()
+        (state / "dogfood.sqlite3").unlink()
+
+        second = subprocess.run(command + ["owner-b"], text=True, capture_output=True)
+        self.assertNotEqual(second.returncode, 0)
+        self.assertFalse(json.loads(second.stdout)["ok"])
+        self.assertIn("existing settings", json.loads(second.stdout)["error"])
+        self.assertEqual((state / "settings.json").read_text(), settings)
+        self.assertFalse((state / "dogfood.sqlite3").exists())
+
     def test_hook_emits_valid_context_from_another_directory(self):
         result = subprocess.run([sys.executable, str(ROOT / "hooks/session_start.py")], cwd=self.tmp.name,
                                 text=True, capture_output=True, check=True)
