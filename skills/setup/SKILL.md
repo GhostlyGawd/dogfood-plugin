@@ -7,7 +7,7 @@ description: Configure Dogfood, connect its persistent findings store, and check
 
 Read [Dogfood](../dogfood/SKILL.md). Determine whether the runtime has persistent local files or a temporary Work workspace. Reuse existing identity and access. Do not alter permission settings to make setup succeed.
 
-For local use, initialize an explicit persistent user-owned state directory with `../../scripts/configure.py init --state-dir ABSOLUTE_PATH --owner OWNER` relative to this skill directory. This writes settings and initializes the ledger. It does not create a schedule or change global instructions.
+For local use, initialize an explicit persistent user-owned state directory with `../../scripts/configure.py init --state-dir ABSOLUTE_PATH --owner OWNER` relative to this skill directory. This writes settings and initializes the ledger. Reusing a state directory must match its saved owner and database identity; setup rejects a mismatch before recreating a missing ledger. It does not create a schedule or change global instructions.
 
 The plugin bundles `hooks/hooks.json` at the documented default path. Codex requires review and trust of the current hook definition before execution. Use the host hook controls when needed. Dogfood cannot grant that trust itself.
 
