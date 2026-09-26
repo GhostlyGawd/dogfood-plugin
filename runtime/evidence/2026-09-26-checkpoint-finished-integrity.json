@@ -23,8 +23,41 @@
     "status": "adopted",
     "result": "Fresh later run loaded commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b, exercised malformed and valid pause scoping, and passed all 27 pre-candidate tests."
   },
-  "remote_changes": [],
-  "final_check": null,
+  "remote_changes": [
+    {
+      "path": "scripts/engine.py",
+      "before_blob": "4cfa7e3f35577643ab0a30e3a9d8d2409c96cce0",
+      "after_blob": "1c53637dba7253dd2d06a21fa14d34913532c2ad",
+      "commit": "14c504e9b035425ce569df2e899d023f9525a67e"
+    },
+    {
+      "path": "tests/test_engine.py",
+      "before_blob": "ce754fd9acfa02ec48f2457766b39d666ab67073",
+      "after_blob": "b91f0cb91db2f552be02075d2c77350d1e2034de",
+      "commit": "9248dad72ffcba7584349beeeba90009a0bb2255"
+    },
+    {
+      "path": "skills/dogfood/references/ledger.md",
+      "before_blob": "3bac6f64d534e4475072760cf625f62edbaf83ab",
+      "after_blob": "ef2bafa3188595d1c09ec5eb8de4d15c5f9e44a7",
+      "commit": "d35a7d014b5b8cfc50db84f51f5c184248030ce1"
+    }
+  ],
+  "final_check": {
+    "final_commit": "d35a7d014b5b8cfc50db84f51f5c184248030ce1",
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "tests": 28,
+    "evaluator_version": "9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472",
+    "remote_bytes_exact": true,
+    "assertions": [
+      "Supplied string, integer, null, list, and object finished values are rejected.",
+      "Rejected checkpoint requests leave each run in running state.",
+      "Existing checkpointed and finished modes still pass."
+    ]
+  },
   "activation": "pending",
-  "resume_when": "A later fresh project-scoped run loads the final commit and proves malformed finished values are rejected without mutating run state while valid checkpoint modes still work."
+  "resume_when": "A later fresh project-scoped run loads the final commit and proves malformed finished values are rejected without mutating run state while valid checkpoint modes still work.",
+  "applied_at": 1790465785.3720093,
+  "reversal": "Restore the three changed paths from commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b only if their current blobs still match this candidate; preserve later edits."
 }
