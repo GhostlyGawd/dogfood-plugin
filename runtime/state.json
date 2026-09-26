@@ -1345,13 +1345,13 @@
       "hypothesis": false,
       "benefit": "Prevent malformed scoped pause requests from changing global pause state.",
       "status": "in_progress",
-      "revision": 4,
+      "revision": 5,
       "created_at": 1790380933.265235,
-      "updated_at": 1790381091.6133907,
+      "updated_at": 1790381131.4220471,
       "lease": {
         "run": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
         "token": "64f73fc0-ab78-424e-86bb-7996425c062d",
-        "until": 1790381256.366752
+        "until": 1790381431.422045
       },
       "changes": [
         {
