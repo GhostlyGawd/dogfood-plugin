@@ -126,6 +126,14 @@ class EngineTests(unittest.TestCase):
         self.call("pause", project="project-a", paused=True)
         self.assertEqual(self.call("start-run", worker="w", projects=["project-b"])["state"], "running")
 
+    def test_pause_rejects_invalid_project_without_global_side_effect(self):
+        for project in ("", "   ", None, 0, [], {}):
+            with self.subTest(project=project), self.assertRaises(ValueError):
+                self.call("pause", project=project, paused=True)
+        status = self.call("status")
+        self.assertFalse(status["paused"])
+        self.assertEqual(status["paused_projects"], [])
+
     def test_budget_expires_and_old_worker_is_rejected(self):
         f = self.claim(seconds=5)
         self.now[0] += 6
