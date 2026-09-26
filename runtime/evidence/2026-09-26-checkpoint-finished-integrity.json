@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-26",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "e0844032-d255-4d26-bdbf-9433735f84cd",
+  "finding": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
+  "candidate": "checkpoint-finished-type-integrity",
+  "base_commit": "9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b",
+  "evaluator_version": "9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472",
+  "baseline": {
+    "command": "python -m unittest tests.test_engine.EngineTests.test_checkpoint_rejects_non_boolean_finished_without_side_effect -v",
+    "exit_code": 1,
+    "failures": 6,
+    "result": "The baseline accepted string, integer, null, list, and object values for finished; every rejected-by-contract case mutated the new run away from running."
+  },
+  "candidate_check": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "tests": 28,
+    "result": "Candidate passes locally with the fixed evaluator unchanged."
+  },
+  "prior_activation": {
+    "finding": "048214d3-5c0a-41fa-8903-91b4fa30b316",
+    "status": "adopted",
+    "result": "Fresh later run loaded commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b, exercised malformed and valid pause scoping, and passed all 27 pre-candidate tests."
+  },
+  "remote_changes": [],
+  "final_check": null,
+  "activation": "pending",
+  "resume_when": "A later fresh project-scoped run loads the final commit and proves malformed finished values are rejected without mutating run state while valid checkpoint modes still work."
+}
