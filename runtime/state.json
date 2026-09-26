@@ -1422,15 +1422,11 @@
       ],
       "hypothesis": false,
       "benefit": "Prevent malformed checkpoint requests from prematurely ending or mutating active runs.",
-      "status": "in_progress",
-      "revision": 5,
+      "status": "applied",
+      "revision": 8,
       "created_at": 1790465648.058531,
-      "updated_at": 1790465752.2537332,
-      "lease": {
-        "run": "e0844032-d255-4d26-bdbf-9433735f84cd",
-        "token": "146bbd60-7fe6-4403-846e-cbb4bb7ad45c",
-        "until": 1790465954.446245
-      },
+      "updated_at": 1790465785.3720145,
+      "lease": null,
       "changes": [
         {
           "operation_key": "checkpoint-finished-engine",
@@ -1460,18 +1456,28 @@
           "evaluator_version": "9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "28 regression tests, fixed evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-26-checkpoint-finished-integrity.json",
+          "verified_version": "d35a7d014b5b8cfc50db84f51f5c184248030ce1",
+          "exit_code": 0,
+          "evaluator_version": "9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator reproduces six malformed finished values that the current engine accepts and proves each mutates run state; require a literal boolean whenever the optional field is supplied.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator reproduces six malformed finished values that the current engine accepts and proves each mutates run state; require a literal boolean whenever the optional field is supplied.",
+      "reason": "Checkpoint now rejects every supplied non-boolean finished value before changing run state; existing checkpointed and finished modes remain covered, all 28 tests pass, the evaluator is unchanged, and remote bytes exactly match.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "e0844032-d255-4d26-bdbf-9433735f84cd",
+      "applied_at": 1790465785.3720093
     }
   ],
   "runs": [
@@ -3234,6 +3240,20 @@
       "kind": "change_recorded",
       "entity": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
       "body": "{\"operation_key\": \"checkpoint-finished-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"9248dad72ffcba7584349beeeba90009a0bb2255\", \"after_version\": \"d35a7d014b5b8cfc50db84f51f5c184248030ce1\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-26-checkpoint-finished-integrity.json\", \"evaluator_version\": \"9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472\"}"
+    },
+    {
+      "seq": 208,
+      "at": 1790465785.2825065,
+      "kind": "transition",
+      "entity": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded source writes completed and the fixed evaluator remained unchanged.\"}"
+    },
+    {
+      "seq": 209,
+      "at": 1790465785.3721435,
+      "kind": "transition",
+      "entity": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Checkpoint now rejects every supplied non-boolean finished value before changing run state; existing checkpointed and finished modes remain covered, all 28 tests pass, the evaluator is unchanged, and remote bytes exactly match.\"}"
     }
   ]
 }
