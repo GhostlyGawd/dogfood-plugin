@@ -24,7 +24,7 @@ Finding mutations require the current `id` and `revision`. Claimed work also req
 | transition to reverted | id, revision, token if claimed, status, reason, reversal_evidence. Reverse the actual target first. |
 | recover | id, revision. Moves an expired claim to blocked; does not replay edits. |
 | reconcile | id, revision, outcome: unchanged/reverted/applied/diverged, evidence_ref. Only unchanged or reverted permits a new plan. |
-| checkpoint | run, summary, optional finished: boolean. Ends the run and expires remaining claims. |
+| checkpoint | run, summary, optional finished. If supplied, finished must be a boolean. Ends the run and expires remaining claims. |
 | pause | paused: boolean; optional project must be a non-blank string. Capture and recovery bookkeeping remain possible. |
 | get | id. |
 | list | Optional project, status, limit (1–1000). |
