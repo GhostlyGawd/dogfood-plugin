@@ -1345,9 +1345,9 @@
       "hypothesis": false,
       "benefit": "Prevent malformed scoped pause requests from changing global pause state.",
       "status": "in_progress",
-      "revision": 5,
+      "revision": 6,
       "created_at": 1790380933.265235,
-      "updated_at": 1790381131.4220471,
+      "updated_at": 1790381160.7625086,
       "lease": {
         "run": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
         "token": "64f73fc0-ab78-424e-86bb-7996425c062d",
@@ -1369,6 +1369,15 @@
           "before_version": "80ccf3c7571ff61d3d12f10b3b07f21ea61e4c8e",
           "after_version": "5b992645729267ac3bfeb01dc43a41dccfeacc3a",
           "reversal_ref": "Restore tests/test_engine.py from commit 957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3 only if its blob still matches this candidate; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-25-pause-scope-integrity.json",
+          "evaluator_version": "cd5cf414f5c13648e3f5aa2ba4929893c000f9a145bc0ed9a34380a0bbb1a8dd"
+        },
+        {
+          "operation_key": "pause-scope-contract",
+          "target": "GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md",
+          "before_version": "5b992645729267ac3bfeb01dc43a41dccfeacc3a",
+          "after_version": "9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b",
+          "reversal_ref": "Restore skills/dogfood/references/ledger.md from commit 957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3 only if its blob still matches this candidate; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-25-pause-scope-integrity.json",
           "evaluator_version": "cd5cf414f5c13648e3f5aa2ba4929893c000f9a145bc0ed9a34380a0bbb1a8dd"
         }
@@ -1674,7 +1683,7 @@
       "started_at": 1790380747.3764977,
       "deadline": 1790381947.376498,
       "max_changes": 3,
-      "changes_used": 2,
+      "changes_used": 3,
       "claimed": [
         "048214d3-5c0a-41fa-8903-91b4fa30b316"
       ],
@@ -3046,6 +3055,13 @@
       "kind": "change_recorded",
       "entity": "048214d3-5c0a-41fa-8903-91b4fa30b316",
       "body": "{\"operation_key\": \"pause-scope-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"80ccf3c7571ff61d3d12f10b3b07f21ea61e4c8e\", \"after_version\": \"5b992645729267ac3bfeb01dc43a41dccfeacc3a\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3 only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-25-pause-scope-integrity.json\", \"evaluator_version\": \"cd5cf414f5c13648e3f5aa2ba4929893c000f9a145bc0ed9a34380a0bbb1a8dd\"}"
+    },
+    {
+      "seq": 196,
+      "at": 1790381160.762555,
+      "kind": "change_recorded",
+      "entity": "048214d3-5c0a-41fa-8903-91b4fa30b316",
+      "body": "{\"operation_key\": \"pause-scope-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"5b992645729267ac3bfeb01dc43a41dccfeacc3a\", \"after_version\": \"9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3 only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-25-pause-scope-integrity.json\", \"evaluator_version\": \"cd5cf414f5c13648e3f5aa2ba4929893c000f9a145bc0ed9a34380a0bbb1a8dd\"}"
     }
   ]
 }
