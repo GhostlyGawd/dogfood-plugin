@@ -271,6 +271,14 @@ class EngineTests(unittest.TestCase):
         with self.assertRaises(Conflict):
             self.call("heartbeat", **self.edit_args(f))
 
+    def test_checkpoint_rejects_non_boolean_finished_without_side_effect(self):
+        for finished in ("false", 1, 0, None, [], {}):
+            with self.subTest(finished=finished):
+                run = self.call("start-run", worker="worker-a", projects=["project-a"])
+                with self.assertRaises(ValueError):
+                    self.call("checkpoint", run=run["id"], summary="retain run", finished=finished)
+                self.assertEqual(self.ledger.run(run["id"])["state"], "running")
+
     def test_instruction_setup_is_idempotent_and_preserves_text(self):
         target = Path(self.tmp.name) / "AGENTS.md"
         target.write_text("Keep my existing rule.\n")
