@@ -1423,9 +1423,9 @@
       "hypothesis": false,
       "benefit": "Prevent malformed checkpoint requests from prematurely ending or mutating active runs.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1790465648.058531,
-      "updated_at": 1790465705.656095,
+      "updated_at": 1790465728.239242,
       "lease": {
         "run": "e0844032-d255-4d26-bdbf-9433735f84cd",
         "token": "146bbd60-7fe6-4403-846e-cbb4bb7ad45c",
@@ -1438,6 +1438,15 @@
           "before_version": "9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b",
           "after_version": "14c504e9b035425ce569df2e899d023f9525a67e",
           "reversal_ref": "Restore scripts/engine.py from commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b only if its blob still matches this candidate; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-26-checkpoint-finished-integrity.json",
+          "evaluator_version": "9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472"
+        },
+        {
+          "operation_key": "checkpoint-finished-test",
+          "target": "GhostlyGawd/dogfood-plugin:main:tests/test_engine.py",
+          "before_version": "14c504e9b035425ce569df2e899d023f9525a67e",
+          "after_version": "9248dad72ffcba7584349beeeba90009a0bb2255",
+          "reversal_ref": "Restore tests/test_engine.py from commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b only if its blob still matches this candidate; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-26-checkpoint-finished-integrity.json",
           "evaluator_version": "9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472"
         }
@@ -1760,7 +1769,7 @@
       "started_at": 1790465589.235295,
       "deadline": 1790466789.2352953,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "c0d11a1c-a16b-4e51-a828-70f4a163d03f"
       ],
@@ -3202,6 +3211,13 @@
       "kind": "change_recorded",
       "entity": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
       "body": "{\"operation_key\": \"checkpoint-finished-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b\", \"after_version\": \"14c504e9b035425ce569df2e899d023f9525a67e\", \"reversal_ref\": \"Restore scripts/engine.py from commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-26-checkpoint-finished-integrity.json\", \"evaluator_version\": \"9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472\"}"
+    },
+    {
+      "seq": 206,
+      "at": 1790465728.2393148,
+      "kind": "change_recorded",
+      "entity": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
+      "body": "{\"operation_key\": \"checkpoint-finished-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"14c504e9b035425ce569df2e899d023f9525a67e\", \"after_version\": \"9248dad72ffcba7584349beeeba90009a0bb2255\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 9eb8e52fb46c63f11722b0c2dcafbcd21fd8334b only if its blob still matches this candidate; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-26-checkpoint-finished-integrity.json\", \"evaluator_version\": \"9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472\"}"
     }
   ]
 }
