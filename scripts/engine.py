@@ -427,7 +427,7 @@ class Ledger:
     def pause(self, data):
         if type(data.get("paused")) is not bool:
             raise ValueError("paused must be a boolean")
-        project = data.get("project")
+        project = required(data, "project") if "project" in data else None
         if project:
             values = set(self.meta("paused_projects", []))
             values.add(project) if data["paused"] else values.discard(project)
