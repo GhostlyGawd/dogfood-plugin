@@ -1266,10 +1266,10 @@
       ],
       "hypothesis": false,
       "benefit": "Reject stale-owner setup before recreating a missing ledger so reusable installations keep one consistent identity.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1790295389.2200618,
-      "updated_at": 1790295548.400574,
+      "updated_at": 1790380761.4163525,
       "lease": null,
       "changes": [
         {
@@ -1309,19 +1309,63 @@
           "evaluator_version": "39c3508e3291606b665b822f0c3696658e6fd7a474644f7a97dd9a4c563f5377"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-25-pause-scope-integrity.json",
+          "at": 1790380761.4161334
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/configure.py, tests/test_engine.py, and skills/setup/SKILL.md",
       "scope_reason": "The fixed setup evaluator reproduces an owner/settings mismatch after ledger loss; validate the saved identity before constructing a replacement database.",
       "generalization_evidence": null,
-      "reason": "Setup now rejects mismatched saved owner or database identity before recreating a missing ledger; settings remain unchanged, 26 tests pass, and remote bytes match.",
+      "reason": "A fresh later project-scoped run loaded commit 957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3, verified matching setup remains idempotent and a stale-owner retry fails before ledger creation, and passed all 26 tests.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "c2863935-bad0-436f-8d1b-de599016ff76",
-      "applied_at": 1790295548.4005663
+      "applied_at": 1790295548.4005663,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-25-pause-scope-integrity.json",
+      "activation_run": "e34becd1-7d7a-46f0-8668-e866ea1c116a"
+    },
+    {
+      "id": "048214d3-5c0a-41fa-8903-91b4fa30b316",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "pause-project-scope-integrity",
+      "observation": "Explicit falsey or malformed pause project values are treated as an omitted project and can globally pause the installation; whitespace project names are accepted.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-25-pause-scope-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Prevent malformed scoped pause requests from changing global pause state.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790380933.265235,
+      "updated_at": 1790380956.366865,
+      "lease": {
+        "run": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
+        "token": "64f73fc0-ab78-424e-86bb-7996425c062d",
+        "until": 1790381256.366752
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator proves that six malformed project-scoped pause inputs are accepted by the current engine and one changes global pause state; validate any explicit project before selecting scoped versus global pause.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator proves that six malformed project-scoped pause inputs are accepted by the current engine and one changes global pause state; validate any explicit project before selecting scoped versus global pause.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1599,6 +1643,23 @@
         "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa"
       ],
       "checkpoint": "Activated and adopted capture-metadata integrity after fresh later use. Applied setup owner-integrity: a stale settings identity is rejected before a missing ledger can be recreated under another owner. All 26 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
+      "worker": "project-maintenance-2026-09-25",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790380747.3764977,
+      "deadline": 1790381947.376498,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "048214d3-5c0a-41fa-8903-91b4fa30b316"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -2917,6 +2978,41 @@
       "kind": "checkpoint",
       "entity": "c2863935-bad0-436f-8d1b-de599016ff76",
       "body": "{\"summary\": \"Activated and adopted capture-metadata integrity after fresh later use. Applied setup owner-integrity: a stale settings identity is rejected before a missing ledger can be recreated under another owner. All 26 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 189,
+      "at": 1790380747.3766794,
+      "kind": "run_started",
+      "entity": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 190,
+      "at": 1790380761.4164147,
+      "kind": "transition",
+      "entity": "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later project-scoped run loaded commit 957dc2d7a2652c9a28fe6a9f5c28a4d4ce9e33b3, verified matching setup remains idempotent and a stale-owner retry fails before ledger creation, and passed all 26 tests.\"}"
+    },
+    {
+      "seq": 191,
+      "at": 1790380933.2653704,
+      "kind": "captured",
+      "entity": "048214d3-5c0a-41fa-8903-91b4fa30b316",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 192,
+      "at": 1790380956.321974,
+      "kind": "transition",
+      "entity": "048214d3-5c0a-41fa-8903-91b4fa30b316",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator proves that six malformed project-scoped pause inputs are accepted by the current engine and one changes global pause state; validate any explicit project before selecting scoped versus global pause.\"}"
+    },
+    {
+      "seq": 193,
+      "at": 1790380956.3668995,
+      "kind": "claimed",
+      "entity": "048214d3-5c0a-41fa-8903-91b4fa30b316",
+      "body": "{\"run\": \"e34becd1-7d7a-46f0-8668-e866ea1c116a\"}"
     }
   ]
 }
