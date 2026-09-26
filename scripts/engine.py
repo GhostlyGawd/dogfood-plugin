@@ -408,6 +408,8 @@ class Ledger:
     def checkpoint(self, data):
         r = self.run(required(data, "run"))
         summary = required(data, "summary")
+        if "finished" in data and type(data["finished"]) is not bool:
+            raise ValueError("finished must be a boolean")
         state = "finished" if data.get("finished") else "checkpointed"
         if r["state"] != "running":
             if r["state"] == state and r.get("checkpoint") == summary:
