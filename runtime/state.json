@@ -1685,7 +1685,7 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "started_at": 1790380747.3764977,
       "deadline": 1790381947.376498,
       "max_changes": 3,
@@ -1693,7 +1693,7 @@
       "claimed": [
         "048214d3-5c0a-41fa-8903-91b4fa30b316"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted setup owner-integrity after fresh later use. Applied pause project-scope integrity: malformed explicit project values can no longer select global pause, while valid scoped pause behavior remains intact. All 27 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -3082,6 +3082,13 @@
       "kind": "transition",
       "entity": "048214d3-5c0a-41fa-8903-91b4fa30b316",
       "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Explicit malformed project values are rejected before pause scope selection; valid scoped pause behavior remains intact, all 27 tests pass, the evaluator is unchanged, and remote bytes exactly match.\"}"
+    },
+    {
+      "seq": 199,
+      "at": 1790381251.5700207,
+      "kind": "checkpoint",
+      "entity": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
+      "body": "{\"summary\": \"Activated and adopted setup owner-integrity after fresh later use. Applied pause project-scope integrity: malformed explicit project values can no longer select global pause, while valid scoped pause behavior remains intact. All 27 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
