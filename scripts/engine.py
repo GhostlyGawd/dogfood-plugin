@@ -469,12 +469,17 @@ class Ledger:
         snapshot = data.get("snapshot")
         if not isinstance(snapshot, dict) or snapshot.get("schema") != SCHEMA:
             raise ValueError("unsupported snapshot schema")
-        metadata = snapshot.get("meta", {})
+        metadata = snapshot.get("meta")
+        findings, runs, events = (snapshot.get("findings"), snapshot.get("runs"), snapshot.get("events"))
+        if (not isinstance(metadata, dict)
+                or not all(isinstance(items, list) for items in (findings, runs, events))
+                or not all(isinstance(item, dict) for items in (findings, runs, events) for item in items)):
+            raise ValueError("snapshot collections must match the exported structure")
         if metadata.get("owner") != required(data, "owner"):
             raise Conflict("snapshot owner does not match")
         for key, value in metadata.items():
             self.set_meta(key, value)
-        for f in snapshot.get("findings", []):
+        for f in findings:
             if f.get("owner") != metadata["owner"] or f.get("status") not in TRANSITIONS:
                 raise ValueError("invalid finding owner or status")
             if type(f.get("revision")) is not int or f["revision"] < 0:
@@ -482,9 +487,9 @@ class Ledger:
             self.db.execute("INSERT INTO findings VALUES (?,?,?,?,?,?)",
                             (required(f, "id"), required(f, "project"), required(f, "dedup"),
                              f["revision"], f["status"], json.dumps(f)))
-        for r in snapshot.get("runs", []):
+        for r in runs:
             self.save_run(r)
-        for e in snapshot.get("events", []):
+        for e in events:
             self.db.execute("INSERT INTO events VALUES (?,?,?,?,?)",
                             (e["seq"], e["at"], e["kind"], e["entity"], e["body"]))
         return self.status({})
