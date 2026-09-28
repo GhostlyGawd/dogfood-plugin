@@ -24,8 +24,41 @@
     "status": "adopted",
     "result": "Fresh later run loaded commit d35a7d014b5b8cfc50db84f51f5c184248030ce1, exercised malformed completion flags and valid checkpoint modes, and passed all 28 pre-candidate tests."
   },
-  "remote_changes": [],
-  "final_check": null,
+  "remote_changes": [
+    {
+      "path": "scripts/engine.py",
+      "before_blob": "1c53637dba7253dd2d06a21fa14d34913532c2ad",
+      "after_blob": "73685293ca92a3df9025abc864d0a948a3f1f1e8",
+      "commit": "372beb0b06c4017857710cd686692ba1c5c379c4"
+    },
+    {
+      "path": "tests/test_engine.py",
+      "before_blob": "b91f0cb91db2f552be02075d2c77350d1e2034de",
+      "after_blob": "6533c62b0ef3acdba6dc8f1d0f6c63c65004aff2",
+      "commit": "10d986f889d1ec75d2fe866f0e363057e32b792d"
+    },
+    {
+      "path": "skills/dogfood/references/ledger.md",
+      "before_blob": "ef2bafa3188595d1c09ec5eb8de4d15c5f9e44a7",
+      "after_blob": "c7d7a71cbaca3c2b1a3e8a2712aa88026d69450a",
+      "commit": "facd0ec4533b19121eac8a167061a3f20bbf96df"
+    }
+  ],
+  "final_check": {
+    "final_commit": "facd0ec4533b19121eac8a167061a3f20bbf96df",
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "tests": 29,
+    "evaluator_version": "20e94400277d624b8da1b3aef60f0abc6ece1e3b9b7faa4e86072eae005ca51f",
+    "remote_bytes_exact": true,
+    "assertions": [
+      "Malformed metadata, findings, runs, and events collection shapes are rejected as ValueError.",
+      "Rejected restores leave owner unset and findings empty.",
+      "A valid exported snapshot still restores and preserves its finding."
+    ]
+  },
   "activation": "pending",
-  "resume_when": "A later fresh project-scoped run loads the final commit and proves malformed snapshot collections are rejected atomically while a valid export still restores."
+  "resume_when": "A later fresh project-scoped run loads the final commit and proves malformed snapshot collections are rejected atomically while a valid export still restores.",
+  "applied_at": 1790554968.7478867,
+  "reversal": "Restore the three changed paths from commit d35a7d014b5b8cfc50db84f51f5c184248030ce1 only if their current blobs still match this candidate; preserve later edits."
 }
