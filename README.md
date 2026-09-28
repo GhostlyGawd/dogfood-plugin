@@ -2,7 +2,7 @@
 
 Dogfood turns findings into checked improvements and retains them for future work. It includes a plugin for Codex and ChatGPT Work, a durable local ledger, and workflows for background work and self-improvement.
 
-**Release status: 0.1.0 development build.** The local engine and hook output are tested. Repeated project background runs passed verification through 2026-09-22. Automatic activation in every Work chat and a second user's plugin installation are not verified. No hosted service is included.
+**Release status: 0.1.0 development build.** The local engine and hook output are tested. Repeated project background runs passed verification through 2026-09-27. Automatic activation in every Work chat and a second user's plugin installation are not verified. No hosted service is included.
 
 ## Contents
 
@@ -35,7 +35,7 @@ Installation alone does not guarantee all-chat activation. Work may need a suppo
 
 ## Background work
 
-This project's daily Improve Dogfood task is enabled and uses `runtime/state.json` on the separate `dogfood-state` branch. By 2026-09-22, separate runs had loaded the stored instructions and state, saved SHA-guarded claims, enforced actual change-operation budgets, retained immutable evidence, and required activation and reuse evidence to come from an active project-scoped run started after application. All 24 tests pass. See the [chronological-run evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-21-chronological-runs.json). This verifies project background work, not Codex hook activation, native plugin installation, or activation in every Work chat. Other users must configure their own state and task. See [Work activation](docs/work-activation.md) for the remaining all-chat setup step.
+This project's daily Improve Dogfood task is enabled and uses `runtime/state.json` on the separate `dogfood-state` branch. By 2026-09-27, separate runs had loaded the stored instructions and state, saved SHA-guarded claims, enforced actual change-operation budgets, retained immutable evidence, validated finding and setup identity data, protected scoped pause and checkpoint inputs, and rejected malformed restore collections atomically. All 29 tests pass. See the [restore-integrity evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-27-restore-integrity.json). This verifies project background work, not Codex hook activation, native plugin installation, or activation in every Work chat. Other users must configure their own state and task. See [Work activation](docs/work-activation.md) for the remaining all-chat setup step.
 
 Use the native scheduler through the setup skill. Save the concrete state identity and skill reference in its prompt. Desktop jobs need the local project and required runtime to remain available. Web jobs need accessible durable context and connected tools. [Official scheduled task documentation](https://learn.chatgpt.com/docs/automations).
 
@@ -54,3 +54,4 @@ See [verification results](docs/verification.md) and the [approved build spec](d
 Keep findings outside the package. Update through the host's supported plugin or personal skill flow. Keep a working version and verify a fresh run before marking an instruction change active. A changed hook can require another trust review.
 
 To remove an optional instructions block, use `configure.py remove-instructions` with the same state directory and exact instructions file. Disable the identified native schedule and plugin through host controls. Keep findings unless their deletion is explicitly requested.
+
