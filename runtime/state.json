@@ -1580,13 +1580,13 @@
       "hypothesis": false,
       "benefit": "Keep install and verification guidance aligned with the tested implementation without overstating host activation or installation.",
       "status": "in_progress",
-      "revision": 4,
+      "revision": 5,
       "created_at": 1790639675.601497,
-      "updated_at": 1790639807.674734,
+      "updated_at": 1790639824.7709053,
       "lease": {
         "run": "b464abfa-138b-4a07-9e54-e93388728a61",
         "token": "e75e05b5-bd3b-4d17-b3e5-a9e21bef99dd",
-        "until": 1790639981.6683345
+        "until": 1790640124.7709038
       },
       "changes": [
         {
