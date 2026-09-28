@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-27",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "ac32b6b8-1b73-476b-8d4e-d43b13b86cde",
+  "finding": "31302ab4-802f-40e7-857b-ee2a02f0fa7b",
+  "candidate": "restore-collection-integrity",
+  "base_commit": "d35a7d014b5b8cfc50db84f51f5c184248030ce1",
+  "evaluator_version": "20e94400277d624b8da1b3aef60f0abc6ece1e3b9b7faa4e86072eae005ca51f",
+  "baseline": {
+    "command": "python -m unittest tests.test_engine.EngineTests.test_restore_rejects_malformed_collections_atomically -v",
+    "exit_code": 1,
+    "failures": 3,
+    "errors": 4,
+    "result": "Three malformed dictionary collections were silently accepted; malformed metadata and object entries leaked AttributeError or TypeError. Transactions rolled back failing cases, but accepted malformed shapes initialized state."
+  },
+  "candidate_check": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "tests": 29,
+    "result": "Candidate passes locally with the fixed evaluator unchanged."
+  },
+  "prior_activation": {
+    "finding": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
+    "status": "adopted",
+    "result": "Fresh later run loaded commit d35a7d014b5b8cfc50db84f51f5c184248030ce1, exercised malformed completion flags and valid checkpoint modes, and passed all 28 pre-candidate tests."
+  },
+  "remote_changes": [],
+  "final_check": null,
+  "activation": "pending",
+  "resume_when": "A later fresh project-scoped run loads the final commit and proves malformed snapshot collections are rejected atomically while a valid export still restores."
+}
