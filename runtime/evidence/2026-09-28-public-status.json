@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "date": "2026-09-28",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "b464abfa-138b-4a07-9e54-e93388728a61",
+  "finding": "7e07133e-915d-4067-a46a-80a43e1ec527",
+  "prior_improvement": {
+    "dedup": "restore-collection-integrity",
+    "status": "adopted",
+    "activation": "active",
+    "later_run": "b464abfa-138b-4a07-9e54-e93388728a61",
+    "verification": "Fresh snapshot restore succeeded and all 29 regression tests passed."
+  },
+  "candidate": {
+    "dedup": "public-status-through-2026-09-27",
+    "scope": "dogfood",
+    "destination": "README.md, docs/verification.md, and docs/project-state.md",
+    "evaluator": {
+      "name": "fixed public-status assertions",
+      "sha256": "9c26e669708ab025d9c9d4c085be88d837ffdf2ca0ea9fb4cfc745db5405688b"
+    },
+    "baseline": {
+      "exit_code": 1,
+      "failed": [
+        "README status date",
+        "README test count",
+        "README restore evidence",
+        "verification update",
+        "verification test count",
+        "verification recent safeguards",
+        "project state test count",
+        "project state current date"
+      ]
+    },
+    "local_candidate": {
+      "status_assertions_exit_code": 0,
+      "regression_tests": {
+        "passed": 29,
+        "failed": 0,
+        "exit_code": 0
+      }
+    },
+    "initial_remote": {
+      "commit": "facd0ec4533b19121eac8a167061a3f20bbf96df",
+      "blobs": {
+        "README.md": "8a4343843a7ac4e8cd09d0deadd7bd080e284ad3",
+        "docs/verification.md": "9ba3bfadbf1abfb1d8d31b331879c30c94ea0be0",
+        "docs/project-state.md": "e34766f12088a1aa234a1c7f370927508a09e6c7"
+      }
+    },
+    "writes": [],
+    "remote_verification": "pending",
+    "activation": "pending"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host trust review.",
+    "Work-wide activation requires a supported global instruction route and a fresh-chat test.",
+    "Second-user installation has not been verified."
+  ]
+}
