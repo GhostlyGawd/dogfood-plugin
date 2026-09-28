@@ -1422,10 +1422,10 @@
       ],
       "hypothesis": false,
       "benefit": "Prevent malformed checkpoint requests from prematurely ending or mutating active runs.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1790465648.058531,
-      "updated_at": 1790465785.3720145,
+      "updated_at": 1790554760.392512,
       "lease": null,
       "changes": [
         {
@@ -1465,19 +1465,63 @@
           "evaluator_version": "9e00016ec68fac88717df631100cc0ae49c8dc20b9fc3fdd4e5f7c6085077472"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "ac32b6b8-1b73-476b-8d4e-d43b13b86cde",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-27-restore-integrity.json",
+          "at": 1790554760.3590314
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator reproduces six malformed finished values that the current engine accepts and proves each mutates run state; require a literal boolean whenever the optional field is supplied.",
       "generalization_evidence": null,
-      "reason": "Checkpoint now rejects every supplied non-boolean finished value before changing run state; existing checkpointed and finished modes remain covered, all 28 tests pass, the evaluator is unchanged, and remote bytes exactly match.",
+      "reason": "A fresh later project-scoped run loaded commit d35a7d014b5b8cfc50db84f51f5c184248030ce1, exercised malformed completion flags and valid checkpoint modes, and passed all 28 tests.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "e0844032-d255-4d26-bdbf-9433735f84cd",
-      "applied_at": 1790465785.3720093
+      "applied_at": 1790465785.3720093,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-27-restore-integrity.json",
+      "activation_run": "ac32b6b8-1b73-476b-8d4e-d43b13b86cde"
+    },
+    {
+      "id": "31302ab4-802f-40e7-857b-ee2a02f0fa7b",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-collection-integrity",
+      "observation": "Restore does not validate the metadata, findings, runs, and events collection shapes before mutation; malformed collections can be silently accepted or leak internal AttributeError and TypeError failures.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-27-restore-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject malformed durable snapshots cleanly and atomically before any restored state is committed.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790554822.2246432,
+      "updated_at": 1790554829.02622,
+      "lease": {
+        "run": "ac32b6b8-1b73-476b-8d4e-d43b13b86cde",
+        "token": "47072ae2-b019-4c69-873a-859b60159c5f",
+        "until": 1790555129.0261142
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator demonstrates three malformed collections are silently accepted and four leak internal type failures; validate all snapshot collection shapes before restoring any metadata or rows.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator demonstrates three malformed collections are silently accepted and four leak internal type failures; validate all snapshot collection shapes before restoring any metadata or rows.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1789,6 +1833,23 @@
         "c0d11a1c-a16b-4e51-a828-70f4a163d03f"
       ],
       "checkpoint": "Activated and adopted pause project-scope integrity after fresh later use. Applied checkpoint finished-type integrity: malformed completion values are rejected before run state changes. All 28 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "ac32b6b8-1b73-476b-8d4e-d43b13b86cde",
+      "worker": "project-maintenance-2026-09-27",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790554750.4796295,
+      "deadline": 1790555950.4796295,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "31302ab4-802f-40e7-857b-ee2a02f0fa7b"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -3261,6 +3322,41 @@
       "kind": "checkpoint",
       "entity": "e0844032-d255-4d26-bdbf-9433735f84cd",
       "body": "{\"summary\": \"Activated and adopted pause project-scope integrity after fresh later use. Applied checkpoint finished-type integrity: malformed completion values are rejected before run state changes. All 28 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 211,
+      "at": 1790554750.479775,
+      "kind": "run_started",
+      "entity": "ac32b6b8-1b73-476b-8d4e-d43b13b86cde",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 212,
+      "at": 1790554760.392629,
+      "kind": "transition",
+      "entity": "c0d11a1c-a16b-4e51-a828-70f4a163d03f",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later project-scoped run loaded commit d35a7d014b5b8cfc50db84f51f5c184248030ce1, exercised malformed completion flags and valid checkpoint modes, and passed all 28 tests.\"}"
+    },
+    {
+      "seq": 213,
+      "at": 1790554822.224769,
+      "kind": "captured",
+      "entity": "31302ab4-802f-40e7-857b-ee2a02f0fa7b",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 214,
+      "at": 1790554828.9926567,
+      "kind": "transition",
+      "entity": "31302ab4-802f-40e7-857b-ee2a02f0fa7b",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator demonstrates three malformed collections are silently accepted and four leak internal type failures; validate all snapshot collection shapes before restoring any metadata or rows.\"}"
+    },
+    {
+      "seq": 215,
+      "at": 1790554829.0262518,
+      "kind": "claimed",
+      "entity": "31302ab4-802f-40e7-857b-ee2a02f0fa7b",
+      "body": "{\"run\": \"ac32b6b8-1b73-476b-8d4e-d43b13b86cde\"}"
     }
   ]
 }
