@@ -254,6 +254,30 @@ class EngineTests(unittest.TestCase):
         finally:
             restored.close()
 
+    def test_restore_rejects_malformed_collections_atomically(self):
+        snapshot = self.call("export")
+        malformed = [
+            ("meta", []),
+            ("findings", {}),
+            ("findings", [None]),
+            ("runs", {}),
+            ("runs", [None]),
+            ("events", {}),
+            ("events", [None]),
+        ]
+        for index, (key, value) in enumerate(malformed):
+            with self.subTest(key=key, value=value):
+                broken = json.loads(json.dumps(snapshot))
+                broken[key] = value
+                restored = Ledger(Path(self.tmp.name) / f"malformed-{index}.db", clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    self.assertEqual(restored.db.execute("SELECT count(*) FROM findings").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
     def test_fresh_process_reads_durable_state(self):
         f = self.capture()
         result = subprocess.run([sys.executable, str(ROOT / "scripts/engine.py"), "--db", str(self.path), "get"],
