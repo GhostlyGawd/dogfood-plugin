@@ -48,9 +48,35 @@
         "docs/project-state.md": "e34766f12088a1aa234a1c7f370927508a09e6c7"
       }
     },
-    "writes": [],
-    "remote_verification": "pending",
-    "activation": "pending"
+    "writes": [
+      {
+        "path": "README.md",
+        "commit": "cf45bc6084942a906cc1bf3b7a30b9fb7cbe66b9",
+        "blob": "e531f8edf9f10545be465a911e9f4ad295f30934"
+      },
+      {
+        "path": "docs/verification.md",
+        "commit": "33459e3910e7a96b8992553623c247daf9891343",
+        "blob": "c8727c9e77b632f03f3d88f4338d55164ca7f92b"
+      },
+      {
+        "path": "docs/project-state.md",
+        "commit": "1a21e12559a14ad460b973752de59acbad670fda",
+        "blob": "b63f6b46c6c75ed2d142b78f2ee06b5302eb07c7"
+      }
+    ],
+    "remote_verification": {
+      "status": "passed",
+      "method": "Fetched each remote blob, reproduced its exact Git blob SHA locally, ran the fixed status evaluator against those exact bytes, and ran all 29 regression tests.",
+      "status_assertions_exit_code": 0,
+      "regression_tests": {
+        "passed": 29,
+        "failed": 0,
+        "exit_code": 0
+      },
+      "verified_commit": "1a21e12559a14ad460b973752de59acbad670fda"
+    },
+    "activation": "pending a fresh later run"
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host trust review.",
