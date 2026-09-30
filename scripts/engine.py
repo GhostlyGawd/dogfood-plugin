@@ -477,6 +477,43 @@ class Ledger:
             raise ValueError("snapshot collections must match the exported structure")
         if metadata.get("owner") != required(data, "owner"):
             raise Conflict("snapshot owner does not match")
+        run_ids = set()
+        for r in runs:
+            rid = r.get("id")
+            projects = r.get("projects")
+            claimed = r.get("claimed")
+            if (not isinstance(rid, str) or not rid.strip() or rid in run_ids
+                    or not isinstance(r.get("worker"), str) or not r["worker"].strip()
+                    or not isinstance(projects, list) or not projects
+                    or not all(isinstance(project, str) and project.strip() for project in projects)
+                    or r.get("trigger") not in {"active", "background", "manual"}
+                    or r.get("state") not in {"running", "checkpointed", "finished"}
+                    or type(r.get("deadline")) not in {int, float}
+                    or type(r.get("max_changes")) is not int or r["max_changes"] < 1
+                    or not isinstance(claimed, list)
+                    or not all(isinstance(fid, str) and fid.strip() for fid in claimed)
+                    or r.get("checkpoint") is not None and not isinstance(r.get("checkpoint"), str)):
+                raise ValueError("invalid run record")
+            if ("started_at" in r and type(r["started_at"]) not in {int, float}) or (
+                    "changes_used" in r and (type(r["changes_used"]) is not int
+                                              or not 0 <= r["changes_used"] <= r["max_changes"])):
+                raise ValueError("invalid run record")
+            run_ids.add(rid)
+        event_seqs = set()
+        for e in events:
+            if (type(e.get("seq")) is not int or e["seq"] < 1 or e["seq"] in event_seqs
+                    or type(e.get("at")) not in {int, float}
+                    or not isinstance(e.get("kind"), str) or not e["kind"].strip()
+                    or not isinstance(e.get("entity"), str) or not e["entity"].strip()
+                    or not isinstance(e.get("body"), str)):
+                raise ValueError("invalid event record")
+            try:
+                body = json.loads(e["body"])
+            except (TypeError, ValueError) as exc:
+                raise ValueError("invalid event record") from exc
+            if not isinstance(body, dict):
+                raise ValueError("invalid event record")
+            event_seqs.add(e["seq"])
         for key, value in metadata.items():
             self.set_meta(key, value)
         for f in findings:
