@@ -47,9 +47,35 @@
         "skills/dogfood/references/ledger.md": "c7d7a71cbaca3c2b1a3e8a2712aa88026d69450a"
       }
     },
-    "writes": [],
-    "remote_verification": "pending",
-    "activation": "pending"
+    "writes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "a271a575e15a0baae4b0b57d5e3b17d36aec2dbb",
+        "blob": "c81093cfe1f1e673003c7f9c89ff0d0e17a96b85"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "494843d1c828c8952649ce41a508d5c7a21733e4",
+        "blob": "469dd5a69ca0bc5cd06813d5abcef52ec74b1bc6"
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "c2a3f61df141561d0482680a86adfc2be95f5401",
+        "blob": "593533216d0514adef67da490376dfe44ad4dea8"
+      }
+    ],
+    "remote_verification": {
+      "status": "passed",
+      "method": "Fetched each remote file and compared its complete UTF-8 contents with the evaluated candidate.",
+      "focused_test_exit_code": 0,
+      "regression_tests": {
+        "passed": 30,
+        "failed": 0,
+        "exit_code": 0
+      },
+      "verified_commit": "c2a3f61df141561d0482680a86adfc2be95f5401"
+    },
+    "activation": "pending a fresh later run"
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host trust review.",
