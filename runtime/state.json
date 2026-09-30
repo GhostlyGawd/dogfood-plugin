@@ -1579,10 +1579,10 @@
       ],
       "hypothesis": false,
       "benefit": "Keep install and verification guidance aligned with the tested implementation without overstating host activation or installation.",
-      "status": "applied",
-      "revision": 9,
+      "status": "adopted",
+      "revision": 12,
       "created_at": 1790639675.601497,
-      "updated_at": 1790640000.0283315,
+      "updated_at": 1790811990.8466072,
       "lease": null,
       "changes": [
         {
@@ -1622,19 +1622,63 @@
           "evaluator_version": "9c26e669708ab025d9c9d4c085be88d837ffdf2ca0ea9fb4cfc745db5405688b"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "f2724527-a57e-4d20-9023-245794c4a94b",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-30-restore-record-integrity.json",
+          "at": 1790811990.8145928
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "README.md, docs/verification.md, and docs/project-state.md",
       "scope_reason": "A fixed evaluator demonstrates the public status is stale; refresh only the three public status documents while retaining all host activation and installation limitations.",
       "generalization_evidence": null,
-      "reason": "README, verification, and project-state now report evidence through 2026-09-27 and 29 passing tests while preserving host activation and second-user installation limits; exact remote blobs pass the fixed evaluator and all regression tests.",
+      "reason": "A fresh later run restored the saved snapshot, loaded the refreshed public status documents, and passed all 29 shipped regression tests.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "b464abfa-138b-4a07-9e54-e93388728a61",
-      "applied_at": 1790640000.028327
+      "applied_at": 1790640000.028327,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-30-restore-record-integrity.json",
+      "activation_run": "f2724527-a57e-4d20-9023-245794c4a94b"
+    },
+    {
+      "id": "b264e7c5-a559-4bab-9ecf-52d0fcc903a4",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-record-integrity",
+      "observation": "Restore validates collection shapes but does not validate individual run and event records before mutation; malformed records can be silently accepted or leak KeyError, IntegrityError, and ProgrammingError failures.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject malformed durable run and event records cleanly and atomically before restored state is committed.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790812074.42308,
+      "updated_at": 1790812081.0763016,
+      "lease": {
+        "run": "f2724527-a57e-4d20-9023-245794c4a94b",
+        "token": "c34ccd53-1e90-475d-a1a6-c4220ed20700",
+        "until": 1790812381.0762084
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator reproduces six malformed run and event record failures; validate record fields and serialized event bodies before restoring any metadata or rows.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator reproduces six malformed run and event record failures; validate record fields and serialized event bodies before restoring any metadata or rows.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1980,6 +2024,23 @@
         "7e07133e-915d-4067-a46a-80a43e1ec527"
       ],
       "checkpoint": "Activated and adopted restore collection-integrity after a fresh later snapshot restore and 29 passing tests. Refreshed README, verification, and project-state through 2026-09-27; exact remote blobs pass the fixed evaluator and all 29 tests. The documentation update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "f2724527-a57e-4d20-9023-245794c4a94b",
+      "worker": "project-maintenance-2026-09-30",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790811952.6657653,
+      "deadline": 1790813152.6657655,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "b264e7c5-a559-4bab-9ecf-52d0fcc903a4"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -3606,6 +3667,41 @@
       "kind": "checkpoint",
       "entity": "b464abfa-138b-4a07-9e54-e93388728a61",
       "body": "{\"summary\": \"Activated and adopted restore collection-integrity after a fresh later snapshot restore and 29 passing tests. Refreshed README, verification, and project-state through 2026-09-27; exact remote blobs pass the fixed evaluator and all 29 tests. The documentation update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 233,
+      "at": 1790811952.665885,
+      "kind": "run_started",
+      "entity": "f2724527-a57e-4d20-9023-245794c4a94b",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 234,
+      "at": 1790811990.8467326,
+      "kind": "transition",
+      "entity": "7e07133e-915d-4067-a46a-80a43e1ec527",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the saved snapshot, loaded the refreshed public status documents, and passed all 29 shipped regression tests.\"}"
+    },
+    {
+      "seq": 235,
+      "at": 1790812074.4241564,
+      "kind": "captured",
+      "entity": "b264e7c5-a559-4bab-9ecf-52d0fcc903a4",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 236,
+      "at": 1790812081.0425293,
+      "kind": "transition",
+      "entity": "b264e7c5-a559-4bab-9ecf-52d0fcc903a4",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator reproduces six malformed run and event record failures; validate record fields and serialized event bodies before restoring any metadata or rows.\"}"
+    },
+    {
+      "seq": 237,
+      "at": 1790812081.0763304,
+      "kind": "claimed",
+      "entity": "b264e7c5-a559-4bab-9ecf-52d0fcc903a4",
+      "body": "{\"run\": \"f2724527-a57e-4d20-9023-245794c4a94b\"}"
     }
   ]
 }
