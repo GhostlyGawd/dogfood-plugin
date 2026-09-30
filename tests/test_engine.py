@@ -278,6 +278,34 @@ class EngineTests(unittest.TestCase):
                 finally:
                     restored.close()
 
+    def test_restore_rejects_malformed_run_and_event_records_atomically(self):
+        self.capture()
+        self.call("start-run", worker="worker-a", projects=["project-a"])
+        snapshot = self.call("export")
+        malformed = [
+            ("run missing id", lambda data: data["runs"][0].pop("id")),
+            ("run projects is not a list", lambda data: data["runs"][0].update(projects="project-a")),
+            ("run state is invalid", lambda data: data["runs"][0].update(state="unknown")),
+            ("event missing body", lambda data: data["events"][0].pop("body")),
+            ("event sequence is not an integer", lambda data: data["events"][0].update(seq="first")),
+            ("event body is not serialized text", lambda data: data["events"][0].update(body={})),
+        ]
+        for index, (name, mutate) in enumerate(malformed):
+            with self.subTest(name=name):
+                broken = json.loads(json.dumps(snapshot))
+                mutate(broken)
+                restored = Ledger(Path(self.tmp.name) / f"malformed-record-{index}.db",
+                                  clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    for table in ("findings", "runs", "events"):
+                        self.assertEqual(restored.db.execute(
+                            f"SELECT count(*) FROM {table}").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
     def test_fresh_process_reads_durable_state(self):
         f = self.capture()
         result = subprocess.run([sys.executable, str(ROOT / "scripts/engine.py"), "--db", str(self.path), "get"],
