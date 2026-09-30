@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "date": "2026-09-30",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "f2724527-a57e-4d20-9023-245794c4a94b",
+  "finding": "b264e7c5-a559-4bab-9ecf-52d0fcc903a4",
+  "prior_improvement": {
+    "dedup": "public-status-through-2026-09-27",
+    "status": "adopted",
+    "activation": "active",
+    "later_run": "f2724527-a57e-4d20-9023-245794c4a94b",
+    "verification": "Fresh snapshot restore loaded the refreshed documents and all 29 shipped tests passed."
+  },
+  "candidate": {
+    "dedup": "restore-record-integrity",
+    "scope": "dogfood",
+    "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+    "evaluator": {
+      "name": "restore run/event record regression plus shipped suite",
+      "sha256": "ede5fec85cfff38d428387b74a29e4a80ff7caeda7477f8961dc131fa984c0ff"
+    },
+    "baseline": {
+      "exit_code": 1,
+      "failures": 2,
+      "errors": 4,
+      "details": [
+        "missing run id leaked KeyError",
+        "invalid run projects and state were accepted",
+        "missing event body leaked KeyError",
+        "invalid event sequence leaked sqlite3.IntegrityError",
+        "non-text event body leaked sqlite3.ProgrammingError"
+      ]
+    },
+    "local_candidate": {
+      "focused_test_exit_code": 0,
+      "regression_tests": {
+        "passed": 30,
+        "failed": 0,
+        "exit_code": 0
+      }
+    },
+    "initial_remote": {
+      "commit": "1a21e12559a14ad460b973752de59acbad670fda",
+      "blobs": {
+        "scripts/engine.py": "73685293ca92a3df9025abc864d0a948a3f1f1e8",
+        "tests/test_engine.py": "6533c62b0ef3acdba6dc8f1d0f6c63c65004aff2",
+        "skills/dogfood/references/ledger.md": "c7d7a71cbaca3c2b1a3e8a2712aa88026d69450a"
+      }
+    },
+    "writes": [],
+    "remote_verification": "pending",
+    "activation": "pending"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host trust review.",
+    "Work-wide activation requires a supported global instruction route and a fresh-chat test.",
+    "Second-user installation has not been verified."
+  ]
+}
