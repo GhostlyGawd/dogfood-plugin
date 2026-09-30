@@ -30,7 +30,7 @@ Finding mutations require the current `id` and `revision`. Claimed work also req
 | list | Optional project, status, limit (1–1000). |
 | status | Empty object. |
 | export | Empty object. Save the inner result object as the portable snapshot. |
-| restore | owner, snapshot: exact exported object with object metadata and arrays of object findings, runs, and events. Malformed collections are rejected atomically. Requires a new empty database. |
+| restore | owner, snapshot: exact exported object with object metadata and arrays of valid object findings, runs, and events. Malformed collections and run or event records are rejected atomically. Requires a new empty database. |
 
 Use actual commit IDs or content hashes as versions. Inspect real tool output before recording checks. A receipt is an audit record, not independent proof. Store evidence where later runs can read it.
 
