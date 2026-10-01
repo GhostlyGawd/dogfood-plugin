@@ -477,6 +477,21 @@ class Ledger:
             raise ValueError("snapshot collections must match the exported structure")
         if metadata.get("owner") != required(data, "owner"):
             raise Conflict("snapshot owner does not match")
+        finding_ids = set()
+        finding_keys = set()
+        for f in findings:
+            fid, project, dedup = f.get("id"), f.get("project"), f.get("dedup")
+            if (not isinstance(fid, str) or not fid.strip()
+                    or not isinstance(project, str) or not project.strip()
+                    or not isinstance(dedup, str) or not dedup.strip()):
+                raise ValueError("invalid finding record")
+            key = (project, dedup)
+            if (fid in finding_ids or key in finding_keys
+                    or f.get("owner") != metadata["owner"] or f.get("status") not in TRANSITIONS
+                    or type(f.get("revision")) is not int or f["revision"] < 0):
+                raise ValueError("invalid finding record")
+            finding_ids.add(fid)
+            finding_keys.add(key)
         run_ids = set()
         for r in runs:
             rid = r.get("id")
@@ -517,12 +532,8 @@ class Ledger:
         for key, value in metadata.items():
             self.set_meta(key, value)
         for f in findings:
-            if f.get("owner") != metadata["owner"] or f.get("status") not in TRANSITIONS:
-                raise ValueError("invalid finding owner or status")
-            if type(f.get("revision")) is not int or f["revision"] < 0:
-                raise ValueError("invalid finding revision")
             self.db.execute("INSERT INTO findings VALUES (?,?,?,?,?,?)",
-                            (required(f, "id"), required(f, "project"), required(f, "dedup"),
+                            (f["id"], f["project"], f["dedup"],
                              f["revision"], f["status"], json.dumps(f)))
         for r in runs:
             self.save_run(r)
