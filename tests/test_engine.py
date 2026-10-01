@@ -306,6 +306,32 @@ class EngineTests(unittest.TestCase):
                 finally:
                     restored.close()
 
+    def test_restore_rejects_duplicate_finding_identities_atomically(self):
+        self.capture("first finding")
+        self.capture("second finding")
+        snapshot = self.call("export")
+        malformed = [
+            ("duplicate id", lambda data: data["findings"][1].update(
+                id=data["findings"][0]["id"])),
+            ("duplicate project and dedup", lambda data: data["findings"][1].update(
+                project=data["findings"][0]["project"], dedup=data["findings"][0]["dedup"])),
+        ]
+        for index, (name, mutate) in enumerate(malformed):
+            with self.subTest(name=name):
+                broken = json.loads(json.dumps(snapshot))
+                mutate(broken)
+                restored = Ledger(Path(self.tmp.name) / f"duplicate-finding-{index}.db",
+                                  clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    for table in ("findings", "runs", "events"):
+                        self.assertEqual(restored.db.execute(
+                            f"SELECT count(*) FROM {table}").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
     def test_fresh_process_reads_durable_state(self):
         f = self.capture()
         result = subprocess.run([sys.executable, str(ROOT / "scripts/engine.py"), "--db", str(self.path), "get"],
