@@ -1657,10 +1657,10 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed durable run and event records cleanly and atomically before restored state is committed.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1790812074.42308,
-      "updated_at": 1790812248.0951765,
+      "updated_at": 1790897824.7479,
       "lease": null,
       "changes": [
         {
@@ -1700,19 +1700,63 @@
           "evaluator_version": "ede5fec85cfff38d428387b74a29e4a80ff7caeda7477f8961dc131fa984c0ff"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-01-restore-finding-identity.json",
+          "at": 1790897824.7166133
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator reproduces six malformed run and event record failures; validate record fields and serialized event bodies before restoring any metadata or rows.",
       "generalization_evidence": null,
-      "reason": "Restore now validates run identities, scope, state, budgets, claims, checkpoint shape, event fields, and serialized event bodies before mutation; all six malformed fixtures fail cleanly and atomically, all 30 tests pass, and remote bytes exactly match.",
+      "reason": "A fresh later run restored the saved snapshot through the new run and event validators and all 30 shipped regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "f2724527-a57e-4d20-9023-245794c4a94b",
-      "applied_at": 1790812248.0951724
+      "applied_at": 1790812248.0951724,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-01-restore-finding-identity.json",
+      "activation_run": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde"
+    },
+    {
+      "id": "265037d8-3510-4b2a-8dcd-4657613528c0",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-finding-identity-integrity",
+      "observation": "Restore permits duplicate finding IDs and duplicate project/dedup identities to reach SQLite constraints instead of rejecting the snapshot through the public validation contract.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject duplicate durable finding identities cleanly and atomically before restored state is mutated.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790897956.6732314,
+      "updated_at": 1790897963.7909033,
+      "lease": {
+        "run": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
+        "token": "b539f1e1-d492-40f1-9bce-d4fa4c02c290",
+        "until": 1790898263.7907863
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator produces two raw SQLite integrity errors on the shipped restore path; prevalidate both durable finding identity constraints before any mutation.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator produces two raw SQLite integrity errors on the shipped restore path; prevalidate both durable finding identity constraints before any mutation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -1905,159 +1949,7 @@
       "claimed": [
         "6e9acbed-bf9c-4ea7-8b69-671af0a4b305"
       ],
-      "checkpoint": "Activated and adopted scoped-run validation for reuse after fresh use. Applied mandatory pending activation for Dogfood self-improvements; same-run active application is rejected, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "334f6a03-7828-4f0b-89a5-0f9f3e9a4c5f",
-      "worker": "project-maintenance-2026-09-20",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "deadline": 1789950657.116776,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "ee3d02bc-3627-4226-8834-e7f51d18ec89"
-      ],
-      "checkpoint": "Activated and adopted mandatory later activation for Dogfood self-improvements after fresh use. Applied scoped-run validation for activation evidence and documented the run input; same-run, fabricated, and wrong-project activation receipts are rejected. All 24 tests pass, activation is pending, and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "4fffa95d-c850-4791-ab12-c07f581ccb52",
-      "worker": "project-maintenance-2026-09-21",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790034919.004879,
-      "deadline": 1790036119.0048795,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "b4d4512a-fc63-4c07-9d56-0d99c67735a3"
-      ],
-      "checkpoint": "Activated and adopted scoped-run validation for activation evidence after fresh use. Applied chronological validation for activation and reuse evidence: runs now record started_at and pre-application runs are rejected. All 24 tests pass, exact remote bytes match, activation is pending, and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "4f24cf9b-f6be-4acf-9d54-633705e6a1b6",
-      "worker": "project-maintenance-2026-09-22",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790121917.1515217,
-      "deadline": 1790123117.1515222,
-      "max_changes": 3,
-      "changes_used": 2,
-      "claimed": [
-        "8e8b4958-68b6-4e2b-9319-3ddc87b9ad92"
-      ],
-      "checkpoint": "Activated and adopted chronological activation and reuse validation after fresh later use. Refreshed README and verification status through 2026-09-22 while preserving Codex hook, Work-wide activation, and second-user installation limitations. All 24 tests and exact remote-byte checks pass; the documentation update is pending activation. Two of three source-change slots were used."
-    },
-    {
-      "id": "c6bd9c83-c247-41c3-936b-5c55417691e6",
-      "worker": "project-maintenance-2026-09-23",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790208967.1254327,
-      "deadline": 1790210167.1254332,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "8a7eabda-9f5a-4852-a56b-7a5557056431"
-      ],
-      "checkpoint": "Activated and adopted the 2026-09-22 public status update after fresh later use. Applied capture-metadata integrity: malformed evidence references, duplicate keys, hypothesis values, and benefits are rejected without coercing explicit uncertainty. All 25 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "c2863935-bad0-436f-8d1b-de599016ff76",
-      "worker": "project-maintenance-2026-09-24",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790295321.9524639,
-      "deadline": 1790296521.9524643,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "ef2bf23e-a42b-45e7-9cbf-3e2425d0c5fa"
-      ],
-      "checkpoint": "Activated and adopted capture-metadata integrity after fresh later use. Applied setup owner-integrity: a stale settings identity is rejected before a missing ledger can be recreated under another owner. All 26 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "e34becd1-7d7a-46f0-8668-e866ea1c116a",
-      "worker": "project-maintenance-2026-09-25",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790380747.3764977,
-      "deadline": 1790381947.376498,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "048214d3-5c0a-41fa-8903-91b4fa30b316"
-      ],
-      "checkpoint": "Activated and adopted setup owner-integrity after fresh later use. Applied pause project-scope integrity: malformed explicit project values can no longer select global pause, while valid scoped pause behavior remains intact. All 27 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "e0844032-d255-4d26-bdbf-9433735f84cd",
-      "worker": "project-maintenance-2026-09-26",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790465589.235295,
-      "deadline": 1790466789.2352953,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "c0d11a1c-a16b-4e51-a828-70f4a163d03f"
-      ],
-      "checkpoint": "Activated and adopted pause project-scope integrity after fresh later use. Applied checkpoint finished-type integrity: malformed completion values are rejected before run state changes. All 28 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "ac32b6b8-1b73-476b-8d4e-d43b13b86cde",
-      "worker": "project-maintenance-2026-09-27",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790554750.4796295,
-      "deadline": 1790555950.4796295,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "31302ab4-802f-40e7-857b-ee2a02f0fa7b"
-      ],
-      "checkpoint": "Activated and adopted checkpoint finished-type integrity after fresh later use. Applied restore collection-integrity: malformed metadata and collection shapes are rejected atomically before durable state is restored. All 29 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
-    },
-    {
-      "id": "b464abfa-138b-4a07-9e54-e93388728a61",
-      "worker": "project-maintenance-2026-09-28",
-      "projects": [
-        "GhostlyGawd/dogfood-plugin"
-      ],
-      "trigger": "background",
-      "state": "finished",
-      "started_at": 1790639585.7789052,
-      "deadline": 1790640785.7789052,
-      "max_changes": 3,
-      "changes_used": 3,
-      "claimed": [
-        "7e07133e-915d-4067-a46a-80a43e1ec527"
-      ],
-      "checkpoint": "Activated and adopted restore collection-integrity after a fresh later snapshot restore and 29 passing tests. Refreshed README, verification, and project-state through 2026-09-27; exact remote blobs pass the fixed evaluator and all 29 tests. The documentation update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+      "checkpoint": "Activated and adopted scoped-run validation for reuse after fresh use. Applied mandatory pending activation for Dogfood self-improvements; same-run active application is rejected, all 24 tests pass, and activation is pending. Two of three source-change slots were used. Codex hook, Work-wide activation, and second-user installation remain block…1797 tokens truncated…s are met."
     },
     {
       "id": "f2724527-a57e-4d20-9023-245794c4a94b",
@@ -2075,6 +1967,23 @@
         "b264e7c5-a559-4bab-9ecf-52d0fcc903a4"
       ],
       "checkpoint": "Activated and adopted the 2026-09-28 public status update after a fresh later restore and 29 shipped tests. Applied restore record-integrity: malformed run and event records are now rejected cleanly and atomically before mutation. All 30 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
+      "worker": "project-maintenance-2026-10-01",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790897817.1909583,
+      "deadline": 1790899017.1909585,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "265037d8-3510-4b2a-8dcd-4657613528c0"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -3778,6 +3687,41 @@
       "kind": "checkpoint",
       "entity": "f2724527-a57e-4d20-9023-245794c4a94b",
       "body": "{\"summary\": \"Activated and adopted the 2026-09-28 public status update after a fresh later restore and 29 shipped tests. Applied restore record-integrity: malformed run and event records are now rejected cleanly and atomically before mutation. All 30 tests and exact remote-byte checks pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 244,
+      "at": 1790897817.1910825,
+      "kind": "run_started",
+      "entity": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 245,
+      "at": 1790897824.748022,
+      "kind": "transition",
+      "entity": "b264e7c5-a559-4bab-9ecf-52d0fcc903a4",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the saved snapshot through the new run and event validators and all 30 shipped regression tests passed.\"}"
+    },
+    {
+      "seq": 246,
+      "at": 1790897956.6733623,
+      "kind": "captured",
+      "entity": "265037d8-3510-4b2a-8dcd-4657613528c0",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 247,
+      "at": 1790897963.753409,
+      "kind": "transition",
+      "entity": "265037d8-3510-4b2a-8dcd-4657613528c0",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator produces two raw SQLite integrity errors on the shipped restore path; prevalidate both durable finding identity constraints before any mutation.\"}"
+    },
+    {
+      "seq": 248,
+      "at": 1790897963.7909327,
+      "kind": "claimed",
+      "entity": "265037d8-3510-4b2a-8dcd-4657613528c0",
+      "body": "{\"run\": \"17a4ab10-3f7e-4f1f-abac-4ca76558ddde\"}"
     }
   ]
 }
