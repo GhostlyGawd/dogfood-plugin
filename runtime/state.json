@@ -1736,13 +1736,13 @@
       "hypothesis": false,
       "benefit": "Reject duplicate durable finding identities cleanly and atomically before restored state is mutated.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1790897956.6732314,
-      "updated_at": 1790897963.7909033,
+      "updated_at": 1790898009.8529606,
       "lease": {
         "run": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
         "token": "b539f1e1-d492-40f1-9bce-d4fa4c02c290",
-        "until": 1790898263.7907863
+        "until": 1790898309.8529587
       },
       "changes": [],
       "checks": [],
