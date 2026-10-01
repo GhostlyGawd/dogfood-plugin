@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "run": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "finding": "265037d8-3510-4b2a-8dcd-4657613528c0",
+  "candidate": "restore-finding-identity-integrity",
+  "prior_activation": {
+    "finding": "b264e7c5-a559-4bab-9ecf-52d0fcc903a4",
+    "status": "adopted",
+    "activation": "active",
+    "result": "Fresh snapshot restore used the shipped run/event validators and all 30 pre-candidate tests passed."
+  },
+  "baseline": {
+    "command": "python -m unittest tests.test_engine.EngineTests.test_restore_rejects_duplicate_finding_identities_atomically",
+    "exit_code": 1,
+    "result": "2 errors: duplicate id and duplicate project/dedup each leaked sqlite3.IntegrityError."
+  },
+  "evaluator": {
+    "fixed_before_engine_change": true,
+    "test_file_sha256": "fa68a03bfd5e74bf6d1c98251417b11959835722f1515496597a9a98f7be2f03"
+  },
+  "candidate_checks": [
+    {
+      "name": "focused duplicate finding identity regression",
+      "exit_code": 0,
+      "tests": 1
+    },
+    {
+      "name": "full regression suite",
+      "exit_code": 0,
+      "tests": 31
+    }
+  ],
+  "initial_main": {
+    "commit": "c2a3f61df141561d0482680a86adfc2be95f5401",
+    "blobs": {
+      "engine": "c81093cfe1f1e673003c7f9c89ff0d0e17a96b85",
+      "test": "469dd5a69ca0bc5cd06813d5abcef52ec74b1bc6",
+      "ledger": "593533216d0514adef67da490376dfe44ad4dea8"
+    }
+  },
+  "writes": [],
+  "remote_verification": "pending",
+  "activation": "pending",
+  "blockers": [
+    "Codex hook activation awaits a supported Codex runtime and host review.",
+    "Work-wide activation awaits a supported persistent global instruction route.",
+    "Second-user installation remains unverified."
+  ]
+}
