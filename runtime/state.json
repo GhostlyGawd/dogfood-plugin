@@ -1735,15 +1735,11 @@
       ],
       "hypothesis": false,
       "benefit": "Reject duplicate durable finding identities cleanly and atomically before restored state is mutated.",
-      "status": "in_progress",
-      "revision": 7,
+      "status": "applied",
+      "revision": 10,
       "created_at": 1790897956.6732314,
-      "updated_at": 1790898286.4115155,
-      "lease": {
-        "run": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
-        "token": "b539f1e1-d492-40f1-9bce-d4fa4c02c290",
-        "until": 1790898540.660013
-      },
+      "updated_at": 1790898337.8998656,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-finding-identities-engine",
@@ -1773,18 +1769,28 @@
           "evaluator_version": "fa68a03bfd5e74bf6d1c98251417b11959835722f1515496597a9a98f7be2f03"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "31 regression tests, fixed duplicate-identity evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-01-restore-finding-identity.json",
+          "verified_version": "7cd6f68dfd5b69c4399e2b3929acd7cac6766e75",
+          "exit_code": 0,
+          "evaluator_version": "fa68a03bfd5e74bf6d1c98251417b11959835722f1515496597a9a98f7be2f03"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator produces two raw SQLite integrity errors on the shipped restore path; prevalidate both durable finding identity constraints before any mutation.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator produces two raw SQLite integrity errors on the shipped restore path; prevalidate both durable finding identity constraints before any mutation.",
+      "reason": "Duplicate finding IDs and project/dedup identities are rejected before restore mutation; exact remote bytes and all 31 regression tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
+      "applied_at": 1790898337.8998613
     }
   ],
   "runs": [
@@ -3923,6 +3929,20 @@
       "kind": "change_recorded",
       "entity": "265037d8-3510-4b2a-8dcd-4657613528c0",
       "body": "{\"operation_key\": \"restore-finding-identities-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"f969077e2b74717c34aed42d6d91a2d06101099e\", \"after_version\": \"7cd6f68dfd5b69c4399e2b3929acd7cac6766e75\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit c2a3f61df141561d0482680a86adfc2be95f5401 only if its blob still matches 34e73111fa3e33788cd3a1d82e227e3fa16525ca; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-01-restore-finding-identity.json\", \"evaluator_version\": \"fa68a03bfd5e74bf6d1c98251417b11959835722f1515496597a9a98f7be2f03\"}"
+    },
+    {
+      "seq": 252,
+      "at": 1790898337.835916,
+      "kind": "transition",
+      "entity": "265037d8-3510-4b2a-8dcd-4657613528c0",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three candidate files are committed; verify the fixed test and exact remote candidate bytes.\"}"
+    },
+    {
+      "seq": 253,
+      "at": 1790898337.899975,
+      "kind": "transition",
+      "entity": "265037d8-3510-4b2a-8dcd-4657613528c0",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Duplicate finding IDs and project/dedup identities are rejected before restore mutation; exact remote bytes and all 31 regression tests pass.\"}"
     }
   ]
 }
