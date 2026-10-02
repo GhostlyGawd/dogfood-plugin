@@ -332,6 +332,36 @@ class EngineTests(unittest.TestCase):
                 finally:
                     restored.close()
 
+    def test_restore_rejects_broken_finding_run_references_atomically(self):
+        self.claim()
+        snapshot = self.call("export")
+        malformed = [
+            ("unknown claimed finding", lambda data: data["runs"][0]["claimed"].append("missing-finding")),
+            ("duplicate claimed finding", lambda data: data["runs"][0]["claimed"].append(
+                data["runs"][0]["claimed"][0])),
+            ("lease references missing run", lambda data: data["findings"][0]["lease"].update(
+                run="missing-run")),
+            ("lease missing token", lambda data: data["findings"][0]["lease"].pop("token")),
+            ("lease until is not numeric", lambda data: data["findings"][0]["lease"].update(
+                until="later")),
+            ("lease is absent from run claims", lambda data: data["runs"][0].update(claimed=[])),
+        ]
+        for index, (name, mutate) in enumerate(malformed):
+            with self.subTest(name=name):
+                broken = json.loads(json.dumps(snapshot))
+                mutate(broken)
+                restored = Ledger(Path(self.tmp.name) / f"broken-reference-{index}.db",
+                                  clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    for table in ("findings", "runs", "events"):
+                        self.assertEqual(restored.db.execute(
+                            f"SELECT count(*) FROM {table}").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
     def test_fresh_process_reads_durable_state(self):
         f = self.capture()
         result = subprocess.run([sys.executable, str(ROOT / "scripts/engine.py"), "--db", str(self.path), "get"],
