@@ -1814,13 +1814,13 @@
       "hypothesis": false,
       "benefit": "Reject broken finding/run references atomically before restoring durable state.",
       "status": "in_progress",
-      "revision": 4,
+      "revision": 5,
       "created_at": 1790984661.2525213,
-      "updated_at": 1790984811.3499053,
+      "updated_at": 1790984845.277009,
       "lease": {
         "run": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
         "token": "f21a2908-ad05-4c15-ac98-9c052af8b3e1",
-        "until": 1790984970.2947547
+        "until": 1790985145.277007
       },
       "changes": [
         {
