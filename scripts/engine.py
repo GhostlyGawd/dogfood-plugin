@@ -507,6 +507,8 @@ class Ledger:
                     or type(r.get("max_changes")) is not int or r["max_changes"] < 1
                     or not isinstance(claimed, list)
                     or not all(isinstance(fid, str) and fid.strip() for fid in claimed)
+                    or len(claimed) != len(set(claimed))
+                    or any(fid not in finding_ids for fid in claimed)
                     or r.get("checkpoint") is not None and not isinstance(r.get("checkpoint"), str)):
                 raise ValueError("invalid run record")
             if ("started_at" in r and type(r["started_at"]) not in {int, float}) or (
@@ -514,6 +516,21 @@ class Ledger:
                                               or not 0 <= r["changes_used"] <= r["max_changes"])):
                 raise ValueError("invalid run record")
             run_ids.add(rid)
+        run_claims = {r["id"]: set(r["claimed"]) for r in runs}
+        for f in findings:
+            lease = f.get("lease")
+            if lease is None:
+                if f["status"] in {"in_progress", "verifying"}:
+                    raise ValueError("invalid finding lease")
+                continue
+            if (f["status"] not in {"in_progress", "verifying"}
+                    or not isinstance(lease, dict)
+                    or not isinstance(lease.get("run"), str) or not lease["run"].strip()
+                    or not isinstance(lease.get("token"), str) or not lease["token"].strip()
+                    or type(lease.get("until")) not in {int, float}
+                    or lease["run"] not in run_ids
+                    or f["id"] not in run_claims.get(lease["run"], set())):
+                raise ValueError("invalid finding lease")
         event_seqs = set()
         for e in events:
             if (type(e.get("seq")) is not int or e["seq"] < 1 or e["seq"] in event_seqs
