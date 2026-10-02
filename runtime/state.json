@@ -1814,15 +1814,25 @@
       "hypothesis": false,
       "benefit": "Reject broken finding/run references atomically before restoring durable state.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1790984661.2525213,
-      "updated_at": 1790984670.294891,
+      "updated_at": 1790984758.1643136,
       "lease": {
         "run": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
         "token": "f21a2908-ad05-4c15-ac98-9c052af8b3e1",
         "until": 1790984970.2947547
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "restore-references-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main:scripts/engine.py",
+          "before_version": "7cd6f68dfd5b69c4399e2b3929acd7cac6766e75",
+          "after_version": "2db119612c18b54251c894595ad758a8845b8a60",
+          "reversal_ref": "Restore scripts/engine.py from commit 7cd6f68dfd5b69c4399e2b3929acd7cac6766e75 only if its blob still matches 981c856b6e06d40399416c773012ce7e76c862be; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-02-restore-reference-integrity.json",
+          "evaluator_version": "34c1a9b482e81b25f3ad2291e545d80a643c68222b464f087a9aa3aacd4497ee"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -2226,7 +2236,7 @@
       "started_at": 1790984567.930889,
       "deadline": 1790985767.930889,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9"
       ],
@@ -4046,6 +4056,13 @@
       "kind": "claimed",
       "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
       "body": "{\"run\": \"8ced8e42-7991-48e1-bd36-9f93ab2dc754\"}"
+    },
+    {
+      "seq": 260,
+      "at": 1790984758.1643512,
+      "kind": "change_recorded",
+      "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+      "body": "{\"operation_key\": \"restore-references-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"7cd6f68dfd5b69c4399e2b3929acd7cac6766e75\", \"after_version\": \"2db119612c18b54251c894595ad758a8845b8a60\", \"reversal_ref\": \"Restore scripts/engine.py from commit 7cd6f68dfd5b69c4399e2b3929acd7cac6766e75 only if its blob still matches 981c856b6e06d40399416c773012ce7e76c862be; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-02-restore-reference-integrity.json\", \"evaluator_version\": \"34c1a9b482e81b25f3ad2291e545d80a643c68222b464f087a9aa3aacd4497ee\"}"
     }
   ]
 }
