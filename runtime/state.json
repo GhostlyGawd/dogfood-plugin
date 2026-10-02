@@ -1735,10 +1735,10 @@
       ],
       "hypothesis": false,
       "benefit": "Reject duplicate durable finding identities cleanly and atomically before restored state is mutated.",
-      "status": "applied",
-      "revision": 10,
+      "status": "adopted",
+      "revision": 13,
       "created_at": 1790897956.6732314,
-      "updated_at": 1790898337.8998656,
+      "updated_at": 1790984579.1361747,
       "lease": null,
       "changes": [
         {
@@ -1778,19 +1778,63 @@
           "evaluator_version": "fa68a03bfd5e74bf6d1c98251417b11959835722f1515496597a9a98f7be2f03"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-02-restore-reference-integrity.json",
+          "at": 1790984579.1028442
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator produces two raw SQLite integrity errors on the shipped restore path; prevalidate both durable finding identity constraints before any mutation.",
       "generalization_evidence": null,
-      "reason": "Duplicate finding IDs and project/dedup identities are rejected before restore mutation; exact remote bytes and all 31 regression tests pass.",
+      "reason": "A fresh later run restored the durable snapshot through the duplicate finding-identity validators and all 31 shipped regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
-      "applied_at": 1790898337.8998613
+      "applied_at": 1790898337.8998613,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-02-restore-reference-integrity.json",
+      "activation_run": "8ced8e42-7991-48e1-bd36-9f93ab2dc754"
+    },
+    {
+      "id": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-reference-integrity",
+      "observation": "Restore accepts run claims for missing or duplicate findings and accepts malformed or orphaned finding leases, leaving a durable snapshot that later lifecycle operations cannot safely use.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject broken finding/run references atomically before restoring durable state.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1790984661.2525213,
+      "updated_at": 1790984670.294891,
+      "lease": {
+        "run": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
+        "token": "f21a2908-ad05-4c15-ac98-9c052af8b3e1",
+        "until": 1790984970.2947547
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator shows six malformed cross-record snapshots are accepted by the shipped engine; validate run claims and active finding leases before mutation.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator shows six malformed cross-record snapshots are accepted by the shipped engine; validate run claims and active finding leases before mutation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -2170,6 +2214,23 @@
         "265037d8-3510-4b2a-8dcd-4657613528c0"
       ],
       "checkpoint": "Activated and adopted restore record-integrity after a fresh later snapshot restore and 30 passing tests. Applied restore finding-identity integrity: duplicate finding IDs and project/dedup identities are rejected cleanly and atomically before mutation. Exact remote bytes and all 31 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
+      "worker": "project-maintenance-2026-10-02",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1790984567.930889,
+      "deadline": 1790985767.930889,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -3950,6 +4011,41 @@
       "kind": "checkpoint",
       "entity": "17a4ab10-3f7e-4f1f-abac-4ca76558ddde",
       "body": "{\"summary\": \"Activated and adopted restore record-integrity after a fresh later snapshot restore and 30 passing tests. Applied restore finding-identity integrity: duplicate finding IDs and project/dedup identities are rejected cleanly and atomically before mutation. Exact remote bytes and all 31 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 255,
+      "at": 1790984567.9310024,
+      "kind": "run_started",
+      "entity": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 256,
+      "at": 1790984579.136365,
+      "kind": "transition",
+      "entity": "265037d8-3510-4b2a-8dcd-4657613528c0",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the duplicate finding-identity validators and all 31 shipped regression tests passed.\"}"
+    },
+    {
+      "seq": 257,
+      "at": 1790984661.252643,
+      "kind": "captured",
+      "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 258,
+      "at": 1790984670.259132,
+      "kind": "transition",
+      "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator shows six malformed cross-record snapshots are accepted by the shipped engine; validate run claims and active finding leases before mutation.\"}"
+    },
+    {
+      "seq": 259,
+      "at": 1790984670.294925,
+      "kind": "claimed",
+      "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+      "body": "{\"run\": \"8ced8e42-7991-48e1-bd36-9f93ab2dc754\"}"
     }
   ]
 }
