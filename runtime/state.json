@@ -1813,15 +1813,11 @@
       ],
       "hypothesis": false,
       "benefit": "Reject broken finding/run references atomically before restoring durable state.",
-      "status": "in_progress",
-      "revision": 6,
+      "status": "applied",
+      "revision": 9,
       "created_at": 1790984661.2525213,
-      "updated_at": 1790984897.9770622,
-      "lease": {
-        "run": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
-        "token": "f21a2908-ad05-4c15-ac98-9c052af8b3e1",
-        "until": 1790985145.277007
-      },
+      "updated_at": 1790984956.9720237,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-references-engine",
@@ -1851,18 +1847,28 @@
           "evaluator_version": "34c1a9b482e81b25f3ad2291e545d80a643c68222b464f087a9aa3aacd4497ee"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "32 regression tests, fixed reference-integrity evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-02-restore-reference-integrity.json",
+          "verified_version": "b99c1e96a11ce8931788cdb9e3d513859cff8fda",
+          "exit_code": 0,
+          "evaluator_version": "34c1a9b482e81b25f3ad2291e545d80a643c68222b464f087a9aa3aacd4497ee"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator shows six malformed cross-record snapshots are accepted by the shipped engine; validate run claims and active finding leases before mutation.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator shows six malformed cross-record snapshots are accepted by the shipped engine; validate run claims and active finding leases before mutation.",
+      "reason": "Unknown or duplicate run claims and malformed or orphaned active finding leases are rejected before restore mutation; exact remote bytes and all 32 tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "8ced8e42-7991-48e1-bd36-9f93ab2dc754",
+      "applied_at": 1790984956.9720192
     }
   ],
   "runs": [
@@ -4095,6 +4101,20 @@
       "kind": "change_recorded",
       "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
       "body": "{\"operation_key\": \"restore-references-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"7ea53a8aa0ffa2bdabf191fe856c73b87111cbb7\", \"after_version\": \"b99c1e96a11ce8931788cdb9e3d513859cff8fda\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 7cd6f68dfd5b69c4399e2b3929acd7cac6766e75 only if its blob still matches 7e6be87a67e6d6515c5cabbe9d5229d56d4c31b9; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-02-restore-reference-integrity.json\", \"evaluator_version\": \"34c1a9b482e81b25f3ad2291e545d80a643c68222b464f087a9aa3aacd4497ee\"}"
+    },
+    {
+      "seq": 263,
+      "at": 1790984956.9045727,
+      "kind": "transition",
+      "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three candidate files are committed; verify the fixed reference-integrity test and exact remote candidate bytes.\"}"
+    },
+    {
+      "seq": 264,
+      "at": 1790984956.9721758,
+      "kind": "transition",
+      "entity": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Unknown or duplicate run claims and malformed or orphaned active finding leases are rejected before restore mutation; exact remote bytes and all 32 tests pass.\"}"
     }
   ]
 }
