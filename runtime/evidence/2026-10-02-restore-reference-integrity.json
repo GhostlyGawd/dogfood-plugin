@@ -39,9 +39,31 @@
       "ledger": "34e73111fa3e33788cd3a1d82e227e3fa16525ca"
     }
   },
-  "writes": [],
-  "remote_verification": "pending",
-  "activation": "pending",
+  "writes": [
+    {
+      "path": "scripts/engine.py",
+      "commit": "2db119612c18b54251c894595ad758a8845b8a60",
+      "blob": "981c856b6e06d40399416c773012ce7e76c862be"
+    },
+    {
+      "path": "tests/test_engine.py",
+      "commit": "7ea53a8aa0ffa2bdabf191fe856c73b87111cbb7",
+      "blob": "6e68838f8c1da08b2b414978c6ed6871295f24b7"
+    },
+    {
+      "path": "skills/dogfood/references/ledger.md",
+      "commit": "b99c1e96a11ce8931788cdb9e3d513859cff8fda",
+      "blob": "7e6be87a67e6d6515c5cabbe9d5229d56d4c31b9"
+    }
+  ],
+  "remote_verification": {
+    "result": "pass",
+    "method": "Fetched each candidate from main, matched exact local UTF-8 bytes, then ran the fixed evaluator.",
+    "main_commit": "b99c1e96a11ce8931788cdb9e3d513859cff8fda",
+    "tests": 32,
+    "exit_code": 0
+  },
+  "activation": "pending later fresh run",
   "blockers": [
     "Codex hook activation awaits a supported Codex runtime and host review.",
     "Work-wide activation awaits a supported persistent global instruction route.",
