@@ -1892,9 +1892,9 @@
       "hypothesis": false,
       "benefit": "Reject unsafe installation, schema, and pause metadata cleanly and atomically before restored state can affect execution.",
       "status": "in_progress",
-      "revision": 5,
+      "revision": 6,
       "created_at": 1791072570.0869894,
-      "updated_at": 1791072743.5654194,
+      "updated_at": 1791072785.5068648,
       "lease": {
         "run": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
         "token": "d31db2cb-bb91-4aec-b0c0-48b9617a67f8",
@@ -1916,6 +1916,15 @@
           "before_version": "9b9762d43411061e120d92963dd1046bccaaf8ad",
           "after_version": "9ee8419daac89f639ca5e818b4acfaa9f8187bfc",
           "reversal_ref": "Restore tests/test_engine.py from commit b99c1e96a11ce8931788cdb9e3d513859cff8fda only if its blob still matches f03ce847ddc4b6f7fb3507ba652d35805152cef0; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json",
+          "evaluator_version": "954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275"
+        },
+        {
+          "operation_key": "restore-metadata-contract",
+          "target": "GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md",
+          "before_version": "9ee8419daac89f639ca5e818b4acfaa9f8187bfc",
+          "after_version": "3da8faba9b79e631fdea8cf433989a988c9e52ee",
+          "reversal_ref": "Restore skills/dogfood/references/ledger.md from commit b99c1e96a11ce8931788cdb9e3d513859cff8fda only if its blob still matches 22b2f56fc168c7753bc0be1c325c0f6c035e5d86; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json",
           "evaluator_version": "954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275"
         }
@@ -2340,7 +2349,7 @@
       "started_at": 1791072416.9810667,
       "deadline": 1791073616.981067,
       "max_changes": 3,
-      "changes_used": 2,
+      "changes_used": 3,
       "claimed": [
         "1c424d31-ceaf-4908-bfce-18b021ef8c56"
       ],
@@ -4251,6 +4260,13 @@
       "kind": "change_recorded",
       "entity": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
       "body": "{\"operation_key\": \"restore-metadata-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"9b9762d43411061e120d92963dd1046bccaaf8ad\", \"after_version\": \"9ee8419daac89f639ca5e818b4acfaa9f8187bfc\", \"reversal_ref\": \"Restore tests/test_engine.py from commit b99c1e96a11ce8931788cdb9e3d513859cff8fda only if its blob still matches f03ce847ddc4b6f7fb3507ba652d35805152cef0; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json\", \"evaluator_version\": \"954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275\"}"
+    },
+    {
+      "seq": 273,
+      "at": 1791072785.5069094,
+      "kind": "change_recorded",
+      "entity": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
+      "body": "{\"operation_key\": \"restore-metadata-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"9ee8419daac89f639ca5e818b4acfaa9f8187bfc\", \"after_version\": \"3da8faba9b79e631fdea8cf433989a988c9e52ee\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit b99c1e96a11ce8931788cdb9e3d513859cff8fda only if its blob still matches 22b2f56fc168c7753bc0be1c325c0f6c035e5d86; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json\", \"evaluator_version\": \"954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275\"}"
     }
   ]
 }
