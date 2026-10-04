@@ -8,7 +8,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from engine import Ledger, Conflict
+from engine import Ledger, Conflict, SCHEMA
 from configure import instructions
 
 
@@ -275,6 +275,36 @@ class EngineTests(unittest.TestCase):
                         restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
                     self.assertIsNone(restored.meta("owner"))
                     self.assertEqual(restored.db.execute("SELECT count(*) FROM findings").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
+    def test_restore_rejects_malformed_metadata_atomically(self):
+        snapshot = self.call("export")
+        malformed = [
+            ("paused is not boolean", lambda data: data["meta"].update(paused="false")),
+            ("paused is missing", lambda data: data["meta"].pop("paused")),
+            ("paused projects is not a list", lambda data: data["meta"].update(
+                paused_projects="project-a")),
+            ("paused projects contains blank", lambda data: data["meta"].update(
+                paused_projects=[""])),
+            ("paused projects contains duplicates", lambda data: data["meta"].update(
+                paused_projects=["project-a", "project-a"])),
+            ("installation is blank", lambda data: data["meta"].update(installation="")),
+            ("metadata schema mismatches", lambda data: data["meta"].update(schema=SCHEMA + 1)),
+        ]
+        for index, (name, mutate) in enumerate(malformed):
+            with self.subTest(name=name):
+                broken = json.loads(json.dumps(snapshot))
+                mutate(broken)
+                restored = Ledger(Path(self.tmp.name) / f"malformed-metadata-{index}.db",
+                                  clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    for table in ("findings", "runs", "events"):
+                        self.assertEqual(restored.db.execute(
+                            f"SELECT count(*) FROM {table}").fetchone()[0], 0)
                 finally:
                     restored.close()
 
