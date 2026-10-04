@@ -1891,15 +1891,11 @@
       ],
       "hypothesis": false,
       "benefit": "Reject unsafe installation, schema, and pause metadata cleanly and atomically before restored state can affect execution.",
-      "status": "in_progress",
-      "revision": 7,
+      "status": "applied",
+      "revision": 10,
       "created_at": 1791072570.0869894,
-      "updated_at": 1791072806.74987,
-      "lease": {
-        "run": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
-        "token": "d31db2cb-bb91-4aec-b0c0-48b9617a67f8",
-        "until": 1791073106.749868
-      },
+      "updated_at": 1791072866.6171365,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-metadata-engine",
@@ -1929,18 +1925,28 @@
           "evaluator_version": "954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "33 regression tests, fixed malformed-metadata evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json",
+          "verified_version": "3da8faba9b79e631fdea8cf433989a988c9e52ee",
+          "exit_code": 0,
+          "evaluator_version": "954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator demonstrates seven malformed metadata snapshots are accepted by the shipped restore path; validate metadata types and identities before any durable mutation.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator demonstrates seven malformed metadata snapshots are accepted by the shipped restore path; validate metadata types and identities before any durable mutation.",
+      "reason": "Restore now rejects malformed installation, schema, global pause, and paused-project metadata before mutation; all seven malformed fixtures fail cleanly, exact remote bytes match, and all 33 tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
+      "applied_at": 1791072866.617132
     }
   ],
   "runs": [
@@ -4267,6 +4273,20 @@
       "kind": "change_recorded",
       "entity": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
       "body": "{\"operation_key\": \"restore-metadata-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"9ee8419daac89f639ca5e818b4acfaa9f8187bfc\", \"after_version\": \"3da8faba9b79e631fdea8cf433989a988c9e52ee\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit b99c1e96a11ce8931788cdb9e3d513859cff8fda only if its blob still matches 22b2f56fc168c7753bc0be1c325c0f6c035e5d86; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json\", \"evaluator_version\": \"954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275\"}"
+    },
+    {
+      "seq": 274,
+      "at": 1791072866.5479565,
+      "kind": "transition",
+      "entity": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three SHA-guarded source writes completed within the fixed run budget; evaluate the unchanged malformed-metadata test and exact remote candidate bytes.\"}"
+    },
+    {
+      "seq": 275,
+      "at": 1791072866.6172657,
+      "kind": "transition",
+      "entity": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now rejects malformed installation, schema, global pause, and paused-project metadata before mutation; all seven malformed fixtures fail cleanly, exact remote bytes match, and all 33 tests pass.\"}"
     }
   ]
 }
