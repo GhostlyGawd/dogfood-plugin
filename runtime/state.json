@@ -2351,7 +2351,7 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "started_at": 1791072416.9810667,
       "deadline": 1791073616.981067,
       "max_changes": 3,
@@ -2359,7 +2359,7 @@
       "claimed": [
         "1c424d31-ceaf-4908-bfce-18b021ef8c56"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted restore reference-integrity after a fresh later snapshot restore and 32 passing tests. Applied restore metadata-integrity: malformed installation, schema, global pause, and paused-project metadata are rejected atomically before mutation. Exact remote bytes and all 33 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -4287,6 +4287,13 @@
       "kind": "transition",
       "entity": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
       "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now rejects malformed installation, schema, global pause, and paused-project metadata before mutation; all seven malformed fixtures fail cleanly, exact remote bytes match, and all 33 tests pass.\"}"
+    },
+    {
+      "seq": 276,
+      "at": 1791072921.7048604,
+      "kind": "checkpoint",
+      "entity": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
+      "body": "{\"summary\": \"Activated and adopted restore reference-integrity after a fresh later snapshot restore and 32 passing tests. Applied restore metadata-integrity: malformed installation, schema, global pause, and paused-project metadata are rejected atomically before mutation. Exact remote bytes and all 33 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
