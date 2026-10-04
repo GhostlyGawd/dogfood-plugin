@@ -13,7 +13,7 @@
   },
   "candidate": {
     "dedup": "restore-metadata-integrity",
-    "status": "in_progress",
+    "status": "applied",
     "activation": "pending",
     "base_commit": "b99c1e96a11ce8931788cdb9e3d513859cff8fda",
     "base_blobs": {
@@ -32,11 +32,43 @@
       "full_suite_exit_code": 0,
       "tests": 33
     },
-    "remote_verification": "pending"
+    "remote_verification": {
+      "exit_code": 0,
+      "tests": 33,
+      "exact_bytes": {
+        "engine": true,
+        "test": true,
+        "ledger": true
+      },
+      "verified_version": "3da8faba9b79e631fdea8cf433989a988c9e52ee"
+    },
+    "remote_writes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "9b9762d43411061e120d92963dd1046bccaaf8ad",
+        "blob": "1275afd181cfa865d1cbfc3f8551bd35e094250a"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "9ee8419daac89f639ca5e818b4acfaa9f8187bfc",
+        "blob": "f03ce847ddc4b6f7fb3507ba652d35805152cef0"
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "3da8faba9b79e631fdea8cf433989a988c9e52ee",
+        "blob": "22b2f56fc168c7753bc0be1c325c0f6c035e5d86"
+      }
+    ],
+    "reversal": "Restore each changed file from commit b99c1e96a11ce8931788cdb9e3d513859cff8fda only while its blob still matches the recorded candidate blob; preserve later edits."
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host review.",
     "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
     "Second-user installation remains unverified."
-  ]
+  ],
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "c891fe4c1b2aab049a07c78be90f9e61a50349b6",
+    "run_changes_used": 3,
+    "run_max_changes": 3
+  }
 }
