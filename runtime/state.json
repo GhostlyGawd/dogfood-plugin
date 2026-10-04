@@ -1892,13 +1892,13 @@
       "hypothesis": false,
       "benefit": "Reject unsafe installation, schema, and pause metadata cleanly and atomically before restored state can affect execution.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1791072570.0869894,
-      "updated_at": 1791072578.2127473,
+      "updated_at": 1791072629.122577,
       "lease": {
         "run": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
         "token": "d31db2cb-bb91-4aec-b0c0-48b9617a67f8",
-        "until": 1791072878.2126055
+        "until": 1791072929.1225753
       },
       "changes": [],
       "checks": [],
