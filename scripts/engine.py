@@ -477,6 +477,16 @@ class Ledger:
             raise ValueError("snapshot collections must match the exported structure")
         if metadata.get("owner") != required(data, "owner"):
             raise Conflict("snapshot owner does not match")
+        paused_projects = metadata.get("paused_projects")
+        if (type(metadata.get("schema")) is not int or metadata["schema"] != SCHEMA
+                or not isinstance(metadata.get("installation"), str)
+                or not metadata["installation"].strip()
+                or type(metadata.get("paused")) is not bool
+                or not isinstance(paused_projects, list)
+                or not all(isinstance(project, str) and project.strip()
+                           for project in paused_projects)
+                or len(paused_projects) != len(set(paused_projects))):
+            raise ValueError("invalid snapshot metadata")
         finding_ids = set()
         finding_keys = set()
         for f in findings:
