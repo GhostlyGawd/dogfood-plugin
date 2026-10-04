@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "date": "2026-10-03",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
+  "finding": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
+  "worker": "project-maintenance-2026-10-03",
+  "prior_activation": {
+    "finding": "8dd242a4-b0b9-44c7-895d-c8c21dd0edf9",
+    "status": "adopted",
+    "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json",
+    "shipped_tests": 32
+  },
+  "candidate": {
+    "dedup": "restore-metadata-integrity",
+    "status": "in_progress",
+    "activation": "pending",
+    "base_commit": "b99c1e96a11ce8931788cdb9e3d513859cff8fda",
+    "base_blobs": {
+      "engine": "981c856b6e06d40399416c773012ce7e76c862be",
+      "test": "6e68838f8c1da08b2b414978c6ed6871295f24b7",
+      "ledger": "7e6be87a67e6d6515c5cabbe9d5229d56d4c31b9"
+    },
+    "evaluator_sha256": "954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275",
+    "baseline": {
+      "test": "test_restore_rejects_malformed_metadata_atomically",
+      "exit_code": 1,
+      "failures": 7
+    },
+    "local_candidate": {
+      "focused_exit_code": 0,
+      "full_suite_exit_code": 0,
+      "tests": 33
+    },
+    "remote_verification": "pending"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host review.",
+    "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
+    "Second-user installation remains unverified."
+  ]
+}
