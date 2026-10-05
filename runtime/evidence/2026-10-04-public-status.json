@@ -14,8 +14,8 @@
   },
   "candidate": {
     "dedup": "public-status-through-2026-10-04",
-    "status": "in_progress",
-    "activation": "not_applied",
+    "status": "applied",
+    "activation": "pending",
     "base_commit": "3da8faba9b79e631fdea8cf433989a988c9e52ee",
     "base_blobs": {
       "readme": "e531f8edf9f10545be465a911e9f4ad295f30934",
@@ -32,11 +32,44 @@
       "full_suite_exit_code": 0,
       "tests": 33
     },
-    "remote_verification": "pending"
+    "remote_verification": {
+      "exit_code": 0,
+      "status_assertions": 18,
+      "tests": 33,
+      "exact_bytes": {
+        "readme": true,
+        "verification": true,
+        "project_state": true
+      },
+      "verified_version": "f22b57b3cd9eb5ccfc64e624e563e32a1776f136"
+    },
+    "remote_writes": [
+      {
+        "path": "README.md",
+        "commit": "bf8c59fdca32a1183c08157453bfb633289028f8",
+        "blob": "aa083a951aa6d10491afdfcb471e8dab92daa974"
+      },
+      {
+        "path": "docs/verification.md",
+        "commit": "66be8dc4f8f89349003e8ab4d8ce36dec086ee3e",
+        "blob": "a61c1e99006fd00bf612afa8efd9fc4ab64b0e2a"
+      },
+      {
+        "path": "docs/project-state.md",
+        "commit": "f22b57b3cd9eb5ccfc64e624e563e32a1776f136",
+        "blob": "ed04b51e095a9e23178fac59b1bfd20ae13633a3"
+      }
+    ],
+    "reversal": "Restore each changed document from commit 3da8faba9b79e631fdea8cf433989a988c9e52ee only while its blob still matches the recorded candidate blob; preserve later edits."
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host review.",
     "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
     "Second-user installation remains unverified."
-  ]
+  ],
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "de9605aecb04dcb4bf4f6ab03201db52c3cabfd7",
+    "run_changes_used": 3,
+    "run_max_changes": 3
+  }
 }
