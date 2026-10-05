@@ -1891,10 +1891,10 @@
       ],
       "hypothesis": false,
       "benefit": "Reject unsafe installation, schema, and pause metadata cleanly and atomically before restored state can affect execution.",
-      "status": "applied",
-      "revision": 10,
+      "status": "adopted",
+      "revision": 13,
       "created_at": 1791072570.0869894,
-      "updated_at": 1791072866.6171365,
+      "updated_at": 1791159609.3978806,
       "lease": null,
       "changes": [
         {
@@ -1934,19 +1934,64 @@
           "evaluator_version": "954b095c8ddf5096030ceab0e02f0cc22e71dc02fae21e3afc897ba2dcf26275"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "92230654-7650-4826-8585-b828126f6008",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-04-public-status.json",
+          "at": 1791159609.3429196
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator demonstrates seven malformed metadata snapshots are accepted by the shipped restore path; validate metadata types and identities before any durable mutation.",
       "generalization_evidence": null,
-      "reason": "Restore now rejects malformed installation, schema, global pause, and paused-project metadata before mutation; all seven malformed fixtures fail cleanly, exact remote bytes match, and all 33 tests pass.",
+      "reason": "A fresh later run restored the durable snapshot through the shipped metadata validators and all 33 regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
-      "applied_at": 1791072866.617132
+      "applied_at": 1791072866.617132,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-04-public-status.json",
+      "activation_run": "92230654-7650-4826-8585-b828126f6008"
+    },
+    {
+      "id": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "public-status-through-2026-10-04",
+      "observation": "README and public verification documents report only 29 tests and project evidence through 2026-09-27, while the shipped implementation has 33 passing tests and verified restore safeguards through 2026-10-03.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/README.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/project-state.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Keep install and verification guidance aligned with the tested implementation without overstating host activation or second-user installation.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1791159645.266393,
+      "updated_at": 1791159651.7513328,
+      "lease": {
+        "run": "92230654-7650-4826-8585-b828126f6008",
+        "token": "62e955de-a755-4952-aadb-610534fb9db9",
+        "until": 1791159951.7512226
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "README.md, docs/verification.md, and docs/project-state.md",
+      "scope_reason": "The fixed evaluator reports 18 stale status assertions across the three public documents; refresh only status text while preserving every host activation and installation limitation.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator reports 18 stale status assertions across the three public documents; refresh only status text while preserving every host activation and installation limitation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -2360,6 +2405,23 @@
         "1c424d31-ceaf-4908-bfce-18b021ef8c56"
       ],
       "checkpoint": "Activated and adopted restore reference-integrity after a fresh later snapshot restore and 32 passing tests. Applied restore metadata-integrity: malformed installation, schema, global pause, and paused-project metadata are rejected atomically before mutation. Exact remote bytes and all 33 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "92230654-7650-4826-8585-b828126f6008",
+      "worker": "project-maintenance-2026-10-04",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791159600.6854236,
+      "deadline": 1791160800.6854239,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "6b2b85a8-1055-4e90-8f89-c11cdbe7c522"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -4294,6 +4356,41 @@
       "kind": "checkpoint",
       "entity": "5fb9a441-9d1a-4f2c-90dd-d96309a8bcae",
       "body": "{\"summary\": \"Activated and adopted restore reference-integrity after a fresh later snapshot restore and 32 passing tests. Applied restore metadata-integrity: malformed installation, schema, global pause, and paused-project metadata are rejected atomically before mutation. Exact remote bytes and all 33 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 277,
+      "at": 1791159600.6855917,
+      "kind": "run_started",
+      "entity": "92230654-7650-4826-8585-b828126f6008",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 278,
+      "at": 1791159609.398032,
+      "kind": "transition",
+      "entity": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped metadata validators and all 33 regression tests passed.\"}"
+    },
+    {
+      "seq": 279,
+      "at": 1791159645.2665555,
+      "kind": "captured",
+      "entity": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 280,
+      "at": 1791159651.70129,
+      "kind": "transition",
+      "entity": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator reports 18 stale status assertions across the three public documents; refresh only status text while preserving every host activation and installation limitation.\"}"
+    },
+    {
+      "seq": 281,
+      "at": 1791159651.7513683,
+      "kind": "claimed",
+      "entity": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+      "body": "{\"run\": \"92230654-7650-4826-8585-b828126f6008\"}"
     }
   ]
 }
