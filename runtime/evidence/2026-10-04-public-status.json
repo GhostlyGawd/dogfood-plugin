@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "date": "2026-10-04",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "92230654-7650-4826-8585-b828126f6008",
+  "finding": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+  "worker": "project-maintenance-2026-10-04",
+  "prior_activation": {
+    "finding": "1c424d31-ceaf-4908-bfce-18b021ef8c56",
+    "dedup": "restore-metadata-integrity",
+    "status": "adopted",
+    "fresh_restore": true,
+    "tests": 33
+  },
+  "candidate": {
+    "dedup": "public-status-through-2026-10-04",
+    "status": "in_progress",
+    "activation": "not_applied",
+    "base_commit": "3da8faba9b79e631fdea8cf433989a988c9e52ee",
+    "base_blobs": {
+      "readme": "e531f8edf9f10545be465a911e9f4ad295f30934",
+      "verification": "c8727c9e77b632f03f3d88f4338d55164ca7f92b",
+      "project_state": "b63f6b46c6c75ed2d142b78f2ee06b5302eb07c7"
+    },
+    "evaluator_sha256": "93dd5fb00c7a120cc1ab20fc25849030b3cfa540fa893eea087b62694aa90794",
+    "baseline": {
+      "exit_code": 1,
+      "failed_assertions": 18
+    },
+    "local_candidate": {
+      "status_assertions_exit_code": 0,
+      "full_suite_exit_code": 0,
+      "tests": 33
+    },
+    "remote_verification": "pending"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host review.",
+    "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
+    "Second-user installation remains unverified."
+  ]
+}
