@@ -2049,13 +2049,13 @@
       "hypothesis": false,
       "benefit": "Reject malformed durable finding records cleanly and atomically before they can break later lifecycle operations.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1791244464.522658,
-      "updated_at": 1791244470.3009357,
+      "updated_at": 1791244505.8134263,
       "lease": {
         "run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
         "token": "2dbf9512-dacf-493c-98da-f791808ccec5",
-        "until": 1791244770.3008285
+        "until": 1791244805.813424
       },
       "changes": [],
       "checks": [],
