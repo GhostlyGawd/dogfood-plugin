@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
+  "finding": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+  "worker": "project-maintenance-2026-10-05",
+  "prior_activation": {
+    "finding": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+    "dedup": "public-status-through-2026-10-04",
+    "status": "adopted",
+    "tests": 33
+  },
+  "candidate": {
+    "dedup": "restore-finding-record-integrity",
+    "status": "in_progress",
+    "activation": "not_applied",
+    "base_commit": "f22b57b3cd9eb5ccfc64e624e563e32a1776f136",
+    "base_blobs": {
+      "engine": "1275afd181cfa865d1cbfc3f8551bd35e094250a",
+      "test": "f03ce847ddc4b6f7fb3507ba652d35805152cef0",
+      "ledger": "22b2f56fc168c7753bc0be1c325c0f6c035e5d86"
+    },
+    "evaluator_sha256": "08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2",
+    "baseline": {
+      "test": "test_restore_rejects_malformed_finding_records_atomically",
+      "exit_code": 1,
+      "failures": 10
+    },
+    "local_candidate": {
+      "focused_exit_code": 0,
+      "full_suite_exit_code": 0,
+      "tests": 34
+    },
+    "remote_verification": "pending"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host review.",
+    "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
+    "Second-user installation remains unverified."
+  ]
+}
