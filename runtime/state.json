@@ -1971,13 +1971,13 @@
       "hypothesis": false,
       "benefit": "Keep install and verification guidance aligned with the tested implementation without overstating host activation or second-user installation.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1791159645.266393,
-      "updated_at": 1791159651.7513328,
+      "updated_at": 1791159749.6031833,
       "lease": {
         "run": "92230654-7650-4826-8585-b828126f6008",
         "token": "62e955de-a755-4952-aadb-610534fb9db9",
-        "until": 1791159951.7512226
+        "until": 1791160049.6031806
       },
       "changes": [],
       "checks": [],
