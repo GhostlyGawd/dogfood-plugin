@@ -1,10 +1,10 @@
 # Dogfood verification
 
-Build: 0.1.0 · Updated 2026-09-28
+Build: 0.1.0 · Updated 2026-10-04
 
 ## Automated checks
 
-29 automated cases pass. Coverage includes competing claims, stale revisions, owner mismatch, capture metadata, setup owner identity, project-scoped pause, time and actual change-operation budgets, expired-worker recovery, failed or mismatched check versions, activation before adoption, fixed self-evaluation versions, snapshot recovery and restore collection shapes, a fresh process reading saved state, managed instruction preservation, hook output from a different directory, retained and idempotent receipts, checkpoint completion types, immutable checkpoints and activation evidence, project-scoped evidence runs, and chronological activation and reuse checks.
+33 automated cases pass. Coverage includes competing claims, stale revisions, owner mismatch, capture metadata, setup owner identity, project-scoped pause, time and actual change-operation budgets, expired-worker recovery, failed or mismatched check versions, activation before adoption, fixed self-evaluation versions, snapshot recovery, restore collection and record shapes, finding identity and cross-record references, installation, schema, and pause metadata, a fresh process reading saved state, managed instruction preservation, hook output from a different directory, retained and idempotent receipts, checkpoint completion types, immutable checkpoints and activation evidence, project-scoped evidence runs, and chronological activation and reuse checks.
 
 The plugin manifest and all three bundled skill entrypoints pass their format validators. These checks establish file structure, not automatic host invocation.
 
@@ -19,9 +19,9 @@ An independent agent used the packaged core skill on an isolated invoice project
 | Real Codex session activation | Not tested: no Codex executable in this build environment. |
 | Work skill selection | Bundled Work instructions prepared; separate companion installation failed. |
 | Work activation in every chat | Unverified: no supported global instruction write route established here. |
-| Remote Work state | Separate runs loaded the GitHub adapter, restored state, saved SHA-guarded claims, changed source, and retained evidence through 2026-09-27. |
+| Remote Work state | Separate runs loaded the GitHub adapter, restored state, saved SHA-guarded claims, changed source, and retained evidence through 2026-10-04. |
 | Native background execution | Repeated project background work is verified through checked engine improvements. This does not verify other hosts or projects. |
-| Self-improvement | Guarded state writes, receipt integrity, actual change budgets, fixed evaluators, scoped chronological evidence runs, metadata and setup identity checks, scoped pause validation, checkpoint type validation, and atomic restore validation were loaded and reused by later runs. This public status update has activation pending. |
+| Self-improvement | Guarded state writes, receipt integrity, actual change budgets, fixed evaluators, scoped chronological evidence runs, metadata and setup identity checks, scoped pause validation, checkpoint type validation, and atomic restore validation were loaded and reused by later runs. The restore metadata safeguard is active and adopted; this public status update has activation pending. |
 | Second user's installation | Package prepared; no second account used. |
 
 Codex documents default `hooks/hooks.json` discovery and `PLUGIN_ROOT`. The build omits a manifest hooks field to remain compatible with the local manifest validator. It uses the documented default discovery route. [Official plugin packaging](https://developers.openai.com/plugins/build/plugins).
@@ -38,5 +38,5 @@ The GitHub adapter change passed the unchanged 21-test regression suite and core
 
 The check-history regression failed on the previous engine and passed after the fix. The next engine candidate also made `max_changes` count actual unique change operations instead of only claimed findings. Its baseline test failed, all 24 candidate tests passed, and saved source bytes matched the tested files. [Change-budget checks and source evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-10-change-budget.json).
 
-Later bounded runs made activation and reuse receipts immutable, required evidence to reference a live run scoped to the finding's project, and rejected runs that began before application. They also validate captured metadata and setup ownership, preserve project-scoped pause semantics, reject malformed checkpoint completion values, and reject malformed restore collection shapes before mutation. The restore safeguard passed the fixed 29-test evaluator and exact remote-byte checks, then became active through a fresh later run. [Restore-integrity evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-09-27-restore-integrity.json).
+Later bounded runs made activation and reuse receipts immutable, required evidence to reference a live run scoped to the finding's project, and rejected runs that began before application. They also validate captured metadata and setup ownership, preserve project-scoped pause semantics, reject malformed checkpoint completion values, and reject malformed restore collections, run and event records, finding identity and cross-record references, and installation, schema, and pause metadata before mutation. The latest safeguard passed the fixed 33-test evaluator and exact remote-byte checks, then became active through a fresh later run. [Restore-metadata evidence](https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-03-restore-metadata-integrity.json).
 
