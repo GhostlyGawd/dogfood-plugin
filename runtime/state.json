@@ -1971,9 +1971,9 @@
       "hypothesis": false,
       "benefit": "Keep install and verification guidance aligned with the tested implementation without overstating host activation or second-user installation.",
       "status": "in_progress",
-      "revision": 5,
+      "revision": 6,
       "created_at": 1791159645.266393,
-      "updated_at": 1791159803.9993286,
+      "updated_at": 1791159840.4956868,
       "lease": {
         "run": "92230654-7650-4826-8585-b828126f6008",
         "token": "62e955de-a755-4952-aadb-610534fb9db9",
@@ -1995,6 +1995,15 @@
           "before_version": "bf8c59fdca32a1183c08157453bfb633289028f8",
           "after_version": "66be8dc4f8f89349003e8ab4d8ce36dec086ee3e",
           "reversal_ref": "Restore docs/verification.md from commit 3da8faba9b79e631fdea8cf433989a988c9e52ee only if its blob still matches a61c1e99006fd00bf612afa8efd9fc4ab64b0e2a; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-04-public-status.json",
+          "evaluator_version": "93dd5fb00c7a120cc1ab20fc25849030b3cfa540fa893eea087b62694aa90794"
+        },
+        {
+          "operation_key": "public-status-project-state-2026-10-04",
+          "target": "GhostlyGawd/dogfood-plugin:main:docs/project-state.md",
+          "before_version": "66be8dc4f8f89349003e8ab4d8ce36dec086ee3e",
+          "after_version": "f22b57b3cd9eb5ccfc64e624e563e32a1776f136",
+          "reversal_ref": "Restore docs/project-state.md from commit 3da8faba9b79e631fdea8cf433989a988c9e52ee only if its blob still matches ed04b51e095a9e23178fac59b1bfd20ae13633a3; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-04-public-status.json",
           "evaluator_version": "93dd5fb00c7a120cc1ab20fc25849030b3cfa540fa893eea087b62694aa90794"
         }
@@ -2436,7 +2445,7 @@
       "started_at": 1791159600.6854236,
       "deadline": 1791160800.6854239,
       "max_changes": 3,
-      "changes_used": 2,
+      "changes_used": 3,
       "claimed": [
         "6b2b85a8-1055-4e90-8f89-c11cdbe7c522"
       ],
@@ -4424,6 +4433,13 @@
       "kind": "change_recorded",
       "entity": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
       "body": "{\"operation_key\": \"public-status-verification-2026-10-04\", \"target\": \"GhostlyGawd/dogfood-plugin:main:docs/verification.md\", \"before_version\": \"bf8c59fdca32a1183c08157453bfb633289028f8\", \"after_version\": \"66be8dc4f8f89349003e8ab4d8ce36dec086ee3e\", \"reversal_ref\": \"Restore docs/verification.md from commit 3da8faba9b79e631fdea8cf433989a988c9e52ee only if its blob still matches a61c1e99006fd00bf612afa8efd9fc4ab64b0e2a; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-04-public-status.json\", \"evaluator_version\": \"93dd5fb00c7a120cc1ab20fc25849030b3cfa540fa893eea087b62694aa90794\"}"
+    },
+    {
+      "seq": 284,
+      "at": 1791159840.4957757,
+      "kind": "change_recorded",
+      "entity": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+      "body": "{\"operation_key\": \"public-status-project-state-2026-10-04\", \"target\": \"GhostlyGawd/dogfood-plugin:main:docs/project-state.md\", \"before_version\": \"66be8dc4f8f89349003e8ab4d8ce36dec086ee3e\", \"after_version\": \"f22b57b3cd9eb5ccfc64e624e563e32a1776f136\", \"reversal_ref\": \"Restore docs/project-state.md from commit 3da8faba9b79e631fdea8cf433989a988c9e52ee only if its blob still matches ed04b51e095a9e23178fac59b1bfd20ae13633a3; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-04-public-status.json\", \"evaluator_version\": \"93dd5fb00c7a120cc1ab20fc25849030b3cfa540fa893eea087b62694aa90794\"}"
     }
   ]
 }
