@@ -491,9 +491,23 @@ class Ledger:
         finding_keys = set()
         for f in findings:
             fid, project, dedup = f.get("id"), f.get("project"), f.get("dedup")
+            evidence = f.get("evidence")
+            changes, checks, reuse = f.get("changes"), f.get("checks"), f.get("reuse")
             if (not isinstance(fid, str) or not fid.strip()
                     or not isinstance(project, str) or not project.strip()
-                    or not isinstance(dedup, str) or not dedup.strip()):
+                    or not isinstance(dedup, str) or not dedup.strip()
+                    or not isinstance(f.get("observation"), str) or not f["observation"].strip()
+                    or not isinstance(evidence, list) or not evidence
+                    or not all(isinstance(ref, str) and ref.strip() for ref in evidence)
+                    or type(f.get("hypothesis")) is not bool
+                    or not isinstance(f.get("benefit"), str)
+                    or type(f.get("created_at")) not in {int, float}
+                    or type(f.get("updated_at")) not in {int, float}
+                    or not all(isinstance(items, list) for items in (changes, checks, reuse))
+                    or not all(isinstance(item, dict)
+                               for items in (changes, checks, reuse) for item in items)
+                    or f.get("activation") not in {"not_applied", "pending", "active"}
+                    or type(f.get("recovery_required")) is not bool):
                 raise ValueError("invalid finding record")
             key = (project, dedup)
             if (fid in finding_ids or key in finding_keys
