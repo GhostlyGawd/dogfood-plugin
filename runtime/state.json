@@ -1970,10 +1970,10 @@
       ],
       "hypothesis": false,
       "benefit": "Keep install and verification guidance aligned with the tested implementation without overstating host activation or second-user installation.",
-      "status": "applied",
-      "revision": 9,
+      "status": "adopted",
+      "revision": 12,
       "created_at": 1791159645.266393,
-      "updated_at": 1791159888.8749676,
+      "updated_at": 1791244442.7837224,
       "lease": null,
       "changes": [
         {
@@ -2013,19 +2013,63 @@
           "evaluator_version": "93dd5fb00c7a120cc1ab20fc25849030b3cfa540fa893eea087b62694aa90794"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json",
+          "at": 1791244442.7385695
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "README.md, docs/verification.md, and docs/project-state.md",
       "scope_reason": "The fixed evaluator reports 18 stale status assertions across the three public documents; refresh only status text while preserving every host activation and installation limitation.",
       "generalization_evidence": null,
-      "reason": "README, verification, and project-state now report evidence through 2026-10-04 and 33 passing tests while preserving all host activation and second-user installation limits; exact remote bytes pass the fixed evaluator and full suite.",
+      "reason": "A fresh later run restored the updated public status documents, exercised the shipped 33-test suite, and retained the documented host activation limits.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "92230654-7650-4826-8585-b828126f6008",
-      "applied_at": 1791159888.8749614
+      "applied_at": 1791159888.8749614,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json",
+      "activation_run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2"
+    },
+    {
+      "id": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-finding-record-integrity",
+      "observation": "Restore validates finding identities and leases but accepts malformed finding payload fields such as evidence, timestamps, lifecycle arrays, activation state, and recovery flags, allowing invalid durable records to load successfully.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject malformed durable finding records cleanly and atomically before they can break later lifecycle operations.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1791244464.522658,
+      "updated_at": 1791244470.3009357,
+      "lease": {
+        "run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
+        "token": "2dbf9512-dacf-493c-98da-f791808ccec5",
+        "until": 1791244770.3008285
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator produces ten accepted malformed finding records on the shipped restore path; validate core finding payload fields and lifecycle collection shapes before mutation.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator produces ten accepted malformed finding records on the shipped restore path; validate core finding payload fields and lifecycle collection shapes before mutation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -2456,6 +2500,23 @@
         "6b2b85a8-1055-4e90-8f89-c11cdbe7c522"
       ],
       "checkpoint": "Activated and adopted restore metadata-integrity after a fresh later snapshot restore and 33 passing tests. Refreshed README, verification, and project-state through 2026-10-04; exact remote document blobs pass the fixed 18-assertion evaluator and all 33 regression tests. The public status update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
+      "worker": "project-maintenance-2026-10-05",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791244438.0182188,
+      "deadline": 1791245638.018219,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -4467,6 +4528,41 @@
       "kind": "checkpoint",
       "entity": "92230654-7650-4826-8585-b828126f6008",
       "body": "{\"summary\": \"Activated and adopted restore metadata-integrity after a fresh later snapshot restore and 33 passing tests. Refreshed README, verification, and project-state through 2026-10-04; exact remote document blobs pass the fixed 18-assertion evaluator and all 33 regression tests. The public status update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 288,
+      "at": 1791244438.0183737,
+      "kind": "run_started",
+      "entity": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 289,
+      "at": 1791244442.7838614,
+      "kind": "transition",
+      "entity": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the updated public status documents, exercised the shipped 33-test suite, and retained the documented host activation limits.\"}"
+    },
+    {
+      "seq": 290,
+      "at": 1791244464.5228155,
+      "kind": "captured",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 291,
+      "at": 1791244470.2529182,
+      "kind": "transition",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator produces ten accepted malformed finding records on the shipped restore path; validate core finding payload fields and lifecycle collection shapes before mutation.\"}"
+    },
+    {
+      "seq": 292,
+      "at": 1791244470.300971,
+      "kind": "claimed",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"run\": \"47a0b87c-5dae-4d40-adb4-dab1ff3b65f2\"}"
     }
   ]
 }
