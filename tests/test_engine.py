@@ -362,6 +362,39 @@ class EngineTests(unittest.TestCase):
                 finally:
                     restored.close()
 
+    def test_restore_rejects_malformed_finding_records_atomically(self):
+        self.capture("finding record")
+        snapshot = self.call("export")
+        malformed = [
+            ("observation is missing", lambda data: data["findings"][0].pop("observation")),
+            ("evidence is not a list", lambda data: data["findings"][0].update(evidence="source")),
+            ("hypothesis is not boolean", lambda data: data["findings"][0].update(hypothesis="false")),
+            ("benefit is not text", lambda data: data["findings"][0].update(benefit=[])),
+            ("changes is not a list", lambda data: data["findings"][0].update(changes={})),
+            ("checks is not a list", lambda data: data["findings"][0].update(checks={})),
+            ("activation is invalid", lambda data: data["findings"][0].update(activation="unknown")),
+            ("reuse is not a list", lambda data: data["findings"][0].update(reuse={})),
+            ("recovery flag is not boolean", lambda data: data["findings"][0].update(
+                recovery_required="false")),
+            ("created timestamp is not numeric", lambda data: data["findings"][0].update(
+                created_at="now")),
+        ]
+        for index, (name, mutate) in enumerate(malformed):
+            with self.subTest(name=name):
+                broken = json.loads(json.dumps(snapshot))
+                mutate(broken)
+                restored = Ledger(Path(self.tmp.name) / f"malformed-finding-{index}.db",
+                                  clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    for table in ("findings", "runs", "events"):
+                        self.assertEqual(restored.db.execute(
+                            f"SELECT count(*) FROM {table}").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
     def test_restore_rejects_broken_finding_run_references_atomically(self):
         self.claim()
         snapshot = self.call("export")
