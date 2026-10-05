@@ -2049,9 +2049,9 @@
       "hypothesis": false,
       "benefit": "Reject malformed durable finding records cleanly and atomically before they can break later lifecycle operations.",
       "status": "in_progress",
-      "revision": 5,
+      "revision": 6,
       "created_at": 1791244464.522658,
-      "updated_at": 1791244534.8347275,
+      "updated_at": 1791244551.0268857,
       "lease": {
         "run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
         "token": "2dbf9512-dacf-493c-98da-f791808ccec5",
@@ -2073,6 +2073,15 @@
           "before_version": "a04760ef11b5d5fae1158812a86d7a0a4bea269c",
           "after_version": "38befcbf106f18dcd0bdc4ee667d744b04612d08",
           "reversal_ref": "Restore tests/test_engine.py from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only if its blob still matches 870b2a144f823ab77b3d872b6c37d81649cf3970; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json",
+          "evaluator_version": "08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2"
+        },
+        {
+          "operation_key": "restore-finding-records-contract",
+          "target": "GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md",
+          "before_version": "38befcbf106f18dcd0bdc4ee667d744b04612d08",
+          "after_version": "49aa9793461309e2d08a69af3b83a9723fb2d7c8",
+          "reversal_ref": "Restore skills/dogfood/references/ledger.md from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only if its blob still matches af9d31b8242c141cf6f003e690b059c520b8d66e; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json",
           "evaluator_version": "08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2"
         }
@@ -2531,7 +2540,7 @@
       "started_at": 1791244438.0182188,
       "deadline": 1791245638.018219,
       "max_changes": 3,
-      "changes_used": 2,
+      "changes_used": 3,
       "claimed": [
         "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11"
       ],
@@ -4596,6 +4605,13 @@
       "kind": "change_recorded",
       "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
       "body": "{\"operation_key\": \"restore-finding-records-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"a04760ef11b5d5fae1158812a86d7a0a4bea269c\", \"after_version\": \"38befcbf106f18dcd0bdc4ee667d744b04612d08\", \"reversal_ref\": \"Restore tests/test_engine.py from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only if its blob still matches 870b2a144f823ab77b3d872b6c37d81649cf3970; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json\", \"evaluator_version\": \"08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2\"}"
+    },
+    {
+      "seq": 295,
+      "at": 1791244551.026931,
+      "kind": "change_recorded",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"operation_key\": \"restore-finding-records-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"38befcbf106f18dcd0bdc4ee667d744b04612d08\", \"after_version\": \"49aa9793461309e2d08a69af3b83a9723fb2d7c8\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only if its blob still matches af9d31b8242c141cf6f003e690b059c520b8d66e; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json\", \"evaluator_version\": \"08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2\"}"
     }
   ]
 }
