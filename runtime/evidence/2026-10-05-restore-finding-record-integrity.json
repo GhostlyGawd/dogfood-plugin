@@ -9,12 +9,14 @@
     "finding": "6b2b85a8-1055-4e90-8f89-c11cdbe7c522",
     "dedup": "public-status-through-2026-10-04",
     "status": "adopted",
-    "tests": 33
+    "activation": "active",
+    "tests": 33,
+    "evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-04-public-status.json"
   },
   "candidate": {
     "dedup": "restore-finding-record-integrity",
-    "status": "in_progress",
-    "activation": "not_applied",
+    "status": "applied",
+    "activation": "pending",
     "base_commit": "f22b57b3cd9eb5ccfc64e624e563e32a1776f136",
     "base_blobs": {
       "engine": "1275afd181cfa865d1cbfc3f8551bd35e094250a",
@@ -27,12 +29,36 @@
       "exit_code": 1,
       "failures": 10
     },
-    "local_candidate": {
-      "focused_exit_code": 0,
-      "full_suite_exit_code": 0,
-      "tests": 34
+    "remote_writes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "a04760ef11b5d5fae1158812a86d7a0a4bea269c",
+        "blob": "d62ffe6d107ea7749b37391054ec2980e6c0527c"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "38befcbf106f18dcd0bdc4ee667d744b04612d08",
+        "blob": "870b2a144f823ab77b3d872b6c37d81649cf3970"
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "49aa9793461309e2d08a69af3b83a9723fb2d7c8",
+        "blob": "af9d31b8242c141cf6f003e690b059c520b8d66e"
+      }
+    ],
+    "remote_verification": {
+      "exit_code": 0,
+      "tests": 34,
+      "exact_bytes": true,
+      "focused_test": "test_restore_rejects_malformed_finding_records_atomically",
+      "verified_version": "49aa9793461309e2d08a69af3b83a9723fb2d7c8"
     },
-    "remote_verification": "pending"
+    "result": "Malformed finding observations, evidence, metadata types, timestamps, lifecycle collections, activation state, and recovery flags are rejected atomically before restore mutation.",
+    "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only when each current blob still matches this candidate; preserve later edits.",
+    "resume_when": "A fresh later run restores this snapshot through the shipped validators and all 34 tests pass."
+  },
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "fca83d1f5e093e878c27e2e7ad2b00796786033c"
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host review.",
