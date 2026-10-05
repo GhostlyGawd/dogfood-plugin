@@ -2049,15 +2049,25 @@
       "hypothesis": false,
       "benefit": "Reject malformed durable finding records cleanly and atomically before they can break later lifecycle operations.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1791244464.522658,
-      "updated_at": 1791244505.8134263,
+      "updated_at": 1791244519.8838668,
       "lease": {
         "run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
         "token": "2dbf9512-dacf-493c-98da-f791808ccec5",
         "until": 1791244805.813424
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "restore-finding-records-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main:scripts/engine.py",
+          "before_version": "f22b57b3cd9eb5ccfc64e624e563e32a1776f136",
+          "after_version": "a04760ef11b5d5fae1158812a86d7a0a4bea269c",
+          "reversal_ref": "Restore scripts/engine.py from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only if its blob still matches d62ffe6d107ea7749b37391054ec2980e6c0527c; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json",
+          "evaluator_version": "08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -2512,7 +2522,7 @@
       "started_at": 1791244438.0182188,
       "deadline": 1791245638.018219,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11"
       ],
@@ -4563,6 +4573,13 @@
       "kind": "claimed",
       "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
       "body": "{\"run\": \"47a0b87c-5dae-4d40-adb4-dab1ff3b65f2\"}"
+    },
+    {
+      "seq": 293,
+      "at": 1791244519.8839247,
+      "kind": "change_recorded",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"operation_key\": \"restore-finding-records-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"f22b57b3cd9eb5ccfc64e624e563e32a1776f136\", \"after_version\": \"a04760ef11b5d5fae1158812a86d7a0a4bea269c\", \"reversal_ref\": \"Restore scripts/engine.py from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only if its blob still matches d62ffe6d107ea7749b37391054ec2980e6c0527c; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json\", \"evaluator_version\": \"08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2\"}"
     }
   ]
 }
