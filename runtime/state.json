@@ -2048,15 +2048,11 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed durable finding records cleanly and atomically before they can break later lifecycle operations.",
-      "status": "in_progress",
-      "revision": 6,
+      "status": "applied",
+      "revision": 9,
       "created_at": 1791244464.522658,
-      "updated_at": 1791244551.0268857,
-      "lease": {
-        "run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
-        "token": "2dbf9512-dacf-493c-98da-f791808ccec5",
-        "until": 1791244805.813424
-      },
+      "updated_at": 1791244565.3398633,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-finding-records-engine",
@@ -2086,18 +2082,28 @@
           "evaluator_version": "08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "34 regression tests, fixed malformed-finding evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json",
+          "verified_version": "49aa9793461309e2d08a69af3b83a9723fb2d7c8",
+          "exit_code": 0,
+          "evaluator_version": "08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator produces ten accepted malformed finding records on the shipped restore path; validate core finding payload fields and lifecycle collection shapes before mutation.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator produces ten accepted malformed finding records on the shipped restore path; validate core finding payload fields and lifecycle collection shapes before mutation.",
+      "reason": "Restore now rejects malformed finding observations, evidence, metadata types, timestamps, lifecycle collections, activation state, and recovery flags before mutation; all ten malformed fixtures fail cleanly, exact remote bytes match, and all 34 tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
+      "applied_at": 1791244565.3398583
     }
   ],
   "runs": [
@@ -4612,6 +4618,20 @@
       "kind": "change_recorded",
       "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
       "body": "{\"operation_key\": \"restore-finding-records-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"38befcbf106f18dcd0bdc4ee667d744b04612d08\", \"after_version\": \"49aa9793461309e2d08a69af3b83a9723fb2d7c8\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit f22b57b3cd9eb5ccfc64e624e563e32a1776f136 only if its blob still matches af9d31b8242c141cf6f003e690b059c520b8d66e; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json\", \"evaluator_version\": \"08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2\"}"
+    },
+    {
+      "seq": 296,
+      "at": 1791244565.250205,
+      "kind": "transition",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded source writes completed within budget; evaluate the unchanged malformed-finding test, exact remote bytes, and full regression suite.\"}"
+    },
+    {
+      "seq": 297,
+      "at": 1791244565.3399813,
+      "kind": "transition",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now rejects malformed finding observations, evidence, metadata types, timestamps, lifecycle collections, activation state, and recovery flags before mutation; all ten malformed fixtures fail cleanly, exact remote bytes match, and all 34 tests pass.\"}"
     }
   ]
 }
