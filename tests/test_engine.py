@@ -336,6 +336,35 @@ class EngineTests(unittest.TestCase):
                 finally:
                     restored.close()
 
+    def test_restore_rejects_invalid_event_entity_references_atomically(self):
+        finding = self.capture()
+        run = self.call("start-run", worker="worker-a", projects=["project-a"])
+        snapshot = self.call("export")
+        malformed = [
+            ("unknown event kind", lambda data: data["events"][0].update(kind="unknown")),
+            ("finding event references a run", lambda data: data["events"][0].update(
+                entity=run["id"])),
+            ("run event references a finding", lambda data: data["events"][1].update(
+                entity=finding["id"])),
+            ("event references an unknown entity", lambda data: data["events"][0].update(
+                entity="missing-entity")),
+        ]
+        for index, (name, mutate) in enumerate(malformed):
+            with self.subTest(name=name):
+                broken = json.loads(json.dumps(snapshot))
+                mutate(broken)
+                restored = Ledger(Path(self.tmp.name) / f"invalid-event-reference-{index}.db",
+                                  clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    for table in ("findings", "runs", "events"):
+                        self.assertEqual(restored.db.execute(
+                            f"SELECT count(*) FROM {table}").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
     def test_restore_rejects_duplicate_finding_identities_atomically(self):
         self.capture("first finding")
         self.capture("second finding")
