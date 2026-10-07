@@ -2637,7 +2637,7 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "started_at": 1791331514.0875325,
       "deadline": 1791332714.0875328,
       "max_changes": 3,
@@ -2645,7 +2645,7 @@
       "claimed": [
         "20a42687-5ca0-43de-b000-1a9b0c76ec39"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted restore finding-record integrity after a fresh later snapshot restore and 34 passing tests. Applied restore event-identity integrity: unknown event kinds and orphaned or cross-typed event entity references are rejected atomically before mutation. Exact remote bytes and all 35 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -4804,6 +4804,13 @@
       "kind": "transition",
       "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
       "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now rejects unknown event kinds and orphaned or cross-typed event entity references before mutation; all four malformed fixtures fail cleanly, exact remote bytes match, and all 35 tests pass.\"}"
+    },
+    {
+      "seq": 309,
+      "at": 1791331735.777611,
+      "kind": "checkpoint",
+      "entity": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
+      "body": "{\"summary\": \"Activated and adopted restore finding-record integrity after a fresh later snapshot restore and 34 passing tests. Applied restore event-identity integrity: unknown event kinds and orphaned or cross-typed event entity references are rejected atomically before mutation. Exact remote bytes and all 35 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
