@@ -2126,15 +2126,11 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed audit-event identities atomically so restored history remains referentially trustworthy.",
-      "status": "in_progress",
-      "revision": 6,
+      "status": "applied",
+      "revision": 9,
       "created_at": 1791331588.1773984,
-      "updated_at": 1791331691.6005812,
-      "lease": {
-        "run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
-        "token": "50344b34-aae5-4c0e-83cd-5a052294a0a8",
-        "until": 1791331977.0665762
-      },
+      "updated_at": 1791331707.5622966,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-event-identity-engine",
@@ -2164,18 +2160,28 @@
           "evaluator_version": "409327bc0b0ebf2e0f4700e1276a5f892f15f94edf2413ea6963342ca5463e69"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "35 regression tests, fixed event-identity evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json",
+          "verified_version": "406d264eb0aadad634a36f8fe7420c12ec42d6a9",
+          "exit_code": 0,
+          "evaluator_version": "409327bc0b0ebf2e0f4700e1276a5f892f15f94edf2413ea6963342ca5463e69"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator shows four invalid event-kind/entity snapshots are accepted by the shipped restore path; validate event kinds and entity classes before mutation.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator shows four invalid event-kind/entity snapshots are accepted by the shipped restore path; validate event kinds and entity classes before mutation.",
+      "reason": "Restore now rejects unknown event kinds and orphaned or cross-typed event entity references before mutation; all four malformed fixtures fail cleanly, exact remote bytes match, and all 35 tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
+      "applied_at": 1791331707.5622916
     }
   ],
   "runs": [
@@ -4784,6 +4790,20 @@
       "kind": "change_recorded",
       "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
       "body": "{\"operation_key\": \"restore-event-identity-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"463593d2f810831897848120ea9f9a6c747cb157\", \"after_version\": \"406d264eb0aadad634a36f8fe7420c12ec42d6a9\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 49aa9793461309e2d08a69af3b83a9723fb2d7c8 only if its blob still matches 73df67ae0fe17ee06d7f1dbe4cf7f3614c51b976; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json\", \"evaluator_version\": \"409327bc0b0ebf2e0f4700e1276a5f892f15f94edf2413ea6963342ca5463e69\"}"
+    },
+    {
+      "seq": 307,
+      "at": 1791331706.9749854,
+      "kind": "transition",
+      "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded source writes completed within budget; evaluate the unchanged event-identity regression, exact remote bytes, and full suite.\"}"
+    },
+    {
+      "seq": 308,
+      "at": 1791331707.5624473,
+      "kind": "transition",
+      "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now rejects unknown event kinds and orphaned or cross-typed event entity references before mutation; all four malformed fixtures fail cleanly, exact remote bytes match, and all 35 tests pass.\"}"
     }
   ]
 }
