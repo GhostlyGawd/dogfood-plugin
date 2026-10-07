@@ -2127,15 +2127,25 @@
       "hypothesis": false,
       "benefit": "Reject malformed audit-event identities atomically so restored history remains referentially trustworthy.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1791331588.1773984,
-      "updated_at": 1791331588.7672992,
+      "updated_at": 1791331649.6468732,
       "lease": {
         "run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
         "token": "50344b34-aae5-4c0e-83cd-5a052294a0a8",
         "until": 1791331888.767183
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "restore-event-identity-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main:scripts/engine.py",
+          "before_version": "49aa9793461309e2d08a69af3b83a9723fb2d7c8",
+          "after_version": "6e3f68edac183ac693887d326c13522b6c987975",
+          "reversal_ref": "Restore scripts/engine.py from commit 49aa9793461309e2d08a69af3b83a9723fb2d7c8 only if its blob still matches fd7897d0dd23c34e6bc70c51ecca6281aa03cedd; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json",
+          "evaluator_version": "409327bc0b0ebf2e0f4700e1276a5f892f15f94edf2413ea6963342ca5463e69"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -2607,7 +2617,7 @@
       "started_at": 1791331514.0875325,
       "deadline": 1791332714.0875328,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "20a42687-5ca0-43de-b000-1a9b0c76ec39"
       ],
@@ -4735,6 +4745,13 @@
       "kind": "claimed",
       "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
       "body": "{\"run\": \"13fde7b2-1711-40a4-8ba7-f9036c03c65a\"}"
+    },
+    {
+      "seq": 304,
+      "at": 1791331649.646913,
+      "kind": "change_recorded",
+      "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "body": "{\"operation_key\": \"restore-event-identity-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"49aa9793461309e2d08a69af3b83a9723fb2d7c8\", \"after_version\": \"6e3f68edac183ac693887d326c13522b6c987975\", \"reversal_ref\": \"Restore scripts/engine.py from commit 49aa9793461309e2d08a69af3b83a9723fb2d7c8 only if its blob still matches fd7897d0dd23c34e6bc70c51ecca6281aa03cedd; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json\", \"evaluator_version\": \"409327bc0b0ebf2e0f4700e1276a5f892f15f94edf2413ea6963342ca5463e69\"}"
     }
   ]
 }
