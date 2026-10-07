@@ -2048,10 +2048,10 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed durable finding records cleanly and atomically before they can break later lifecycle operations.",
-      "status": "applied",
-      "revision": 9,
+      "status": "adopted",
+      "revision": 12,
       "created_at": 1791244464.522658,
-      "updated_at": 1791244565.3398633,
+      "updated_at": 1791331527.5624316,
       "lease": null,
       "changes": [
         {
@@ -2091,19 +2091,27 @@
           "evaluator_version": "08ee85f9bb959d0d323465a3f1c4a56e1794d32d61e27c545e305ed7d05560c2"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json",
+          "at": 1791331527.2753758
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator produces ten accepted malformed finding records on the shipped restore path; validate core finding payload fields and lifecycle collection shapes before mutation.",
       "generalization_evidence": null,
-      "reason": "Restore now rejects malformed finding observations, evidence, metadata types, timestamps, lifecycle collections, activation state, and recovery flags before mutation; all ten malformed fixtures fail cleanly, exact remote bytes match, and all 34 tests pass.",
+      "reason": "A fresh later run restored the durable snapshot through the shipped finding-record validators and all 34 regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
-      "applied_at": 1791244565.3398583
+      "applied_at": 1791244565.3398583,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json",
+      "activation_run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a"
     }
   ],
   "runs": [
@@ -2551,6 +2559,21 @@
         "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11"
       ],
       "checkpoint": "Activated and adopted the 2026-10-04 public status update after a fresh later restore and 33 shipped tests. Applied restore finding-record integrity: malformed finding observations, evidence, metadata types, timestamps, lifecycle collections, activation state, and recovery flags are rejected atomically before mutation. Exact remote bytes and all 34 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
+      "worker": "project-maintenance-2026-10-06",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791331514.0875325,
+      "deadline": 1791332714.0875328,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -4639,6 +4662,20 @@
       "kind": "checkpoint",
       "entity": "47a0b87c-5dae-4d40-adb4-dab1ff3b65f2",
       "body": "{\"summary\": \"Activated and adopted the 2026-10-04 public status update after a fresh later restore and 33 shipped tests. Applied restore finding-record integrity: malformed finding observations, evidence, metadata types, timestamps, lifecycle collections, activation state, and recovery flags are rejected atomically before mutation. Exact remote bytes and all 34 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 299,
+      "at": 1791331514.0876715,
+      "kind": "run_started",
+      "entity": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 300,
+      "at": 1791331527.562565,
+      "kind": "transition",
+      "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped finding-record validators and all 34 regression tests passed.\"}"
     }
   ]
 }
