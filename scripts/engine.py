@@ -555,13 +555,19 @@ class Ledger:
                     or lease["run"] not in run_ids
                     or f["id"] not in run_claims.get(lease["run"], set())):
                 raise ValueError("invalid finding lease")
+        finding_event_kinds = {"captured", "transition", "claimed", "change_recorded"}
+        run_event_kinds = {"run_started", "checkpoint"}
         event_seqs = set()
         for e in events:
+            kind, entity = e.get("kind"), e.get("entity")
             if (type(e.get("seq")) is not int or e["seq"] < 1 or e["seq"] in event_seqs
                     or type(e.get("at")) not in {int, float}
-                    or not isinstance(e.get("kind"), str) or not e["kind"].strip()
-                    or not isinstance(e.get("entity"), str) or not e["entity"].strip()
+                    or kind not in finding_event_kinds | run_event_kinds
+                    or not isinstance(entity, str) or not entity.strip()
                     or not isinstance(e.get("body"), str)):
+                raise ValueError("invalid event record")
+            if ((kind in finding_event_kinds and entity not in finding_ids)
+                    or (kind in run_event_kinds and entity not in run_ids)):
                 raise ValueError("invalid event record")
             try:
                 body = json.loads(e["body"])
