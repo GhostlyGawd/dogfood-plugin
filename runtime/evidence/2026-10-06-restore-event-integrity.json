@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
+  "finding": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+  "worker": "project-maintenance-2026-10-06",
+  "prior_activation": {
+    "finding": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
+    "dedup": "restore-finding-record-integrity",
+    "status": "adopted",
+    "activation": "active",
+    "tests": 34
+  },
+  "candidate": {
+    "dedup": "restore-event-entity-integrity",
+    "status": "in_progress",
+    "activation": "not_applied",
+    "base_commit": "49aa9793461309e2d08a69af3b83a9723fb2d7c8",
+    "base_blobs": {
+      "engine": "d62ffe6d107ea7749b37391054ec2980e6c0527c",
+      "test": "870b2a144f823ab77b3d872b6c37d81649cf3970",
+      "ledger": "af9d31b8242c141cf6f003e690b059c520b8d66e"
+    },
+    "evaluator_sha256": "409327bc0b0ebf2e0f4700e1276a5f892f15f94edf2413ea6963342ca5463e69",
+    "baseline": {
+      "test": "test_restore_rejects_invalid_event_entity_references_atomically",
+      "exit_code": 1,
+      "failures": 4
+    },
+    "remote_verification": "pending"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host review.",
+    "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
+    "Second-user installation remains unverified."
+  ]
+}
