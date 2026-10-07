@@ -10,12 +10,13 @@
     "dedup": "restore-finding-record-integrity",
     "status": "adopted",
     "activation": "active",
-    "tests": 34
+    "tests": 34,
+    "evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-05-restore-finding-record-integrity.json"
   },
   "candidate": {
     "dedup": "restore-event-entity-integrity",
-    "status": "in_progress",
-    "activation": "not_applied",
+    "status": "applied",
+    "activation": "pending",
     "base_commit": "49aa9793461309e2d08a69af3b83a9723fb2d7c8",
     "base_blobs": {
       "engine": "d62ffe6d107ea7749b37391054ec2980e6c0527c",
@@ -28,7 +29,36 @@
       "exit_code": 1,
       "failures": 4
     },
-    "remote_verification": "pending"
+    "remote_writes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "6e3f68edac183ac693887d326c13522b6c987975",
+        "blob": "fd7897d0dd23c34e6bc70c51ecca6281aa03cedd"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "463593d2f810831897848120ea9f9a6c747cb157",
+        "blob": "e84152095a4ec67ceaa2a9d374cb8ff89ab8e4b0"
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "406d264eb0aadad634a36f8fe7420c12ec42d6a9",
+        "blob": "73df67ae0fe17ee06d7f1dbe4cf7f3614c51b976"
+      }
+    ],
+    "remote_verification": {
+      "exit_code": 0,
+      "tests": 35,
+      "exact_bytes": true,
+      "focused_test": "test_restore_rejects_invalid_event_entity_references_atomically",
+      "verified_version": "406d264eb0aadad634a36f8fe7420c12ec42d6a9"
+    },
+    "result": "Unknown event kinds and orphaned or cross-typed event entity references are rejected atomically before restore mutation.",
+    "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 49aa9793461309e2d08a69af3b83a9723fb2d7c8 only when each current blob still matches this candidate; preserve later edits.",
+    "resume_when": "A fresh later run restores this snapshot through the shipped event-identity validators and all 35 tests pass."
+  },
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "680e08adf24a20780be87dd7bed233fa408dab74"
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host review.",
