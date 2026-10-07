@@ -2112,6 +2112,42 @@
       "applied_at": 1791244565.3398583,
       "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json",
       "activation_run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a"
+    },
+    {
+      "id": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-event-entity-integrity",
+      "observation": "Restore accepts unknown event kinds plus orphaned or cross-typed event entity references, allowing audit records to point at missing objects or the wrong record class.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject malformed audit-event identities atomically so restored history remains referentially trustworthy.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1791331588.1773984,
+      "updated_at": 1791331588.7672992,
+      "lease": {
+        "run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
+        "token": "50344b34-aae5-4c0e-83cd-5a052294a0a8",
+        "until": 1791331888.767183
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator shows four invalid event-kind/entity snapshots are accepted by the shipped restore path; validate event kinds and entity classes before mutation.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator shows four invalid event-kind/entity snapshots are accepted by the shipped restore path; validate event kinds and entity classes before mutation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -2572,7 +2608,9 @@
       "deadline": 1791332714.0875328,
       "max_changes": 3,
       "changes_used": 0,
-      "claimed": [],
+      "claimed": [
+        "20a42687-5ca0-43de-b000-1a9b0c76ec39"
+      ],
       "checkpoint": null
     }
   ],
@@ -4676,6 +4714,27 @@
       "kind": "transition",
       "entity": "0170e15d-01a2-4fd2-b0f5-f14c46a0fa11",
       "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped finding-record validators and all 34 regression tests passed.\"}"
+    },
+    {
+      "seq": 301,
+      "at": 1791331588.1817174,
+      "kind": "captured",
+      "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 302,
+      "at": 1791331588.4699256,
+      "kind": "transition",
+      "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator shows four invalid event-kind/entity snapshots are accepted by the shipped restore path; validate event kinds and entity classes before mutation.\"}"
+    },
+    {
+      "seq": 303,
+      "at": 1791331588.7673304,
+      "kind": "claimed",
+      "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "body": "{\"run\": \"13fde7b2-1711-40a4-8ba7-f9036c03c65a\"}"
     }
   ]
 }
