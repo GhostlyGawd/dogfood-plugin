@@ -2127,13 +2127,13 @@
       "hypothesis": false,
       "benefit": "Reject malformed audit-event identities atomically so restored history remains referentially trustworthy.",
       "status": "in_progress",
-      "revision": 4,
+      "revision": 5,
       "created_at": 1791331588.1773984,
-      "updated_at": 1791331665.0390794,
+      "updated_at": 1791331677.0665786,
       "lease": {
         "run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
         "token": "50344b34-aae5-4c0e-83cd-5a052294a0a8",
-        "until": 1791331888.767183
+        "until": 1791331977.0665762
       },
       "changes": [
         {
