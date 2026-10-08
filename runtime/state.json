@@ -2190,6 +2190,43 @@
       "applied_at": 1791331707.5622916,
       "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json",
       "activation_run": "865ae470-3055-42cd-be69-234dac9a8bad"
+    },
+    {
+      "id": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "public-status-through-2026-10-07",
+      "observation": "README, verification, and project-state still stop at 2026-10-04 and 33 tests, omitting the shipped finding-record and event-identity restore safeguards and the current 35-test suite.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/README.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/project-state.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Keep public project status aligned with verified behavior without overstating host activation or installation.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1791418644.6451364,
+      "updated_at": 1791418645.2591007,
+      "lease": {
+        "run": "865ae470-3055-42cd-be69-234dac9a8bad",
+        "token": "f9b137e4-ea09-406e-840d-f4f165171dac",
+        "until": 1791418945.2589319
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "README.md, docs/verification.md, and docs/project-state.md",
+      "scope_reason": "The fixed evaluator reports 17 stale status assertions across three public documents; update only verified status while preserving every host activation and installation limitation.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator reports 17 stale status assertions across three public documents; update only verified status while preserving every host activation and installation limitation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -2667,7 +2704,9 @@
       "deadline": 1791419781.056854,
       "max_changes": 3,
       "changes_used": 0,
-      "claimed": [],
+      "claimed": [
+        "5deafcb0-a73e-46b2-bf26-62435dea9432"
+      ],
       "checkpoint": null
     }
   ],
@@ -4848,6 +4887,27 @@
       "kind": "transition",
       "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
       "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped event-identity validators and all 35 regression tests passed.\"}"
+    },
+    {
+      "seq": 312,
+      "at": 1791418644.6453152,
+      "kind": "captured",
+      "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 313,
+      "at": 1791418644.957667,
+      "kind": "transition",
+      "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator reports 17 stale status assertions across three public documents; update only verified status while preserving every host activation and installation limitation.\"}"
+    },
+    {
+      "seq": 314,
+      "at": 1791418645.2591345,
+      "kind": "claimed",
+      "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "body": "{\"run\": \"865ae470-3055-42cd-be69-234dac9a8bad\"}"
     }
   ]
 }
