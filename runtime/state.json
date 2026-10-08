@@ -2205,15 +2205,11 @@
       ],
       "hypothesis": false,
       "benefit": "Keep public project status aligned with verified behavior without overstating host activation or installation.",
-      "status": "in_progress",
-      "revision": 5,
+      "status": "applied",
+      "revision": 8,
       "created_at": 1791418644.6451364,
-      "updated_at": 1791418711.6877203,
-      "lease": {
-        "run": "865ae470-3055-42cd-be69-234dac9a8bad",
-        "token": "f9b137e4-ea09-406e-840d-f4f165171dac",
-        "until": 1791418945.2589319
-      },
+      "updated_at": 1791418727.3979824,
+      "lease": null,
       "changes": [
         {
           "operation_key": "public-status-readme-2026-10-07",
@@ -2243,18 +2239,28 @@
           "evaluator_version": "48c60a6a050d786d0f18fb50e036d6af8ae0afcf29df50fca8e6de5384658219"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "18 fixed public-status assertions, 35 regression tests, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json",
+          "verified_version": "bce89c26e29f9299c9d0362dfa10505d12633ae8",
+          "exit_code": 0,
+          "evaluator_version": "48c60a6a050d786d0f18fb50e036d6af8ae0afcf29df50fca8e6de5384658219"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "README.md, docs/verification.md, and docs/project-state.md",
       "scope_reason": "The fixed evaluator reports 17 stale status assertions across three public documents; update only verified status while preserving every host activation and installation limitation.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator reports 17 stale status assertions across three public documents; update only verified status while preserving every host activation and installation limitation.",
+      "reason": "README, verification, and project-state now report evidence through 2026-10-07 and 35 passing tests while preserving all host activation and second-user installation limits; exact remote bytes pass the fixed evaluator and full suite.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "865ae470-3055-42cd-be69-234dac9a8bad",
+      "applied_at": 1791418727.397979
     }
   ],
   "runs": [
@@ -4957,6 +4963,20 @@
       "kind": "change_recorded",
       "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
       "body": "{\"operation_key\": \"public-status-project-state-2026-10-07\", \"target\": \"GhostlyGawd/dogfood-plugin:main:docs/project-state.md\", \"before_version\": \"3eafcb02f9bdf1384806b7e97b8e5445d5be20ac\", \"after_version\": \"bce89c26e29f9299c9d0362dfa10505d12633ae8\", \"reversal_ref\": \"Restore docs/project-state.md from commit 406d264eb0aadad634a36f8fe7420c12ec42d6a9 only if its blob still matches cc7cf93484b67996bc93d276410d64903eae5c94; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json\", \"evaluator_version\": \"48c60a6a050d786d0f18fb50e036d6af8ae0afcf29df50fca8e6de5384658219\"}"
+    },
+    {
+      "seq": 318,
+      "at": 1791418726.7869945,
+      "kind": "transition",
+      "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded document writes completed within budget; evaluate the fixed 18-assertion status check, exact remote bytes, and full regression suite.\"}"
+    },
+    {
+      "seq": 319,
+      "at": 1791418727.3981256,
+      "kind": "transition",
+      "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"README, verification, and project-state now report evidence through 2026-10-07 and 35 passing tests while preserving all host activation and second-user installation limits; exact remote bytes pass the fixed evaluator and full suite.\"}"
     }
   ]
 }
