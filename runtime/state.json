@@ -2206,15 +2206,25 @@
       "hypothesis": false,
       "benefit": "Keep public project status aligned with verified behavior without overstating host activation or installation.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1791418644.6451364,
-      "updated_at": 1791418645.2591007,
+      "updated_at": 1791418678.541137,
       "lease": {
         "run": "865ae470-3055-42cd-be69-234dac9a8bad",
         "token": "f9b137e4-ea09-406e-840d-f4f165171dac",
         "until": 1791418945.2589319
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "public-status-readme-2026-10-07",
+          "target": "GhostlyGawd/dogfood-plugin:main:README.md",
+          "before_version": "406d264eb0aadad634a36f8fe7420c12ec42d6a9",
+          "after_version": "6edeb1c7ab3e716037f8a5045ed5ca02bc8fd489",
+          "reversal_ref": "Restore README.md from commit 406d264eb0aadad634a36f8fe7420c12ec42d6a9 only if its blob still matches 1b966e23977f722be0d237a0b2e0ff26b6dcc207; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json",
+          "evaluator_version": "48c60a6a050d786d0f18fb50e036d6af8ae0afcf29df50fca8e6de5384658219"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -2703,7 +2713,7 @@
       "started_at": 1791418581.056854,
       "deadline": 1791419781.056854,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "5deafcb0-a73e-46b2-bf26-62435dea9432"
       ],
@@ -4908,6 +4918,13 @@
       "kind": "claimed",
       "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
       "body": "{\"run\": \"865ae470-3055-42cd-be69-234dac9a8bad\"}"
+    },
+    {
+      "seq": 315,
+      "at": 1791418678.541173,
+      "kind": "change_recorded",
+      "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "body": "{\"operation_key\": \"public-status-readme-2026-10-07\", \"target\": \"GhostlyGawd/dogfood-plugin:main:README.md\", \"before_version\": \"406d264eb0aadad634a36f8fe7420c12ec42d6a9\", \"after_version\": \"6edeb1c7ab3e716037f8a5045ed5ca02bc8fd489\", \"reversal_ref\": \"Restore README.md from commit 406d264eb0aadad634a36f8fe7420c12ec42d6a9 only if its blob still matches 1b966e23977f722be0d237a0b2e0ff26b6dcc207; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json\", \"evaluator_version\": \"48c60a6a050d786d0f18fb50e036d6af8ae0afcf29df50fca8e6de5384658219\"}"
     }
   ]
 }
