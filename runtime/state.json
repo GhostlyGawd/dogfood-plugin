@@ -2126,10 +2126,10 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed audit-event identities atomically so restored history remains referentially trustworthy.",
-      "status": "applied",
-      "revision": 9,
+      "status": "adopted",
+      "revision": 12,
       "created_at": 1791331588.1773984,
-      "updated_at": 1791331707.5622966,
+      "updated_at": 1791418586.1263304,
       "lease": null,
       "changes": [
         {
@@ -2169,19 +2169,27 @@
           "evaluator_version": "409327bc0b0ebf2e0f4700e1276a5f892f15f94edf2413ea6963342ca5463e69"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "865ae470-3055-42cd-be69-234dac9a8bad",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json",
+          "at": 1791418585.8215394
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator shows four invalid event-kind/entity snapshots are accepted by the shipped restore path; validate event kinds and entity classes before mutation.",
       "generalization_evidence": null,
-      "reason": "Restore now rejects unknown event kinds and orphaned or cross-typed event entity references before mutation; all four malformed fixtures fail cleanly, exact remote bytes match, and all 35 tests pass.",
+      "reason": "A fresh later run restored the durable snapshot through the shipped event-identity validators and all 35 regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
-      "applied_at": 1791331707.5622916
+      "applied_at": 1791331707.5622916,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json",
+      "activation_run": "865ae470-3055-42cd-be69-234dac9a8bad"
     }
   ],
   "runs": [
@@ -2646,6 +2654,21 @@
         "20a42687-5ca0-43de-b000-1a9b0c76ec39"
       ],
       "checkpoint": "Activated and adopted restore finding-record integrity after a fresh later snapshot restore and 34 passing tests. Applied restore event-identity integrity: unknown event kinds and orphaned or cross-typed event entity references are rejected atomically before mutation. Exact remote bytes and all 35 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "865ae470-3055-42cd-be69-234dac9a8bad",
+      "worker": "project-maintenance-2026-10-07",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791418581.056854,
+      "deadline": 1791419781.056854,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -4811,6 +4834,20 @@
       "kind": "checkpoint",
       "entity": "13fde7b2-1711-40a4-8ba7-f9036c03c65a",
       "body": "{\"summary\": \"Activated and adopted restore finding-record integrity after a fresh later snapshot restore and 34 passing tests. Applied restore event-identity integrity: unknown event kinds and orphaned or cross-typed event entity references are rejected atomically before mutation. Exact remote bytes and all 35 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 310,
+      "at": 1791418581.0570464,
+      "kind": "run_started",
+      "entity": "865ae470-3055-42cd-be69-234dac9a8bad",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 311,
+      "at": 1791418586.1264575,
+      "kind": "transition",
+      "entity": "20a42687-5ca0-43de-b000-1a9b0c76ec39",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped event-identity validators and all 35 regression tests passed.\"}"
     }
   ]
 }
