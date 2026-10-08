@@ -10,12 +10,13 @@
     "dedup": "restore-event-entity-integrity",
     "status": "adopted",
     "activation": "active",
-    "tests": 35
+    "tests": 35,
+    "evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-06-restore-event-integrity.json"
   },
   "candidate": {
     "dedup": "public-status-through-2026-10-07",
-    "status": "in_progress",
-    "activation": "not_applied",
+    "status": "applied",
+    "activation": "pending",
     "base_commit": "406d264eb0aadad634a36f8fe7420c12ec42d6a9",
     "base_blobs": {
       "readme": "aa083a951aa6d10491afdfcb471e8dab92daa974",
@@ -29,7 +30,36 @@
       "failed": 17,
       "exit_code": 1
     },
-    "remote_verification": "pending"
+    "remote_writes": [
+      {
+        "path": "README.md",
+        "commit": "6edeb1c7ab3e716037f8a5045ed5ca02bc8fd489",
+        "blob": "1b966e23977f722be0d237a0b2e0ff26b6dcc207"
+      },
+      {
+        "path": "docs/verification.md",
+        "commit": "3eafcb02f9bdf1384806b7e97b8e5445d5be20ac",
+        "blob": "be47f224b630cc252893c1c7615bc21608467fa7"
+      },
+      {
+        "path": "docs/project-state.md",
+        "commit": "bce89c26e29f9299c9d0362dfa10505d12633ae8",
+        "blob": "cc7cf93484b67996bc93d276410d64903eae5c94"
+      }
+    ],
+    "remote_verification": {
+      "exit_code": 0,
+      "assertions": "18/18",
+      "tests": 35,
+      "exact_bytes": true,
+      "verified_version": "bce89c26e29f9299c9d0362dfa10505d12633ae8"
+    },
+    "result": "Public status now covers verified work through 2026-10-07, the 35-test suite, and finding-record plus event-identity restore safeguards without claiming host activation or second-user installation.",
+    "reversal": "Restore README.md, docs/verification.md, and docs/project-state.md from commit 406d264eb0aadad634a36f8fe7420c12ec42d6a9 only when each current blob still matches this candidate; preserve later edits.",
+    "resume_when": "A fresh later run loads these documents, preserves their host limits, and all 35 tests pass."
+  },
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "95303918697919d72746e7a02b1d16741eb513f4"
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host review.",
