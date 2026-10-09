@@ -509,6 +509,31 @@ class Ledger:
                     or f.get("activation") not in {"not_applied", "pending", "active"}
                     or type(f.get("recovery_required")) is not bool):
                 raise ValueError("invalid finding record")
+            for change in changes:
+                if (not all(isinstance(change.get(key), str) and change[key].strip()
+                            for key in ("operation_key", "target", "before_version", "after_version",
+                                        "reversal_ref", "evidence_ref"))
+                        or ("evaluator_version" in change
+                            and (not isinstance(change["evaluator_version"], str)
+                                 or not change["evaluator_version"].strip()))):
+                    raise ValueError("invalid finding receipt")
+            for check in checks:
+                if (not all(isinstance(check.get(key), str) and check[key].strip()
+                            for key in ("name", "evidence_ref", "verified_version"))
+                        or type(check.get("exit_code")) is not int
+                        or ("evaluator_version" in check
+                            and (not isinstance(check["evaluator_version"], str)
+                                 or not check["evaluator_version"].strip()))):
+                    raise ValueError("invalid finding receipt")
+            for receipt in reuse:
+                if (not all(isinstance(receipt.get(key), str) and receipt[key].strip()
+                            for key in ("session", "evidence_ref"))
+                        or type(receipt.get("at")) not in {int, float}):
+                    raise ValueError("invalid finding receipt")
+            if (f["activation"] == "active"
+                    and (not isinstance(f.get("activation_evidence"), str)
+                         or not f["activation_evidence"].strip())):
+                raise ValueError("invalid finding receipt")
             key = (project, dedup)
             if (fid in finding_ids or key in finding_keys
                     or f.get("owner") != metadata["owner"] or f.get("status") not in TRANSITIONS
@@ -632,3 +657,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
