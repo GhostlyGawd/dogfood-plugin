@@ -2283,15 +2283,11 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed durable receipt details atomically so restored change, check, reuse, and activation evidence remains trustworthy.",
-      "status": "in_progress",
-      "revision": 5,
+      "status": "applied",
+      "revision": 8,
       "created_at": 1791505045.1810448,
-      "updated_at": 1791505108.0696955,
-      "lease": {
-        "run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
-        "token": "109709ff-c1ac-4981-9779-59b14d92b8c9",
-        "until": 1791505346.0585625
-      },
+      "updated_at": 1791505121.9243822,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-receipts-engine",
@@ -2321,18 +2317,28 @@
           "evaluator_version": "ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "36 regression tests, fixed receipt-integrity evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json",
+          "verified_version": "3f97f2e359445a8cb311f415fd4d04adba4f8f30",
+          "exit_code": 0,
+          "evaluator_version": "ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator shows eleven malformed receipt snapshots are accepted by the shipped restore path; validate receipt fields before mutation.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator shows eleven malformed receipt snapshots are accepted by the shipped restore path; validate receipt fields before mutation.",
+      "reason": "Restore now rejects malformed change, check, reuse, and activation-evidence receipts before mutation; all eleven malformed fixtures fail cleanly, exact remote bytes match, and all 36 tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
+      "applied_at": 1791505121.9243748
     }
   ],
   "runs": [
@@ -5129,6 +5135,20 @@
       "kind": "change_recorded",
       "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
       "body": "{\"operation_key\": \"restore-receipts-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"28e00a197cf792ff06a848b5b7d79dbb6da1d663\", \"after_version\": \"3f97f2e359445a8cb311f415fd4d04adba4f8f30\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit bce89c26e29f9299c9d0362dfa10505d12633ae8 only if its blob still matches 7252095c06bb53ea27be5986f8746b743123fe9c; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json\", \"evaluator_version\": \"ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc\"}"
+    },
+    {
+      "seq": 329,
+      "at": 1791505121.0581753,
+      "kind": "transition",
+      "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded source writes completed within budget; evaluate the unchanged malformed-receipt test, exact remote bytes, and full suite.\"}"
+    },
+    {
+      "seq": 330,
+      "at": 1791505121.9250515,
+      "kind": "transition",
+      "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now rejects malformed change, check, reuse, and activation-evidence receipts before mutation; all eleven malformed fixtures fail cleanly, exact remote bytes match, and all 36 tests pass.\"}"
     }
   ]
 }
