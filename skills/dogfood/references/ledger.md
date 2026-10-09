@@ -30,10 +30,11 @@ Finding mutations require the current `id` and `revision`. Claimed work also req
 | list | Optional project, status, limit (1–1000). |
 | status | Empty object. |
 | export | Empty object. Save the inner result object as the portable snapshot. |
-| restore | owner, snapshot: exact exported object with valid installation, schema, pause metadata, and arrays of valid object findings, runs, and events. Malformed metadata or collections, invalid finding records, duplicate finding identities, broken finding/run references, invalid event identities, and invalid run or event records are rejected atomically. Requires a new empty database. |
+| restore | owner, snapshot: exact exported object with valid installation, schema, pause metadata, and arrays of valid object findings, runs, and events. Malformed metadata or collections, invalid finding records or receipts, duplicate finding identities, broken finding/run references, invalid event identities, and invalid run or event records are rejected atomically. Requires a new empty database. |
 
 Use actual commit IDs or content hashes as versions. Inspect real tool output before recording checks. A receipt is an audit record, not independent proof. Store evidence where later runs can read it.
 
 Keep failed checks. Reverse the failed candidate and create a linked finding for a materially different candidate. Multi-file changes use a tree or commit reference and a reversal that covers all files.
 
 An expired worker must not write with its old token. Inspect actual artifacts before recovery. Use a cooperative project lock or isolated worktree to avoid overlapping edits. Recheck later user changes before applying or reversing a patch.
+
