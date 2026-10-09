@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "date": "2026-10-08",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
+  "finding": "c0300547-e360-4703-92d2-551f6bcc6df8",
+  "worker": "project-maintenance-2026-10-08",
+  "prior_activation": {
+    "finding": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+    "dedup": "public-status-through-2026-10-07",
+    "status": "adopted",
+    "activation": "active",
+    "tests": 35
+  },
+  "candidate": {
+    "dedup": "restore-finding-receipt-integrity",
+    "status": "in_progress",
+    "activation": "not_applied",
+    "base_commit": "bce89c26e29f9299c9d0362dfa10505d12633ae8",
+    "base_blobs": {
+      "engine": "fd7897d0dd23c34e6bc70c51ecca6281aa03cedd",
+      "test": "e84152095a4ec67ceaa2a9d374cb8ff89ab8e4b0",
+      "ledger": "73df67ae0fe17ee06d7f1dbe4cf7f3614c51b976"
+    },
+    "evaluator_sha256": "ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc",
+    "baseline": {
+      "test": "test_restore_rejects_malformed_finding_receipts_atomically",
+      "exit_code": 1,
+      "failures": 11
+    },
+    "remote_verification": "pending"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host review.",
+    "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
+    "Second-user installation remains unverified."
+  ]
+}
