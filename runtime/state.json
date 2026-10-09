@@ -2269,6 +2269,42 @@
       "applied_at": 1791418727.397979,
       "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json",
       "activation_run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f"
+    },
+    {
+      "id": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-finding-receipt-integrity",
+      "observation": "Restore checks finding receipt collections only as lists of objects; malformed change, check, reuse, and activation-evidence fields can load and later break audit or lifecycle operations.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject malformed durable receipt details atomically so restored change, check, reuse, and activation evidence remains trustworthy.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1791505045.1810448,
+      "updated_at": 1791505046.0587974,
+      "lease": {
+        "run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
+        "token": "109709ff-c1ac-4981-9779-59b14d92b8c9",
+        "until": 1791505346.0585625
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The fixed evaluator shows eleven malformed receipt snapshots are accepted by the shipped restore path; validate receipt fields before mutation.",
+      "generalization_evidence": null,
+      "reason": "The fixed evaluator shows eleven malformed receipt snapshots are accepted by the shipped restore path; validate receipt fields before mutation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -2763,7 +2799,9 @@
       "deadline": 1791506190.9945455,
       "max_changes": 3,
       "changes_used": 0,
-      "claimed": [],
+      "claimed": [
+        "c0300547-e360-4703-92d2-551f6bcc6df8"
+      ],
       "checkpoint": null
     }
   ],
@@ -5021,6 +5059,27 @@
       "kind": "transition",
       "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
       "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run loaded the updated public status, preserved the documented host limits, and all 35 regression tests passed.\"}"
+    },
+    {
+      "seq": 323,
+      "at": 1791505045.1814873,
+      "kind": "captured",
+      "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 324,
+      "at": 1791505045.6573002,
+      "kind": "transition",
+      "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The fixed evaluator shows eleven malformed receipt snapshots are accepted by the shipped restore path; validate receipt fields before mutation.\"}"
+    },
+    {
+      "seq": 325,
+      "at": 1791505046.058842,
+      "kind": "claimed",
+      "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "body": "{\"run\": \"bd19cdc3-36e2-4735-8e5b-eba4bcfef91f\"}"
     }
   ]
 }
