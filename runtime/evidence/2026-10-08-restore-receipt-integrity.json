@@ -10,12 +10,13 @@
     "dedup": "public-status-through-2026-10-07",
     "status": "adopted",
     "activation": "active",
-    "tests": 35
+    "tests": 35,
+    "evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-07-public-status.json"
   },
   "candidate": {
     "dedup": "restore-finding-receipt-integrity",
-    "status": "in_progress",
-    "activation": "not_applied",
+    "status": "applied",
+    "activation": "pending",
     "base_commit": "bce89c26e29f9299c9d0362dfa10505d12633ae8",
     "base_blobs": {
       "engine": "fd7897d0dd23c34e6bc70c51ecca6281aa03cedd",
@@ -28,7 +29,36 @@
       "exit_code": 1,
       "failures": 11
     },
-    "remote_verification": "pending"
+    "remote_writes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "62901aba570e9e02531212494fc3a7c458d238ef",
+        "blob": "cddcdc0ed54316752010fd7c4b4c9c18af49f9d1"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "28e00a197cf792ff06a848b5b7d79dbb6da1d663",
+        "blob": "07a182dc39acd96c2968a5958908f019636ea563"
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "3f97f2e359445a8cb311f415fd4d04adba4f8f30",
+        "blob": "7252095c06bb53ea27be5986f8746b743123fe9c"
+      }
+    ],
+    "remote_verification": {
+      "exit_code": 0,
+      "tests": 36,
+      "exact_bytes": true,
+      "focused_test": "test_restore_rejects_malformed_finding_receipts_atomically",
+      "verified_version": "3f97f2e359445a8cb311f415fd4d04adba4f8f30"
+    },
+    "result": "Malformed change, check, reuse, and activation-evidence receipts are rejected atomically before restore mutation.",
+    "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit bce89c26e29f9299c9d0362dfa10505d12633ae8 only when each current blob still matches this candidate; preserve later edits.",
+    "resume_when": "A fresh later run restores this snapshot through the shipped receipt validators and all 36 tests pass."
+  },
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "af6656518e23dbc541c63aed8cc8e197370bfbb1"
   },
   "blockers": [
     "Codex hook activation requires a supported Codex runtime and host review.",
