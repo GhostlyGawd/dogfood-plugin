@@ -2205,10 +2205,10 @@
       ],
       "hypothesis": false,
       "benefit": "Keep public project status aligned with verified behavior without overstating host activation or installation.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1791418644.6451364,
-      "updated_at": 1791418727.3979824,
+      "updated_at": 1791504992.3338406,
       "lease": null,
       "changes": [
         {
@@ -2248,19 +2248,27 @@
           "evaluator_version": "48c60a6a050d786d0f18fb50e036d6af8ae0afcf29df50fca8e6de5384658219"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json",
+          "at": 1791504991.8617866
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "README.md, docs/verification.md, and docs/project-state.md",
       "scope_reason": "The fixed evaluator reports 17 stale status assertions across three public documents; update only verified status while preserving every host activation and installation limitation.",
       "generalization_evidence": null,
-      "reason": "README, verification, and project-state now report evidence through 2026-10-07 and 35 passing tests while preserving all host activation and second-user installation limits; exact remote bytes pass the fixed evaluator and full suite.",
+      "reason": "A fresh later run loaded the updated public status, preserved the documented host limits, and all 35 regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "865ae470-3055-42cd-be69-234dac9a8bad",
-      "applied_at": 1791418727.397979
+      "applied_at": 1791418727.397979,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json",
+      "activation_run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f"
     }
   ],
   "runs": [
@@ -2742,6 +2750,21 @@
         "5deafcb0-a73e-46b2-bf26-62435dea9432"
       ],
       "checkpoint": "Activated and adopted restore event-identity integrity after a fresh later snapshot restore and 35 passing tests. Refreshed README, verification, and project-state through 2026-10-07; exact remote document blobs pass the fixed 18-assertion evaluator and all 35 tests. The public status update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
+      "worker": "project-maintenance-2026-10-08",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791504990.9945455,
+      "deadline": 1791506190.9945455,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -4984,6 +5007,20 @@
       "kind": "checkpoint",
       "entity": "865ae470-3055-42cd-be69-234dac9a8bad",
       "body": "{\"summary\": \"Activated and adopted restore event-identity integrity after a fresh later snapshot restore and 35 passing tests. Refreshed README, verification, and project-state through 2026-10-07; exact remote document blobs pass the fixed 18-assertion evaluator and all 35 tests. The public status update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 321,
+      "at": 1791504990.9953156,
+      "kind": "run_started",
+      "entity": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 322,
+      "at": 1791504992.3342803,
+      "kind": "transition",
+      "entity": "5deafcb0-a73e-46b2-bf26-62435dea9432",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run loaded the updated public status, preserved the documented host limits, and all 35 regression tests passed.\"}"
     }
   ]
 }
