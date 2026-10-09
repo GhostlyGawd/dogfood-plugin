@@ -2284,9 +2284,9 @@
       "hypothesis": false,
       "benefit": "Reject malformed durable receipt details atomically so restored change, check, reuse, and activation evidence remains trustworthy.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1791505045.1810448,
-      "updated_at": 1791505076.324899,
+      "updated_at": 1791505094.0456245,
       "lease": {
         "run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
         "token": "109709ff-c1ac-4981-9779-59b14d92b8c9",
@@ -2299,6 +2299,15 @@
           "before_version": "bce89c26e29f9299c9d0362dfa10505d12633ae8",
           "after_version": "62901aba570e9e02531212494fc3a7c458d238ef",
           "reversal_ref": "Restore scripts/engine.py from commit bce89c26e29f9299c9d0362dfa10505d12633ae8 only if its blob still matches cddcdc0ed54316752010fd7c4b4c9c18af49f9d1; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json",
+          "evaluator_version": "ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc"
+        },
+        {
+          "operation_key": "restore-receipts-test",
+          "target": "GhostlyGawd/dogfood-plugin:main:tests/test_engine.py",
+          "before_version": "62901aba570e9e02531212494fc3a7c458d238ef",
+          "after_version": "28e00a197cf792ff06a848b5b7d79dbb6da1d663",
+          "reversal_ref": "Restore tests/test_engine.py from commit bce89c26e29f9299c9d0362dfa10505d12633ae8 only if its blob still matches 07a182dc39acd96c2968a5958908f019636ea563; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json",
           "evaluator_version": "ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc"
         }
@@ -2808,7 +2817,7 @@
       "started_at": 1791504990.9945455,
       "deadline": 1791506190.9945455,
       "max_changes": 3,
-      "changes_used": 1,
+      "changes_used": 2,
       "claimed": [
         "c0300547-e360-4703-92d2-551f6bcc6df8"
       ],
@@ -5097,6 +5106,13 @@
       "kind": "change_recorded",
       "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
       "body": "{\"operation_key\": \"restore-receipts-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"bce89c26e29f9299c9d0362dfa10505d12633ae8\", \"after_version\": \"62901aba570e9e02531212494fc3a7c458d238ef\", \"reversal_ref\": \"Restore scripts/engine.py from commit bce89c26e29f9299c9d0362dfa10505d12633ae8 only if its blob still matches cddcdc0ed54316752010fd7c4b4c9c18af49f9d1; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json\", \"evaluator_version\": \"ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc\"}"
+    },
+    {
+      "seq": 327,
+      "at": 1791505094.045953,
+      "kind": "change_recorded",
+      "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "body": "{\"operation_key\": \"restore-receipts-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"62901aba570e9e02531212494fc3a7c458d238ef\", \"after_version\": \"28e00a197cf792ff06a848b5b7d79dbb6da1d663\", \"reversal_ref\": \"Restore tests/test_engine.py from commit bce89c26e29f9299c9d0362dfa10505d12633ae8 only if its blob still matches 07a182dc39acd96c2968a5958908f019636ea563; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json\", \"evaluator_version\": \"ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc\"}"
     }
   ]
 }
