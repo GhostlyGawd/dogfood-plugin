@@ -424,6 +424,58 @@ class EngineTests(unittest.TestCase):
                 finally:
                     restored.close()
 
+    def test_restore_rejects_malformed_finding_receipts_atomically(self):
+        f = self.changed()
+        f = self.call("record-check", **self.edit_args(f), name="test",
+                      evidence_ref="fixture:output", exit_code=0, verified_version="sha-after")
+        f = self.move(f, "applied", activation="pending")
+        self.now[0] += 1
+        later_run = self.call("start-run", worker="later-worker", projects=["project-a"])
+        f = self.call("activate", id=f["id"], revision=f["revision"], run=later_run["id"],
+                      evidence_ref="fresh-run:loaded")
+        self.call("reuse", id=f["id"], revision=f["revision"], session=later_run["id"],
+                  evidence_ref="later:success")
+        snapshot = self.call("export")
+        finding = next(item for item in snapshot["findings"] if item["id"] == f["id"])
+        index = snapshot["findings"].index(finding)
+        malformed = [
+            ("change missing operation key", lambda data: data["findings"][index]["changes"][0].pop(
+                "operation_key")),
+            ("change target is blank", lambda data: data["findings"][index]["changes"][0].update(
+                target="")),
+            ("change before version is not text", lambda data: data["findings"][index]["changes"][0].update(
+                before_version=7)),
+            ("change reversal reference is not text", lambda data: data["findings"][index]["changes"][0].update(
+                reversal_ref={})),
+            ("check name is missing", lambda data: data["findings"][index]["checks"][0].pop("name")),
+            ("check exit code is boolean", lambda data: data["findings"][index]["checks"][0].update(
+                exit_code=True)),
+            ("check verified version is not text", lambda data: data["findings"][index]["checks"][0].update(
+                verified_version=0)),
+            ("reuse session is missing", lambda data: data["findings"][index]["reuse"][0].pop("session")),
+            ("reuse evidence is blank", lambda data: data["findings"][index]["reuse"][0].update(
+                evidence_ref="")),
+            ("reuse timestamp is not numeric", lambda data: data["findings"][index]["reuse"][0].update(
+                at="later")),
+            ("active finding lacks activation evidence", lambda data: data["findings"][index].pop(
+                "activation_evidence")),
+        ]
+        for case, (name, mutate) in enumerate(malformed):
+            with self.subTest(name=name):
+                broken = json.loads(json.dumps(snapshot))
+                mutate(broken)
+                restored = Ledger(Path(self.tmp.name) / f"malformed-receipt-{case}.db",
+                                  clock=lambda: self.now[0])
+                try:
+                    with self.assertRaises(ValueError):
+                        restored.dispatch("restore", {"owner": "test-user", "snapshot": broken})
+                    self.assertIsNone(restored.meta("owner"))
+                    for table in ("findings", "runs", "events"):
+                        self.assertEqual(restored.db.execute(
+                            f"SELECT count(*) FROM {table}").fetchone()[0], 0)
+                finally:
+                    restored.close()
+
     def test_restore_rejects_broken_finding_run_references_atomically(self):
         self.claim()
         snapshot = self.call("export")
@@ -514,3 +566,4 @@ class EngineTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
