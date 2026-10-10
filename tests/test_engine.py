@@ -365,6 +365,29 @@ class EngineTests(unittest.TestCase):
                 finally:
                     restored.close()
 
+    def test_restore_accepts_pause_and_recovery_events(self):
+        finding = self.claim(seconds=5)
+        self.now[0] += 6
+        finding = self.call("recover", id=finding["id"], revision=finding["revision"])
+        self.call("pause", project="project-a", paused=True)
+        self.call("pause", project="project-a", paused=False)
+        snapshot = self.call("export")
+
+        restored = Ledger(Path(self.tmp.name) / "pause-recovery-round-trip.db",
+                          clock=lambda: self.now[0])
+        try:
+            result = restored.dispatch("restore", {"owner": "test-user", "snapshot": snapshot})
+            self.assertFalse(result["paused"])
+            self.assertEqual(result["paused_projects"], [])
+            self.assertEqual(restored.finding(finding["id"])["status"], "blocked")
+            self.assertEqual(
+                [event[0] for event in restored.db.execute(
+                    "SELECT kind FROM events WHERE kind IN ('pause','recovery_required') ORDER BY seq")],
+                ["recovery_required", "pause", "pause"],
+            )
+        finally:
+            restored.close()
+
     def test_restore_rejects_duplicate_finding_identities_atomically(self):
         self.capture("first finding")
         self.capture("second finding")
@@ -566,4 +589,5 @@ class EngineTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
