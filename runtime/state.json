@@ -2362,15 +2362,25 @@
       "hypothesis": false,
       "benefit": "Preserve durable snapshots across pause controls and recovery bookkeeping without weakening event reference validation.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1791591150.0031195,
-      "updated_at": 1791591157.0603652,
+      "updated_at": 1791591224.9866266,
       "lease": {
         "run": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
         "token": "db00f867-ef60-4dd4-915a-41a88dc42403",
         "until": 1791591457.0602276
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "restore-control-events-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main:scripts/engine.py",
+          "before_version": "3f97f2e359445a8cb311f415fd4d04adba4f8f30",
+          "after_version": "06230191563e68466f491c9e6c603e5882369af0",
+          "reversal_ref": "Restore scripts/engine.py from commit 3f97f2e359445a8cb311f415fd4d04adba4f8f30 only if its blob still matches 6321ca9f7e23d66a3b5da6c17ea54a2147992f05; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json",
+          "evaluator_version": "9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -2893,7 +2903,7 @@
       "started_at": 1791591009.435998,
       "deadline": 1791592209.4359982,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "366018c5-4e0c-4c69-8b0b-65c0b55972ac"
       ],
@@ -5252,6 +5262,13 @@
       "kind": "claimed",
       "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
       "body": "{\"run\": \"2aed70e4-0f60-4b4e-a7fb-bf69fe53e321\"}"
+    },
+    {
+      "seq": 337,
+      "at": 1791591224.9866614,
+      "kind": "change_recorded",
+      "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
+      "body": "{\"operation_key\": \"restore-control-events-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"3f97f2e359445a8cb311f415fd4d04adba4f8f30\", \"after_version\": \"06230191563e68466f491c9e6c603e5882369af0\", \"reversal_ref\": \"Restore scripts/engine.py from commit 3f97f2e359445a8cb311f415fd4d04adba4f8f30 only if its blob still matches 6321ca9f7e23d66a3b5da6c17ea54a2147992f05; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json\", \"evaluator_version\": \"9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1\"}"
     }
   ]
 }
