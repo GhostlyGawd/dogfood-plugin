@@ -580,14 +580,16 @@ class Ledger:
                     or lease["run"] not in run_ids
                     or f["id"] not in run_claims.get(lease["run"], set())):
                 raise ValueError("invalid finding lease")
-        finding_event_kinds = {"captured", "transition", "claimed", "change_recorded"}
+        finding_event_kinds = {"captured", "transition", "claimed", "change_recorded",
+                               "recovery_required"}
         run_event_kinds = {"run_started", "checkpoint"}
+        control_event_kinds = {"pause"}
         event_seqs = set()
         for e in events:
             kind, entity = e.get("kind"), e.get("entity")
             if (type(e.get("seq")) is not int or e["seq"] < 1 or e["seq"] in event_seqs
                     or type(e.get("at")) not in {int, float}
-                    or kind not in finding_event_kinds | run_event_kinds
+                    or kind not in finding_event_kinds | run_event_kinds | control_event_kinds
                     or not isinstance(entity, str) or not entity.strip()
                     or not isinstance(e.get("body"), str)):
                 raise ValueError("invalid event record")
@@ -657,4 +659,5 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
 
