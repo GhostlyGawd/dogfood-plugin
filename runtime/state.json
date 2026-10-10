@@ -2923,7 +2923,7 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "started_at": 1791591009.435998,
       "deadline": 1791592209.4359982,
       "max_changes": 3,
@@ -2931,7 +2931,7 @@
       "claimed": [
         "366018c5-4e0c-4c69-8b0b-65c0b55972ac"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted restore finding-receipt integrity after a fresh later snapshot restore and 36 passing tests. Applied control-event round-trip integrity: valid snapshots containing pause and recovery_required audit events now restore while finding/run entity checks remain strict. Exact remote bytes and all 37 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -5321,6 +5321,13 @@
       "kind": "transition",
       "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
       "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Valid snapshots containing pause and recovery_required events now restore atomically; the fixed evaluator and all 37 tests pass, and the remote files exactly match the candidate.\"}"
+    },
+    {
+      "seq": 342,
+      "at": 1791591373.9143324,
+      "kind": "checkpoint",
+      "entity": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
+      "body": "{\"summary\": \"Activated and adopted restore finding-receipt integrity after a fresh later snapshot restore and 36 passing tests. Applied control-event round-trip integrity: valid snapshots containing pause and recovery_required audit events now restore while finding/run entity checks remain strict. Exact remote bytes and all 37 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
