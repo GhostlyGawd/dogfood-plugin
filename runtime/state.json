@@ -2283,10 +2283,10 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed durable receipt details atomically so restored change, check, reuse, and activation evidence remains trustworthy.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1791505045.1810448,
-      "updated_at": 1791505121.9243822,
+      "updated_at": 1791591019.9707413,
       "lease": null,
       "changes": [
         {
@@ -2326,19 +2326,27 @@
           "evaluator_version": "ad23eede60239690a4fef2ab340f53cbf2f58c6f1997efed172db434968570dc"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json",
+          "at": 1791591019.9337313
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator shows eleven malformed receipt snapshots are accepted by the shipped restore path; validate receipt fields before mutation.",
       "generalization_evidence": null,
-      "reason": "Restore now rejects malformed change, check, reuse, and activation-evidence receipts before mutation; all eleven malformed fixtures fail cleanly, exact remote bytes match, and all 36 tests pass.",
+      "reason": "A fresh later run restored the durable snapshot through the shipped receipt validators and all 36 regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
-      "applied_at": 1791505121.9243748
+      "applied_at": 1791505121.9243748,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json",
+      "activation_run": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321"
     }
   ],
   "runs": [
@@ -2837,6 +2845,21 @@
         "c0300547-e360-4703-92d2-551f6bcc6df8"
       ],
       "checkpoint": "Activated and adopted the 2026-10-07 public status update after a fresh later restore and 35 passing tests. Applied restore finding-receipt integrity: malformed change, check, reuse, and activation-evidence receipts are rejected atomically before mutation. Exact remote bytes and all 36 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
+      "worker": "project-maintenance-2026-10-09",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791591009.435998,
+      "deadline": 1791592209.4359982,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -5156,6 +5179,20 @@
       "kind": "checkpoint",
       "entity": "bd19cdc3-36e2-4735-8e5b-eba4bcfef91f",
       "body": "{\"summary\": \"Activated and adopted the 2026-10-07 public status update after a fresh later restore and 35 passing tests. Applied restore finding-receipt integrity: malformed change, check, reuse, and activation-evidence receipts are rejected atomically before mutation. Exact remote bytes and all 36 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 332,
+      "at": 1791591009.4361591,
+      "kind": "run_started",
+      "entity": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 333,
+      "at": 1791591019.9708862,
+      "kind": "transition",
+      "entity": "c0300547-e360-4703-92d2-551f6bcc6df8",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped receipt validators and all 36 regression tests passed.\"}"
     }
   ]
 }
