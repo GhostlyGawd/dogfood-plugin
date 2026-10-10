@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
+  "finding": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
+  "worker": "project-maintenance-2026-10-09",
+  "prior_activation": {
+    "finding": "c0300547-e360-4703-92d2-551f6bcc6df8",
+    "dedup": "restore-finding-receipt-integrity",
+    "status": "adopted",
+    "activation": "active",
+    "tests": 36,
+    "evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-08-restore-receipt-integrity.json"
+  },
+  "candidate": {
+    "dedup": "restore-emitted-control-event-integrity",
+    "status": "applied",
+    "activation": "pending",
+    "base_commit": "3f97f2e359445a8cb311f415fd4d04adba4f8f30",
+    "base_blobs": {
+      "engine": "cddcdc0ed54316752010fd7c4b4c9c18af49f9d1",
+      "test": "07a182dc39acd96c2968a5958908f019636ea563",
+      "ledger": "7252095c06bb53ea27be5986f8746b743123fe9c"
+    },
+    "evaluator_sha256": "9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1",
+    "baseline": {
+      "test": "test_restore_accepts_pause_and_recovery_events",
+      "exit_code": 1,
+      "error": "valid exported snapshot rejected with invalid event record"
+    },
+    "remote_writes": [
+      {
+        "path": "scripts/engine.py",
+        "commit": "06230191563e68466f491c9e6c603e5882369af0",
+        "blob": "6321ca9f7e23d66a3b5da6c17ea54a2147992f05"
+      },
+      {
+        "path": "tests/test_engine.py",
+        "commit": "aa90e39e55b8128902265364a95384ac29ed4920",
+        "blob": "06271dc025913f93afdcc6aec99d1defabbeaf2e"
+      },
+      {
+        "path": "skills/dogfood/references/ledger.md",
+        "commit": "3d564a852629d96e3a64cdc9c8be64b251dbfb23",
+        "blob": "a5b6c704a5d7c0fdf7557d2445b38845bb6aaa00"
+      }
+    ],
+    "remote_verification": {
+      "exit_code": 0,
+      "tests": 37,
+      "exact_bytes": true,
+      "focused_test": "test_restore_accepts_pause_and_recovery_events",
+      "verified_version": "3d564a852629d96e3a64cdc9c8be64b251dbfb23"
+    },
+    "result": "Valid snapshots containing emitted pause and recovery_required audit events now restore without weakening finding/run entity checks.",
+    "reversal": "Restore scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md from commit 3f97f2e359445a8cb311f415fd4d04adba4f8f30 only when each current blob still matches this candidate; preserve later edits.",
+    "resume_when": "A fresh later run restores a snapshot through the shipped control-event validator and all 37 tests pass."
+  },
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "5c9d2891e02e82585f03a00e4a591901bb2e2c34"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host review.",
+    "Work-wide activation requires a supported persistent global instruction route and a fresh-chat check.",
+    "Second-user installation remains unverified."
+  ]
+}
