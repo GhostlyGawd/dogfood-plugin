@@ -2361,15 +2361,11 @@
       ],
       "hypothesis": false,
       "benefit": "Preserve durable snapshots across pause controls and recovery bookkeeping without weakening event reference validation.",
-      "status": "in_progress",
-      "revision": 4,
+      "status": "applied",
+      "revision": 8,
       "created_at": 1791591150.0031195,
-      "updated_at": 1791591260.318162,
-      "lease": {
-        "run": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
-        "token": "db00f867-ef60-4dd4-915a-41a88dc42403",
-        "until": 1791591457.0602276
-      },
+      "updated_at": 1791591322.9397001,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-control-events-engine",
@@ -2388,20 +2384,39 @@
           "reversal_ref": "Restore tests/test_engine.py from commit 3f97f2e359445a8cb311f415fd4d04adba4f8f30 only if its blob still matches 06271dc025913f93afdcc6aec99d1defabbeaf2e; preserve later edits.",
           "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json",
           "evaluator_version": "9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1"
+        },
+        {
+          "operation_key": "restore-control-events-contract",
+          "target": "GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md",
+          "before_version": "aa90e39e55b8128902265364a95384ac29ed4920",
+          "after_version": "3d564a852629d96e3a64cdc9c8be64b251dbfb23",
+          "reversal_ref": "Restore skills/dogfood/references/ledger.md from commit 3f97f2e359445a8cb311f415fd4d04adba4f8f30 only if its blob still matches a5b6c704a5d7c0fdf7557d2445b38845bb6aaa00; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json",
+          "evaluator_version": "9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "37 regression tests, fixed control-event round-trip evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json",
+          "verified_version": "3d564a852629d96e3a64cdc9c8be64b251dbfb23",
+          "exit_code": 0,
+          "evaluator_version": "9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator reproduces a valid exported pause/recovery snapshot that the current restore path rejects; add only the two emitted event kinds with their correct entity rules.",
       "generalization_evidence": null,
-      "reason": "The fixed evaluator reproduces a valid exported pause/recovery snapshot that the current restore path rejects; add only the two emitted event kinds with their correct entity rules.",
+      "reason": "Valid snapshots containing pause and recovery_required events now restore atomically; the fixed evaluator and all 37 tests pass, and the remote files exactly match the candidate.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
+      "applied_at": 1791591322.9396968
     }
   ],
   "runs": [
@@ -2912,7 +2927,7 @@
       "started_at": 1791591009.435998,
       "deadline": 1791592209.4359982,
       "max_changes": 3,
-      "changes_used": 2,
+      "changes_used": 3,
       "claimed": [
         "366018c5-4e0c-4c69-8b0b-65c0b55972ac"
       ],
@@ -5285,6 +5300,27 @@
       "kind": "change_recorded",
       "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
       "body": "{\"operation_key\": \"restore-control-events-test\", \"target\": \"GhostlyGawd/dogfood-plugin:main:tests/test_engine.py\", \"before_version\": \"06230191563e68466f491c9e6c603e5882369af0\", \"after_version\": \"aa90e39e55b8128902265364a95384ac29ed4920\", \"reversal_ref\": \"Restore tests/test_engine.py from commit 3f97f2e359445a8cb311f415fd4d04adba4f8f30 only if its blob still matches 06271dc025913f93afdcc6aec99d1defabbeaf2e; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json\", \"evaluator_version\": \"9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1\"}"
+    },
+    {
+      "seq": 339,
+      "at": 1791591295.3321984,
+      "kind": "change_recorded",
+      "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
+      "body": "{\"operation_key\": \"restore-control-events-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"aa90e39e55b8128902265364a95384ac29ed4920\", \"after_version\": \"3d564a852629d96e3a64cdc9c8be64b251dbfb23\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 3f97f2e359445a8cb311f415fd4d04adba4f8f30 only if its blob still matches a5b6c704a5d7c0fdf7557d2445b38845bb6aaa00; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json\", \"evaluator_version\": \"9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1\"}"
+    },
+    {
+      "seq": 340,
+      "at": 1791591322.8519332,
+      "kind": "transition",
+      "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded writes completed within budget; evaluate the frozen pause/recovery round-trip test, exact remote bytes, and full suite.\"}"
+    },
+    {
+      "seq": 341,
+      "at": 1791591322.93984,
+      "kind": "transition",
+      "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Valid snapshots containing pause and recovery_required events now restore atomically; the fixed evaluator and all 37 tests pass, and the remote files exactly match the candidate.\"}"
     }
   ]
 }
