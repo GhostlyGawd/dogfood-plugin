@@ -461,6 +461,7 @@ class EngineTests(unittest.TestCase):
         snapshot = self.call("export")
         finding = next(item for item in snapshot["findings"] if item["id"] == f["id"])
         index = snapshot["findings"].index(finding)
+        finding["check_history"] = [dict(finding["checks"][0])]
         malformed = [
             ("change missing operation key", lambda data: data["findings"][index]["changes"][0].pop(
                 "operation_key")),
@@ -482,6 +483,18 @@ class EngineTests(unittest.TestCase):
                 at="later")),
             ("active finding lacks activation evidence", lambda data: data["findings"][index].pop(
                 "activation_evidence")),
+            ("check history is not a list", lambda data: data["findings"][index].update(
+                check_history={})),
+            ("check history item is not an object", lambda data: data["findings"][index].update(
+                check_history=["bad"])),
+            ("historical check name is missing", lambda data: data["findings"][index][
+                "check_history"][0].pop("name")),
+            ("historical check evidence is blank", lambda data: data["findings"][index][
+                "check_history"][0].update(evidence_ref="")),
+            ("historical check version is not text", lambda data: data["findings"][index][
+                "check_history"][0].update(verified_version=0)),
+            ("historical check exit code is boolean", lambda data: data["findings"][index][
+                "check_history"][0].update(exit_code=True)),
         ]
         for case, (name, mutate) in enumerate(malformed):
             with self.subTest(name=name):
@@ -589,5 +602,6 @@ class EngineTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
