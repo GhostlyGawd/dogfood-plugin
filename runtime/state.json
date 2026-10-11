@@ -2519,13 +2519,13 @@
       "hypothesis": false,
       "benefit": "Reject malformed historical check receipts atomically while preserving valid failed-check history across retries.",
       "status": "in_progress",
-      "revision": 2,
+      "revision": 3,
       "created_at": 1791762719.603456,
-      "updated_at": 1791762720.2464533,
+      "updated_at": 1791762788.6095803,
       "lease": {
         "run": "db4eca26-c199-4b94-bccb-e6494f82bb73",
         "token": "751f700b-4d2d-489d-afe5-d19c51ff46bc",
-        "until": 1791763020.2463338
+        "until": 1791763088.6095786
       },
       "changes": [],
       "checks": [],
