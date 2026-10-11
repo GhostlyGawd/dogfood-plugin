@@ -2519,15 +2519,25 @@
       "hypothesis": false,
       "benefit": "Reject malformed historical check receipts atomically while preserving valid failed-check history across retries.",
       "status": "in_progress",
-      "revision": 3,
+      "revision": 4,
       "created_at": 1791762719.603456,
-      "updated_at": 1791762788.6095803,
+      "updated_at": 1791762819.7448196,
       "lease": {
         "run": "db4eca26-c199-4b94-bccb-e6494f82bb73",
         "token": "751f700b-4d2d-489d-afe5-d19c51ff46bc",
         "until": 1791763088.6095786
       },
-      "changes": [],
+      "changes": [
+        {
+          "operation_key": "restore-check-history-engine",
+          "target": "GhostlyGawd/dogfood-plugin:main:scripts/engine.py",
+          "before_version": "655f3e983af4b7b7fa90e743aa7c3c3341876b5c",
+          "after_version": "c052f19c9bf314092cdde638fef22bfed667f41a",
+          "reversal_ref": "Restore scripts/engine.py from commit 655f3e983af4b7b7fa90e743aa7c3c3341876b5c only if its blob still matches 17e7223e55dc861e71da0dfeecc4d2b64041bac1; preserve later edits.",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-11-check-history-integrity.json",
+          "evaluator_version": "739d4acd523d7b6d877384f0e88de7b7b845e0eef741d696cabf51e1691f52a9"
+        }
+      ],
       "checks": [],
       "activation": "not_applied",
       "reuse": [],
@@ -3084,7 +3094,7 @@
       "started_at": 1791762682.764413,
       "deadline": 1791763882.764413,
       "max_changes": 3,
-      "changes_used": 0,
+      "changes_used": 1,
       "claimed": [
         "73a27997-ac1e-4162-b3bf-1809d57d3ff1"
       ],
@@ -5597,6 +5607,13 @@
       "kind": "claimed",
       "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
       "body": "{\"run\": \"db4eca26-c199-4b94-bccb-e6494f82bb73\"}"
+    },
+    {
+      "seq": 359,
+      "at": 1791762819.744861,
+      "kind": "change_recorded",
+      "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
+      "body": "{\"operation_key\": \"restore-check-history-engine\", \"target\": \"GhostlyGawd/dogfood-plugin:main:scripts/engine.py\", \"before_version\": \"655f3e983af4b7b7fa90e743aa7c3c3341876b5c\", \"after_version\": \"c052f19c9bf314092cdde638fef22bfed667f41a\", \"reversal_ref\": \"Restore scripts/engine.py from commit 655f3e983af4b7b7fa90e743aa7c3c3341876b5c only if its blob still matches 17e7223e55dc861e71da0dfeecc4d2b64041bac1; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-11-check-history-integrity.json\", \"evaluator_version\": \"739d4acd523d7b6d877384f0e88de7b7b845e0eef741d696cabf51e1691f52a9\"}"
     }
   ]
 }
