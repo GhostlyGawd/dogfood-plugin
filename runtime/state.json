@@ -2440,10 +2440,10 @@
       ],
       "hypothesis": false,
       "benefit": "Keep public status aligned with verified shipped behavior while preserving all host activation and installation limits.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1791677647.3513753,
-      "updated_at": 1791677827.9357872,
+      "updated_at": 1791762683.9947913,
       "lease": null,
       "changes": [
         {
@@ -2483,19 +2483,63 @@
           "evaluator_version": "027f4a8014d38c021e5aac17403e10448f9e49f0a5b4a209af0ec9ab375391f9"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "db4eca26-c199-4b94-bccb-e6494f82bb73",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-11-check-history-integrity.json",
+          "at": 1791762683.6958709
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "README.md, docs/verification.md, and docs/project-state.md",
       "scope_reason": "The frozen 18-assertion evaluator reports 15 stale assertions across three public documents; update only verified project status and preserve every host activation and second-user installation limitation.",
       "generalization_evidence": null,
-      "reason": "README, verification, and project-state now report evidence through 2026-10-10, finding-receipt and control-event safeguards, and 37 passing tests while preserving all host activation and second-user installation limits; exact remote bytes pass the fixed evaluator.",
+      "reason": "A fresh later run loaded the updated public status, preserved every documented host limitation, and all 37 regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3",
-      "applied_at": 1791677827.9357843
+      "applied_at": 1791677827.9357843,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-11-check-history-integrity.json",
+      "activation_run": "db4eca26-c199-4b94-bccb-e6494f82bb73"
+    },
+    {
+      "id": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "restore-check-history-receipt-integrity",
+      "observation": "Restore validates current check receipts but does not validate check_history. Malformed historical check receipts can load and later break retry bookkeeping or audit consumers.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/scripts/engine.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/tests/test_check_history.py",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/skills/dogfood/references/ledger.md"
+      ],
+      "hypothesis": false,
+      "benefit": "Reject malformed historical check receipts atomically while preserving valid failed-check history across retries.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1791762719.603456,
+      "updated_at": 1791762720.2464533,
+      "lease": {
+        "run": "db4eca26-c199-4b94-bccb-e6494f82bb73",
+        "token": "751f700b-4d2d-489d-afe5-d19c51ff46bc",
+        "until": 1791763020.2463338
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
+      "scope_reason": "The frozen six-case evaluator accepts malformed check_history payloads on the shipped engine; validate the optional history collection with the same receipt contract as current checks.",
+      "generalization_evidence": null,
+      "reason": "The frozen six-case evaluator accepts malformed check_history payloads on the shipped engine; validate the optional history collection with the same receipt contract as current checks.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -3028,6 +3072,23 @@
         "5ea40643-736d-4a8f-8de6-335e80722c5b"
       ],
       "checkpoint": "Activated and adopted control-event round-trip integrity after a fresh later restore and 37 passing tests. Refreshed README, verification, and project-state through 2026-10-10; exact remote document blobs pass all 18 fixed status assertions and all 37 tests. The public status update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "db4eca26-c199-4b94-bccb-e6494f82bb73",
+      "worker": "project-maintenance-2026-10-11",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791762682.764413,
+      "deadline": 1791763882.764413,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [
+        "73a27997-ac1e-4162-b3bf-1809d57d3ff1"
+      ],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -5501,6 +5562,41 @@
       "kind": "checkpoint",
       "entity": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3",
       "body": "{\"summary\": \"Activated and adopted control-event round-trip integrity after a fresh later restore and 37 passing tests. Refreshed README, verification, and project-state through 2026-10-10; exact remote document blobs pass all 18 fixed status assertions and all 37 tests. The public status update is applied with activation pending, and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 354,
+      "at": 1791762682.7645502,
+      "kind": "run_started",
+      "entity": "db4eca26-c199-4b94-bccb-e6494f82bb73",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 355,
+      "at": 1791762683.994946,
+      "kind": "transition",
+      "entity": "5ea40643-736d-4a8f-8de6-335e80722c5b",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run loaded the updated public status, preserved every documented host limitation, and all 37 regression tests passed.\"}"
+    },
+    {
+      "seq": 356,
+      "at": 1791762719.6035988,
+      "kind": "captured",
+      "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 357,
+      "at": 1791762719.9106932,
+      "kind": "transition",
+      "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The frozen six-case evaluator accepts malformed check_history payloads on the shipped engine; validate the optional history collection with the same receipt contract as current checks.\"}"
+    },
+    {
+      "seq": 358,
+      "at": 1791762720.2464826,
+      "kind": "claimed",
+      "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
+      "body": "{\"run\": \"db4eca26-c199-4b94-bccb-e6494f82bb73\"}"
     }
   ]
 }
