@@ -2518,15 +2518,11 @@
       ],
       "hypothesis": false,
       "benefit": "Reject malformed historical check receipts atomically while preserving valid failed-check history across retries.",
-      "status": "in_progress",
-      "revision": 6,
+      "status": "applied",
+      "revision": 9,
       "created_at": 1791762719.603456,
-      "updated_at": 1791762859.4372053,
-      "lease": {
-        "run": "db4eca26-c199-4b94-bccb-e6494f82bb73",
-        "token": "751f700b-4d2d-489d-afe5-d19c51ff46bc",
-        "until": 1791763088.6095786
-      },
+      "updated_at": 1791762894.5336938,
+      "lease": null,
       "changes": [
         {
           "operation_key": "restore-check-history-engine",
@@ -2556,18 +2552,28 @@
           "evaluator_version": "739d4acd523d7b6d877384f0e88de7b7b845e0eef741d696cabf51e1691f52a9"
         }
       ],
-      "checks": [],
-      "activation": "not_applied",
+      "checks": [
+        {
+          "name": "37 regression tests, fixed 25-assertion check-history evaluator, and exact remote-byte comparison",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-11-check-history-integrity.json",
+          "verified_version": "7ac2eecad5cb1e73b321a5e82895e63324b39d30",
+          "exit_code": 0,
+          "evaluator_version": "739d4acd523d7b6d877384f0e88de7b7b845e0eef741d696cabf51e1691f52a9"
+        }
+      ],
+      "activation": "pending",
       "reuse": [],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The frozen six-case evaluator accepts malformed check_history payloads on the shipped engine; validate the optional history collection with the same receipt contract as current checks.",
       "generalization_evidence": null,
-      "reason": "The frozen six-case evaluator accepts malformed check_history payloads on the shipped engine; validate the optional history collection with the same receipt contract as current checks.",
+      "reason": "Restore now validates optional check_history collections and every historical check receipt atomically; the fixed six-case evaluator, exact remote-byte checks, and all 37 tests pass.",
       "resume_when": null,
       "replacement": null,
-      "reversal_evidence": null
+      "reversal_evidence": null,
+      "applied_run": "db4eca26-c199-4b94-bccb-e6494f82bb73",
+      "applied_at": 1791762894.5336888
     }
   ],
   "runs": [
@@ -5646,6 +5652,20 @@
       "kind": "change_recorded",
       "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
       "body": "{\"operation_key\": \"restore-check-history-contract\", \"target\": \"GhostlyGawd/dogfood-plugin:main:skills/dogfood/references/ledger.md\", \"before_version\": \"649f619596448c7a1049b7deea5f5f672517a814\", \"after_version\": \"7ac2eecad5cb1e73b321a5e82895e63324b39d30\", \"reversal_ref\": \"Restore skills/dogfood/references/ledger.md from commit 655f3e983af4b7b7fa90e743aa7c3c3341876b5c only if its blob still matches bc6f9139483750c980fa86bcd066aafa75e08bed; preserve later edits.\", \"evidence_ref\": \"https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-11-check-history-integrity.json\", \"evaluator_version\": \"739d4acd523d7b6d877384f0e88de7b7b845e0eef741d696cabf51e1691f52a9\"}"
+    },
+    {
+      "seq": 362,
+      "at": 1791762893.9099748,
+      "kind": "transition",
+      "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
+      "body": "{\"from\": \"in_progress\", \"to\": \"verifying\", \"reason\": \"All three guarded source writes completed within budget; evaluate the unchanged malformed-history script, exact remote bytes, and the full regression suite.\"}"
+    },
+    {
+      "seq": 363,
+      "at": 1791762894.5338404,
+      "kind": "transition",
+      "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
+      "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now validates optional check_history collections and every historical check receipt atomically; the fixed six-case evaluator, exact remote-byte checks, and all 37 tests pass.\"}"
     }
   ]
 }
