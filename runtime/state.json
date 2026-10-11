@@ -2425,6 +2425,43 @@
       "applied_at": 1791591322.9396968,
       "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-10-public-status.json",
       "activation_run": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3"
+    },
+    {
+      "id": "5ea40643-736d-4a8f-8de6-335e80722c5b",
+      "project": "GhostlyGawd/dogfood-plugin",
+      "owner": "GhostlyGawd",
+      "dedup": "public-status-through-2026-10-10",
+      "observation": "README, verification, and project-state still report evidence only through 2026-10-07 and 35 tests, while the public source and saved evidence now include receipt validation, pause/recovery event round trips, and 37 passing tests.",
+      "evidence": [
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/README.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/verification.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/main/docs/project-state.md",
+        "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json"
+      ],
+      "hypothesis": false,
+      "benefit": "Keep public status aligned with verified shipped behavior while preserving all host activation and installation limits.",
+      "status": "in_progress",
+      "revision": 2,
+      "created_at": 1791677647.3513753,
+      "updated_at": 1791677654.9041333,
+      "lease": {
+        "run": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3",
+        "token": "909bef8e-95f8-4253-8470-9be46fcb5a99",
+        "until": 1791677954.9040244
+      },
+      "changes": [],
+      "checks": [],
+      "activation": "not_applied",
+      "reuse": [],
+      "recovery_required": false,
+      "scope": "dogfood",
+      "destination": "README.md, docs/verification.md, and docs/project-state.md",
+      "scope_reason": "The frozen 18-assertion evaluator reports 15 stale assertions across three public documents; update only verified project status and preserve every host activation and second-user installation limitation.",
+      "generalization_evidence": null,
+      "reason": "The frozen 18-assertion evaluator reports 15 stale assertions across three public documents; update only verified project status and preserve every host activation and second-user installation limitation.",
+      "resume_when": null,
+      "replacement": null,
+      "reversal_evidence": null
     }
   ],
   "runs": [
@@ -2953,7 +2990,9 @@
       "deadline": 1791678784.2580378,
       "max_changes": 3,
       "changes_used": 0,
-      "claimed": [],
+      "claimed": [
+        "5ea40643-736d-4a8f-8de6-335e80722c5b"
+      ],
       "checkpoint": null
     }
   ],
@@ -5365,6 +5404,27 @@
       "kind": "transition",
       "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
       "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped control-event validator and all 37 regression tests passed.\"}"
+    },
+    {
+      "seq": 345,
+      "at": 1791677647.3515284,
+      "kind": "captured",
+      "entity": "5ea40643-736d-4a8f-8de6-335e80722c5b",
+      "body": "{\"project\": \"GhostlyGawd/dogfood-plugin\"}"
+    },
+    {
+      "seq": 346,
+      "at": 1791677654.8684976,
+      "kind": "transition",
+      "entity": "5ea40643-736d-4a8f-8de6-335e80722c5b",
+      "body": "{\"from\": \"captured\", \"to\": \"ready\", \"reason\": \"The frozen 18-assertion evaluator reports 15 stale assertions across three public documents; update only verified project status and preserve every host activation and second-user installation limitation.\"}"
+    },
+    {
+      "seq": 347,
+      "at": 1791677654.9041643,
+      "kind": "claimed",
+      "entity": "5ea40643-736d-4a8f-8de6-335e80722c5b",
+      "body": "{\"run\": \"9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3\"}"
     }
   ]
 }
