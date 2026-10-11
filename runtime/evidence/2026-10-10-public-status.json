@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "date": "2026-10-10",
+  "project": "GhostlyGawd/dogfood-plugin",
+  "run": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3",
+  "finding": "5ea40643-736d-4a8f-8de6-335e80722c5b",
+  "worker": "project-maintenance-2026-10-10",
+  "prior_activation": {
+    "finding": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
+    "dedup": "restore-emitted-control-event-integrity",
+    "status": "adopted",
+    "activation": "active",
+    "tests": 37,
+    "evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-09-status.json"
+  },
+  "candidate": {
+    "dedup": "public-status-through-2026-10-10",
+    "status": "applied",
+    "activation": "pending",
+    "base_commit": "3d564a852629d96e3a64cdc9c8be64b251dbfb23",
+    "base_blobs": {
+      "readme": "1b966e23977f722be0d237a0b2e0ff26b6dcc207",
+      "verification": "be47f224b630cc252893c1c7615bc21608467fa7",
+      "project_state": "cc7cf93484b67996bc93d276410d64903eae5c94"
+    },
+    "evaluator_sha256": "027f4a8014d38c021e5aac17403e10448f9e49f0a5b4a209af0ec9ab375391f9",
+    "baseline": {
+      "exit_code": 1,
+      "assertions": 18,
+      "failures": 15
+    },
+    "remote_writes": [
+      {
+        "path": "README.md",
+        "commit": "dc75255d34e0ca39740790eed30c1c92b3ce950c",
+        "blob": "c441a5d866bc511cb2d9bb14d2e883dc5fcaa1eb"
+      },
+      {
+        "path": "docs/verification.md",
+        "commit": "f01bfe2223fa994bfb97685f44f2604a5fb813a6",
+        "blob": "c0ad8350095e337ed0df88a0facc2ee92b44a738"
+      },
+      {
+        "path": "docs/project-state.md",
+        "commit": "655f3e983af4b7b7fa90e743aa7c3c3341876b5c",
+        "blob": "d0d898890858eca57e70da3d78807fe5b9471ea3"
+      }
+    ],
+    "remote_verification": {
+      "exit_code": 0,
+      "tests": 37,
+      "status_assertions": 18,
+      "exact_bytes": true,
+      "verified_version": "655f3e983af4b7b7fa90e743aa7c3c3341876b5c"
+    },
+    "result": "README, verification, and project-state now report evidence through 2026-10-10, finding-receipt and control-event safeguards, and 37 passing tests while preserving host limits.",
+    "reversal": "Restore README.md, docs/verification.md, and docs/project-state.md from commit 3d564a852629d96e3a64cdc9c8be64b251dbfb23 only when each current blob still matches this candidate; preserve later edits.",
+    "resume_when": "A fresh later run loads these public documents, preserves the documented host limits, and all 37 tests pass."
+  },
+  "state_checkpoint": {
+    "blob_before_final_checkpoint": "7b4b78cad40fd117382a10c1d39505a365db3837"
+  },
+  "blockers": [
+    "Codex hook activation requires a supported Codex runtime and host review.",
+    "Work-wide activation requires a supported global instruction route and a fresh-chat check.",
+    "Second-user installation remains unverified."
+  ]
+}
