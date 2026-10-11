@@ -3114,7 +3114,7 @@
         "GhostlyGawd/dogfood-plugin"
       ],
       "trigger": "background",
-      "state": "running",
+      "state": "finished",
       "started_at": 1791762682.764413,
       "deadline": 1791763882.764413,
       "max_changes": 3,
@@ -3122,7 +3122,7 @@
       "claimed": [
         "73a27997-ac1e-4162-b3bf-1809d57d3ff1"
       ],
-      "checkpoint": null
+      "checkpoint": "Activated and adopted the 2026-10-10 public status update after a fresh later restore and 37 passing tests. Applied historical check-receipt integrity: malformed check_history collections and receipts are rejected atomically while valid failed-check history still round-trips. Exact remote bytes, the fixed 25-assertion evaluator, and all 37 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
     }
   ],
   "events": [
@@ -5666,6 +5666,13 @@
       "kind": "transition",
       "entity": "73a27997-ac1e-4162-b3bf-1809d57d3ff1",
       "body": "{\"from\": \"verifying\", \"to\": \"applied\", \"reason\": \"Restore now validates optional check_history collections and every historical check receipt atomically; the fixed six-case evaluator, exact remote-byte checks, and all 37 tests pass.\"}"
+    },
+    {
+      "seq": 364,
+      "at": 1791762922.3602176,
+      "kind": "checkpoint",
+      "entity": "db4eca26-c199-4b94-bccb-e6494f82bb73",
+      "body": "{\"summary\": \"Activated and adopted the 2026-10-10 public status update after a fresh later restore and 37 passing tests. Applied historical check-receipt integrity: malformed check_history collections and receipts are rejected atomically while valid failed-check history still round-trips. Exact remote bytes, the fixed 25-assertion evaluator, and all 37 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
     }
   ]
 }
