@@ -2361,10 +2361,10 @@
       ],
       "hypothesis": false,
       "benefit": "Preserve durable snapshots across pause controls and recovery bookkeeping without weakening event reference validation.",
-      "status": "applied",
-      "revision": 8,
+      "status": "adopted",
+      "revision": 11,
       "created_at": 1791591150.0031195,
-      "updated_at": 1791591322.9397001,
+      "updated_at": 1791677595.134193,
       "lease": null,
       "changes": [
         {
@@ -2404,19 +2404,27 @@
           "evaluator_version": "9984cd551cc448c53475f91c9db7c723735657c4748b20eae968e50fec93eca1"
         }
       ],
-      "activation": "pending",
-      "reuse": [],
+      "activation": "active",
+      "reuse": [
+        {
+          "session": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3",
+          "evidence_ref": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-10-public-status.json",
+          "at": 1791677595.098249
+        }
+      ],
       "recovery_required": false,
       "scope": "dogfood",
       "destination": "scripts/engine.py, tests/test_engine.py, and skills/dogfood/references/ledger.md",
       "scope_reason": "The fixed evaluator reproduces a valid exported pause/recovery snapshot that the current restore path rejects; add only the two emitted event kinds with their correct entity rules.",
       "generalization_evidence": null,
-      "reason": "Valid snapshots containing pause and recovery_required events now restore atomically; the fixed evaluator and all 37 tests pass, and the remote files exactly match the candidate.",
+      "reason": "A fresh later run restored the durable snapshot through the shipped control-event validator and all 37 regression tests passed.",
       "resume_when": null,
       "replacement": null,
       "reversal_evidence": null,
       "applied_run": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
-      "applied_at": 1791591322.9396968
+      "applied_at": 1791591322.9396968,
+      "activation_evidence": "https://github.com/GhostlyGawd/dogfood-plugin/blob/dogfood-state/runtime/evidence/2026-10-10-public-status.json",
+      "activation_run": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3"
     }
   ],
   "runs": [
@@ -2932,6 +2940,21 @@
         "366018c5-4e0c-4c69-8b0b-65c0b55972ac"
       ],
       "checkpoint": "Activated and adopted restore finding-receipt integrity after a fresh later snapshot restore and 36 passing tests. Applied control-event round-trip integrity: valid snapshots containing pause and recovery_required audit events now restore while finding/run entity checks remain strict. Exact remote bytes and all 37 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met."
+    },
+    {
+      "id": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3",
+      "worker": "project-maintenance-2026-10-10",
+      "projects": [
+        "GhostlyGawd/dogfood-plugin"
+      ],
+      "trigger": "background",
+      "state": "running",
+      "started_at": 1791677584.2580378,
+      "deadline": 1791678784.2580378,
+      "max_changes": 3,
+      "changes_used": 0,
+      "claimed": [],
+      "checkpoint": null
     }
   ],
   "events": [
@@ -5328,6 +5351,20 @@
       "kind": "checkpoint",
       "entity": "2aed70e4-0f60-4b4e-a7fb-bf69fe53e321",
       "body": "{\"summary\": \"Activated and adopted restore finding-receipt integrity after a fresh later snapshot restore and 36 passing tests. Applied control-event round-trip integrity: valid snapshots containing pause and recovery_required audit events now restore while finding/run entity checks remain strict. Exact remote bytes and all 37 tests pass; activation is pending and all three source-change slots were used. Codex hook activation, Work-wide activation, and second-user installation remain blocked until their saved conditions are met.\"}"
+    },
+    {
+      "seq": 343,
+      "at": 1791677584.2582536,
+      "kind": "run_started",
+      "entity": "9d8b7339-3ef5-4f3c-8b3e-8f6c228ed2f3",
+      "body": "{\"trigger\": \"background\"}"
+    },
+    {
+      "seq": 344,
+      "at": 1791677595.134329,
+      "kind": "transition",
+      "entity": "366018c5-4e0c-4c69-8b0b-65c0b55972ac",
+      "body": "{\"from\": \"applied\", \"to\": \"adopted\", \"reason\": \"A fresh later run restored the durable snapshot through the shipped control-event validator and all 37 regression tests passed.\"}"
     }
   ]
 }
